@@ -29,10 +29,10 @@ const ItemsContainer = ({ category }) => {
         <h3 className="text-center">Item Title</h3>
       </Link>
       <div className="flex w-[100%] text-center justify-between">
-        <span className=" w-[50%] border whitespace-nowrap bg-[#f3a847] text-white cursor-pointer  font-bold py-1 px-1 ">
+        <span className="w-[40%] sm:w-[50%] border whitespace-nowrap bg-[#f3a847] text-white cursor-pointer  font-bold py-1 px-1 ">
           1000₹
         </span>
-        <span className="hover:text-[#131b2e] w-[50%] hover:bg-white border whitespace-nowrap hover:border-[#232f3e] bg-[#232f3e] text-white cursor-pointer  font-bold py-1 px-1 ">
+        <span className="hover:text-[#131b2e] w-[60%] sm:w-[50%] hover:bg-white border whitespace-nowrap hover:border-[#232f3e] bg-[#232f3e] text-white cursor-pointer  font-bold py-1 px-1 ">
           <button
             onClick={() => {
               addToCart(cartItems.length + 1, "Item Name", 1000, 1);
@@ -47,3 +47,4 @@ const ItemsContainer = ({ category }) => {
 };
 
 export default ItemsContainer;
+// ipconfig

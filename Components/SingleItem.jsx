@@ -119,9 +119,9 @@ const SingleItem = () => {
           facere cum ipsam accusantium rerum adipisci aliquam similique, labore
           corrupti quos veritatis! Sunt, veniam!
         </p>
-        <div className="flex gap-x-4 mt-5 text-lg">
-          <span>Price</span>
-          <span>
+        <div className="flex items-center gap-x-4 mt-5 text-lg">
+          <span className="text-xl">1000₹</span>
+          <span className="hover:text-[#131b2e] hover:bg-white border whitespace-nowrap hover:border-[#232f3e] bg-[#232f3e] text-white cursor-pointer  font-bold py-2 px-4 rounded-full ">
             <button
               onClick={() => {
                 // You can adjust the item ID, title, and price as needed

@@ -45,7 +45,7 @@ const CartItems = () => {
   );
 
   return (
-    <div>
+    <div className="mx-2 sm:mx-0">
       <h2 className="text-center text-3xl font-bold w-full my-8">
         Shopping Cart
       </h2>

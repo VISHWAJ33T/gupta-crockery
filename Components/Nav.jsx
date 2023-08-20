@@ -20,7 +20,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <div className="nav bg-[#131b2e] sticky top-0 z-[100] py-2 text-white w-full">
+    <div className="nav bg-[#131b2e] sticky top-0 z-[100] py-2 px-4 sm:px-0 text-white w-full">
       <ul className="flex items-center justify-between">
         <Link href="/" className="flex space-x-1 md:ml-4 items-center mr-3 ">
           <img src="./assets/Logo.png" alt="LOGO" className="w-12" />
@@ -31,7 +31,7 @@ const Nav = () => {
         <li>
           <form action="" className="flex mx-0 sm:w-[max-width]">
             <input
-              className="border text-black rounded-l ml-2 py-2 px-2 w-full md:w-[50vw]"
+              className="border text-black rounded-l py-2 px-2 w-full md:w-[50vw]"
               type="text"
               placeholder="Search for items..."
               value={searchValue}
@@ -53,7 +53,7 @@ const Nav = () => {
           </form>
         </li>
         <li className="flex gap-1 ml-3 mr-2 sm:mr-3 md:mr-6">
-          <button className="text-white text-xl ">Login</button>
+          {/* <button className="text-white text-xl ">Login</button> */}
           <Link href="cart" className="flex items-end gap-0 justify-center ">
             <img
               src="./assets/icons/shopping-cart.png"
