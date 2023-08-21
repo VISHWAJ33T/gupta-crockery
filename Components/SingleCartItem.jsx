@@ -7,9 +7,6 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
     const newQtyValue = parseInt(e.target.value, 10);
     if (newQtyValue >= 0) {
       updateQtyValue(id, newQtyValue);
-      if (newQtyValue === 0) {
-        deleteItem(id);
-      }
     }
   };
 

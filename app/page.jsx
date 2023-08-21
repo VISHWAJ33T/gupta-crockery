@@ -10,12 +10,12 @@ export default function Home() {
         <CarouselContainer />
       </div>
       <Categories />
-      <CategoryContainer category="Steel" />
-      <CategoryContainer category="Copper" />
-      <CategoryContainer category="Plastic" />
-      <CategoryContainer category="Glass" />
-      <CategoryContainer category="Wooden" />
-      <CategoryContainer category="Thermal" />
+      <CategoryContainer category="steel" />
+      <CategoryContainer category="copper" />
+      <CategoryContainer category="plastic" />
+      <CategoryContainer category="glass" />
+      <CategoryContainer category="wooden" />
+      <CategoryContainer category="thermal" />
     </>
   );
 }

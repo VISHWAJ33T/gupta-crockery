@@ -28,8 +28,8 @@ const SingleItem = () => {
     // Update state and local storage with new cart items
     setCartItems(updatedCartItems);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-
-    window.location.reload();
+    alert("Item added to cart successfully");
+    // window.location.reload();
     // Update cart items count in local storage
     // localStorage.setItem("cartItemsCount", updatedCartItems.length);
   };
@@ -119,8 +119,16 @@ const SingleItem = () => {
           facere cum ipsam accusantium rerum adipisci aliquam similique, labore
           corrupti quos veritatis! Sunt, veniam!
         </p>
-        <div className="flex items-center gap-x-4 mt-5 text-lg">
-          <span className="text-xl">1000₹</span>
+        <div className="flex items-center justify-start mt-5">
+          <span className=" border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-2 px-4 rounded-full ">
+            20% Off
+          </span>
+        </div>
+        <div className="flex items-center gap-x-4 mt-3 mx-1 text-lg">
+          <div className="flex justify-center items-center gap-x-2">
+            <span className="text-xs line-through">1000₹</span>
+            <span className="text-xl">999₹</span>
+          </div>
           <span className="hover:text-[#131b2e] hover:bg-white border whitespace-nowrap hover:border-[#232f3e] bg-[#232f3e] text-white cursor-pointer  font-bold py-2 px-4 rounded-full ">
             <button
               onClick={() => {

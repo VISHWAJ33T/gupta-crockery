@@ -36,7 +36,8 @@ const CartItems = () => {
   const deleteItem = (itemId) => {
     const updatedItems = items.filter((item) => item.id !== itemId);
     setItems(updatedItems);
-    window.location.reload();
+    alert("Item deleted from cart successfully");
+    // window.location.reload();
   };
 
   const totalAmount = items.reduce(
