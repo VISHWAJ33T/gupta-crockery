@@ -31,17 +31,18 @@ const CategoryContainer = ({ category }) => {
             {allItems.map((item) => (
               <ItemsContainer
                 key={item._id}
+                id={item._id}
                 title={item.title}
-                img={item.main_img}
                 price={item.price}
+                stock={item.stock}
                 isDiscounted={item.isDiscounted}
-                discounted_price={
-                  item.isDiscounted ? item.discounted_price : ""
-                }
                 discounted_percent={
                   item.isDiscounted ? item.discounted_percent : ""
                 }
-                stock={item.stock}
+                discounted_price={
+                  item.isDiscounted ? item.discounted_price : ""
+                }
+                main_img={item.main_img}
               />
             ))}
           </div>

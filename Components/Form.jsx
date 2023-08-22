@@ -1,4 +1,3 @@
-import React from "react";
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   return (
@@ -147,11 +146,11 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       <label className="text-center justify-center text-xl flex gap-3">
         <span className="w-[100px] text-gray-700">Extra Images</span>
         <textarea
-          value={post.extra_imgs.join(",")}
+          value={post.extra_imgs.join(", ")}
           onChange={(e) =>
-            setPost({ ...post, extra_imgs: e.target.value.split(",") })
+            setPost({ ...post, extra_imgs: e.target.value.split(", ") })
           }
-          placeholder='Enter links seperated by "," (for eg: link1,link2,link3...)'
+          placeholder='Enter links seperated by ", "(comma + 1 space) (for eg: link1, link2, link3...)'
           required
           className="min-w-[200px] sm:w-[400px]"
         ></textarea>

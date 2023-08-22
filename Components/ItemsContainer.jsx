@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 const ItemsContainer = ({
+  id,
   title,
-  img,
+  main_img,
   price,
   isDiscounted,
   discounted_price,
@@ -25,11 +26,10 @@ const ItemsContainer = ({
     setCartItems(updatedCartItems);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
     alert("Item Added to cart successfully");
-    // window.location.reload();
   };
   return (
     <div className="bg-gray-200 flex flex-col justify-center items-center min-w-[150px] max-w-[150px] sm:min-w-[200px] overflow-y-hidden">
-      <Link href={{ pathname: "/item", query: { id: "item-id" } }}>
+      <Link href={{ pathname: "/item", query: { id: id } }}>
         {isDiscounted && (
           <span className="flex px-3 justify-center text-white text-md font-bold absolute bg-red-600 ">
             {discounted_percent}% Off
@@ -38,7 +38,7 @@ const ItemsContainer = ({
         <img
           className="border"
           src={
-            img ||
+            main_img ||
             "https://5.imimg.com/data5/BQ/BW/MY-5255112/diwali-crockery-gift-500x500.jpg"
           }
           alt="item image"
@@ -80,4 +80,3 @@ const ItemsContainer = ({
 };
 
 export default ItemsContainer;
-// ipconfig

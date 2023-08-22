@@ -1,4 +1,5 @@
 "use client";
+import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,6 +12,19 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 const SingleItem = () => {
+  const searchParams = useSearchParams();
+  const itemId = searchParams.get("id");
+  const [item, setItem] = useState([]);
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  const fetchItems = async () => {
+    const response = await fetch(`/api/item/${itemId}`);
+    const data = await response.json();
+    setItem(data);
+  };
+
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
@@ -49,29 +63,15 @@ const SingleItem = () => {
           className="mySwiper2 max-h-[300px]"
         >
           <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+            <img src={item.main_img} alt="item image" />
           </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-          </SwiperSlide>
+          {item.extra_imgs &&
+            item.extra_imgs.map((src) => (
+              <SwiperSlide>
+                <img src={src || "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"} alt="item image" />
+              </SwiperSlide>
+            ))}
+
         </Swiper>
         <Swiper
           onSwiper={setThumbsSwiper}
@@ -84,50 +84,32 @@ const SingleItem = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+            <img src={item.main_img} alt="item image" />
           </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-          </SwiperSlide>
+          {item.extra_imgs &&
+            item.extra_imgs.map((src) => (
+              <SwiperSlide>
+                <img src={src || "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"} alt="item image" />
+              </SwiperSlide>
+            ))}
+
         </Swiper>
       </div>
       <div className="mx-3 sm:mx-5">
-        <h2 className="font-bold text-3xl mt-5">Title</h2>
+        <h2 className="font-bold text-3xl mt-5">{item.title}</h2>
         <p className="text-xl">
-          Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Ratione autem ducimus reiciendis deserunt nobis debitis alias!
-          Deleniti facere perferendis at temporibus, eligendi praesentium quas
-          modi ex veniam illo. Natus exercitationem qui assumenda nesciunt
-          facere cum ipsam accusantium rerum adipisci aliquam similique, labore
-          corrupti quos veritatis! Sunt, veniam!
+          {item.description}
         </p>
-        <div className="flex items-center justify-start mt-5">
+        {item.isDiscounted && <div className="flex items-center justify-start mt-5">
           <span className=" border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-2 px-4 rounded-full ">
-            20% Off
+            {item.discounted_percent}% Off
           </span>
-        </div>
+        </div>}
         <div className="flex items-center gap-x-4 mt-3 mx-1 text-lg">
           <div className="flex justify-center items-center gap-x-2">
-            <span className="text-xs line-through">1000₹</span>
-            <span className="text-xl">999₹</span>
+            {item.isDiscounted ? <><span className="text-xs line-through">{item.discounted_price}₹</span>
+              <span className="text-xl">{item.price}₹</span></> : <span className="text-xl">{item.price}₹</span>}
+
           </div>
           <span className="hover:text-[#131b2e] hover:bg-white border whitespace-nowrap hover:border-[#232f3e] bg-[#232f3e] text-white cursor-pointer  font-bold py-2 px-4 rounded-full ">
             <button
