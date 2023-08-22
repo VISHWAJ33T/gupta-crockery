@@ -17,10 +17,9 @@ module.exports = {
         'xs': '475px',
       },
       content: [
-        // using ./ dir
+        './pages/**/*.{js,ts,jsx,tsx}',
         "./app/**/*.{js,ts,jsx,tsx}",
-        "./components/**/*.{js,ts,jsx,tsx}",
-        // add more paths here
+        './components/**/*.{js,ts,jsx,tsx}'
       ],
     },
   },
