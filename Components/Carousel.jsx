@@ -34,7 +34,7 @@ const CarouselContainer = () => {
     >
       <SwiperSlide>
         <img
-          src="https://durodine.com/images/slider-2.jpg"
+          src="https://hafsastore.com/wp-content/uploads/2021/11/Hafsa-Store-Banner.png"
           alt="slider banner"
         />
       </SwiperSlide>

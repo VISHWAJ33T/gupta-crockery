@@ -6,7 +6,8 @@ import CategoryContainer from "@/Components/CategoryContainer";
 export default function Home() {
   return (
     <>
-      <div className="h-[25vh] sm:h-[50vh] xl:h-[55vh] w-[100vw]">
+      <div className="w-[100vw]">
+        {/* <div className="h-[25vh] sm:h-[50vh] xl:h-[55vh] w-[100vw]"> */}
         <CarouselContainer />
       </div>
       <Categories />

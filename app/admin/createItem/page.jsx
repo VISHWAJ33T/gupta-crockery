@@ -54,7 +54,7 @@ const page = () => {
     <div>
       <div className="text-center text-3xl font-bold my-3">Create Item</div>
       <Form
-        type="Post Item"
+        type="Create Item"
         post={post}
         setPost={setPost}
         submitting={submitting}
