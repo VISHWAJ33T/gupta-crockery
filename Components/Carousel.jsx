@@ -34,21 +34,21 @@ const CarouselContainer = () => {
     >
       <SwiperSlide>
         <img
-          src="https://hafsastore.com/wp-content/uploads/2021/11/Hafsa-Store-Banner.png"
+          src="https://source.unsplash.com/collection/1926361/900x300"
           alt="slider banner"
         />
       </SwiperSlide>
       <SwiperSlide>
         {" "}
         <img
-          src="https://danubehome.in/images/Accessories/dinnerset-site-banner.jpg"
+          src="https://source.unsplash.com/collection/1926361/900x300"
           alt="slider banner"
         />
       </SwiperSlide>
       <SwiperSlide>
         {" "}
         <img
-          src="https://homeprivilez.com/wp-content/uploads/2023/06/home-page-banner.jpg"
+          src="https://source.unsplash.com/collection/1926361/900x300"
           alt="slider banner"
         />
       </SwiperSlide>
