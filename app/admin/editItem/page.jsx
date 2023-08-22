@@ -1,13 +1,14 @@
 "use client";
+import Form from "@/Components/Form";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import Form from "@/Components/Form";
 
 const EditItem = () => {
     const searchParams = useSearchParams();
     const itemId = searchParams.get("id");
     const [submitting, setSubmitting] = useState(false);
-
+    const URL = "https://gupta-crockery.vercel.app/"
+    // const URL = "http://localhost:3000"
     const [post, setPost] = useState({
         title: "",
         description: "",
@@ -24,7 +25,7 @@ const EditItem = () => {
 
     useEffect(() => {
         const getItemDetails = async () => {
-            const response = await fetch(`/api/item/${itemId}`);
+            const response = await fetch(`${URL}/api/item/${itemId}`);
             const data = await response.json();
             setPost({
                 title: data.title,
@@ -48,7 +49,7 @@ const EditItem = () => {
         setSubmitting(true);
         if (!itemId) return alert("Item Id not found");
         try {
-            const response = await fetch(`${process.env.URL}/api/item/${itemId}`, {
+            const response = await fetch(`${URL}/api/item/${itemId}`, {
                 method: "PATCH",
                 body: JSON.stringify({
                     title: post.title,

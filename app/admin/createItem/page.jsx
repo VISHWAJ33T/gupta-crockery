@@ -1,11 +1,11 @@
 "use client";
 import Form from "@/Components/Form";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const page = () => {
-  const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
+  const URL = "https://gupta-crockery.vercel.app/"
+  // const URL = "http://localhost:3000"
   const [post, setPost] = useState({
     title: "",
     description: "",
@@ -24,7 +24,7 @@ const page = () => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const response = await fetch(`${process.env.URL}/api/item/new`, {
+      const response = await fetch(`${URL}/api/item/new`, {
         method: "POST",
         body: JSON.stringify({
           title: post.title,
