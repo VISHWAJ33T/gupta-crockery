@@ -151,7 +151,6 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             setPost({ ...post, extra_imgs: e.target.value.split(", ") })
           }
           placeholder='Enter links seperated by ", "(comma + 1 space) (for eg: link1, link2, link3...)'
-          required
           className="min-w-[200px] sm:w-[400px]"
         ></textarea>
       </label>

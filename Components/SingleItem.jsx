@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -65,13 +65,12 @@ const SingleItem = () => {
           <SwiperSlide>
             <img src={item.main_img} alt="item image" />
           </SwiperSlide>
-          {item.extra_imgs &&
+          {(item.extra_imgs) && (item.extra_imgs === [""]) &&
             item.extra_imgs.map((src) => (
               <SwiperSlide>
-                <img src={src || "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"} alt="item image" />
+                <img key={src} src={src || "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"} alt="item image" />
               </SwiperSlide>
             ))}
-
         </Swiper>
         <Swiper
           onSwiper={setThumbsSwiper}
@@ -86,10 +85,12 @@ const SingleItem = () => {
           <SwiperSlide>
             <img src={item.main_img} alt="item image" />
           </SwiperSlide>
-          {item.extra_imgs &&
+          {(item.extra_imgs) && (item.extra_imgs === [""]) &&
             item.extra_imgs.map((src) => (
               <SwiperSlide>
-                <img src={src || "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"} alt="item image" />
+                <img src={src
+                  || "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
+                } alt="item image" />
               </SwiperSlide>
             ))}
 
@@ -101,14 +102,14 @@ const SingleItem = () => {
           {item.description}
         </p>
         {item.isDiscounted && <div className="flex items-center justify-start mt-5">
-          <span className=" border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-2 px-4 rounded-full ">
+          <span className="border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-2 px-4 rounded-lg ">
             {item.discounted_percent}% Off
           </span>
         </div>}
         <div className="flex items-center gap-x-4 mt-3 mx-1 text-lg">
           <div className="flex justify-center items-center gap-x-2">
-            {item.isDiscounted ? <><span className="text-xs line-through">{item.discounted_price}₹</span>
-              <span className="text-xl">{item.price}₹</span></> : <span className="text-xl">{item.price}₹</span>}
+            {item.isDiscounted ? <><span className="text-xl">{item.discounted_price}₹</span>
+              <span className="text-xs line-through">{item.price}₹</span></> : <span className="text-xl">{item.price}₹</span>}
 
           </div>
           <span className="hover:text-[#131b2e] hover:bg-white border whitespace-nowrap hover:border-[#232f3e] bg-[#232f3e] text-white cursor-pointer  font-bold py-2 px-4 rounded-full ">

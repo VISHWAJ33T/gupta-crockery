@@ -1,24 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: {
-    enabled: process.env.NODE_ENV === "production",
-    content: [
-      ".//**/*.{js,ts,jsx,tsx,html}",
-      "./pages/**/*.{js,ts,jsx,tsx,html}",
-      "./components/**/*.{js,ts,jsx,tsx,html}",
-      "./app/**/*.{js,ts,jsx,tsx,html}",
-    ],
-    // safelist: [
-    // "sticky",
-    // "w-full",
-    // "top-0",
-    // "z-[100]",
-    // "justify-between",
-    // "space-x-1",
-    // "ml-4",
-    // "mr-3",
-    // ],
-  },
+  content: [
+    // ".//**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     extend: {
       screens: {

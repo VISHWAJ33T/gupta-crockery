@@ -35,9 +35,8 @@ const page = () => {
               search: search,
             },
           }}
-          className={`${
-            price === "lowtohigh" ? active_class : unactive_class
-          } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+          className={`${price === "lowtohigh" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
         >
           Prize: Low to High
         </Link>
@@ -49,9 +48,8 @@ const page = () => {
               search: search,
             },
           }}
-          className={`${
-            price === "hightolow" ? active_class : unactive_class
-          } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+          className={`${price === "hightolow" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
         >
           Prize: High to Low
         </Link>
@@ -63,9 +61,8 @@ const page = () => {
               search: "",
             },
           }}
-          className={`${
-            category === "" ? active_class : unactive_class
-          } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+          className={`${category === "" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
         >
           All
         </Link>
@@ -77,9 +74,8 @@ const page = () => {
               search: search,
             },
           }}
-          className={`${
-            category === "steel" ? active_class : unactive_class
-          } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+          className={`${category === "steel" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
         >
           Steel
         </Link>
@@ -91,9 +87,8 @@ const page = () => {
               search: search,
             },
           }}
-          className={`${
-            category === "copper" ? active_class : unactive_class
-          } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+          className={`${category === "copper" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
         >
           Copper
         </Link>
@@ -105,9 +100,8 @@ const page = () => {
               search: search,
             },
           }}
-          className={`${
-            category === "plastic" ? active_class : unactive_class
-          } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+          className={`${category === "plastic" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
         >
           Plastic
         </Link>
@@ -119,9 +113,8 @@ const page = () => {
               search: search,
             },
           }}
-          className={`${
-            category === "glass" ? active_class : unactive_class
-          } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+          className={`${category === "glass" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
         >
           Glass
         </Link>
@@ -133,9 +126,8 @@ const page = () => {
               search: search,
             },
           }}
-          className={`${
-            category === "wooden" ? active_class : unactive_class
-          } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+          className={`${category === "wooden" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
         >
           Wooden
         </Link>
@@ -147,9 +139,8 @@ const page = () => {
               search: search,
             },
           }}
-          className={`${
-            category === "thermal" ? active_class : unactive_class
-          } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+          className={`${category === "thermal" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
         >
           Thermal
         </Link>

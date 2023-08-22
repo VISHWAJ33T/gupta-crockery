@@ -19,8 +19,8 @@ const ItemsContainer = ({
     }
   }, []);
 
-  const addToCart = (id, title, price, qtyValue) => {
-    const newCartItem = { id, title, price, qtyValue };
+  const addToCart = (id, title, price, isDiscounted, discounted_price, discounted_percent, qtyValue, img_src, stock) => {
+    const newCartItem = { id, title, price, isDiscounted, discounted_price, discounted_percent, qtyValue, img_src, stock };
     const updatedCartItems = [...cartItems, newCartItem];
 
     setCartItems(updatedCartItems);
@@ -64,10 +64,15 @@ const ItemsContainer = ({
           <button
             onClick={() => {
               addToCart(
-                cartItems.length + 1,
+                id,
                 title,
-                discounted_price === "" ? price : discounted_price,
-                1
+                price,
+                isDiscounted,
+                discounted_price,
+                discounted_percent,
+                1,
+                main_img,
+                stock
               );
             }}
           >
