@@ -65,12 +65,12 @@ const SingleItem = () => {
           <SwiperSlide>
             <img src={item.main_img} alt="item image" />
           </SwiperSlide>
-          {(item.extra_imgs) && (item.extra_imgs === [""]) &&
+          {(item.extra_imgs && item.extra_imgs.length !== 0 && item.extra_imgs[0] !== "") ?
             item.extra_imgs.map((src) => (
-              <SwiperSlide>
-                <img key={src} src={src || "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"} alt="item image" />
+              <SwiperSlide key={src} >
+                <img src={src || "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"} alt="item image" />
               </SwiperSlide>
-            ))}
+            )) : null}
         </Swiper>
         <Swiper
           onSwiper={setThumbsSwiper}
@@ -85,14 +85,14 @@ const SingleItem = () => {
           <SwiperSlide>
             <img src={item.main_img} alt="item image" />
           </SwiperSlide>
-          {(item.extra_imgs) && (item.extra_imgs === [""]) &&
+          {(item.extra_imgs && item.extra_imgs.length !== 0 && item.extra_imgs[0] !== "") ?
             item.extra_imgs.map((src) => (
-              <SwiperSlide>
+              <SwiperSlide key={src} >
                 <img src={src
                   || "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
                 } alt="item image" />
               </SwiperSlide>
-            ))}
+            )) : null}
 
         </Swiper>
       </div>
