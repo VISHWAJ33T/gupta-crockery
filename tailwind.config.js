@@ -3,9 +3,9 @@ module.exports = {
   purge: {
     enabled: process.env.NODE_ENV === "production",
     content: [
-      "./pages/**/*.{js,ts,jsx,tsx}",
-      "./components/**/*.{js,ts,jsx,tsx}",
-      "./app/**/*.{js,ts,jsx,tsx}",
+      "./pages/**/*.{js,ts,jsx,tsx,html}",
+      "./components/**/*.{js,ts,jsx,tsx,html}",
+      "./app/**/*.{js,ts,jsx,tsx,html}",
     ],
     // safelist: [
     // "sticky",
@@ -20,10 +20,10 @@ module.exports = {
   },
   theme: {
     extend: {
-      // screens: {
-      //   "3xl": "1600px",
-      //   xs: "475px",
-      // },
+      screens: {
+        "3xl": "1600px",
+        xs: "475px",
+      },
     },
   },
   plugins: [],
