@@ -1,6 +1,7 @@
 import Footer from "@/Components/Footer";
 import Nav from "@/Components/Nav";
-import "./globals.css";
+// import "./globals.css";
+import "@/styles/globals.css";
 
 export const metadata = {
   title: "Gupta Crockery",
@@ -10,6 +11,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body>
         <Nav />
         {children}

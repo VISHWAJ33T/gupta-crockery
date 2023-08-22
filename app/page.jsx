@@ -1,8 +1,6 @@
-// import CarouselContainer from "@/Components/Carousel";
 import CarouselContainer from "@/Components/Carousel";
 import Categories from "@/Components/Categories";
 import CategoryContainer from "@/Components/CategoryContainer";
-// import slider from "@/Components/slider.js";
 export default function Home() {
   return (
     <>
