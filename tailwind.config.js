@@ -16,6 +16,12 @@ module.exports = {
         '3xl': '1600px',
         'xs': '475px',
       },
+      content: [
+        // using ./ dir
+        "./app/**/*.{js,ts,jsx,tsx}",
+        "./components/**/*.{js,ts,jsx,tsx}",
+        // add more paths here
+      ],
     },
   },
   plugins: [],
