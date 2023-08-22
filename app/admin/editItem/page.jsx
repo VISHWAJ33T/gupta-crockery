@@ -48,7 +48,7 @@ const EditItem = () => {
         setSubmitting(true);
         if (!itemId) return alert("Item Id not found");
         try {
-            const response = await fetch(`http://localhost:3000/api/item/${itemId}`, {
+            const response = await fetch(`${process.env.URL}/api/item/${itemId}`, {
                 method: "PATCH",
                 body: JSON.stringify({
                     title: post.title,

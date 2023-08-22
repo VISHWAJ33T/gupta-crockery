@@ -24,7 +24,7 @@ const page = () => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const response = await fetch("http://localhost:3000/api/item/new", {
+      const response = await fetch(`${process.env.URL}/api/item/new`, {
         method: "POST",
         body: JSON.stringify({
           title: post.title,

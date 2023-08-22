@@ -159,7 +159,7 @@ const page = () => {
           <ItemsContainer
             key={item._id}
             title={item.title}
-            img={item.main_img}
+            main_img={item.main_img}
             price={item.price}
             isDiscounted={item.isDiscounted}
             discounted_price={item.isDiscounted ? item.discounted_price : ""}
