@@ -2,6 +2,7 @@ import CarouselContainer from "@/Components/Carousel";
 import Categories from "@/Components/Categories";
 import CategoryContainer from "@/Components/CategoryContainer";
 export default function Home() {
+  
   return (
     <>
       <div className="w-[100vw]">

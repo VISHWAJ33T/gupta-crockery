@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 const ItemsContainer = ({
   id,
   title,
@@ -10,22 +10,42 @@ const ItemsContainer = ({
   discounted_price,
   discounted_percent,
   stock,
+  cartItems,
+  setCartItems
 }) => {
-  const [cartItems, setCartItems] = useState([]);
-  useEffect(() => {
-    const storedCartItems = localStorage.getItem("cartItems");
-    if (storedCartItems) {
-      setCartItems(JSON.parse(storedCartItems));
-    }
-  }, []);
+  // const [cartItems, setCartItems] = useState([]);
+  // useEffect(() => {
+  //   const storedCartItems = localStorage.getItem("cartItems");
+  //   if (storedCartItems) {
+  //     setCartItems(JSON.parse(storedCartItems));
+  //   }
+  // }, []);
 
   const addToCart = (id, title, price, isDiscounted, discounted_price, discounted_percent, qtyValue, img_src, stock) => {
-    const newCartItem = { id, title, price, isDiscounted, discounted_price, discounted_percent, qtyValue, img_src, stock };
-    const updatedCartItems = [...cartItems, newCartItem];
+    const existingCartItem = cartItems.find(item => item.id === id);
 
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-    alert("Item Added to cart successfully");
+    if (existingCartItem) {
+      // Item with the same ID already exists in the cart
+      alert(`${title} is already in the cart.`);
+    } else {
+      // Item with the same ID doesn't exist, add it to the cart
+      const newCartItem = {
+        id,
+        title,
+        price,
+        isDiscounted,
+        discounted_price,
+        discounted_percent,
+        qtyValue,
+        img_src,
+        stock
+      };
+      const updatedCartItems = [...cartItems, newCartItem];
+
+      setCartItems(updatedCartItems);
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+      alert(`${title} added to cart successfully`);
+    }
   };
   return (
     <div className="bg-gray-200 flex flex-col justify-center items-center min-w-[150px] max-w-[150px] sm:min-w-[200px] overflow-y-hidden">
@@ -52,15 +72,15 @@ const ItemsContainer = ({
           {isDiscounted ? (
             <>
               <span className=" line-through text-xs text-[#383838]">
-                {price}₹
+                ₹{price}
               </span>
-              <span> {discounted_price}₹</span>
+              <span> ₹{discounted_price}</span>
             </>
           ) : (
-            <span> {price}₹</span>
+            <span> ₹{price}</span>
           )}
         </span>
-        <span className="hover:text-[#131b2e] w-[60%] sm:w-[50%] hover:bg-white border whitespace-nowrap hover:border-[#232f3e] bg-[#232f3e] text-white cursor-pointer  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
+        {stock !== 0 ? <span className="hover:text-[#131b2e] w-[60%] sm:w-[50%] hover:bg-white border whitespace-nowrap hover:border-[#232f3e] bg-[#232f3e] text-white cursor-pointer  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
           <button
             onClick={() => {
               addToCart(
@@ -78,7 +98,7 @@ const ItemsContainer = ({
           >
             Add to cart
           </button>
-        </span>
+        </span> : <span className="w-[60%] sm:w-[50%] border whitespace-nowrap bg-[crimson] text-white cursor-default  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">Out of Stock</span>}
       </div>
     </div>
   );

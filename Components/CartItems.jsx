@@ -49,7 +49,7 @@ const CartItems = () => {
       <h2 className="text-center text-3xl font-bold w-full my-8">
         Shopping Cart
       </h2>
-      {items.length >= 0 ? (
+      {items.length > 0 ? (
         <>
           {items.map((item) => (
             <SingleCartItem

@@ -3,8 +3,10 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
 
   const handleQtyChange = (e) => {
     const newQtyValue = parseInt(e.target.value, 10);
-    if (newQtyValue >= 0) {
-      updateQtyValue(id, newQtyValue);
+
+    // Allow updating the quantity if the value is within the stock range or if the field is empty
+    if (e.target.value === '' || (newQtyValue >= 0 && newQtyValue <= stock)) {
+      updateQtyValue(id, e.target.value); // Update with the new value or an empty string
     }
   };
 
@@ -37,9 +39,10 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
                 max={stock}
                 onChange={handleQtyChange}
                 value={qtyValue}
+                required
               />
             </label>
-            {stock === qtyValue && <span className=" text-red-600">Item is Limited
+            {stock <= qtyValue && <span className=" text-red-600">Item is Limited
               {/* You cannot order more than {stock} items at this moment */}
             </span>}
 

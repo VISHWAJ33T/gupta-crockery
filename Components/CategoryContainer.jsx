@@ -4,6 +4,15 @@ import ItemsContainer from "./ItemsContainer";
 import { useState, useEffect } from "react";
 
 const CategoryContainer = ({ category }) => {
+
+  const [cartItems, setCartItems] = useState([]);
+  useEffect(() => {
+    const storedCartItems = localStorage.getItem("cartItems");
+    if (storedCartItems) {
+      setCartItems(JSON.parse(storedCartItems));
+    }
+  }, []);
+
   const [allItems, setAllItems] = useState([]);
   useEffect(() => {
     fetchItems();
@@ -43,6 +52,8 @@ const CategoryContainer = ({ category }) => {
                   item.isDiscounted ? item.discounted_price : ""
                 }
                 main_img={item.main_img}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
               />
             ))}
           </div>

@@ -5,18 +5,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 const CarouselContainer = () => {
   return (
     <Swiper
       style={{
-        "--swiper-navigation-color": "#131b2e",
-        "--swiper-pagination-color": "#fff",
+        "--swiper-navigation-color": "#ffffff",
+        "--swiper-pagination-color": "#131b2e",
       }}
       slidesPerView={1}
       spaceBetween={0}
@@ -34,21 +34,19 @@ const CarouselContainer = () => {
     >
       <SwiperSlide>
         <img
-          src="https://source.unsplash.com/collection/1926361/900x300"
+          src="https://source.unsplash.com/collection/4850848/1440x400"
           alt="slider banner"
         />
       </SwiperSlide>
       <SwiperSlide>
-        {" "}
         <img
-          src="https://source.unsplash.com/collection/1926361/900x300"
+          src="https://source.unsplash.com/collection/2231555/1440x400"
           alt="slider banner"
         />
       </SwiperSlide>
       <SwiperSlide>
-        {" "}
         <img
-          src="https://source.unsplash.com/collection/1926361/900x300"
+          src="https://source.unsplash.com/collection/8931142/1440x400"
           alt="slider banner"
         />
       </SwiperSlide>

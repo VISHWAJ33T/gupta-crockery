@@ -22,11 +22,10 @@ const Nav = () => {
         </Link>
         <li>
           <form
-            action=""
             onSubmit={(e) => {
               e.preventDefault();
             }}
-            className="flex mx-0 sm:w-[max-width]"
+            className="flex sm:w-[max-width]"
           >
             <input
               className="border text-black rounded-l py-2 px-2 w-full md:w-[50vw]"
@@ -38,7 +37,6 @@ const Nav = () => {
               }}
             />
             <Link
-              onClick={() => handleSearchValue(e)}
               href={{
                 pathname: "/allitems",
                 query: { price: "", category: "", search: searchValue },

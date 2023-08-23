@@ -13,6 +13,14 @@ const page = () => {
   const active_class = "bg-[#131b2e] text-white";
   const unactive_class = "text-[#131b2e] border-[#131b2e]";
 
+  const [cartItems, setCartItems] = useState([]);
+  useEffect(() => {
+    const storedCartItems = localStorage.getItem("cartItems");
+    if (storedCartItems) {
+      setCartItems(JSON.parse(storedCartItems));
+    }
+  }, []);
+
   useEffect(() => {
     fetchItems();
   }, [price, category]);
@@ -157,6 +165,8 @@ const page = () => {
             discounted_percent={
               item.isDiscounted ? item.discounted_percent : ""
             }
+            cartItems={cartItems}
+            setCartItems={setCartItems}
           />
         ))}
       </div>
