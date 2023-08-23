@@ -65,7 +65,7 @@ const SingleItem = () => {
   };
   return (
     <div className="  flex flex-col sm:flex-row mx-3 mt-5 sm:mx-5">
-      <div className=" item min-w-[30vw] sm:max-w-[40vw] md:max-w-[38vw] mx-3 sm:mx-5 mt-5 h-[400px] sm:h-[450px] overflow-auto">
+      <div className=" item min-w-[30vw] sm:max-w-[40vw] md:max-w-[38vw] mx-3 sm:mx-5 mt-5 h-[400px] sm:h-[450px] overflow-auto shadow-md">
         <Swiper
           style={{
             "--swiper-navigation-color": "#131b2e",

@@ -7,8 +7,7 @@ const EditItem = () => {
     const searchParams = useSearchParams();
     const itemId = searchParams.get("id");
     const [submitting, setSubmitting] = useState(false);
-    const URL = "https://gupta-crockery.vercel.app/"
-    // const URL = "http://localhost:3000"
+    const URL = process.env.NEXT_PUBLIC_URL
     const [post, setPost] = useState({
         title: "",
         description: "",
