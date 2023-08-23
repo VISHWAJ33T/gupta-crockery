@@ -157,14 +157,18 @@ const page = () => {
         {allItems.map((item) => (
           <ItemsContainer
             key={item._id}
+            id={item._id}
             title={item.title}
-            main_img={item.main_img}
             price={item.price}
+            stock={item.stock}
             isDiscounted={item.isDiscounted}
-            discounted_price={item.isDiscounted ? item.discounted_price : ""}
             discounted_percent={
               item.isDiscounted ? item.discounted_percent : ""
             }
+            discounted_price={
+              item.isDiscounted ? item.discounted_price : ""
+            }
+            main_img={item.main_img}
             cartItems={cartItems}
             setCartItems={setCartItems}
           />

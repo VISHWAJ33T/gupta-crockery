@@ -1,3 +1,4 @@
+import Link from "next/link";
 const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
   const { id, title, price, isDiscounted, discounted_price, discounted_percent, qtyValue, img_src, stock } = item;
 
@@ -23,12 +24,12 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
             alt="Item Image" />
         </div>
         <div className="mx-1">
-          <h3 className="lg:text-2xl md:text-xl sm:text-lg text-md font-bold">{title}</h3>
+          <Link href={{ pathname: "/item", query: { id: id } }} className="lg:text-2xl md:text-xl sm:text-lg text-md font-bold">{title}</Link>
           <div className="flex flex-col">
-            {item.isDiscounted && <><span className="border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-1 px-3 my-1 rounded-lg w-fit">{discounted_percent}% Off</span>
+            {isDiscounted && <><span className="border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-1 px-3 my-1 rounded-lg w-fit">{discounted_percent}% Off</span>
               <div className="flex items-center gap-x-2"><span className="text-xl">₹{discounted_price}</span><span className="text-xs line-through">₹{price}</span></div>
             </>}
-            {!item.isDiscounted &&
+            {!isDiscounted &&
               <span className="text-xl">₹{price}</span>}
 
             <label >
