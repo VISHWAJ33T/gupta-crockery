@@ -48,7 +48,7 @@ const ItemsContainer = ({
     }
   };
   return (
-    <div className="bg-gray-200 flex flex-col justify-center items-center min-w-[150px] max-w-[150px] sm:min-w-[200px] overflow-y-hidden shadow-md">
+    <div className="bg-gray-200 flex flex-col justify-center items-center min-w-[150px] max-w-[150px] sm:min-w-[200px] overflow-y-hidden shadow-xl">
       <Link href={{ pathname: "/item", query: { id: id } }}>
         {isDiscounted && (
           <span className="flex px-3 justify-center text-white text-md font-bold absolute bg-red-600 ">
