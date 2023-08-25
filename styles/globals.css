@@ -12,6 +12,15 @@ html {
   scroll-behavior: smooth;
 }
 
+.scrolling-title:hover {
+  position: absolute;
+  width: 100%;
+  top: -30px;
+  height: 60px;
+  overflow-y: scroll;
+  cursor: pointer;
+}
+
 * {
   font-family: 'Roboto Condensed', 'Sofia Sans Condensed', sans-serif;
   /* font-family: 'Sofia Sans Condensed', sans-serif; */

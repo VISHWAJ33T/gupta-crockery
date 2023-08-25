@@ -34,7 +34,7 @@ const page = () => {
   };
   return (
     <>
-      <div className="text-center overflow-x-scroll px-1 pb-2 mx-5 sm:mx-6 md:mx-10 justify-start xl:justify-center flex gap-x-2 mt-3">
+      <div className="text-center overflow-x-scroll px-1 pb-3 mx-5 sm:mx-6 md:mx-10 justify-start flex gap-x-2 mt-3">
         <Link
           href={{
             query: {
@@ -130,6 +130,19 @@ const page = () => {
           href={{
             query: {
               price: price,
+              category: "brass",
+              search: search,
+            },
+          }}
+          className={`${category === "brass" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+        >
+          Brass
+        </Link>
+        <Link
+          href={{
+            query: {
+              price: price,
               category: "wooden",
               search: search,
             },
@@ -143,15 +156,94 @@ const page = () => {
           href={{
             query: {
               price: price,
-              category: "thermal",
+              category: "aluminium",
               search: search,
             },
           }}
-          className={`${category === "thermal" ? active_class : unactive_class
+          className={`${category === "aluminium" ? active_class : unactive_class
             } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
         >
-          Thermal
+          Aluminium
         </Link>
+        <Link
+          href={{
+            query: {
+              price: price,
+              category: "bone china",
+              search: search,
+            },
+          }}
+          className={`${category === "bone china" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+        >
+          Bone China
+        </Link>
+        <Link
+          href={{
+            query: {
+              price: price,
+              category: "melamine",
+              search: search,
+            },
+          }}
+          className={`${category === "melamine" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+        >
+          Melamine
+        </Link>
+        <Link
+          href={{
+            query: {
+              price: price,
+              category: "silicon",
+              search: search,
+            },
+          }}
+          className={`${category === "silicon" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+        >
+          Silicon
+        </Link>
+        <Link
+          href={{
+            query: {
+              price: price,
+              category: "iron",
+              search: search,
+            },
+          }}
+          className={`${category === "iron" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+        >
+          Iron
+        </Link>
+        <Link
+          href={{
+            query: {
+              price: price,
+              category: "kansa",
+              search: search,
+            },
+          }}
+          className={`${category === "kansa" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+        >
+          Kansa
+        </Link>
+        <Link
+          href={{
+            query: {
+              price: price,
+              category: "other",
+              search: search,
+            },
+          }}
+          className={`${category === "other" ? active_class : unactive_class
+            } border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full`}
+        >
+          Others
+        </Link>
+
       </div>
       <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-3 mt-3 mx-5 sm:mx-6 md:mx-10 place-items-center">
         {allItems.map((item) => (

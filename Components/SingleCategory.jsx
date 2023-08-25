@@ -12,8 +12,8 @@ const SingleCategory = ({
   name4,
 }) => {
   return (
-    <div className="min-w-[210px] items-start justify-center shadow-2xl">
-      <a href={`#${heading}`} className="text-xl text-center font-bold text-black cursor-pointer">
+    <div className="min-w-[210px] items-start justify-center">
+      <a href={`#${heading}`} className="text-2xl text-center font-bold text-black cursor-pointer">
         {heading}
       </a>
       <div className="grid grid-cols-2 gap-y-1 py-1  bg-slate-400">

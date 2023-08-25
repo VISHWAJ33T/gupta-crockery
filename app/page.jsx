@@ -10,13 +10,20 @@ export default function Home() {
         <CarouselContainer />
       </div>
       <Categories />
-      <div className="flex flex-col gap-y-10">
+      <div className="flex flex-col gap-y-6">
         <CategoryContainer category="steel" />
         <CategoryContainer category="copper" />
         <CategoryContainer category="plastic" />
         <CategoryContainer category="glass" />
         <CategoryContainer category="wooden" />
-        <CategoryContainer category="thermal" /></div>
+        <CategoryContainer category="brass" />
+        <CategoryContainer category="aluminium" />
+        <CategoryContainer category="bone china" />
+        <CategoryContainer category="melamine" />
+        <CategoryContainer category="silicon" />
+        <CategoryContainer category="iron" />
+        <CategoryContainer category="Kansa" />
+      </div>
     </>
   );
 }

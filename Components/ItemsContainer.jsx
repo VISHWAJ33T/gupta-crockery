@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 const ItemsContainer = ({
   id,
   title,
@@ -48,25 +47,27 @@ const ItemsContainer = ({
     }
   };
   return (
-    <div className="bg-gray-200 flex flex-col justify-center items-center min-w-[150px] max-w-[150px] sm:min-w-[200px] overflow-y-hidden shadow-xl">
+    <div className="bg-white flex flex-col justify-center items-center min-w-[150px] max-w-[150px] sm:min-w-[200px] overflow-y-hidden shadow-xl">
       <Link href={{ pathname: "/item", query: { id: id } }}>
         {isDiscounted && (
-          <span className="flex px-3 justify-center text-white text-md font-bold absolute bg-red-600 ">
-            {discounted_percent}% Off
+          <span className="flex px-3 justify-center text-white text-md font-bold relative h-0">
+            <span className=" w-[40%] bg-red-600 absolute left-0 text-center">{discounted_percent}% Off</span>
+
           </span>
         )}
         <img
-          className="border"
+          className="border object-contain min-h-[150px] max-h-[150px] sm:min-h-[200px]"
           src={
             main_img ||
             "https://5.imimg.com/data5/BQ/BW/MY-5255112/diwali-crockery-gift-500x500.jpg"
           }
           alt="item image"
         />
-        <h3 className="text-center px-1 h-[30px] text-lg overflow-y-scroll">
-          {title}
-        </h3>
       </Link>
+      <div className="relative h-[30px] w-[100%]">
+        <h3 className="scrolling-title cursor-default text-center bg-gray-200 px-1 w-[100%] h-[30px] text-lg overflow-y-scroll sm:overflow-hidden">
+          {title}
+        </h3></div>
       <div className="flex w-[100%] text-center justify-between">
         <span className="w-[40%] sm:w-[50%] border whitespace-nowrap bg-[#f3a847] text-white cursor-pointer  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center">
           {isDiscounted ? (

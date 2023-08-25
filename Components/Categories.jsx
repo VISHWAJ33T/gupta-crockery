@@ -2,7 +2,7 @@ import SingleCategory from "./SingleCategory";
 
 const Categories = () => {
   return (
-    <div className="mx-[15px] mt-3 gap-x-3 flex sm:mx-[20px] pb-3 overflow-x-scroll">
+    <div className="mx-[15px] mt-5 mb-6 gap-x-3 flex sm:mx-[20px] pb-3 overflow-x-scroll">
       {/* ******************************************Steel****************************************** */}
       <SingleCategory
         heading="Steel"
@@ -74,6 +74,78 @@ const Categories = () => {
         name3="Wooden Bottle"
         src4="https://cdn.incollect.com/sites/default/files/zoom/Carved-Olive-Wood-Jug-466425-2022122.jpg"
         name4="Wooden Jug"
+      />
+      {/* ******************************************Aluminium****************************************** */}
+      <SingleCategory
+        heading="Aluminium"
+        src1="https://m.media-amazon.com/images/I/61mfIRMUWML.jpg"
+        name1="Aluminium Plate"
+        src2="https://images.woodenstreet.de/image/data/wall-cabinets/davies-wall-cabinet-revised/honey/updated/new-icon.jpg"
+        name2="Aluminium Kitchen Rack"
+        src3="https://m.media-amazon.com/images/I/51a9ORB0MhL.jpg"
+        name3="Aluminium Bottle"
+        src4="https://cdn.incollect.com/sites/default/files/zoom/Carved-Olive-Wood-Jug-466425-2022122.jpg"
+        name4="Aluminium Jug"
+      />
+      {/* ******************************************Bone China****************************************** */}
+      <SingleCategory
+        heading="Bone China"
+        src1="https://m.media-amazon.com/images/I/61mfIRMUWML.jpg"
+        name1="Bone China Plate"
+        src2="https://images.woodenstreet.de/image/data/wall-cabinets/davies-wall-cabinet-revised/honey/updated/new-icon.jpg"
+        name2="Bone China Kitchen Rack"
+        src3="https://m.media-amazon.com/images/I/51a9ORB0MhL.jpg"
+        name3="Bone China Bottle"
+        src4="https://cdn.incollect.com/sites/default/files/zoom/Carved-Olive-Wood-Jug-466425-2022122.jpg"
+        name4="Bone China Jug"
+      />
+      {/* ******************************************Melamine****************************************** */}
+      <SingleCategory
+        heading="Melamine"
+        src1="https://m.media-amazon.com/images/I/61mfIRMUWML.jpg"
+        name1="Melamine Plate"
+        src2="https://images.woodenstreet.de/image/data/wall-cabinets/davies-wall-cabinet-revised/honey/updated/new-icon.jpg"
+        name2="Melamine Kitchen Rack"
+        src3="https://m.media-amazon.com/images/I/51a9ORB0MhL.jpg"
+        name3="Melamine Bottle"
+        src4="https://cdn.incollect.com/sites/default/files/zoom/Carved-Olive-Wood-Jug-466425-2022122.jpg"
+        name4="Melamine Jug"
+      />
+      {/* ******************************************Silicon****************************************** */}
+      <SingleCategory
+        heading="Silicon"
+        src1="https://m.media-amazon.com/images/I/61mfIRMUWML.jpg"
+        name1="Silicon Plate"
+        src2="https://images.woodenstreet.de/image/data/wall-cabinets/davies-wall-cabinet-revised/honey/updated/new-icon.jpg"
+        name2="Silicon Kitchen Rack"
+        src3="https://m.media-amazon.com/images/I/51a9ORB0MhL.jpg"
+        name3="Silicon Bottle"
+        src4="https://cdn.incollect.com/sites/default/files/zoom/Carved-Olive-Wood-Jug-466425-2022122.jpg"
+        name4="Silicon Jug"
+      />
+      {/* ******************************************Iron****************************************** */}
+      <SingleCategory
+        heading="Iron"
+        src1="https://m.media-amazon.com/images/I/61mfIRMUWML.jpg"
+        name1="Iron Plate"
+        src2="https://images.woodenstreet.de/image/data/wall-cabinets/davies-wall-cabinet-revised/honey/updated/new-icon.jpg"
+        name2="Iron Kitchen Rack"
+        src3="https://m.media-amazon.com/images/I/51a9ORB0MhL.jpg"
+        name3="Iron Bottle"
+        src4="https://cdn.incollect.com/sites/default/files/zoom/Carved-Olive-Wood-Jug-466425-2022122.jpg"
+        name4="Iron Jug"
+      />
+      {/* ******************************************Kansa****************************************** */}
+      <SingleCategory
+        heading="Kansa"
+        src1="https://m.media-amazon.com/images/I/61mfIRMUWML.jpg"
+        name1="Kansa Plate"
+        src2="https://images.woodenstreet.de/image/data/wall-cabinets/davies-wall-cabinet-revised/honey/updated/new-icon.jpg"
+        name2="Kansa Kitchen Rack"
+        src3="https://m.media-amazon.com/images/I/51a9ORB0MhL.jpg"
+        name3="Kansa Bottle"
+        src4="https://cdn.incollect.com/sites/default/files/zoom/Carved-Olive-Wood-Jug-466425-2022122.jpg"
+        name4="Kansa Jug"
       />
     </div>
   );

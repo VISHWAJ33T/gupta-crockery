@@ -14,7 +14,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           type="text"
           placeholder="Item Name"
           required
-          className="min-w-[200px] sm:w-[400px]"
+          className="min-w-[200px] sm:w-[400px] px-3"
         ></input>
       </label>
       {/* **************************************************Description************************************************** */}
@@ -25,7 +25,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           onChange={(e) => setPost({ ...post, description: e.target.value })}
           placeholder="Write you description here..."
           required
-          className="min-w-[200px] sm:w-[400px]"
+          className="min-w-[200px] sm:w-[400px] px-3"
         ></textarea>
       </label>
       {/* **************************************************Price************************************************** */}
@@ -38,7 +38,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           min="0"
           placeholder="Price"
           required
-          className="min-w-[200px] sm:w-[400px]"
+          className="min-w-[200px] sm:w-[400px] pl-3"
         ></input>
       </label>
       {/* **************************************************Stock************************************************** */}
@@ -51,7 +51,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           min="0"
           placeholder="Stock"
           required
-          className="min-w-[200px] sm:w-[400px]"
+          className="min-w-[200px] sm:w-[400px] pl-3"
         ></input>
       </label>
       {/* **************************************************isDiscounted************************************************** */}
@@ -80,7 +80,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           step="0.01"
           min="0"
           placeholder="Discount Percent"
-          className="min-w-[200px] sm:w-[400px]"
+          className="min-w-[200px] sm:w-[400px] pl-3"
         ></input>
       </label>
       {/* **************************************************discounted_price************************************************** */}
@@ -94,7 +94,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           type="Number"
           min="0"
           placeholder="Discount Price"
-          className="min-w-[200px] sm:w-[400px]"
+          className="min-w-[200px] sm:w-[400px] pl-3"
         ></input>
       </label>
       {/* **************************************************category************************************************** */}
@@ -108,13 +108,19 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           required
           onChange={(e) => setPost({ ...post, category: e.target.value })}
         >
-          <option value="no-category">No Category</option>
           <option value="steel">Steel</option>
           <option value="copper">Copper</option>
           <option value="plastic">Plastic</option>
           <option value="glass">Glass</option>
           <option value="brass">Brass</option>
           <option value="wooden">Wooden</option>
+          <option value="aluminium">Aluminium</option>
+          <option value="bone china">Bone China</option>
+          <option value="melamine">Melamine</option>
+          <option value="silicon">Silicon</option>
+          <option value="iron">Iron</option>
+          <option value="kansa">Kansa</option>
+          <option value="other">Other</option>
         </select>
       </label>
       {/* **************************************************tags************************************************** */}
@@ -127,7 +133,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           }
           placeholder='Enter tags seperated by "," (for eg: water bottle,steel bottle,milton...)'
           required
-          className="min-w-[200px] sm:w-[400px]"
+          className="min-w-[200px] sm:w-[400px] px-3"
         ></textarea>
       </label>
       {/* **************************************************main_img************************************************** */}
@@ -139,7 +145,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           type="text"
           required
           placeholder="Main Item Image link here"
-          className="min-w-[200px] sm:w-[400px]"
+          className="min-w-[200px] sm:w-[400px] px-3"
         ></input>
       </label>
       {/* **************************************************extra_imgs************************************************** */}
@@ -151,7 +157,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             setPost({ ...post, extra_imgs: e.target.value.split(", ") })
           }
           placeholder='Enter links seperated by ", "(comma + 1 space) (for eg: link1, link2, link3...)'
-          className="min-w-[200px] sm:w-[400px]"
+          className="min-w-[200px] sm:w-[400px] px-3"
         ></textarea>
       </label>
       <button
