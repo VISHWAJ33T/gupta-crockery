@@ -61,10 +61,10 @@ const ItemsContainer = ({
           {title}
         </h3></div>
       <div className="flex w-[100%] text-center justify-between">
-        <span className="w-[40%] sm:w-[50%] border whitespace-nowrap bg-[#f3a847] text-white cursor-pointer  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center">
+        <span className="w-[45%] sm:w-[50%] border whitespace-nowrap bg-[#f3a847] text-white cursor-pointer  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center">
           {isDiscounted ? (
             <>
-              <span className=" line-through text-xs text-[#383838]">
+              <span className="line-through text-xs text-[#383838]">
                 ₹{price}
               </span>
               <span> ₹{discounted_price}</span>
@@ -73,7 +73,7 @@ const ItemsContainer = ({
             <span> ₹{price}</span>
           )}
         </span>
-        {stock !== 0 ? <span className="hover:text-[#131b2e] w-[60%] sm:w-[50%] hover:bg-white border whitespace-nowrap hover:border-[#232f3e] bg-[#232f3e] text-white cursor-pointer  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
+        {stock !== 0 ? <span className="hover:text-[#131b2e] w-[55%] sm:w-[50%] hover:bg-white border whitespace-nowrap hover:border-[#232f3e] bg-[#232f3e] text-white cursor-pointer  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
           <button
             onClick={() => {
               addToCart(
