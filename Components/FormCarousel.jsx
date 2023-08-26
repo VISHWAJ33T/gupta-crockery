@@ -1,5 +1,5 @@
 
-const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+const FormCarousel = ({ type, post, setPost, submitting, handleSubmit }) => {
     return (
         <form
             onSubmit={handleSubmit}
@@ -45,4 +45,4 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
     );
 };
 
-export default Form;
+export default FormCarousel;

@@ -40,7 +40,7 @@ export const PATCH = async (request, { params }) => {
 
     const existingItem = await Item.findById(params.id);
 
-    if (!existingItem) return new Response("Quote not found", { status: 404 });
+    if (!existingItem) return new Response("Item not found", { status: 404 });
     existingItem.title = title;
     existingItem.description = description;
     existingItem.price = price;
