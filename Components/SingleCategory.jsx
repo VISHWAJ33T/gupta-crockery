@@ -12,11 +12,12 @@ const SingleCategory = ({
   name4,
 }) => {
   return (
-    <div className="min-w-[210px] items-start justify-center">
-      <a href={`#${heading}`} className="text-2xl text-center font-bold text-black cursor-pointer">
+    <div className={`min-w-[210px] items-start justify-center ${heading}-style py-4 pt-2 px-4 `}>
+      <a href={`#${heading}`} className="text-2xl text-white outline-8 pb-2 w-full block text-center font-bold cursor-pointer">
         {heading}
       </a>
-      <div className="grid grid-cols-2 gap-y-1 py-1  bg-slate-400">
+      <div className={`grid grid-cols-2 gap-2`}>
+      {/* <div className="grid grid-cols-2 gap-y-1 py-1  bg-slate-400"> */}
         <Link
           href={{
             pathname: "/allitems",

@@ -26,7 +26,7 @@ const CategoryContainer = ({ category }) => {
   return (
     <>
       {allItems.length === 0 ? null : (
-        <div className="mx-[15px] sm:mx-[20px] scroll-view shadow-2xl" id={`${category[0].toUpperCase() + category.slice(1)}`}>
+        <div className=" mx-[15px] sm:mx-[20px] scroll-view shadow-2xl" id={`${category[0].toUpperCase() + category.slice(1)}`}>
           <Link
             href={{
               pathname: "/allitems",

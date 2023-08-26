@@ -2,7 +2,7 @@ import SingleCategory from "./SingleCategory";
 
 const Categories = () => {
   return (
-    <div className="mx-[15px] mt-5 mb-6 gap-x-3 flex sm:mx-[20px] pb-3 overflow-x-scroll">
+    <div className=" mx-[15px] mt-5 mb-6 gap-x-3 flex sm:mx-[20px] pb-3 overflow-x-scroll">
       {/* ******************************************Steel****************************************** */}
       <SingleCategory
         heading="Steel"
@@ -89,7 +89,7 @@ const Categories = () => {
       />
       {/* ******************************************Bone China****************************************** */}
       <SingleCategory
-        heading="Bone China"
+        heading="Bone china"
         src1="https://m.media-amazon.com/images/I/61mfIRMUWML.jpg"
         name1="Bone China Plate"
         src2="https://images.woodenstreet.de/image/data/wall-cabinets/davies-wall-cabinet-revised/honey/updated/new-icon.jpg"

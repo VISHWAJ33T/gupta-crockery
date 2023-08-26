@@ -21,6 +21,60 @@ html {
   cursor: pointer;
 }
 
+.Wooden-style {
+  background-color: #e1955a;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+}
+
+.Aluminium-style {
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/007/408/021/small/stylish-panoramic-background-silver-steel-metal-texture-vector.jpg");
+}
+
+.Steel-style {
+  background-image: url("https://img.freepik.com/premium-photo/metal-steel-plate-background-texture-horizontal_251763-423.jpg");
+}
+
+.Iron-style {
+  background-color: #a59d92;
+  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+.Copper-style {
+  background-color: #ba5e47;
+  background-image: url("https://sketchupstatic.com/public/texture_m/0040-polished-brushed-copper-texture.jpg");
+}
+
+.Brass-style {
+  background-image: url("https://media.istockphoto.com/id/622205818/photo/clean-gold-texture-background-illustration.jpg?s=612x612&w=0&k=20&c=gIaDnkzLemFkcHJV2oSzZTUVjTUFC2DPArkNQuXDaQc=");
+}
+
+.china-style {
+  background-color: darkgoldenrod;
+}
+
+.Melamine-style {
+  background-color: #e9c973;
+  background-image: url("https://img.freepik.com/free-photo/wooden-floor-background_53876-88628.jpg?size=626&ext=jpg");
+}
+
+.Plastic-style {
+  background-color: #3e84be;
+}
+
+.Silicon-style {
+  background-color: pink;
+}
+
+.Kansa-style {
+  background-color: #d1b96e;
+}
+
+.Glass-style {
+  background: rgba(77, 77, 77, 0.34);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
 * {
   font-family: 'Roboto Condensed', 'Sofia Sans Condensed', sans-serif;
   /* font-family: 'Sofia Sans Condensed', sans-serif; */
