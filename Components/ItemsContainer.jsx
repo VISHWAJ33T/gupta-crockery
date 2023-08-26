@@ -43,7 +43,7 @@ const ItemsContainer = ({
       <Link href={{ pathname: "/item", query: { id: id } }}>
         {isDiscounted && (
           <span className="flex px-3 justify-center text-white text-md font-bold relative h-0">
-            <span className=" w-[40%] bg-red-600 absolute left-0 text-center">{discounted_percent}% Off</span>
+            <span className="min-w-[50px] w-[40%] bg-red-600 absolute left-0 text-center">{discounted_percent}% Off</span>
 
           </span>
         )}
