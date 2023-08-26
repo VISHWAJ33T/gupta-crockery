@@ -1,17 +1,17 @@
 "use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import ItemsContainer from "./ItemsContainer";
-import { useState, useEffect } from "react";
 
-const CategoryContainer = ({ category }) => {
+const CategoryContainer = ({ cartItems, setCartItems, category }) => {
 
-  const [cartItems, setCartItems] = useState([]);
-  useEffect(() => {
-    const storedCartItems = localStorage.getItem("cartItems");
-    if (storedCartItems) {
-      setCartItems(JSON.parse(storedCartItems));
-    }
-  }, []);
+  // const [cartItems, setCartItems] = useState([]);
+  // useEffect(() => {
+  //   const storedCartItems = localStorage.getItem("cartItems");
+  //   if (storedCartItems) {
+  //     setCartItems(JSON.parse(storedCartItems));
+  //   }
+  // }, []);
 
   const [allItems, setAllItems] = useState([]);
   useEffect(() => {

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useEffect } from "react";
 const ItemsContainer = ({
   id,
   title,
@@ -12,14 +13,6 @@ const ItemsContainer = ({
   cartItems,
   setCartItems
 }) => {
-  // const [cartItems, setCartItems] = useState([]);
-  // useEffect(() => {
-  //   const storedCartItems = localStorage.getItem("cartItems");
-  //   if (storedCartItems) {
-  //     setCartItems(JSON.parse(storedCartItems));
-  //   }
-  // }, []);
-
   const addToCart = (id, title, price, isDiscounted, discounted_price, discounted_percent, qtyValue, img_src, stock) => {
     const existingCartItem = cartItems.find(item => item.id === id);
 
@@ -40,7 +33,6 @@ const ItemsContainer = ({
         stock
       };
       const updatedCartItems = [...cartItems, newCartItem];
-
       setCartItems(updatedCartItems);
       localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
       alert(`${title} added to cart successfully`);
