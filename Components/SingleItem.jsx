@@ -90,7 +90,7 @@ const SingleItem = () => {
         </Swiper>
         <Swiper
           onSwiper={setThumbsSwiper}
-          loop={true}
+          // loop={true}
           spaceBetween={2}
           slidesPerView={5}
           freeMode={true}

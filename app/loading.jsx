@@ -1,7 +1,7 @@
 import { SkeletonCard } from '@/Components/skeleton-card';
 export default function Loading() {
     return (
-        <div className="space-y-4">
+        <div className="space-y-0">
             <div className="grid gap-x-3 pt-3 px-3 sm:pt-5 sm:px-5 lg:pt-10 lg:px-10 overflow-y-scroll h-[25vh] sm:h-[50vh] gap-y-3 grid-cols-1 ">
                 <SkeletonCard isLoading={true} />
             </div>
@@ -25,7 +25,7 @@ export default function Loading() {
                 <SkeletonCard isLoading={true} />
                 <SkeletonCard isLoading={true} />
                 <SkeletonCard isLoading={true} />
-
+                <SkeletonCard isLoading={true} />
             </div>
         </div>
     );
