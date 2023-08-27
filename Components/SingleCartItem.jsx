@@ -26,7 +26,7 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
         <div className="mx-1">
           <Link href={{ pathname: "/item", query: { id: id } }} className="lg:text-2xl md:text-xl sm:text-lg text-md font-bold">{title}</Link>
           <div className="flex flex-col">
-            {isDiscounted && <><span className="border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-1 px-3 my-1 rounded-lg w-fit">{discounted_percent}% Off</span>
+            {isDiscounted && <><span className="border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-1 px-3 my-1 rounded-full w-fit">{discounted_percent}% Off</span>
               <div className="flex items-center gap-x-2"><span className="text-xl">₹{discounted_price}</span><span className="text-xs line-through">₹{price}</span></div>
             </>}
             {!isDiscounted &&

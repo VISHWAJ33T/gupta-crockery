@@ -76,7 +76,7 @@ const SingleItem = () => {
           navigation={true}
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Navigation, Thumbs]}
-          className="mySwiper2 max-h-[300px]"
+          className="mySwiper2 max-h-[300px] sm:max-h-[350px]"
         >
           <SwiperSlide>
             <img src={item.main_img} alt="item image" />
@@ -92,6 +92,8 @@ const SingleItem = () => {
           onSwiper={setThumbsSwiper}
           // loop={true}
           spaceBetween={2}
+          navigation={false}
+          // thumbs={{ swiper: thumbsSwiper }}
           slidesPerView={5}
           freeMode={true}
           watchSlidesProgress={true}
@@ -118,7 +120,7 @@ const SingleItem = () => {
           {item.description}
         </p>
         {item.isDiscounted && <div className="flex items-center justify-start mt-5">
-          <span className="border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-2 px-4 rounded-lg ">
+          <span className="border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-2 px-4 rounded-full ">
             {item.discounted_percent}% Off
           </span>
         </div>}
@@ -128,7 +130,7 @@ const SingleItem = () => {
               <span className="text-xs line-through">₹{item.price}</span></> : <span className="text-xl">₹{item.price}</span>}
 
           </div>
-          {item.stock !== 0 ? <span className="hover:text-[#131b2e] hover:bg-white border whitespace-nowrap hover:border-[#232f3e] bg-[#232f3e] text-white cursor-pointer  font-bold py-2 px-4 rounded-full ">
+          {item.stock !== 0 ? <span className="hover:text-[#131b2e] hover:bg-white border whitespace-nowrap hover:border-[#232f3e] bg-[#232f3e] text-white cursor-pointer  font-bold py-2 px-4 rounded-lg ">
             <button
               onClick={() => {
                 addToCart(

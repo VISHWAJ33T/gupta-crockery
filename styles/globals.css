@@ -179,7 +179,10 @@ html {
 .item {
   overflow: hidden;
 }
-
+.swiper-thumbs{
+  height: 85px;
+  z-index: 1000000000000000000;
+}
 .item::-webkit-scrollbar {
   display: none;
 }
