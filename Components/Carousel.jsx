@@ -47,8 +47,9 @@ const CarouselContainer = () => {
           {allImgs.length === 0 ? null : (
             <>
               {allImgs[0].imgs.map((src) => (
-                <SwiperSlide>
+                <SwiperSlide key={src}>
                   <img
+                    key={src}
                     src={src}
                     alt="slider banner"
                   />
@@ -81,7 +82,7 @@ const CarouselContainer = () => {
           {allImgs.length === 0 ? null : (
             <>
               {allImgs[1].imgs.map((src) => (
-                <SwiperSlide>
+                <SwiperSlide key={src}>
                   <img
                     src={src}
                     alt="slider banner"

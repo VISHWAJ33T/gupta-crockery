@@ -22,6 +22,7 @@ export default function Loading() {
                 <SkeletonCard isLoading={true} />
                 <SkeletonCard isLoading={true} />
                 <SkeletonCard isLoading={true} />
+                <SkeletonCard isLoading={true} />
 
             </div>
         </div>
