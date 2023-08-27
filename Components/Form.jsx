@@ -25,6 +25,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           onChange={(e) => setPost({ ...post, description: e.target.value })}
           placeholder="Write you description here..."
           required
+          rows="2"
           className="min-w-[200px] sm:w-[400px] px-3"
         ></textarea>
       </label>
@@ -70,7 +71,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       </label>
       {/* **************************************************discounted_percent************************************************** */}
       <label className="text-center justify-center text-xl flex gap-3">
-        <span className="w-[100px] text-gray-700">Discount Percent</span>
+        <span className="w-[100px] text-gray-700">Discount %</span>
         <input
           value={post.discounted_percent}
           onChange={(e) =>
@@ -85,7 +86,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       </label>
       {/* **************************************************discounted_price************************************************** */}
       <label className="text-center justify-center text-xl flex gap-3">
-        <span className="w-[100px] text-gray-700">Discount Price</span>
+        <span className="w-[100px] text-gray-700">Discount ₹</span>
         <input
           value={post.discounted_price}
           onChange={(e) =>
@@ -133,12 +134,13 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           }
           placeholder='Enter tags seperated by "," (for eg: water bottle,steel bottle,milton...)'
           required
+          rows={2}
           className="min-w-[200px] sm:w-[400px] px-3"
         ></textarea>
       </label>
       {/* **************************************************main_img************************************************** */}
       <label className="text-center justify-center text-xl flex gap-3">
-        <span className="w-[100px] text-gray-700">Main Item Image</span>
+        <span className="w-[100px] text-gray-700">Main Img</span>
         <input
           value={post.main_img}
           onChange={(e) => setPost({ ...post, main_img: e.target.value })}
@@ -150,12 +152,13 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       </label>
       {/* **************************************************extra_imgs************************************************** */}
       <label className="text-center justify-center text-xl flex gap-3">
-        <span className="w-[100px] text-gray-700">Extra Images</span>
+        <span className="w-[100px] text-gray-700">Extra imgs</span>
         <textarea
           value={post.extra_imgs.join(", ")}
           onChange={(e) =>
             setPost({ ...post, extra_imgs: e.target.value.split(", ") })
           }
+          rows={2}
           placeholder='Enter links seperated by ", "(comma + 1 space) (for eg: link1, link2, link3...)'
           className="min-w-[200px] sm:w-[400px] px-3"
         ></textarea>

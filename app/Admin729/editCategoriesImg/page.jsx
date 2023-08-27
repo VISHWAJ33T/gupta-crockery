@@ -69,9 +69,9 @@ const EditCategoryImg = () => {
         <div>
             <div className="text-center text-3xl font-bold my-3">Edit Category Img</div>
             <label className="text-center justify-center text-xl flex gap-3">
-                <span className="w-[100px] text-gray-700">Category Type</span>
+                <span className="w-[100px] text-gray-700 py-1 my-2">Type</span>
                 <select
-                    className="min-w-[200px] px-3 sm:w-[400px]"
+                    className="min-w-[200px] px-3 sm:w-[400px] py-1 my-2"
                     name="categoryType"
                     id="categoryType"
                     value={categoryType}

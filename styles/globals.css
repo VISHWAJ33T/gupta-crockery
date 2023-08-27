@@ -12,15 +12,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.scrolling-title:hover {
-  position: absolute;
-  width: 100%;
-  top: -30px;
-  height: 60px;
-  overflow-y: scroll;
-  cursor: pointer;
-}
-
 .Wooden-style {
   background-color: #e1955a;
   background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");

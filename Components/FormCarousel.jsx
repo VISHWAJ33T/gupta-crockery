@@ -15,6 +15,8 @@ const FormCarousel = ({ type, post, setPost, submitting, handleSubmit }) => {
                         const newImgs = e.target.value.split(", ");
                         setPost([{ ...post[0], imgs: newImgs }, ...post.slice(1)]);
                     }}
+                    rows={6}
+                    required
                     placeholder='Enter links seperated by ", "(comma + 1 space) (for eg: link1, link2, link3...)'
                     className="min-w-[200px] sm:w-[400px] px-3"
                 ></textarea>
@@ -30,6 +32,8 @@ const FormCarousel = ({ type, post, setPost, submitting, handleSubmit }) => {
                         updatedPost[1] = { ...updatedPost[1], imgs: newImgs };
                         setPost(updatedPost);
                     }}
+                    rows={6}
+                    required
                     placeholder='Enter links seperated by ", "(comma + 1 space) (for eg: link1, link2, link3...)'
                     className="min-w-[200px] sm:w-[400px] px-3"
                 ></textarea>

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 const ItemsContainer = ({
   id,
   title,
@@ -38,6 +38,7 @@ const ItemsContainer = ({
       alert(`${title} added to cart successfully`);
     }
   };
+  const [scrollTitle, setScrollTitle] = useState(false)
   return (
     <div className="bg-white flex flex-col justify-center items-center min-w-[150px] max-w-[150px] sm:min-w-[200px] overflow-y-hidden shadow-xl">
       <Link href={{ pathname: "/item", query: { id: id } }}>
@@ -57,9 +58,12 @@ const ItemsContainer = ({
         />
       </Link>
       <div className="relative h-[30px] w-[100%]">
-        <h3 className="scrolling-title cursor-default text-center bg-gray-200 px-1 w-[100%] h-[30px] text-lg overflow-y-scroll sm:overflow-hidden">
+        {scrollTitle ? <marquee behavior="scroll" scrollamount="8" direction="left" onMouseOver={() => { setScrollTitle(true) }} onMouseOut={() => { setScrollTitle(false) }} className="cursor-default text-center bg-gray-200 px-1 w-[100%] h-[30px] text-lg overflow-y-scroll sm:overflow-hidden">
           {title}
-        </h3></div>
+        </marquee> : <h3 onMouseOver={() => { setScrollTitle(true) }} onMouseOut={() => { setScrollTitle(false) }} className="cursor-default text-center bg-gray-200 px-1 w-[100%] h-[30px] text-lg overflow-y-scroll sm:overflow-hidden">
+          {title}
+        </h3>}
+      </div>
       <div className="flex w-[100%] text-center justify-between">
         <span className="w-[45%] sm:w-[50%] border whitespace-nowrap bg-[#f3a847] text-white cursor-pointer  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center">
           {isDiscounted ? (
