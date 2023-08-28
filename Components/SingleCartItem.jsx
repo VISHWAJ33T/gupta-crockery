@@ -47,7 +47,7 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
               {/* You cannot order more than {stock} items at this moment */}
             </span>}
 
-            <span>Subtotal: ₹{price * qtyValue}
+            <span>Subtotal: ₹{(discounted_price || price) * qtyValue}
             </span>
             <div className="flex items-end gap-x-2">
               <span>Delete </span>

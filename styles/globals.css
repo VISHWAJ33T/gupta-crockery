@@ -194,15 +194,6 @@ html {
   /* Firefox 64 */
 }
 
-.footer-box {
-  margin-top: 50px;
-  padding: 50px 60px;
-  background: #131b2e;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
-
 .footer-container {
   display: flex;
   flex-direction: column;

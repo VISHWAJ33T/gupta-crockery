@@ -40,16 +40,16 @@ const ItemsContainer = ({
   };
   const [scrollTitle, setScrollTitle] = useState(false)
   return (
-    <div className="bg-white flex flex-col justify-center items-center min-w-[150px] max-w-[150px] sm:min-w-[200px] overflow-y-hidden shadow-xl">
-      <Link href={{ pathname: "/item", query: { id: id } }}>
-        {isDiscounted && (
-          <span className="flex px-3 justify-center text-white text-md font-bold relative h-0">
-            <span className="min-w-[50px] w-[40%] bg-red-600 absolute left-0 text-center">{discounted_percent}% Off</span>
+    <div className="border bg-white flex flex-col justify-center items-center min-w-[150px] max-w-[150px] sm:min-w-[200px] overflow-y-hidden shadow-xl">
+      {isDiscounted && (
+        <span className="flex px-3 w-full justify-center text-white text-md font-bold relative left-0 h-0">
+          <span className="min-w-[40px] w-[38%] bg-red-600 absolute left-0 text-center">{discounted_percent}% Off</span>
 
-          </span>
-        )}
+        </span>
+      )}
+      <Link href={{ pathname: "/item", query: { id: id } }}>
         <img
-          className="border object-contain min-h-[150px] max-h-[150px] sm:min-h-[200px]"
+          className="object-contain min-h-[150px] max-h-[150px] sm:min-h-[200px]"
           src={
             main_img ||
             "https://5.imimg.com/data5/BQ/BW/MY-5255112/diwali-crockery-gift-500x500.jpg"

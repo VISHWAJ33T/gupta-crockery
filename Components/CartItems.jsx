@@ -40,7 +40,7 @@ const CartItems = () => {
   };
 
   const totalAmount = items.reduce(
-    (total, item) => total + item.price * item.qtyValue,
+    (total, item) => total + (item.discounted_price || item.price) * item.qtyValue,
     0
   );
 
