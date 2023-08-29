@@ -153,10 +153,10 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
         ></textarea>
       </label>
 
-      {post.main_img!=="" && <img
-          className="object-contain border-[10px] min-h-[150px] max-h-[150px] sm:min-h-[200px]"
-          src={post.main_img}
-        />}
+      {post.main_img !== "" && <img
+        className="object-contain border-[10px] min-h-[150px] max-h-[150px] sm:min-h-[200px]"
+        src={post.main_img}
+      />}
       {/* **************************************************extra_imgs************************************************** */}
       <label className="text-center justify-center text-xl flex gap-3">
         <span className="w-[100px] text-gray-700">Extra imgs</span>
@@ -170,10 +170,11 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           className="min-w-[200px] sm:w-[400px] px-3"
         ></textarea>
       </label>
-      <div className="w-[300px] sm:w-[500px] gap-x-3 px-3 py-3 bg-gray-500 flex flex-row overflow-x-scroll">
-      {post.extra_imgs!=="" && post.extra_imgs.map((src) => (
-                <img key={src} src={src} className=" object-contain min-h-[150px] max-h-[150px] sm:min-h-[200px]"/>
-            ))}</div>
+      {post.extra_imgs !== [""] &&
+        <div className="w-[300px] sm:w-[500px] gap-x-3 px-3 py-3 bg-gray-200 flex flex-row overflow-x-scroll">
+          {post.extra_imgs.map((src) => (<img key={src} src={src} className="border-[10px] object-contain min-h-[150px] max-h-[150px] sm:min-h-[200px]" />
+          ))}
+        </div>}
       <button
         type="submit"
         disabled={submitting}
@@ -181,7 +182,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       >
         {submitting ? `${type}...` : type}
       </button>
-    </form>
+    </form >
   );
 };
 
