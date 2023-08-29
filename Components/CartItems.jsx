@@ -69,7 +69,7 @@ const CartItems = () => {
                     <strong>Subtotal: </strong>
                   </td>
                   <td className="w-[50%]">
-                    <strong>{totalAmount}₹</strong>
+                    <strong>₹{totalAmount}</strong>
                   </td>
                 </tr>
                 <tr>
@@ -83,7 +83,7 @@ const CartItems = () => {
                     <strong>Total Amount:</strong>
                   </td>
                   <td className="w-[50%]">
-                    <strong>{totalAmount}₹</strong>
+                    <strong>₹{totalAmount}</strong>
                   </td>
                 </tr>
               </tbody>

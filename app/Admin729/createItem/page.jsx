@@ -21,6 +21,8 @@ const page = () => {
   });
   const createItem = async (e) => {
     e.preventDefault();
+    const confirmed = window.confirm(`Are you sure you want to Create ${post.title}?`);
+    if (confirmed) {
     setSubmitting(true);
     try {
       const response = await fetch(`${URL}/api/item/new`, {
@@ -48,7 +50,7 @@ const page = () => {
     } finally {
       setSubmitting(false);
     }
-  };
+  }};
   return (
     <div>
       <div className="text-center text-3xl font-bold my-3">Create Item</div>

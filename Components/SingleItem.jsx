@@ -45,6 +45,8 @@ const SingleItem = () => {
       alert(`${title} is already in the cart.`);
     } else {
       // Item with the same ID doesn't exist, add it to the cart
+      const confirmed = window.confirm(`Are you sure you want to add ${title} to Cart?`);
+      if (confirmed) {
       const newCartItem = {
         id,
         title,
@@ -61,7 +63,7 @@ const SingleItem = () => {
       setCartItems(updatedCartItems);
       localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
       alert(`${title} added to cart successfully`);
-    }
+      }}
   };
   return (
     <div className="  flex flex-col sm:flex-row mx-3 mt-5 sm:mx-5">

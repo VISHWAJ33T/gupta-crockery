@@ -1,6 +1,5 @@
 "use client";
 import FormCategoryImgs from "@/Components/FormCategoryImgs";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const EditCategoryImg = () => {
@@ -40,6 +39,8 @@ const EditCategoryImg = () => {
 
     const updateCategoryImg = async (e) => {
         e.preventDefault();
+        const confirmed = window.confirm(`Are you sure you want to Update Category Images?`);
+        if (confirmed) {
         setSubmitting(true);
         if (!categoryType) return alert("Category type not found");
         try {
@@ -64,7 +65,7 @@ const EditCategoryImg = () => {
         } finally {
             setSubmitting(false);
         }
-    };
+    }};
     return (
         <div>
             <div className="text-center text-3xl font-bold my-3">Edit Category Img</div>

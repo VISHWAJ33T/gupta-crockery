@@ -45,6 +45,8 @@ const EditItem = () => {
 
     const updateItem = async (e) => {
         e.preventDefault();
+        const confirmed = window.confirm(`Are you sure you want to Update ${post.title}?`);
+        if (confirmed) {
         setSubmitting(true);
         if (!itemId) return alert("Item Id not found");
         try {
@@ -72,7 +74,7 @@ const EditItem = () => {
         } finally {
             setSubmitting(false);
         }
-    };
+    }};
     return (
         <div>
             <div className="text-center text-3xl font-bold my-3">Edit Item</div>

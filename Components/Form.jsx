@@ -109,6 +109,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           required
           onChange={(e) => setPost({ ...post, category: e.target.value })}
         >
+          <option value="" disabled >Select Category</option>
           <option value="steel">Steel</option>
           <option value="copper">Copper</option>
           <option value="plastic">Plastic</option>
@@ -141,15 +142,21 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       {/* **************************************************main_img************************************************** */}
       <label className="text-center justify-center text-xl flex gap-3">
         <span className="w-[100px] text-gray-700">Main Img</span>
-        <input
+        <textarea
           value={post.main_img}
           onChange={(e) => setPost({ ...post, main_img: e.target.value })}
-          type="text"
+          // type="text"
           required
+          rows={1}
           placeholder="Main Item Image link here"
           className="min-w-[200px] sm:w-[400px] px-3"
-        ></input>
+        ></textarea>
       </label>
+
+      {post.main_img!=="" && <img
+          className="object-contain border-[10px] min-h-[150px] max-h-[150px] sm:min-h-[200px]"
+          src={post.main_img}
+        />}
       {/* **************************************************extra_imgs************************************************** */}
       <label className="text-center justify-center text-xl flex gap-3">
         <span className="w-[100px] text-gray-700">Extra imgs</span>
@@ -163,6 +170,10 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           className="min-w-[200px] sm:w-[400px] px-3"
         ></textarea>
       </label>
+      <div className="w-[300px] sm:w-[500px] gap-x-3 px-3 py-3 bg-gray-500 flex flex-row overflow-x-scroll">
+      {post.extra_imgs!=="" && post.extra_imgs.map((src) => (
+                <img key={src} src={src} className=" object-contain min-h-[150px] max-h-[150px] sm:min-h-[200px]"/>
+            ))}</div>
       <button
         type="submit"
         disabled={submitting}

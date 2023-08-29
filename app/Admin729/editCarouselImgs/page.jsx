@@ -34,6 +34,8 @@ const EditCarousel = () => {
 
     const updateCarousel = async (e) => {
         e.preventDefault();
+        const confirmed = window.confirm(`Are you sure you want to Update Carousel Images?`);
+        if (confirmed) {
         setSubmitting(true);
         try {
             const response = await fetch(`${URL}/api/landingPage/carousel`, {
@@ -54,7 +56,7 @@ const EditCarousel = () => {
         } finally {
             setSubmitting(false);
         }
-    };
+    }};
     return (
         <div>
             <div className="text-center text-3xl font-bold my-3">Edit Carousel</div>

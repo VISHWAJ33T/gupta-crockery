@@ -32,7 +32,23 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
             {!isDiscounted &&
               <span className="text-xl">₹{price}</span>}
 
-            <label >
+
+            <label>
+              <span>Quantity: </span>
+              <select
+                className="text-center w-[60px] px-2 max-w-full border-4"
+                onChange={handleQtyChange}
+                value={qtyValue}
+                required
+              >
+                {[...Array(stock + 1).keys()].map((num) => (
+                  <option key={num} value={num}>
+                    {num}
+                  </option>
+                ))}
+              </select>
+            </label>
+            {/* <label >
               <span>Quantity: </span>
               <input
                 className="text-center w-[60px] px-2 max-w-full border-4"
@@ -42,7 +58,7 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
                 value={qtyValue}
                 required
               />
-            </label>
+            </label> */}
             {stock <= qtyValue && <span className=" text-red-600">Item is Limited
               {/* You cannot order more than {stock} items at this moment */}
             </span>}

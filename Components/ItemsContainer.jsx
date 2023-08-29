@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 const ItemsContainer = ({
   id,
   title,
@@ -21,21 +21,24 @@ const ItemsContainer = ({
       alert(`${title} is already in the cart.`);
     } else {
       // Item with the same ID doesn't exist, add it to the cart
-      const newCartItem = {
-        id,
-        title,
-        price,
-        isDiscounted,
-        discounted_price,
-        discounted_percent,
-        qtyValue,
-        img_src,
-        stock
-      };
-      const updatedCartItems = [...cartItems, newCartItem];
-      setCartItems(updatedCartItems);
-      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-      alert(`${title} added to cart successfully`);
+      const confirmed = window.confirm(`Are you sure you want to add ${title} to Cart?`);
+      if (confirmed) {
+        const newCartItem = {
+          id,
+          title,
+          price,
+          isDiscounted,
+          discounted_price,
+          discounted_percent,
+          qtyValue,
+          img_src,
+          stock
+        };
+        const updatedCartItems = [...cartItems, newCartItem];
+        setCartItems(updatedCartItems);
+        localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+        alert(`${title} added to cart successfully`);
+      }
     }
   };
   const [scrollTitle, setScrollTitle] = useState(false)
