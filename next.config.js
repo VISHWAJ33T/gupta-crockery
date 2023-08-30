@@ -1,5 +1,13 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+// next.config.js
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+  },
   experimental: {
     appDir: true,
     serverComponentsExternalPackages: ["mongoose"],
@@ -12,5 +20,3 @@ const nextConfig = {
     return config;
   },
 };
-
-module.exports = nextConfig;

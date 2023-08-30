@@ -1,6 +1,10 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+
+import Image from "next/image"; // Import next/image component
+
+
 const ItemsContainer = ({
   id,
   title,
@@ -51,14 +55,24 @@ const ItemsContainer = ({
         </span>
       )}
       <Link href={{ pathname: "/item", query: { id: id } }}>
-        <img
+        <Image
+          className="object-contain min-h-[150px] max-h-[150px] sm:min-h-[200px]"
+          src={main_img || "https://media.istockphoto.com/id/586162072/photo/various-kitchen-utensils.jpg?s=612x612&w=0&k=20&c=auwz9ZHqkG_UlKw5y-8UqvMLznA2PySQ_Jt3ameL1aU="}
+          alt="item image"
+          layout="responsive"
+          width={150}
+          height={150}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,..." // Replace with a valid Data URL
+        />
+        {/* <img
           className="object-contain min-h-[150px] max-h-[150px] sm:min-h-[200px]"
           src={
             main_img ||
             "https://5.imimg.com/data5/BQ/BW/MY-5255112/diwali-crockery-gift-500x500.jpg"
           }
           alt="item image"
-        />
+        /> */}
       </Link>
       <div className="relative h-[30px] w-[100%]">
         {scrollTitle ? <marquee behavior="scroll" scrollamount="8" direction="left" onMouseOver={() => { setScrollTitle(true) }} onMouseOut={() => { setScrollTitle(false) }} className="cursor-default text-center bg-gray-200 px-1 w-[100%] h-[30px] text-lg overflow-y-scroll sm:overflow-hidden">
