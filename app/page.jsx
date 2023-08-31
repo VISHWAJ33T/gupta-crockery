@@ -2,7 +2,7 @@
 import CarouselContainer from "@/Components/Carousel";
 import Categories from "@/Components/Categories";
 import CategoryContainer from "@/Components/CategoryContainer";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 import Loading from "./loading.jsx";
@@ -25,7 +25,7 @@ export default function Home() {
       }
 
       setLoading(false); // Set loading to false after the delay
-    }, 1000); // 10 seconds delay
+    }, 1500); // 1.5 seconds delay
 
   }, []);
 
@@ -52,7 +52,8 @@ export default function Home() {
           <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="silicon" />
           <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="iron" />
           <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="Kansa" />
-        </div></div>
+        </div>
+      </div>
     </>
   );
 }
