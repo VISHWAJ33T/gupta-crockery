@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image"; // Import next/image component
+import Image from "next/legacy/image"; // Import next/image component
 
 const SingleCategory = ({ heading }) => {
   const [allData, setAllData] = useState([]);

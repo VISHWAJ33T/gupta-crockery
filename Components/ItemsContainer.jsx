@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-import Image from "next/image"; // Import next/image component
+import Image from "next/legacy/image"; // Import next/image component
 
 
 const ItemsContainer = ({
