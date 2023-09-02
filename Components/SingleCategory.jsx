@@ -1,13 +1,13 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/legacy/image"; // Import next/image component
+import Image from "next/image"; // Import next/image component
 
 const SingleCategory = ({ heading }) => {
   const [allData, setAllData] = useState([]);
 
   const fallbackImageUrl =
-    "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2016/7/20/1/fnd_kitchen-tools-istock_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1469081149890.jpeg";
+    "https://s3.envato.com/files/407753606/IMG_8092%20%202a.jpg";
 
   const isValidImageUrl = (url) => {
     return url && (url.startsWith("https://") || url.startsWith("data:image"));
@@ -24,7 +24,7 @@ const SingleCategory = ({ heading }) => {
   };
 
   return (
-    <div className={`min-w-[210px] items-start justify-center ${heading}-style py-4 pt-2 px-4 `}>
+    <div className={`min-w-[250px] items-start justify-center ${heading}-style py-4 pt-2 px-4 `}>
       <a href={`#${heading}`} className="text-2xl text-white outline-8 pb-2 w-full block text-center font-bold cursor-pointer">
         {heading}
       </a>

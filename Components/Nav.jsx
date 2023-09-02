@@ -1,10 +1,20 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
-
 const Nav = () => {
+  const router = useRouter();
   const [searchValue, setSearchValue] = useState("");
   const [cartItemsCount, setCartItemsCount] = useState(0);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Use the Link component for navigation
+    router.push(
+      `/allitems?price=&category=&search=${searchValue}`
+    );
+  };
 
   useEffect(() => {
     const cartItems = JSON.parse(window.localStorage.getItem("cartItems"));
@@ -22,9 +32,7 @@ const Nav = () => {
         </Link>
         <li>
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
+            onSubmit={handleSubmit}
             className="flex sm:w-[max-width]"
           >
             <input
