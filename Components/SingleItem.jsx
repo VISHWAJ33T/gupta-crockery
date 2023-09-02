@@ -118,9 +118,7 @@ const SingleItem = () => {
       </div>
       <div className="mx-3 sm:mx-5">
         <h2 className="font-bold text-3xl mt-5">{item.title}</h2>
-        <p className="text-xl">
-          {item.description}
-        </p>
+        <p className="text-xl" dangerouslySetInnerHTML={{ __html: item.description }}/>
         {item.isDiscounted && <div className="flex items-center justify-start mt-5">
           <span className="border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-2 px-4 rounded-full ">
             {item.discounted_percent}% Off
