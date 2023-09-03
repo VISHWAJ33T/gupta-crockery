@@ -33,7 +33,8 @@ const Nav = () => {
         <li>
           <form
             onSubmit={handleSubmit}
-            className="flex sm:w-[max-width]"
+            className="flex w-max"
+          // className="flex sm:w-[max-width]"
           >
             <input
               className="border text-black rounded-l py-2 px-2 w-full md:w-[50vw]"

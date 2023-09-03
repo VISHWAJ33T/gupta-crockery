@@ -13,8 +13,9 @@ const page = () => {
   const [allItems, setAllItems] = useState([]);
   const active_class = "bg-[#131b2e] text-white";
   const unactive_class = "text-[#131b2e] border-[#131b2e]";
-
   const [cartItems, setCartItems] = useState([]);
+  const [itemsNotFound, setItemsNotFound] = useState(false)
+
   useEffect(() => {
     const storedCartItems = localStorage.getItem("cartItems");
     if (storedCartItems) {
@@ -26,8 +27,11 @@ const page = () => {
     setLoading(true)
     fetchItems();
     setTimeout(() => {
-      setLoading(false); // Set loading to false after the delay
-    }, 300);
+      setLoading(false);
+    }, 0);
+    setTimeout(() => {
+      setItemsNotFound(true);
+    }, 6000);
   }, [price, category, search]);
 
   const fetchItems = async () => {
@@ -40,7 +44,8 @@ const page = () => {
 
   return (
     <>{loading && <Loading />}
-      {(allItems === [] || allItems === null || allItems.length === 0 || allItems === undefined) ? <h1 className="text-3xl font-bold text-center my-[20vh]">No items Found</h1> :
+      {(allItems === [] || allItems === null || allItems.length === 0 || allItems === undefined) ?
+        itemsNotFound ? <h1 className="text-3xl font-bold text-center my-[20vh]">No items Found</h1> : <h1 className="text-3xl font-bold text-center my-[20vh]">Please wait while we are searching for items...</h1> :
         <div className={loading ? `hidden` : null}>
           <div className="text-center overflow-x-scroll px-1 pb-3 mx-5 sm:mx-6 md:mx-10 justify-start flex gap-x-2 mt-3">
             <Link
