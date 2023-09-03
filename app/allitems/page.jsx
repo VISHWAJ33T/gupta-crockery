@@ -27,7 +27,7 @@ const page = () => {
     fetchItems();
     setTimeout(() => {
       setLoading(false); // Set loading to false after the delay
-    }, 500); // 0.5 seconds delay
+    }, 300);
   }, [price, category, search]);
 
   const fetchItems = async () => {

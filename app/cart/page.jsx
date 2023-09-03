@@ -8,7 +8,7 @@ const page = () => {
 
     setTimeout(() => {
       setLoading(false); // Set loading to false after the delay
-    }, 500); // 0.5 seconds delay
+    }, 0);
 
   }, []);
   return (

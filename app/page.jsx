@@ -25,7 +25,7 @@ export default function Home() {
       }
 
       setLoading(false); // Set loading to false after the delay
-    }, 1500); // 1.5 seconds delay
+    }, 0);
 
   }, []);
 

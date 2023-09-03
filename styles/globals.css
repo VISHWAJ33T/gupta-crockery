@@ -12,60 +12,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.Wooden-style {
-  background-color: #e1955a;
-  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
-}
-
-.Aluminium-style {
-  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/007/408/021/small/stylish-panoramic-background-silver-steel-metal-texture-vector.jpg");
-}
-
-.Steel-style {
-  background-image: url("https://img.freepik.com/premium-photo/metal-steel-plate-background-texture-horizontal_251763-423.jpg");
-}
-
-.Iron-style {
-  background-color: #a59d92;
-  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-}
-
-.Copper-style {
-  background-color: #ba5e47;
-  background-image: url("https://sketchupstatic.com/public/texture_m/0040-polished-brushed-copper-texture.jpg");
-}
-
-.Brass-style {
-  background-image: url("https://media.istockphoto.com/id/622205818/photo/clean-gold-texture-background-illustration.jpg?s=612x612&w=0&k=20&c=gIaDnkzLemFkcHJV2oSzZTUVjTUFC2DPArkNQuXDaQc=");
-}
-
-.china-style {
-  background-color: darkgoldenrod;
-}
-
-.Melamine-style {
-  background-color: #e9c973;
-  background-image: url("https://img.freepik.com/free-photo/wooden-floor-background_53876-88628.jpg?size=626&ext=jpg");
-}
-
-.Plastic-style {
-  background-color: #3e84be;
-}
-
-.Silicon-style {
-  background-color: pink;
-}
-
-.Kansa-style {
-  background-color: #d1b96e;
-}
-
-.Glass-style {
-  background: rgba(77, 77, 77, 0.34);
-  border: 1px solid rgba(0, 0, 0, 0.3);
-}
-
 * {
   font-family: 'Roboto Condensed', 'Sofia Sans Condensed', sans-serif;
   /* font-family: 'Sofia Sans Condensed', sans-serif; */
@@ -193,3 +139,71 @@ html {
   scrollbar-width: none;
   /* Firefox 64 */
 }
+.category-heading{
+  color:white;
+  font-size:30px;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color:#131b2e ;
+}
+.Steel-style {
+  background-image: url("https://img.freepik.com/premium-photo/metal-steel-plate-background-texture-horizontal_251763-423.jpg");
+  background-size: cover;
+}
+.Copper-style {
+  background-color: #ba5e47;
+  background-image: url("https://sketchupstatic.com/public/texture_m/0040-polished-brushed-copper-texture.jpg");
+  background-size: cover;
+}
+.Plastic-style {
+  background-image: url("https://image.shutterstock.com/mosaic_250/1064771/405020908/stock-photo-close-up-of-blue-plastic-pattern-405020908.jpg");
+  background-size: cover;
+  /* background-color: #3e84be; */
+}
+.Glass-style {
+  background-image: url("https://media.istockphoto.com/id/489659828/photo/frosted-glass-texture.jpg?s=170667a&w=0&k=20&c=YshsYKXVlMiRcTttmX2lbGM9xdm44RSmUGQ__wTBlDE=");
+  background-size: cover;
+  border: 1px solid #96c8c4;
+  /* background: rgba(77, 77, 77, 0.34); */
+  /* border: 1px solid rgba(0, 0, 0, 0.3); */
+}
+.Brass-style {
+  background-image: url("https://media.istockphoto.com/id/622205818/photo/clean-gold-texture-background-illustration.jpg?s=612x612&w=0&k=20&c=gIaDnkzLemFkcHJV2oSzZTUVjTUFC2DPArkNQuXDaQc=");
+  background-size: cover;
+}
+.Wooden-style {
+  background-color: #e1955a;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+  background-size: cover;
+}
+
+.Aluminium-style {
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/007/408/021/small/stylish-panoramic-background-silver-steel-metal-texture-vector.jpg");
+  background-size: cover;
+}
+.china-style {
+  background-image: url("https://image.architonic.com/pfm3-3/20019932/edwardian-accessories-11-amb-cs-11193-fam-gal-b-arcit18.jpg");
+  /* background-size: cover; */
+  /* background-color: darkgoldenrod; */
+}
+.Melamine-style {
+  background-image: url("https://media.istockphoto.com/id/579260138/photo/medium-density-fiberboard-or-wood-grain-texture.jpg?s=612x612&w=0&k=20&c=RwEL9TW5yPobHbYIsWqCwXotI_qx4sj826-L4asbrTQ=");
+  background-size: cover;
+  /* background-color: #e9c973; */
+  /* background-image: url("https://img.freepik.com/free-photo/wooden-floor-background_53876-88628.jpg?size=626&ext=jpg"); */
+}
+.Silicon-style {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRjTCg2lLBPd49n7jb0e2v5Khb4977WnmamTGVHNN67lmvEwNyz2VE0f3PfNKEkB1ld84&usqp=CAU");
+  background-size: cover;
+  /* background-color: pink; */
+}
+.Iron-style {
+  background-color: #585858;
+  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png");
+  background-size: cover;
+}
+.Kansa-style {
+  background-image: url("https://www.missouriquiltco.com/cdn/shop/products/kansas_troubles_favorites_splatter_texture_tan_108_wide_backing_-11167_21-moda_fabrics-kansas_troubles_quilters-4040c4.jpg?v=1654818100&width=256");
+  background-size: cover;
+  /* background-color: #d1b96e; */
+}
+
