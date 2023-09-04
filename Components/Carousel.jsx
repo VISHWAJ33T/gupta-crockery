@@ -83,8 +83,8 @@ const CarouselContainer = () => {
             "--swiper-pagination-color": "#131b2e",
           }}
           slidesPerView={1}
+          centeredSlides={true}
           spaceBetween={0}
-          // initialSlide={2}
           loop={true}
           autoplay={{
             delay: 2500,
