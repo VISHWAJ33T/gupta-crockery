@@ -7,6 +7,9 @@ module.exports = {
         hostname: "**",
       },
     ],
+    // formats: ['image/webp'],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
   },
   experimental: {
     appDir: true,
