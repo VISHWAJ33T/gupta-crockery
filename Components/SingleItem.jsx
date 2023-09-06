@@ -47,27 +47,28 @@ const SingleItem = () => {
       // Item with the same ID doesn't exist, add it to the cart
       const confirmed = window.confirm(`Are you sure you want to add ${title} to Cart?`);
       if (confirmed) {
-      const newCartItem = {
-        id,
-        title,
-        price,
-        isDiscounted,
-        discounted_price,
-        discounted_percent,
-        qtyValue,
-        img_src,
-        stock
-      };
-      const updatedCartItems = [...cartItems, newCartItem];
+        const newCartItem = {
+          id,
+          title,
+          price,
+          isDiscounted,
+          discounted_price,
+          discounted_percent,
+          qtyValue,
+          img_src,
+          stock
+        };
+        const updatedCartItems = [...cartItems, newCartItem];
 
-      setCartItems(updatedCartItems);
-      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-      alert(`${title} added to cart successfully`);
-      }}
+        setCartItems(updatedCartItems);
+        localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+        alert(`${title} added to cart successfully`);
+      }
+    }
   };
   return (
-    <div className="  flex flex-col sm:flex-row mx-3 mt-5 sm:mx-5">
-      <div className=" item min-w-[30vw] sm:max-w-[40vw] md:max-w-[38vw] mx-3 sm:mx-5 mt-5 h-[400px] sm:h-[450px] overflow-auto shadow-md">
+    <div className="flex flex-col sm:flex-row mx-3 mt-5 sm:mx-5">
+      <div className="item min-w-[30vw] sm:max-w-[40vw] md:max-w-[38vw] mx-3 sm:mx-5 mt-5 h-[400px] sm:h-[450px] overflow-auto shadow-md">
         <Swiper
           style={{
             "--swiper-navigation-color": "#131b2e",
@@ -92,10 +93,8 @@ const SingleItem = () => {
         </Swiper>
         <Swiper
           onSwiper={setThumbsSwiper}
-          // loop={true}
           spaceBetween={2}
           navigation={false}
-          // thumbs={{ swiper: thumbsSwiper }}
           slidesPerView={5}
           freeMode={true}
           watchSlidesProgress={true}
@@ -118,7 +117,7 @@ const SingleItem = () => {
       </div>
       <div className="mx-3 sm:mx-5">
         <h2 className="font-bold text-3xl mt-5">{item.title}</h2>
-        <p className="text-xl" dangerouslySetInnerHTML={{ __html: item.description }}/>
+        <p className="text-xl" dangerouslySetInnerHTML={{ __html: item.description }} />
         {item.isDiscounted && <div className="flex items-center justify-start mt-5">
           <span className="border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-2 px-4 rounded-full ">
             {item.discounted_percent}% Off

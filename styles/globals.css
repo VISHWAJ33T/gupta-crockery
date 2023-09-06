@@ -34,7 +34,36 @@ html {
   /* border-right: 0px; */
 }
 
-.swiper-slide {
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body,
+html {
+  scrollbar-width: none;
+  /* Firefox 64 */
+}
+
+.swiper-slide-visible {
+  scrollbar-width: none;
+  /* Firefox 64 */
+}
+
+.item {
+  scrollbar-width: none;
+  /* Firefox 64 */
+}
+
+.item::-webkit-scrollbar {
+  display: none;
+}
+
+.item .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.item .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
@@ -45,16 +74,45 @@ html {
   align-items: center;
 }
 
-.swiper-slide img {
+.item .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.swiper {
+.item .swiper {
   width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item .mySwiper .swiper-slide {
+  width: 25%;
   height: 100%;
+  opacity: 0.4;
+}
+
+.item .mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.item .swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.item .mySwiper2 {
+  height: 78%;
+  width: 100%;
+}
+
+.item .mySwiper {
+  height: 20%;
+  /* width: fit-content; */
+  box-sizing: border-box;
+  padding: 1%;
 }
 
 .item .swiper-slide img {
@@ -64,81 +122,14 @@ html {
   object-fit: contain;
 }
 
-.swiper {
+.item .swiper {
   margin-left: auto;
   margin-right: auto;
-}
-
-.swiper-thumbs {
-  height: fit-content;
-  margin: 10px 5px;
-}
-
-body::-webkit-scrollbar {
-  display: none;
-}
-
-body,
-html {
-  -ms-overflow-style: none;
-  /* IE 11 */
-  scrollbar-width: none;
-  /* Firefox 64 */
 }
 
 .items-container-container {
   scrollbar-color: #000000 #ffffff00;
   scrollbar-width: thin;
-}
-
-.swiper-slide-thumb-active {
-  box-shadow: 0px 5px 0px 0px #131b2e;
-}
-
-.swiper-slide-visible {
-  border: 1px solid rgba(0, 0, 0, 0.352);
-  min-width: 80px;
-  max-width: 80px;
-  min-height: 80px;
-  max-height: 80px;
-  object-fit: contain;
-  overflow: scroll;
-  margin: 5px 2px;
-  margin-top: 0px;
-}
-
-.swiper-slide-visible img {
-  object-fit: contain;
-}
-
-.swiper-slide-visible::-webkit-scrollbar {
-  display: none;
-}
-
-.swiper-slide-visible {
-  -ms-overflow-style: none;
-  /* IE 11 */
-  scrollbar-width: none;
-  /* Firefox 64 */
-}
-
-.item {
-  overflow: hidden;
-}
-
-.swiper-thumbs {
-  height: 85px;
-}
-
-.item::-webkit-scrollbar {
-  display: none;
-}
-
-.item {
-  -ms-overflow-style: none;
-  /* IE 11 */
-  scrollbar-width: none;
-  /* Firefox 64 */
 }
 
 .category-heading {
