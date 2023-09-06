@@ -17,7 +17,7 @@ const SingleCategory = ({ heading }) => {
   }, []);
 
   const fetchItems = async () => {
-    const response = await fetch(`/api/landingPage/categoryImgs/${heading}`);
+    const response = await fetch(`/api/landingPage/categoryImgs/${heading}`, { cache: 'force-cache' });
     const data = await response.json();
     setAllData(data);
   };

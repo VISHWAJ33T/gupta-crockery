@@ -257,7 +257,7 @@ const page = () => {
               Others
             </Link>
           </div>
-          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-3 mt-3 mx-5 sm:mx-6 md:mx-10 place-items-center">
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-y-3 mt-3 mx-2 sm:mx-6 md:mx-8 place-items-center">
             {allItems.map((item) => (
               <ItemsContainer
                 key={item._id}

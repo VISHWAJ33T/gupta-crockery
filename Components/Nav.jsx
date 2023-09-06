@@ -9,8 +9,6 @@ const Nav = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Use the Link component for navigation
     router.push(
       `/allitems?price=&category=&search=${searchValue}`
     );
@@ -24,17 +22,18 @@ const Nav = () => {
   return (
     <div className="nav bg-[#131b2e] sticky top-0 z-[100] py-2 px-4 sm:px-0 text-white w-full">
       <ul className="flex items-center justify-between">
-        <Link href="/" className="flex space-x-1 md:ml-4 items-center mr-3 ">
-          <img src="/static/Logo.png" alt="LOGO" className="w-12" />
-          <h3 className="font-bold text-xl sm:text-3xl whitespace-nowrap hidden sm:block">
-            Gupta Crockery
-          </h3>
-        </Link>
+        <li className="shrink-0">
+          <Link href="/" className="flex space-x-1 md:ml-4 items-center mr-3 ">
+            <img src="/static/Logo.png" alt="LOGO" className="w-12 h-12" />
+            <h3 className="font-bold text-xl sm:text-3xl whitespace-nowrap hidden sm:block">
+              Gupta Crockery
+            </h3>
+          </Link>
+        </li>
         <li>
           <form
             onSubmit={handleSubmit}
             className="flex w-max"
-          // className="flex sm:w-[max-width]"
           >
             <input
               className="border text-black rounded-l py-2 px-2 w-full md:w-[50vw]"
@@ -50,17 +49,17 @@ const Nav = () => {
                 pathname: "/allitems",
                 query: { price: "", category: "", search: searchValue },
               }}
-              className="flex items-center justify-center rounded-r px-1 bg-[white] border border-l-1 hover:border-[3px] hover:border-[#fff]"
+              className="flex items-center justify-center rounded-r px-1 bg-[white] border border-l-1"
             >
               <img
                 src="/static/icons/search-icon.png"
                 alt="Search Icon"
-                className="w-5 rounded"
+                className="w-5 h-5 rounded hover:scale-105 transition ease-in-out duration-300 active:scale-[120%]"
               />
             </Link>
           </form>
         </li>
-        <li className="flex gap-1 ml-3 mr-2 sm:mr-3 md:mr-6">
+        <li className="flex shrink-0 gap-1 ml-3 mr-2 sm:mr-3 md:mr-6">
           <Link href="cart" className="flex items-end gap-0 justify-center ">
             <img
               src="/static/icons/shopping-cart.png"
