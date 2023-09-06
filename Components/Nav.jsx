@@ -54,7 +54,7 @@ const Nav = () => {
               <img
                 src="/static/icons/search-icon.png"
                 alt="Search Icon"
-                className="w-5 h-5 rounded hover:scale-105 transition ease-in-out duration-300 active:scale-[120%]"
+                className="min-w-5 min-h-5 max-w-5 max-h-5 rounded hover:scale-105 transition ease-in-out duration-300 active:scale-[120%]"
               />
             </Link>
           </form>
