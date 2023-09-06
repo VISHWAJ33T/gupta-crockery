@@ -12,6 +12,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
+        {/* <!-- link manifest.json --> */}
+        <link rel="manifest" href="/manifest.json" />
+        {/* <!-- this sets the color of url bar  --> */}
+        <meta name="theme-color" content="#131b2e" />
       </head>
       <body>
         <Nav />
