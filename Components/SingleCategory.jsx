@@ -1,5 +1,5 @@
 "use client"
-import Image from "next/image"; // Import next/image component
+import Image from "next/legacy/image"; // Import next/image component
 import Link from "next/link";
 import { useEffect, useState } from "react";
 

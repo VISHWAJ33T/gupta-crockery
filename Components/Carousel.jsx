@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 // Import Swiper React components
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -50,7 +50,7 @@ const CarouselContainer = () => {
             key="temp image"
             src="https://images.unsplash.com/photo-1559683576-7d4e845a0074?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=MnwxfDB8MXxyYW5kb218MHw0ODUwODQ4fHx8fHx8fDE2OTM3NTE3OTI&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=720"
             alt="carousel image"
-            layout="responsive"
+            layout="fixed"
             width={720}
             height={400}
             placeholder="blur"
@@ -102,9 +102,9 @@ const CarouselContainer = () => {
             key="temp image"
             src="https://images.unsplash.com/photo-1496412705862-e0088f16f791?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=345&ixid=MnwxfDB8MXxyYW5kb218MHw4OTMxMTQyfHx8fHx8fDE2OTM3NTA3Mzc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1440"
             alt="carousel image"
-            layout="responsive"
-            width={720}
-            height={400}
+            layout="fixed"
+            width={1440}
+            height={345}
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgICA0IBwgHBwcIBw0HBwcHBw8ICQcNFREWFhURExMYHSggGBoxGxMTITEhMSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDg0NDisZFRkrNy0tNystLSs3LSsrKysrLSsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBHAMBIgACEQEDEQH/xAAZAAADAQEBAAAAAAAAAAAAAAAAAQIDBAf/xAAYEAEBAQEBAAAAAAAAAAAAAAAAARECEv/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgQD/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEB/9oADAMBAAIRAxEAPwDxoA3S8iMGKRmMELDMAWDDPAIYrBgJw8Vh4CMPFYeAjBi8GAzwsaYVgMxi7E4CSUVgJJRAkGQpEZACMgAAAABRsYNAjBgMGGeIEeHh4CcPDw8ELBisORRMh4qQ5ATh4vDwEeRjTBgMsKxribAZWJsbWIsBlYWNLE2AjE2LsIEYSqmgRHSFIAAQMgAAB0AwAMHEBDBgDBgShDioJDkORUApFSCKkEKQ5FSHIJU4MXh4FZYVjWxNgtZWJsa2JsBjYmxrYmwVjYmxpYmwGdTVpoJpHSAiMCkAAAAB0GAgZkcAzhGBgHACoUVFQ4qJi4IcipBFRUEisEipCIWDF4PKiMTY0xNiDOxFjWxFRWViK1rPoVnUVpUUVnU1dTQRSqqmgRGQoAAAAA6DEERTOFDEOGRgDBxUOGRwRUXExcVFRchcxpzFQ5Fzk+eWk5EZ+R5beSvIMLEWN+oy6grKo6adM6gz6RV1FRrGdRWlRRWdTV1AJqaqpoERkKAAAAAOkyNkCiNQwABw4RxUNUSqDKuWnKIvlUactuIy5bcKNeY15iOG3IheSsaYXQrn6jHuOjth2DDpn006ZdAjpnV9IqKmoqqio0moqqmgmpqqmikQAAgAAAB1GRsqZpNUM4RgZwjioaolUVlcXyzi4I15b8Vz81rzVHVxWvNc3HTXnpBvqeqj0V6Au6w7q++mPdUZ9Mul9Vn0COmdX0ioqazq+kVGk1FVUUCqadTRQQoAEZAAADrMhGVOHCNUMAKhmRwFHEmJq4qVnKqVUa81pzWEq5VR0c9Nee3LKudA6fZXth6F6QX10y6ovSLVC6rPqqtRagmoqqijWJ6RVVFRU1FVUUCpGQpAAUgYAgZA6wWmyGCNUOGQVDNJgoEYh6cqTVFyqlZyqlBrKqdMpTlEa+h6Z6NBVqbStTaB2ptGp0UVFVaio0moq6igmoqqmikRkKQMAAAgCMA6ARiGCMDNJgYI1QwQBRpPRD1UqDUi5T1GjRGmlqNGgvU6WlosPRanS1FO0rRpUCqKdTQTUnSFIjIUGRoAAACMgbggIZkAMaRiGaTlUM0mBgjA9GkWgvRqNGiL0tTpaC9LU6Wiq0anRoK0rU6NAVNO1NFKkKVFIAgMAANACABBRuABkHABQAEQQwFDMAAAAAAAEAICAFIAAQAACkACaYFSVAFIgAAAAAAAAAf/2Q=="
           /> : (
