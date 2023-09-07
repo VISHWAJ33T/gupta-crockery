@@ -4,18 +4,18 @@
   "icons": [
     {
       "src": "Logo.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "sizes": "64x64",
+      "type": "image/png"
     },
     {
       "src": "Logo.png",
-      "type": "image/x-icon",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
       "src": "Logo.png",
-      "type": "image/x-icon",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "start_url": "/",
@@ -31,18 +31,18 @@
       "icons": [
         {
           "src": "Logo.png",
-          "sizes": "64x64 32x32 24x24 16x16",
-          "type": "image/x-icon"
+          "sizes": "64x64",
+          "type": "image/png"
         },
         {
           "src": "Logo.png",
-          "type": "image/x-icon",
-          "sizes": "192x192"
+          "sizes": "192x192",
+          "type": "image/png"
         },
         {
           "src": "Logo.png",
-          "type": "image/x-icon",
-          "sizes": "512x512"
+          "sizes": "512x512",
+          "type": "image/png"
         }
       ]
     }
