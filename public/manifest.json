@@ -1,6 +1,8 @@
 {
   "short_name": "Gupta Crockery",
+  "description": "Introducing 'Gupta Crockery' - Where Quality Meets Savings! Explore stunning crockery that's kind to your wallet. Find beauty and trust in every piece, carefully selected to bring elegance to your table without the hefty price tag. Enjoy luxury for less at Gupta Crockery!",
   "name": "Gupta Crockery",
+  "orientation": "any",
   "icons": [
     {
       "src": "Logo.png",
@@ -45,6 +47,28 @@
           "type": "image/png"
         }
       ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "public/Home/1280x800-screenshot.png",
+      "sizes": "1280x800",
+      "type": "image/png"
+    },
+    {
+      "src": "public/Home/750x1334-screenshot.png",
+      "sizes": "750x1334",
+      "type": "image/png"
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "mailto",
+      "url": "/handle_mailto"
+    },
+    {
+      "protocol": "tel",
+      "url": "/handle_tel"
     }
   ]
 }
