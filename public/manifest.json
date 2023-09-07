@@ -18,8 +18,33 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#131b2e",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "shortcuts": [
+    {
+      "name": "Admin Dashboard",
+      "short_name": "Admin",
+      "description": "Shortcut to the Admin Dashboard",
+      "url": "/Admin729",
+      "icons": [
+        {
+          "src": "Logo.png",
+          "sizes": "64x64 32x32 24x24 16x16",
+          "type": "image/x-icon"
+        },
+        {
+          "src": "Logo.png",
+          "type": "image/x-icon",
+          "sizes": "192x192"
+        },
+        {
+          "src": "Logo.png",
+          "type": "image/x-icon",
+          "sizes": "512x512"
+        }
+      ]
+    }
+  ]
 }
