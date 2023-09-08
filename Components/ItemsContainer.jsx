@@ -21,11 +21,11 @@ const ItemsContainer = ({
     const existingCartItem = cartItems.find(item => item.id === id);
 
     if (existingCartItem) {
-      // Item with the same ID already exists in the cart
-      alert(`${title} is already in the cart.`);
+      // Item with the same ID already exists in the Bag
+      alert(`${title} is already in the Bag.`);
     } else {
-      // Item with the same ID doesn't exist, add it to the cart
-      const confirmed = window.confirm(`Are you sure you want to add ${title} to Cart?`);
+      // Item with the same ID doesn't exist, add it to the Bag
+      const confirmed = window.confirm(`Are you sure you want to add ${title} to Bag?`);
       if (confirmed) {
         const newCartItem = {
           id,
@@ -41,7 +41,7 @@ const ItemsContainer = ({
         const updatedCartItems = [...cartItems, newCartItem];
         setCartItems(updatedCartItems);
         localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-        alert(`${title} added to cart successfully`);
+        alert(`${title} added to Bag successfully`);
       }
     }
   };

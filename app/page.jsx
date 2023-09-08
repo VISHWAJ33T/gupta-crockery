@@ -41,17 +41,17 @@ export default function Home() {
 
         <div className="lg:relative z-50 lg:top-[0] flex flex-col gap-y-6">
           <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="steel" />
-          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="copper" />
           <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="plastic" />
-          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="glass" />
-          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="wooden" />
-          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="brass" />
           <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="aluminium" />
-          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="bone china" />
-          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="melamine" />
-          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="silicon" />
+          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="glass" />
+          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="brass" />
           <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="iron" />
+          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="copper" />
+          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="bone china" />
           <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="Kansa" />
+          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="melamine" />
+          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="wooden" />
+          <CategoryContainer cartItems={cartItems} setCartItems={setCartItems} category="silicon" />
         </div>
       </div>
     </>

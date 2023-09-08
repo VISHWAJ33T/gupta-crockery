@@ -29,12 +29,12 @@ const CartItems = () => {
   };
 
   const deleteItem = (itemId) => {
-    const confirmed = window.confirm("Are you sure you want to delete this item from the cart?");
+    const confirmed = window.confirm("Are you sure you want to delete this item from the bag?");
 
     if (confirmed) {
       const updatedItems = items.filter((item) => item.id !== itemId);
       setItems(updatedItems);
-      alert("Item deleted from cart successfully");
+      alert("Item deleted from bag successfully");
       // window.location.reload();
     }
   };
@@ -47,7 +47,7 @@ const CartItems = () => {
   return (
     <div className="mx-2 sm:mx-0">
       <h2 className="text-center text-3xl font-bold w-full my-8">
-        Shopping Cart
+        Shopping Bag
       </h2>
       {items.length > 0 ? (
         <>
@@ -91,9 +91,12 @@ const CartItems = () => {
           </div>
         </>
       ) : (
-        <p className="text-center text-3xl font-semibold my-[100px] sm:my-[200px]">
-          Your shopping cart is empty
-        </p>
+        <div className="flex flex-col justify-center items-center">
+          <img className="h-80" src="https://cdn.dribbble.com/users/1097272/screenshots/10671922/empty_shoppin_bag.png" alt="empty shopping Bag" />
+          <p className="text-center text-3xl">
+            Your Shopping Bag is Empty
+          </p>
+        </div>
       )}
     </div>
   );

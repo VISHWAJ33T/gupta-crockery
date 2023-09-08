@@ -63,7 +63,7 @@ const Nav = () => {
           <Link href="cart" className="flex items-end gap-0 justify-center ">
             <img
               src="/static/icons/shopping-bag.png"
-              alt="Cart"
+              alt="Bag"
               className="w-[30px] h-[30px] md:ml-8 md:mr-1 rounded invert"
             />
           </Link>

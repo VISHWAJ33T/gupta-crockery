@@ -94,14 +94,18 @@ const Page = () => {
     ));
   };
 
-  const categoryButtons = ["All", "Steel", "Copper", "Plastic", "Glass", "Brass", "Wooden", "Aluminium", "Bone China", "Melamine", "Silicon", "Iron", "Kansa", "Others"];
+  const categoryButtons = ["All", "Steel", "Plastic", "Aluminium", "Glass", "Brass", "Iron", "Copper", "Bone China", "Kansa", "Melamine", "Wooden", "Silicon", "Others"];
 
   return (
     <>
       {loading && <Loading />}
       {!loading ? (
         itemsNotFound ? (
-          <h1 className="text-3xl font-bold text-center my-[30vh]">No items Found</h1>
+          <div className="flex flex-col gap-y-3 justify-center items-center py-12">
+
+            <img className="text-3xl font-bold text-center h-80" src="https://cdni.iconscout.com/illustration/premium/thumb/sorry-item-not-found-3328225-2809510.png" alt="no items found" />
+            <h1 className="text-3xl font-bold text-center">No items Found</h1>
+          </div>
         ) : (
           <div>
             <div className="text-center overflow-x-scroll px-1 pb-3 mx-5 sm:mx-6 md:mx-10 flex gap-x-2 mt-3">
