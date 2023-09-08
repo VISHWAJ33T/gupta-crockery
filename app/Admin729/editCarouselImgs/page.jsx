@@ -36,30 +36,31 @@ const EditCarousel = () => {
         e.preventDefault();
         const confirmed = window.confirm(`Are you sure you want to Update Carousel Images?`);
         if (confirmed) {
-        setSubmitting(true);
-        try {
-            const response = await fetch(`${URL}/api/landingPage/carousel`, {
-                method: "PATCH",
-                body: JSON.stringify({
-                    deviceType0: post[0].deviceType,
-                    imgs0: post[0].imgs,
-                    deviceType1: post[1].deviceType,
-                    imgs1: post[1].imgs,
+            setSubmitting(true);
+            try {
+                const response = await fetch(`${URL}/api/landingPage/carousel`, {
+                    method: "PATCH",
+                    body: JSON.stringify({
+                        deviceType0: post[0].deviceType,
+                        imgs0: post[0].imgs,
+                        deviceType1: post[1].deviceType,
+                        imgs1: post[1].imgs,
+                    }
+                    ),
+                });
+                if (response.ok) {
+                    alert("Carousel Updated Successfully")
                 }
-                ),
-            });
-            if (response.ok) {
-                alert("Carousel Updated Successfully")
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setSubmitting(false);
             }
-        } catch (error) {
-            console.log(error);
-        } finally {
-            setSubmitting(false);
         }
-    }};
+    };
     return (
         <div>
-            <div className="text-center text-3xl font-bold my-3">Edit Carousel</div>
+            <div className="text-center text-3xl font-bold my-3">Edit Homepage Carousel</div>
             <FormCarousel
                 type="Edit Carousel"
                 post={post}

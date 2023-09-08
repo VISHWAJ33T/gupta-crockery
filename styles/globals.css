@@ -292,3 +292,96 @@ html {
   text-wrap: nowrap;
   /* overflow: hidden; */
 }
+
+/* *********************** Discount Button *********************** */
+.discount-btn {
+  transition: all 0.3s ease-in-out;
+  font-family: "Dosis", sans-serif;
+}
+
+.discount-btn {
+  /* width: 150px; */
+  /* height: 60px; */
+  padding: 4px 10px;
+  border-radius: 50px;
+  background-image: linear-gradient(135deg, #e82b2b 0%, #ec3131 100%);
+  outline: none;
+  cursor: default;
+  border: none;
+  text-align: center;
+  font-size: 15px;
+  color: white;
+}
+
+.discount-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 10px -3px #ea241980;
+}
+
+.discount-btn:active {
+  opacity: 0.5;
+}
+
+
+/* *********************** Add to cart Button *********************** */
+.atbbutton {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #223154;
+  background-color: #223154;
+  border-radius: 24px;
+}
+
+.atbbutton,
+.button__icon,
+.button__text {
+  transition: all 0.3s;
+}
+
+.atbbutton .button__text {
+  transform: translateX(30px);
+  color: #fff;
+  font-weight: 600;
+}
+
+.atbbutton .button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #223154;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+}
+
+.atbbutton .svg {
+  width: 30px;
+  stroke: #fff;
+}
+
+.atbbutton:hover {
+  background: #223154;
+}
+
+.atbbutton:hover .button__text {
+  color: transparent;
+}
+
+.atbbutton:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.atbbutton:active .button__icon {
+  background-color: #131b2e;
+}
+
+.atbbutton:active {
+  border: 1px solid #223154;
+}

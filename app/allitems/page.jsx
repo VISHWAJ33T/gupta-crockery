@@ -101,7 +101,7 @@ const Page = () => {
       {loading && <Loading />}
       {!loading ? (
         itemsNotFound ? (
-          <h1 className="text-3xl font-bold text-center my-[20vh]">No items Found</h1>
+          <h1 className="text-3xl font-bold text-center my-[30vh]">No items Found</h1>
         ) : (
           <div>
             <div className="text-center overflow-x-scroll px-1 pb-3 mx-5 sm:mx-6 md:mx-10 flex gap-x-2 mt-3">

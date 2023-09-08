@@ -77,7 +77,7 @@ const SingleItem = () => {
           loop={true}
           spaceBetween={10}
           navigation={true}
-          thumbs={{ swiper: thumbsSwiper }}
+          thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
           modules={[FreeMode, Navigation, Thumbs]}
           className="mySwiper2 max-h-[300px] sm:max-h-[350px]"
         >
@@ -118,38 +118,38 @@ const SingleItem = () => {
       <div className="mx-3 sm:mx-5">
         <h2 className="font-bold text-3xl mt-5">{item.title}</h2>
         <p className="text-xl" dangerouslySetInnerHTML={{ __html: item.description }} />
-        {item.isDiscounted && <div className="flex items-center justify-start mt-5">
-          <span className="border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-2 px-4 rounded-full ">
+        <div className="flex gap-x-2 items-center justify-start my-5">
+          {item.isDiscounted && <span className="discount-btn">
+            {/* <span className="border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-2 px-4 rounded-full "> */}
             {item.discounted_percent}% Off
-          </span>
-        </div>}
-        <div className="flex items-center gap-x-4 mt-3 mx-1 text-lg">
-          <div className="flex justify-center items-center gap-x-2">
+          </span>}
+          <div className="flex items-center gap-x-2">
             {item.isDiscounted ? <><span className="text-xl">₹{item.discounted_price}</span>
               <span className="text-xs line-through">₹{item.price}</span></> : <span className="text-xl">₹{item.price}</span>}
-
           </div>
-          {item.stock !== 0 ? <span className="hover:text-[#131b2e] hover:bg-white border whitespace-nowrap hover:border-[#232f3e] bg-[#232f3e] text-white cursor-pointer  font-bold py-2 px-4 rounded-lg ">
-            <button
-              onClick={() => {
-                addToCart(
-                  item._id,
-                  item.title,
-                  item.price,
-                  item.isDiscounted,
-                  item.discounted_price,
-                  item.discounted_percent,
-                  1,
-                  item.main_img,
-                  item.stock
-                );
-              }}
-            >
-              Add to cart
-            </button>
-          </span> : <span className="text-sm text-[crimson]">This Item is out of Stock</span>}
-
         </div>
+
+        {item.stock !== 0 ?
+          <button
+            className="atbbutton"
+            onClick={() => {
+              addToCart(
+                item._id,
+                item.title,
+                item.price,
+                item.isDiscounted,
+                item.discounted_price,
+                item.discounted_percent,
+                1,
+                item.main_img,
+                item.stock
+              );
+            }}
+          >
+            <span class="button__text">Add to Bag</span>
+            <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
+          </button> : <span className="text-sm text-[crimson]">This Item is out of Stock</span>}
+
       </div>
     </div>
   );

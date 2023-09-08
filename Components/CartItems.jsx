@@ -91,8 +91,8 @@ const CartItems = () => {
           </div>
         </>
       ) : (
-        <p className="text-center text-2xl mt-10 mb-20">
-          Your shopping cart is empty.
+        <p className="text-center text-3xl font-semibold my-[100px] sm:my-[200px]">
+          Your shopping cart is empty
         </p>
       )}
     </div>

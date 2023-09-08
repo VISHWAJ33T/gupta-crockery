@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#131b2e" />
       </head>
-      <body>
+      <body className="relative">
         <Nav />
         {children}
         <Footer />

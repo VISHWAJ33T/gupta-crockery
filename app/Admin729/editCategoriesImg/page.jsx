@@ -68,7 +68,7 @@ const EditCategoryImg = () => {
     }};
     return (
         <div>
-            <div className="text-center text-3xl font-bold my-3">Edit Category Img</div>
+            <div className="text-center text-3xl font-bold my-3">Edit Homepage Categories</div>
             <label className="text-center justify-center text-xl flex gap-3">
                 <span className="w-[100px] text-gray-700 py-1 my-2">Type</span>
                 <select
