@@ -16,7 +16,6 @@ export default function RootLayout({ children }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Ecommerce App" />
-        <meta name="description" content='Introducing "Gupta Crockery" - Where Quality Meets Savings! Explore stunning crockery thats kind to your wallet. Find beauty and trust in every piece, carefully selected to bring elegance to your table without the hefty price tag. Enjoy luxury for less at Gupta Crockery!' />
         <meta name="format-detection" content="+91-9463916728" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-config" content="none" />

@@ -29,7 +29,7 @@ const CategoryContainer = ({ cartItems, setCartItems, category }) => {
         <Link
           href={{
             pathname: "/allitems",
-            query: { price: "", category: category, search: "" },
+            query: {category: category, search: "" },
           }}
           className="text-2xl font-bold text-black cursor-pointer w-fit relative left-1 sm:left-2 top-2"
         >

@@ -31,7 +31,7 @@ const SingleCategory = ({ heading }) => {
         <Link
           href={{
             pathname: "/allitems",
-            query: { price: "", category: "", search: allData.nametl },
+            query: { category: "", search: allData.nametl },
           }}
           className="text-center flex items-center justify-center"
         >
@@ -58,7 +58,7 @@ const SingleCategory = ({ heading }) => {
         <Link
           href={{
             pathname: "/allitems",
-            query: { price: "", category: "", search: allData.nametr },
+            query: { category: "", search: allData.nametr },
           }}
           className="text-center flex items-center justify-center"
         >
@@ -85,7 +85,7 @@ const SingleCategory = ({ heading }) => {
         <Link
           href={{
             pathname: "/allitems",
-            query: { price: "", category: "", search: allData.namebl },
+            query: { category: "", search: allData.namebl },
           }}
           className="text-center flex items-center justify-center"
         >
@@ -112,7 +112,7 @@ const SingleCategory = ({ heading }) => {
         <Link
           href={{
             pathname: "/allitems",
-            query: { price: "", category: "", search: allData.namebr },
+            query: { category: "", search: allData.namebr },
           }}
           className="text-center flex items-center justify-center"
         >

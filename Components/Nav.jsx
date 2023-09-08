@@ -10,7 +10,7 @@ const Nav = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     router.push(
-      `/allitems?price=&category=&search=${searchValue}`
+      `/allitems?&category=&search=${searchValue}`
     );
   };
 
@@ -47,7 +47,7 @@ const Nav = () => {
             <Link
               href={{
                 pathname: "/allitems",
-                query: { price: "", category: "", search: searchValue },
+                query: {category: "", search: searchValue },
               }}
               className="flex items-center justify-center rounded-r px-1 bg-[white] border border-l-1"
             >
@@ -62,7 +62,7 @@ const Nav = () => {
         <li className="flex shrink-0 gap-1 ml-3 mr-2 sm:mr-3 md:mr-6">
           <Link href="cart" className="flex items-end gap-0 justify-center ">
             <img
-              src="/static/icons/shopping-cart.png"
+              src="/static/icons/shopping-bag.png"
               alt="Cart"
               className="w-[30px] h-[30px] md:ml-8 md:mr-1 rounded invert"
             />
