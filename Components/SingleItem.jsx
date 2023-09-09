@@ -120,7 +120,6 @@ const SingleItem = () => {
         <p className="text-xl" dangerouslySetInnerHTML={{ __html: item.description }} />
         <div className="flex gap-x-2 items-center justify-start my-5">
           {item.isDiscounted && <span className="discount-btn">
-            {/* <span className="border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-2 px-4 rounded-full "> */}
             {item.discounted_percent}% Off
           </span>}
           <div className="flex items-center gap-x-2">

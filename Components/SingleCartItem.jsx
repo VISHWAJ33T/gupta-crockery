@@ -25,8 +25,10 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
         </div>
         <div className="mx-1">
           <Link href={{ pathname: "/item", query: { id: id } }} className="lg:text-2xl md:text-xl sm:text-lg text-md font-bold">{title}</Link>
-          <div className="flex flex-col gap-y-2">
-            {isDiscounted && <><span className="border whitespace-nowrap bg-[crimson] cursor-default text-white font-bold py-[2px] px-3 mt-1 rounded-full w-fit">{discounted_percent}% Off</span>
+          <div className="flex flex-col mt-2 gap-y-2">
+            {isDiscounted && <><span className="discount-btn w-fit">
+              {discounted_percent}% Off
+            </span>
               <div className="flex items-center gap-x-2"><span className="text-xl">₹{discounted_price}</span><span className="text-xs line-through">₹{price}</span></div>
             </>}
             {!isDiscounted &&
@@ -34,7 +36,7 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
             <label className="text-xl">
               <span>Quantity: </span>
               <select
-                className="text-center w-[60px] px-2 max-w-full border-4"
+                className="text-center w-[60px] px-2 max-w-full bg-[#e9e9ed]"
                 onChange={handleQtyChange}
                 value={qtyValue}
                 required
@@ -60,12 +62,11 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
           {/* <span>Delete </span> */}
           <button
             onClick={handleDelete}
-          >
-            <img
-              className=" w-6 sm:w-8 md:w-10"
-              src="https://cdn-icons-png.flaticon.com/512/3687/3687412.png"
-              alt="Delete item"
-            />
+
+            className="delete-button">
+            <svg className="delete-svgIcon" viewBox="0 0 448 512">
+              <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
+            </svg>
           </button>
         </div>
       </div>

@@ -1,24 +1,33 @@
 "use client";
-// CartItems.js
 import { useEffect, useState } from "react";
 import SingleCartItem from "./SingleCartItem";
 
 const CartItems = () => {
   const initialItems = [];
+  // const initialItems = [{ "id": "64e8800ad66cb3f799dd3bcb", "title": "Milton Duo DLX 1000 Thermosteel", "price": 1450, "isDiscounted": true, "discounted_price": 1090, "discounted_percent": 25, "qtyValue": 1, "img_src": "https://m.media-amazon.com/images/I/61c-GtJ+0eL._SL1500_.jpg", "stock": 3 }, { "id": "64e88778e3eb898e6a25fed4", "title": "PrimeWorld Aqua Old Fashioned", "price": 899, "isDiscounted": true, "discounted_price": 359, "discounted_percent": 60, "qtyValue": 1, "img_src": "https://m.media-amazon.com/images/I/61vzrTp85HS._SX679_.jpg", "stock": 5 }];
 
   const [items, setItems] = useState([]);
 
+  const [mounted, setMounted] = useState(false);
+
+
   // Load items from local storage when the component mounts
   useEffect(() => {
-    const storedItems =
-      JSON.parse(localStorage.getItem("cartItems")) || initialItems;
+    // const storedItems = initialItems;
+    const storedItems = JSON.parse(localStorage.getItem("cartItems")) || initialItems;
     setItems(storedItems);
   }, []);
 
   // Update local storage when items change
   useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(items));
+    if (mounted) { // Check if the component has mounted
+      localStorage.setItem("cartItems", JSON.stringify(items));
+    } else {
+      // Component is mounting, set mounted to true
+      setMounted(true);
+    }
   }, [items]);
+
 
   const updateQtyValue = (itemId, newQtyValue) => {
     const updatedItems = items.map((item) =>
