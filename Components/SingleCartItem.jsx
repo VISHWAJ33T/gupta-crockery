@@ -17,7 +17,7 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
 
   return (
     <>
-      <div className="flex gap-x-3 border-t border-b py-3 shadow-md">
+      <div draggable="true" className="flex gap-x-3 border-t border-b py-3 shadow-md">
         <div className="mx-1">
           <img className="lg:w-[300px] md:w-[200px] w-[100px] lg:h-[300px] md:h-[200px] h-[100px] object-contain border mx-3 sm:mx-10 shadow-lg"
             src={img_src || "https://s3.envato.com/files/407753606/IMG_8092%20%202a.jpg"}

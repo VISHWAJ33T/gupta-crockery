@@ -23,7 +23,7 @@ const SingleCategory = ({ heading }) => {
   };
 
   return (
-    <div className={`min-w-[250px] items-start justify-center ${heading}-style py-4 pt-2 px-4 `}>
+    <div draggable="true" className={`min-w-[250px] items-start justify-center ${heading}-style py-4 pt-2 px-4 `}>
       <a href={`#${heading}`} className="category-heading text-2xl shadow-2xl text-[#ffffff] outline-8 pb-2 w-full block text-center font-bold cursor-pointer">
         {heading}
       </a>

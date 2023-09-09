@@ -33,6 +33,7 @@ const Page = () => {
   }, [category, search, sortOrder]); // Add sortOrder to dependencies
 
   const fetchItems = async () => {
+    setItemsNotFound(false)
     const response = await fetch(
       `/api/item?&category=${category}&search=${search}`
     );

@@ -49,9 +49,9 @@ const ItemsContainer = ({
   return (
     <>
       {/*********************************************** Mobile***********************************************/}
-      <div className="sm:hidden border flex bg-white  flex-col justify-center items-center min-w-[160px] max-w-[160px] overflow-hidden shadow-xl">
+      <div draggable="true" className="sm:hidden border flex bg-white  flex-col justify-center items-center min-w-[160px] max-w-[160px] overflow-hidden shadow-xl">
         {isDiscounted && (
-          <span className="flex px-3 w-full justify-center z-50 text-white text-md font-bold relative left-0 h-0">
+          <span className="cursor-default flex px-3 w-full justify-center z-50 text-white text-md font-bold relative left-0 h-0">
             <span className="min-w-[40px] w-[38%] bg-red-600 absolute left-0 text-center">{discounted_percent}% Off</span>
           </span>
         )}
@@ -114,9 +114,9 @@ const ItemsContainer = ({
 
 
       {/*********************************************** Desktop ***********************************************/}
-      <div className="hidden sm:flex border bg-white flex-col justify-center items-center min-w-[230px] max-w-[230px] overflow-hidden shadow-xl">
+      <div draggable="true" className="hidden sm:flex border bg-white flex-col justify-center items-center min-w-[230px] max-w-[230px] overflow-hidden shadow-xl">
         {isDiscounted && (
-          <span className="flex px-3 w-full justify-center z-50 text-white text-md font-bold relative left-0 h-0">
+          <span className="cursor-default flex px-3 w-full justify-center z-50 text-white text-md font-bold relative left-0 h-0">
             <span className="min-w-[40px] w-[38%] bg-red-600 absolute left-0 text-center">{discounted_percent}% Off</span>
           </span>
         )}
