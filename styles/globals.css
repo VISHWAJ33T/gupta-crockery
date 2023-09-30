@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
@@ -13,10 +13,175 @@ html {
 }
 
 * {
-  font-family: 'Roboto Condensed', 'Sofia Sans Condensed', sans-serif;
+  font-family: "Roboto Condensed", "Sofia Sans Condensed", sans-serif;
   /* font-family: 'Sofia Sans Condensed', sans-serif; */
 }
+/* hamburger css starts here */
 
+.menuButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 13%;
+  color: #090909;
+  width: 30px;
+  height: 30px;
+  border-radius: 0.5em;
+  margin: 0px 0px 0 10px;
+  transition: all 0.3s;
+}
+
+.menuButton:hover {
+  /* border: 1px solid black; */
+  cursor: pointer;
+}
+
+.menuButton:active {
+  color: #666;
+  /* box-shadow: 6px 6px 12px #3a3a3a,
+             -6px -6px 12px #000000; */
+}
+
+.menuButton input[type="checkbox"] {
+  display: none;
+  visibility: hidden;
+}
+
+.menuButton span {
+  width: 30px;
+  height: 4px;
+  background: rgb(200, 200, 200);
+  border-radius: 100px;
+  transition: 0.3s ease;
+}
+
+.menuButton input[type]:checked ~ span.top {
+  transform: translateY(200%) rotate(45deg);
+  width: 30px;
+}
+
+.menuButton input[type]:checked ~ span.bot {
+  transform: translateY(-200%) rotate(-45deg);
+  width: 30px;
+  box-shadow: 0 0 10px #495057;
+}
+
+.menuButton input[type]:checked ~ span.mid {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+/* hamburger css ends here */
+/* hamburger popup css ends here */
+.hamcard {
+  max-width: 320px;
+  border-radius: 1rem;
+  background-color: #131b2e;
+  padding: 1rem;
+}
+
+.infos {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  grid-gap: 1rem;
+  gap: 1rem;
+}
+
+.image {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 0.5rem;
+  /* background-color: rgb(118, 36, 194);
+  background: linear-gradient(
+    to bottom right,
+    rgb(118, 36, 194),
+    rgb(185, 128, 240)
+  ); */
+  /* background-image: url("https://lh3.googleusercontent.com/a-/ALV-UjVjk6k8sVr63bi624kNI1ZTYlDRNOqTF79A8KN7EXDqTCuZb0rdj_mYRX0tty9BVBfGt1kJASVq18FZHFWQb1Gjl8lqjSUeNRe6A93SGryamI7Cx5YllkBJL1Wj-7DxZf1OuBsF_BUv9w6s65XEti5gcE_rauI-_ASGBiIql4QVuKZkl9xwmb01ptZEFHigsGaNSbZYN80vbXFwdarXMRAAmqPNDxah-859ZiBezWdKIx1fbD57UkUBeZs3SY3rvvuh0CuWf2RbuXbBZP5opJFOC2yTCzH4-NB40tJLJ_GrGALi2e9f6TpiqaW6z84uh353LImboeuaaTnmn4CSPARa-iMO3JGzACaf9SYV1S7MaURZO9FOP87eKDwPhnQCm7TbTYhpHcPRTL3r4P9n9wUQ2LVNs94zmiUYpHORMP_JNUBTjByKDVX6hCzW_GZNe3yJYOP6-M3I4bj1PdCM7uV3Jzwh5eI3PZmNvrPxsCCkfsmNQtowLTmDDRVJXqOnSE2ZAvBdKW8mkSnW9foyiGUMOUFS-26dZygpHkS2kDTVVrcUya6wjPzcdhry7b2Jqh2apEyK3nWGZQrmzntmJU_bE1mOv9zPZ__Q7XXL8olpn1LVyQl-VIBd2cXK14_EQaWN0KODSPJlr7SP8BhY80bqZIPyZLQOGIs-XKu4aAscYwF3H_qpaeTkZUVh3_wOXB-y-KmdD7InJz_xlnZIe28Kv0jjrf4rOIKeoxFlE7N23CR1d5HvqEEEwPDULDX65htBbWFcpjyKYnG-7S8IxEVYWVtuAe5hl9a8soUepTzlH61KhyRsvv9K2rewHcY0sHY8dW88SS1X1cPW-_aBH3LFvdGiRcMUpzRuBm27xU8ApZOL4tidpSZ45Ur4oGm1ClFTwPfWbp3KSjVic2FAw6O6OlTTPDSt8LLxVCDcWphOU1CqhKTRup1B1OUW-dIsyJKo=s96-c"); */
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.info {
+  height: 7rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+}
+
+.function {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: rgba(156, 163, 175, 1);
+}
+.cartbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 10px 0px;
+  gap: 15px;
+  width: 100%;
+  background-color: orangered;
+  /* outline: 3px #181717 solid; */
+  outline-offset: -3px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.cartbtn .text {
+  color: white;
+  font-weight: 700;
+  font-size: 1em;
+  transition: 400ms;
+}
+
+.cartbtn svg path {
+  transition: 400ms;
+}
+
+.cartbtn:hover {
+  background-color: white;
+}
+
+.cartbtn:hover .text {
+  color: #181717;
+}
+
+.cartbtn:hover svg path {
+  fill: #181717;
+}
+/* plus sign */
+.sign {
+  /* width: 100%; */
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+}
+/* hamburger popup css ends here */
 .swiper {
   width: 100%;
   height: 100%;
@@ -263,7 +428,7 @@ html {
   z-index: -1;
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  transition: all 250ms
+  transition: all 250ms;
 }
 
 .inactive-button:hover {
@@ -273,8 +438,6 @@ html {
 .inactive-button:hover::before {
   width: 100%;
 }
-
-
 
 .active-button {
   padding: 5px 15px;
@@ -321,7 +484,6 @@ html {
 .discount-btn:active {
   opacity: 0.5;
 }
-
 
 /* *********************** Add to Bag Button *********************** */
 .atbbutton {
