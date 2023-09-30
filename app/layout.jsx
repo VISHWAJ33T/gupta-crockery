@@ -1,8 +1,10 @@
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 import Footer from "@/Components/Footer";
 import Nav from "@/Components/Nav";
 import "@/styles/globals.css";
-import "../firebase.js"
+import "./firebase.js";
+import { useContext } from "react";
+import { AuthContextProvider } from "./context/AuthContext";
 export const metadata = {
   title: "Gupta Crockery",
   description: `Introducing "Gupta Crockery" - Where Quality Meets Savings! Explore stunning crockery that's kind to your wallet. Find beauty and trust in every piece, carefully selected to bring elegance to your table without the hefty price tag. Enjoy luxury for less at Gupta Crockery!`,
@@ -27,10 +29,12 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#131b2e" />
       </head>
       <body className="relative">
-        <Nav />
-        {children}
-        <Footer />
-        <Analytics />
+        <AuthContextProvider>
+          <Nav />
+          {children}
+          <Footer />
+          <Analytics />
+        </AuthContextProvider>
       </body>
     </html>
   );
