@@ -95,7 +95,7 @@ const Page = () => {
     ));
   };
 
-  const categoryButtons = ["All", "Steel", "Plastic", "Aluminium", "Glass", "Brass", "Iron", "Copper", "Bone China", "Kansa", "Melamine", "Wooden", "Silicon", "Others"];
+  const categoryButtons = ["All", "Steel", "Plastic", "Aluminium", "Glass", "Brass", "Iron", "Copper", "Bone China", "Kansa", "Melamine", "Wooden", "Silicon", "Other"];
 
   return (
     <>
