@@ -13,6 +13,7 @@ const Nav = () => {
   const handleSignIn = async () => {
     try {
       await googleSignIn();
+      console.log("Signed In Successfully");
     } catch (error) {
       console.log(error);
     }
@@ -34,7 +35,6 @@ const Nav = () => {
       setLoading(false);
     };
     checkAuthentication();
-    console.log(user);
   }, [user]);
 
   const handleSubmit = (e) => {
@@ -52,7 +52,11 @@ const Nav = () => {
       <ul className="flex items-center justify-between">
         <li className="shrink-0">
           <Link href="/" className="flex space-x-1 md:ml-4 items-center mr-3 ">
-            <img src="/static/Logo.png" alt="LOGO" className="w-12 h-12" />
+            <img
+              src="/static/Logo.png"
+              alt="LOGO"
+              className="w-12 h-12 animate-spin"
+            />
             <h3 className="font-bold text-xl sm:text-3xl whitespace-nowrap hidden sm:block">
               Gupta Crockery
             </h3>
@@ -74,7 +78,8 @@ const Nav = () => {
                 pathname: "/allitems",
                 query: { category: "", search: searchValue },
               }}
-              className="flex items-center justify-center rounded-r px-1 bg-[white] border border-l-1"
+              // className="flex items-center justify-center rounded-r px-1 bg-white"
+              className="flex items-center justify-center rounded-r px-2 bg-[white] border border-l-1  bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 hover:bg-[orange]"
             >
               <img
                 src="/static/icons/search-icon.png"
@@ -108,10 +113,10 @@ const Nav = () => {
         </li>
       </ul>
       {popUp && (
-        <div className="hamcard  absolute right-1 top-[69px]">
+        <div className="hamcard transition duration-150 ease-in-out absolute right-1 top-[69px]">
           <div className="infos">
             <div
-              className="image"
+              className="image "
               style={{ backgroundImage: `url(${user.photoURL})` }}
             ></div>
             <div className="info">

@@ -127,7 +127,7 @@ const ItemsContainer = ({
             )}
           </span>
           {stock !== 0 ? (
-            <span className="w-[50%] whitespace-nowrap transition ease-in-out duration-300 hover:bg-[#0dba57] bg-[#fd911f]  text-white cursor-pointer  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
+            <span className="w-[50%] transition ease-in-out duration-300 bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 hover:bg-[orange] text-white cursor-pointer  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
               <button
                 className="transition ease-in-out duration-300 active:scale-[110%]"
                 onClick={() => {
@@ -144,12 +144,12 @@ const ItemsContainer = ({
                   );
                 }}
               >
-                Add to Bag
+                Add to Cart
               </button>
             </span>
           ) : (
-            <span className="w-[50%] whitespace-nowrap bg-[crimson] text-white cursor-default  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
-              No Stock
+            <span className="w-[50%] whitespace-wrap bg-gradient-to-r from-red-500 to-red-600 brightness-110 text-white cursor-default  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
+              Out of Stock
             </span>
           )}
         </div>
@@ -223,9 +223,9 @@ const ItemsContainer = ({
             )}
           </span>
           {stock !== 0 ? (
-            <span className="w-[50%] whitespace-nowrap transition ease-in-out duration-300 hover:bg-[#0dba57] bg-[#fd911f]  text-white cursor-pointer  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
+            <span className="w-[50%] whitespace-nowrap transition ease-in-out duration-300 bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 hover:bg-[orange] text-white cursor-pointer font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
               <button
-                className="transition ease-in-out duration-300 active:scale-[125%]"
+                className="transition ease-in-out duration-300 active:scale-[110%]"
                 onClick={() => {
                   addToCart(
                     id,
@@ -240,12 +240,12 @@ const ItemsContainer = ({
                   );
                 }}
               >
-                Add to Bag
+                Add to Cart
               </button>
             </span>
           ) : (
-            <span className="w-[50%] whitespace-nowrap bg-[crimson] text-white cursor-default  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
-              No Stock
+            <span className="w-[50%] whitespace-nowrap bg-gradient-to-r from-red-500 to-red-600 brightness-110 text-white cursor-default  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
+              Out of Stock
             </span>
           )}
         </div>
