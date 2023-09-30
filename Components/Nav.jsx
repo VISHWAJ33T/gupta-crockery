@@ -55,7 +55,8 @@ const Nav = () => {
             <img
               src="/static/Logo.png"
               alt="LOGO"
-              className="w-12 h-12 animate-spin"
+              className="w-12 h-12"
+              // className="w-12 h-12 animate-spin"
             />
             <h3 className="font-bold text-xl sm:text-3xl whitespace-nowrap hidden sm:block">
               Gupta Crockery
@@ -79,7 +80,7 @@ const Nav = () => {
                 query: { category: "", search: searchValue },
               }}
               // className="flex items-center justify-center rounded-r px-1 bg-white"
-              className="flex items-center justify-center rounded-r px-2 bg-[white] border border-l-1  bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 hover:bg-[orange]"
+              className="flex items-center justify-center rounded-r px-2 bg-[white] bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 hover:bg-[orange]"
             >
               <img
                 src="/static/icons/search-icon.png"
