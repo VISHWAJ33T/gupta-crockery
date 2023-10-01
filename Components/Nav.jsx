@@ -4,7 +4,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { UserAuth } from "../app/context/AuthContext";
 const Nav = () => {
-  const { user, googleSignIn, logOut } = UserAuth();
+  // const Admins = ["vishwajeety14122@gmail.com", "yvishwajeet2004@gmail.com"];
+  const { user, googleSignIn, logOut, Admins } = UserAuth();
   const router = useRouter();
   const [searchValue, setSearchValue] = useState("");
   const [cartItemsCount, setCartItemsCount] = useState(0);
@@ -152,6 +153,11 @@ const Nav = () => {
             </div>
             <p className="text">Sign Out</p>
           </button>
+          {Admins && Admins.includes(user.email) && (
+            <Link href="/Admin729" className="cartbtn" type="button">
+              <p className="text">Admin Panel</p>
+            </Link>
+          )}
         </div>
       )}
     </div>

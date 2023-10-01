@@ -52,7 +52,7 @@ export const AuthContextProvider = ({ children }) => {
   const logOut = () => {
     signOut(auth);
   };
-
+  const Admins = ["vishwajeety14122@gmail.com", "yvishwajeet2004@gmail.com", "chiraggupta182002@gmail.com"];
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -64,7 +64,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, googleSignIn, logOut }}>
+    <AuthContext.Provider value={{ user, Admins, googleSignIn, logOut }}>
       {children}
     </AuthContext.Provider>
   );
