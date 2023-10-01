@@ -1,7 +1,6 @@
 "use client";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import { UserAuth } from "../app/context/AuthContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -12,21 +11,8 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 const SingleItem = ({ item }) => {
-  // const searchParams = useSearchParams();
-  // const itemId = searchParams.get("id");
-  // const [item, setItem] = useState([]);
-  // useEffect(() => {
-  //   fetchItems();
-  // }, []);
-
-  // const fetchItems = async () => {
-  //   const response = await fetch(`/api/item/${itemId}`);
-  //   const data = await response.json();
-  //   setItem(data);
-  // };
-
+  const { user, googleSignIn } = UserAuth();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
     // Initialize Bag items from local storage on component mount
@@ -47,6 +33,10 @@ const SingleItem = ({ item }) => {
     img_src,
     stock
   ) => {
+    if (!user) {
+      alert("Please login first to add this item to cart");
+      return googleSignIn();
+    }
     const existingCartItem2 = cartItems.find((item) => item.id === id);
 
     if (existingCartItem2) {

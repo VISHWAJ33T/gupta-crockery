@@ -22,6 +22,7 @@ const Nav = () => {
   const handleSignOut = async () => {
     try {
       await logOut();
+      localStorage.clear();
       setPopUp(false);
       // console.log("Signed Out Successfully");
     } catch (error) {
@@ -85,7 +86,7 @@ const Nav = () => {
               <img
                 src="/static/icons/search-icon.png"
                 alt="Search Icon"
-                className="min-w-5 min-h-5 max-w-5 max-h-5 rounded hover:scale-105 transition ease-in-out duration-300 active:scale-[120%]"
+                className=" invert min-w-5 min-h-5 max-w-5 max-h-5 rounded hover:scale-105 transition ease-in-out duration-300 active:scale-[120%]"
               />
             </Link>
           </form>

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-
+import { UserAuth } from "../app/context/AuthContext";
 import Image from "next/image"; // Import next/image component
 
 const ItemsContainer = ({
@@ -16,6 +16,7 @@ const ItemsContainer = ({
   cartItems,
   setCartItems,
 }) => {
+  const { user, googleSignIn } = UserAuth();
   const addToCart = (
     id,
     title,
@@ -27,6 +28,10 @@ const ItemsContainer = ({
     img_src,
     stock
   ) => {
+    if (!user) {
+      alert("Please login first to add this item to cart");
+      return googleSignIn();
+    }
     const existingCartItem = cartItems.find((item) => item.id === id);
 
     if (existingCartItem) {
