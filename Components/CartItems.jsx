@@ -1,30 +1,45 @@
 "use client";
 import { useEffect, useState } from "react";
 import SingleCartItem from "./SingleCartItem";
+import { UserAuth } from "../app/context/AuthContext";
 
 const CartItems = () => {
-  const initialItems = [];
-  // const initialItems = [{ "id": "64e8800ad66cb3f799dd3bcb", "title": "Milton Duo DLX 1000 Thermosteel", "price": 1450, "isDiscounted": true, "discounted_price": 1090, "discounted_percent": 25, "qtyValue": 1, "img_src": "https://m.media-amazon.com/images/I/61c-GtJ+0eL._SL1500_.jpg", "stock": 3 }, { "id": "64e88778e3eb898e6a25fed4", "title": "PrimeWorld Aqua Old Fashioned", "price": 899, "isDiscounted": true, "discounted_price": 359, "discounted_percent": 60, "qtyValue": 1, "img_src": "https://m.media-amazon.com/images/I/61vzrTp85HS._SX679_.jpg", "stock": 5 }];
-
+  const { user } = UserAuth();
   const [items, setItems] = useState([]);
-
   const [mounted, setMounted] = useState(false);
 
-  // Load items from local storage when the component mounts
   useEffect(() => {
-    // const storedItems = initialItems;
-    const storedItems =
-      JSON.parse(localStorage.getItem("cartItems")) || initialItems;
-    setItems(storedItems);
-  }, []);
+    const fetchItemsFromServer = async () => {
+      try {
+        const response = await fetch(`/api/user/${user.uid}`);
+        if (response.ok) {
+          const data = await response.json();
+          const serverItems = data.cartItems || [];
+          const localItems =
+            JSON.parse(localStorage.getItem("cartItems")) || [];
+          // Merge serverItems and localItems while ensuring uniqueness
+          const mergedItems = [...new Set([...serverItems, ...localItems])];
+          const uniqueItems = mergedItems.filter(
+            (item, index, self) =>
+              self.findIndex((i) => i.id === item.id) === index
+          );
+          setItems(uniqueItems);
+        } else {
+          console.error("Failed to fetch cart items:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching cart items:", error);
+      }
+    };
+    if (user) {
+      fetchItemsFromServer();
+    }
+  }, [user]);
 
-  // Update local storage when items change
   useEffect(() => {
     if (mounted) {
-      // Check if the component has mounted
       localStorage.setItem("cartItems", JSON.stringify(items));
     } else {
-      // Component is mounting, set mounted to true
       setMounted(true);
     }
   }, [items]);
@@ -46,7 +61,6 @@ const CartItems = () => {
       const updatedItems = items.filter((item) => item.id !== itemId);
       setItems(updatedItems);
       alert("Item deleted from bag successfully");
-      // window.location.reload();
     }
   };
 
@@ -55,9 +69,59 @@ const CartItems = () => {
       total + (item.discounted_price || item.price) * item.qtyValue,
     0
   );
+  const handleSaveCart = async () => {
+    try {
+      const response = await fetch(`/api/user/${user.uid}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: user.displayName,
+          email: user.email,
+          usid: user.uid,
+          photoURL: user.photoURL,
+          cartItems: items,
+        }),
+      });
 
+      if (response.ok) {
+        alert("Cart saved successfully");
+      } else {
+        console.error("Failed to save cart:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error saving cart:", error);
+    }
+  };
   return (
     <div className="mx-2 sm:mx-0">
+      <button
+        onClick={(e) => {
+          handleSaveCart();
+        }}
+        title="Save"
+        className="absolute top-25 right-5 cursor-pointer flex items-center fill-white bg-black hover:bg-orange-500 active:border active:border-white rounded-md duration-100 p-2"
+      >
+        <svg
+          viewBox="0 -0.5 25 25"
+          height="20px"
+          width="20px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            strokeWidth="1.5"
+            d="M18.507 19.853V6.034C18.5116 5.49905 18.3034 4.98422 17.9283 4.60277C17.5532 4.22131 17.042 4.00449 16.507 4H8.50705C7.9721 4.00449 7.46085 4.22131 7.08577 4.60277C6.7107 4.98422 6.50252 5.49905 6.50705 6.034V19.853C6.45951 20.252 6.65541 20.6407 7.00441 20.8399C7.35342 21.039 7.78773 21.0099 8.10705 20.766L11.907 17.485C12.2496 17.1758 12.7705 17.1758 13.113 17.485L16.9071 20.767C17.2265 21.0111 17.6611 21.0402 18.0102 20.8407C18.3593 20.6413 18.5551 20.2522 18.507 19.853Z"
+            clipRule="evenodd"
+            fillRule="evenodd"
+          ></path>
+        </svg>
+        <span className="text-sm hidden sm:block text-white font-bold pr-1">
+          Save Cart
+        </span>
+      </button>
       <h2 className="text-center text-3xl font-bold w-full my-8">
         Shopping Cart
       </h2>

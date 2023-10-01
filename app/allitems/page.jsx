@@ -16,7 +16,6 @@ const Page = () => {
   const [allItems, setAllItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [itemsNotFound, setItemsNotFound] = useState(false);
-
   const activeClass = "active-button whitespace-nowrap";
   const unactiveClass = "inactive-button whitespace-nowrap";
   // const activeClass = "bg-[#131b2e] text-white border whitespace-nowrap cursor-pointer font-bold py-2 px-4 rounded-full";
