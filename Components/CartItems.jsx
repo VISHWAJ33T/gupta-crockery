@@ -10,24 +10,24 @@ const CartItems = () => {
 
   const [mounted, setMounted] = useState(false);
 
-
   // Load items from local storage when the component mounts
   useEffect(() => {
     // const storedItems = initialItems;
-    const storedItems = JSON.parse(localStorage.getItem("cartItems")) || initialItems;
+    const storedItems =
+      JSON.parse(localStorage.getItem("cartItems")) || initialItems;
     setItems(storedItems);
   }, []);
 
   // Update local storage when items change
   useEffect(() => {
-    if (mounted) { // Check if the component has mounted
+    if (mounted) {
+      // Check if the component has mounted
       localStorage.setItem("cartItems", JSON.stringify(items));
     } else {
       // Component is mounting, set mounted to true
       setMounted(true);
     }
   }, [items]);
-
 
   const updateQtyValue = (itemId, newQtyValue) => {
     const updatedItems = items.map((item) =>
@@ -38,7 +38,9 @@ const CartItems = () => {
   };
 
   const deleteItem = (itemId) => {
-    const confirmed = window.confirm("Are you sure you want to delete this item from the bag?");
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this item from the bag?"
+    );
 
     if (confirmed) {
       const updatedItems = items.filter((item) => item.id !== itemId);
@@ -49,14 +51,15 @@ const CartItems = () => {
   };
 
   const totalAmount = items.reduce(
-    (total, item) => total + (item.discounted_price || item.price) * item.qtyValue,
+    (total, item) =>
+      total + (item.discounted_price || item.price) * item.qtyValue,
     0
   );
 
   return (
     <div className="mx-2 sm:mx-0">
       <h2 className="text-center text-3xl font-bold w-full my-8">
-        Shopping Bag
+        Shopping Cart
       </h2>
       {items.length > 0 ? (
         <>
@@ -101,10 +104,12 @@ const CartItems = () => {
         </>
       ) : (
         <div className="flex flex-col justify-center items-center">
-          <img className="h-80" src="https://cdn.dribbble.com/users/1097272/screenshots/10671922/empty_shoppin_bag.png" alt="empty shopping Bag" />
-          <p className="text-center text-3xl">
-            Your Shopping Bag is Empty
-          </p>
+          <img
+            className="h-80"
+            src="https://cdn.dribbble.com/users/1097272/screenshots/10671922/empty_shoppin_bag.png"
+            alt="Empty Shopping Cart"
+          />
+          <p className="text-center text-3xl">Your Shopping Cart is Empty</p>
         </div>
       )}
     </div>

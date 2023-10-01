@@ -13,7 +13,36 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const createUserInDatabase = async () => {
+    if (user) {
+      const { uid, displayName, email, photoURL } = user;
+      try {
+        const response = await fetch("/api/user/new", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            usid: uid,
+            name: displayName,
+            email: email,
+            photoURL: photoURL,
+            cartItems: [],
+          }),
+        });
 
+        if (response.status === 201) {
+          console.log("User created successfully");
+        } else if (response.status === 200) {
+          console.log("User Already Exists");
+        } else {
+          console.error("Failed to create user");
+        }
+      } catch (error) {
+        console.error("Error creating user:", error);
+      }
+    }
+  };
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
     // signInWithRedirect(auth, provider);
@@ -27,6 +56,9 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      if (currentUser && user) {
+        createUserInDatabase();
+      }
     });
     return () => unsubscribe();
   }, [user]);

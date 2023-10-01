@@ -3,7 +3,6 @@ import Footer from "@/Components/Footer";
 import Nav from "@/Components/Nav";
 import "@/styles/globals.css";
 import "./firebase.js";
-import { useContext } from "react";
 import { AuthContextProvider } from "./context/AuthContext";
 export const metadata = {
   title: "Gupta Crockery",

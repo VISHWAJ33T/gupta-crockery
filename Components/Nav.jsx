@@ -13,7 +13,6 @@ const Nav = () => {
   const handleSignIn = async () => {
     try {
       await googleSignIn();
-      console.log("Signed In Successfully");
     } catch (error) {
       console.log(error);
     }
@@ -23,7 +22,7 @@ const Nav = () => {
     try {
       await logOut();
       setPopUp(false);
-      console.log("Signed Out Successfully");
+      // console.log("Signed Out Successfully");
     } catch (error) {
       console.log(error);
     }
