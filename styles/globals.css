@@ -221,6 +221,68 @@ html {
   border: 3px solid #ffffff;
   /* border-right: 0px; */
 }
+/* Edit button css starts here */
+.edit-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none !important;
+}
+
+.edit-svgIcon {
+  width: 17px;
+  transition-duration: 0.3s;
+}
+
+.edit-svgIcon path {
+  fill: white;
+}
+
+.edit-button:hover {
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+}
+
+.edit-button:hover .edit-svgIcon {
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.edit-button::before {
+  display: none;
+  content: "";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.edit-button:hover::before {
+  display: block;
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition-duration: 0.3s;
+}
+
+/* Edit button css ends here */
 
 body::-webkit-scrollbar {
   display: none;
@@ -485,67 +547,67 @@ html {
   opacity: 0.5;
 }
 
-/* *********************** Add to Bag Button *********************** */
+/* *********************** Add to Cart Button *********************** */
 .atbbutton {
-  position: relative;
-  width: 150px;
+  width: 140px;
   height: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  border: 1px solid #131b2e;
-  background-color: #131b2e;
-  border-radius: 24px;
-}
-
-.atbbutton,
-.button__icon,
-.button__text {
-  transition: all 0.3s;
-}
-
-.atbbutton .button__text {
-  transform: translateX(30px);
-  color: #fff;
-  font-weight: 600;
-}
-
-.atbbutton .button__icon {
-  position: absolute;
-  transform: translateX(109px);
-  height: 100%;
-  width: 39px;
-  background-color: #131b2e;
+  border-radius: 12px;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 24px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
 }
 
-.atbbutton .svg {
+.atbbutton .IconContainer {
+  position: absolute;
+  left: -50px;
   width: 30px;
-  stroke: #fff;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: 0.5s;
 }
 
-.atbbutton:hover {
-  background: #131b2e;
+.atbbutton .icon {
+  border-radius: 1px;
 }
 
-.atbbutton:hover .button__text {
-  color: transparent;
+.atbbutton .text {
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition-duration: 0.5s;
+  font-size: 1.04em;
+  font-weight: 600;
 }
 
-.atbbutton:hover .button__icon {
-  width: 148px;
-  transform: translateX(0);
+.atbbutton:hover .IconContainer {
+  transform: translateX(58px);
+  border-radius: 40px;
+  transition-duration: 0.5s;
 }
 
-.atbbutton:active .button__icon {
-  background-color: #223154;
+.atbbutton:hover .text {
+  transform: translate(10px, 0px);
+  transition-duration: 0.5s;
 }
 
 .atbbutton:active {
-  border: 1px solid #131b2e;
+  transform: scale(0.95);
+  transition-duration: 0.5s;
 }
 
 .delete-button {

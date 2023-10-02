@@ -60,13 +60,13 @@ const CartItems = () => {
 
   const deleteItem = (itemId) => {
     const confirmed = window.confirm(
-      "Are you sure you want to delete this item from the bag?"
+      "Are you sure you want to delete this item from the cart?"
     );
 
     if (confirmed) {
       const updatedItems = items.filter((item) => item.id !== itemId);
       setItems(updatedItems);
-      alert("Item deleted from bag successfully");
+      alert("Item deleted from cart successfully");
     }
   };
 
@@ -178,7 +178,7 @@ const CartItems = () => {
             <div className="flex flex-col justify-center items-center">
               <img
                 className="h-80"
-                src="https://cdn.dribbble.com/users/1097272/screenshots/10671922/empty_shoppin_bag.png"
+                src="https://img.freepik.com/premium-vector/shopping-cart-with-cross-mark-wireless-paymant-icon-shopping-bag-failure-paymant-sign-online-shopping-vector_662353-912.jpg"
                 alt="Empty Shopping Cart"
               />
               <p className="text-center text-3xl">

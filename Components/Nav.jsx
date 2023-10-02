@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { UserAuth } from "../app/context/AuthContext";
 const Nav = () => {
-  // const Admins = ["vishwajeety14122@gmail.com", "yvishwajeet2004@gmail.com"];
   const { user, googleSignIn, logOut, Admins } = UserAuth();
   const router = useRouter();
   const [searchValue, setSearchValue] = useState("");
@@ -24,7 +23,6 @@ const Nav = () => {
       await logOut();
       localStorage.clear();
       setPopUp(false);
-      // console.log("Signed Out Successfully");
     } catch (error) {
       console.log(error);
     }
@@ -53,12 +51,7 @@ const Nav = () => {
       <ul className="flex items-center justify-between">
         <li className="shrink-0">
           <Link href="/" className="flex space-x-1 md:ml-4 items-center mr-3 ">
-            <img
-              src="/static/Logo.png"
-              alt="LOGO"
-              className="w-12 h-12"
-              // className="w-12 h-12 animate-spin"
-            />
+            <img src="/static/Logo.png" alt="LOGO" className="w-12 h-12" />
             <h3 className="font-bold text-xl sm:text-3xl whitespace-nowrap hidden sm:block">
               Gupta Crockery
             </h3>
@@ -80,7 +73,6 @@ const Nav = () => {
                 pathname: "/allitems",
                 query: { category: "", search: searchValue },
               }}
-              // className="flex items-center justify-center rounded-r px-1 bg-white"
               className="flex items-center justify-center rounded-r px-2 bg-[white] bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 hover:bg-[orange]"
             >
               <img
@@ -137,7 +129,6 @@ const Nav = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="#fff"
             >
-              <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"></path>
               <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
             </svg>
             <p className="text">Your Cart</p>
