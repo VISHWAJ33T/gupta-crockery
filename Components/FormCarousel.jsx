@@ -57,10 +57,10 @@ const FormCarousel = ({ type, post, setPost, submitting, handleSubmit }) => {
               <a
                 href={img}
                 target="_blank"
-                className="flex flex-wrap gap-3 p-3 text-blue-500 border"
+                className="flex flex-wrap gap-3 p-3 overflow-hidden w-[100%] text-blue-500 border"
               >
                 <img src={img} width="fit-content" />
-                <p className="shrink-1">{img}</p>
+                <p className="break-all">{img}</p>
               </a>
               <br />
             </div>
@@ -73,10 +73,10 @@ const FormCarousel = ({ type, post, setPost, submitting, handleSubmit }) => {
               <a
                 href={img}
                 target="_blank"
-                className="flex flex-wrap gap-3 p-3 text-blue-500 border"
+                className="flex flex-wrap gap-3 p-3 overflow-hidden w-[100%] text-blue-500 border"
               >
-                <img src={img} width="fit-content" />
-                <p className="shrink-1">{img}</p>
+                <img src={img} />
+                <p className="break-all">{img}</p>
               </a>
               <br />
             </div>
