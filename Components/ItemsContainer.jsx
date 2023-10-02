@@ -153,7 +153,7 @@ const ItemsContainer = ({
               onClick={() => {
                 setScrollTitle(!scrollTitle);
               }}
-              className="cursor-default text-center bg-gray-200 px-1 w-[100%] h-[30px] text-lg overflow-y-scroll sm:overflow-hidden"
+              className="cursor-default text-center bg-gray-200 px-1 w-[100%] h-[30px] text-lg overflow-hidden truncate ..."
             >
               {title}
             </h3>
@@ -270,7 +270,7 @@ const ItemsContainer = ({
               onClick={() => {
                 setScrollTitle(!scrollTitle);
               }}
-              className="cursor-default text-center bg-gray-200 px-1 w-[100%] h-[30px] text-lg overflow-y-scroll truncate ..."
+              className="cursor-default text-center bg-gray-200 px-1 w-[100%] h-[30px] text-lg overflow-hidden truncate ..."
             >
               {title}
             </h3>

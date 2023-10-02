@@ -186,17 +186,6 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             className="min-w-[200px] sm:w-[400px] px-3"
           ></textarea>
         </label>
-        {/* {post.extra_imgs != [""] && (
-          <div className="w-[300px] sm:w-[500px] gap-x-3 px-3 py-3 bg-gray-200 flex flex-row overflow-x-scroll">
-            {post.extra_imgs.map((src) => (
-              <img
-                key={src}
-                src={src}
-                className="border-[10px] object-contain min-h-[150px] max-h-[150px] sm:min-h-[200px]"
-              />
-            ))}
-          </div>
-        )} */}
         <button
           type="submit"
           disabled={submitting}
@@ -223,25 +212,25 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           cartItems={cartItems}
           setCartItems={setCartItems}
         />
-        <SingleItem
-          item={{
-            _id: post._id,
-            title: post.title,
-            description: post.description,
-            price: post.price,
-            stock: post.stock,
-            isDiscounted: post.isDiscounted,
-            discounted_percent:
-              post.isDiscounted == true ? post.discounted_percent : "",
-            discounted_price:
-              post.isDiscounted == true ? post.discounted_price : "",
-            main_img: post.main_img,
-            extra_imgs: post.extra_imgs,
-            cartItems: cartItems,
-            setCartItems: setCartItems,
-          }}
-        />
       </div>
+      <SingleItem
+        item={{
+          _id: post._id,
+          title: post.title,
+          description: post.description,
+          price: post.price,
+          stock: post.stock,
+          isDiscounted: post.isDiscounted,
+          discounted_percent:
+            post.isDiscounted == true ? post.discounted_percent : "",
+          discounted_price:
+            post.isDiscounted == true ? post.discounted_price : "",
+          main_img: post.main_img,
+          extra_imgs: post.extra_imgs,
+          cartItems: cartItems,
+          setCartItems: setCartItems,
+        }}
+      />
     </>
   );
 };
