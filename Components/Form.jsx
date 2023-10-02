@@ -100,13 +100,16 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
         <label className="text-center justify-center text-xl flex gap-3">
           <span className="w-[100px] text-gray-700">Discount ₹</span>
           <input
-            value={post.discounted_price}
+            value={post.isDiscounted}
             onChange={(e) =>
               setPost({ ...post, discounted_price: e.target.value })
             }
             type="Number"
             min="0"
-            placeholder="Discount Price"
+            placeholder={
+              post.price - (post.price * post.discounted_percent) / 100 ||
+              "Discount Price"
+            }
             className="min-w-[200px] sm:w-[400px] pl-3"
           ></input>
         </label>
