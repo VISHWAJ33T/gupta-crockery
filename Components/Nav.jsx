@@ -34,6 +34,7 @@ const Nav = () => {
       setLoading(false);
     };
     checkAuthentication();
+    console.log(user);
   }, [user]);
 
   const handleSubmit = (e) => {
@@ -45,6 +46,24 @@ const Nav = () => {
     const cartItems = JSON.parse(window.localStorage.getItem("cartItems"));
     setCartItemsCount(cartItems ? cartItems.length : 0);
   }, []);
+
+  const convertToIST = (inputDateString) => {
+    const date = new Date(inputDateString);
+    date.setUTCHours(date.getUTCHours() + 5); // Add 5 hours for IST
+    date.setUTCMinutes(date.getUTCMinutes() + 30); // Add 30 minutes for IST
+
+    const options = {
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      timeZoneName: "short",
+    };
+
+    return date.toLocaleString("en-IN", options);
+  };
 
   return (
     <div className="nav bg-[#131b2e] sticky top-0 z-[100] py-2 px-4 sm:px-0 text-white w-full">
@@ -95,7 +114,7 @@ const Nav = () => {
                   height="1.5em"
                   viewBox="0 0 576 512"
                   fill="rgb(17, 17, 17)"
-                  class="cart invert"
+                  className="cart invert"
                 >
                   <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path>
                 </svg>
@@ -126,13 +145,24 @@ const Nav = () => {
         <div className="hamcard transition duration-150 ease-in-out absolute right-1 top-[69px]">
           <div className="infos">
             <div
-              className="image "
+              className="image"
               style={{ backgroundImage: `url(${user.photoURL})` }}
             ></div>
             <div className="info">
               <div>
                 <p className="name">{user.displayName}</p>
                 <p className="function">{user.email}</p>
+                {user.phoneNumber && (
+                  <p className="function">{user.phoneNumber}</p>
+                )}
+                {/* <p className="function">
+                  Account created on&nbsp;
+                  {convertToIST(user.metadata.creationTime)}
+                </p>
+                <p className="function">
+                  Last login at &nbsp;
+                  {convertToIST(user.metadata.lastSignInTime)}
+                </p> */}
               </div>
             </div>
           </div>

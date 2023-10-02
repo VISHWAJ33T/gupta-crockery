@@ -9,9 +9,9 @@
 }
 
 html {
-  --scroll-behavior: smooth!important;
-  scroll-behavior: smooth!important;
-  }
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
+}
 * {
   font-family: "Roboto Condensed", "Sofia Sans Condensed", sans-serif;
   /* font-family: 'Sofia Sans Condensed', sans-serif; */
@@ -80,7 +80,7 @@ html {
   padding: 1rem;
 }
 
-.infos {
+.hamcard .infos {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -88,25 +88,19 @@ html {
   gap: 1rem;
 }
 
-.image {
-  height: 7rem;
-  width: 7rem;
-  border-radius: 0.5rem;
-  /* background-color: rgb(118, 36, 194);
-  background: linear-gradient(
-    to bottom right,
-    rgb(118, 36, 194),
-    rgb(185, 128, 240)
-  ); */
-  /* background-image: url("https://lh3.googleusercontent.com/a-/ALV-UjVjk6k8sVr63bi624kNI1ZTYlDRNOqTF79A8KN7EXDqTCuZb0rdj_mYRX0tty9BVBfGt1kJASVq18FZHFWQb1Gjl8lqjSUeNRe6A93SGryamI7Cx5YllkBJL1Wj-7DxZf1OuBsF_BUv9w6s65XEti5gcE_rauI-_ASGBiIql4QVuKZkl9xwmb01ptZEFHigsGaNSbZYN80vbXFwdarXMRAAmqPNDxah-859ZiBezWdKIx1fbD57UkUBeZs3SY3rvvuh0CuWf2RbuXbBZP5opJFOC2yTCzH4-NB40tJLJ_GrGALi2e9f6TpiqaW6z84uh353LImboeuaaTnmn4CSPARa-iMO3JGzACaf9SYV1S7MaURZO9FOP87eKDwPhnQCm7TbTYhpHcPRTL3r4P9n9wUQ2LVNs94zmiUYpHORMP_JNUBTjByKDVX6hCzW_GZNe3yJYOP6-M3I4bj1PdCM7uV3Jzwh5eI3PZmNvrPxsCCkfsmNQtowLTmDDRVJXqOnSE2ZAvBdKW8mkSnW9foyiGUMOUFS-26dZygpHkS2kDTVVrcUya6wjPzcdhry7b2Jqh2apEyK3nWGZQrmzntmJU_bE1mOv9zPZ__Q7XXL8olpn1LVyQl-VIBd2cXK14_EQaWN0KODSPJlr7SP8BhY80bqZIPyZLQOGIs-XKu4aAscYwF3H_qpaeTkZUVh3_wOXB-y-KmdD7InJz_xlnZIe28Kv0jjrf4rOIKeoxFlE7N23CR1d5HvqEEEwPDULDX65htBbWFcpjyKYnG-7S8IxEVYWVtuAe5hl9a8soUepTzlH61KhyRsvv9K2rewHcY0sHY8dW88SS1X1cPW-_aBH3LFvdGiRcMUpzRuBm27xU8ApZOL4tidpSZ45Ur4oGm1ClFTwPfWbp3KSjVic2FAw6O6OlTTPDSt8LLxVCDcWphOU1CqhKTRup1B1OUW-dIsyJKo=s96-c"); */
+.hamcard .image {
+  height: 5.5rem;
+  width: 5.5rem;
+  /* border:2px solid rgb(255, 255, 255); */
+  /* border: none; */
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 100%;
 }
 
-.info {
+.hamcard .info {
   height: 7rem;
   flex: 1;
   display: flex;
@@ -114,14 +108,14 @@ html {
   justify-content: space-between;
 }
 
-.name {
+.hamcard .name {
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 1);
 }
 
-.function {
+.hamcard .function {
   font-size: 0.75rem;
   line-height: 1rem;
   color: rgba(156, 163, 175, 1);
@@ -360,7 +354,6 @@ html {
 
 .item .mySwiper {
   height: 20%;
-  /* width: fit-content; */
   box-sizing: border-box;
   padding: 1%;
 }
@@ -403,7 +396,6 @@ html {
 .Plastic-style {
   background-image: url("https://image.shutterstock.com/mosaic_250/1064771/405020908/stock-photo-close-up-of-blue-plastic-pattern-405020908.jpg");
   background-size: cover;
-  /* background-color: #3e84be; */
 }
 
 .Glass-style {
@@ -466,7 +458,6 @@ html {
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   transition: all 250ms;
-  text-wrap: nowrap;
 }
 
 .inactive-button::before {
@@ -505,8 +496,6 @@ html {
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   transition: all 250ms;
-  text-wrap: nowrap;
-  /* overflow: hidden; */
 }
 
 /* *********************** Discount Button *********************** */
