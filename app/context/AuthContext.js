@@ -52,7 +52,7 @@ export const AuthContextProvider = ({ children }) => {
   const logOut = () => {
     signOut(auth);
   };
-  const Admins = ["vishwajeety14122@gmail.com", "yvishwajeet2004@gmail.com", "chiraggupta182002@gmail.com", "nandlal6728@gmail.com"];
+  const Admins = ["vishwajeety14122@gmail.com", "yvishwajeet2004@gmail.com", "chiraggupta182002@gmail.com", "nandlal6728@gmail.com", "anshugupta4742@gmail.com"];
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
