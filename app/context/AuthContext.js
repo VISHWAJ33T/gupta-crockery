@@ -6,6 +6,7 @@ import {
   signOut,
   onAuthStateChanged,
   GoogleAuthProvider,
+  FacebookAuthProvider,
 } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -43,6 +44,18 @@ export const AuthContextProvider = ({ children }) => {
       }
     }
   };
+
+  const facebookSignIn = () => {
+    const provider = new FacebookAuthProvider();
+    signInWithPopup(auth, provider)
+      // signInWithRedirect(auth, provider)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log("Facebook sign-in error:", error);
+      });
+  };
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
     // signInWithRedirect(auth, provider);
@@ -64,7 +77,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, Admins, googleSignIn, logOut }}>
+    <AuthContext.Provider value={{ user, Admins, googleSignIn, facebookSignIn, logOut }}>
       {children}
     </AuthContext.Provider>
   );
