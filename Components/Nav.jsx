@@ -4,7 +4,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { UserAuth } from "../app/context/AuthContext";
 const Nav = () => {
-  const { user, googleSignIn, facebookSignIn, logOut, Admins } = UserAuth();
+  // const { user, googleSignIn, facebookSignIn, logOut, Admins } = UserAuth();
+  const { user, googleSignIn, logOut, Admins } = UserAuth();
   const router = useRouter();
   const [searchValue, setSearchValue] = useState("");
   const [cartItemsCount, setCartItemsCount] = useState(0);
@@ -18,13 +19,13 @@ const Nav = () => {
       console.log(error);
     }
   };
-  const handleFacebookSignIn = async () => {
-    try {
-      await facebookSignIn();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleFacebookSignIn = async () => {
+  //   try {
+  //     await facebookSignIn();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const handleSignOut = async () => {
     try {
@@ -180,7 +181,7 @@ const Nav = () => {
                       </svg>
                       Continue with Google
                     </button>
-                    <button
+                    {/* <button
                       className="facebookbutton oauthButton"
                       onClick={(e) => handleFacebookSignIn()}
                     >
@@ -203,7 +204,7 @@ const Nav = () => {
                         </g>
                       </svg>
                       Continue with Facebook
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               )}

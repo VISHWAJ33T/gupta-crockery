@@ -4,7 +4,8 @@ import SingleCartItem from "./SingleCartItem";
 import { UserAuth } from "../app/context/AuthContext";
 
 const CartItems = () => {
-  const { user, googleSignIn, facebookSignIn } = UserAuth();
+  // const { user, googleSignIn, facebookSignIn } = UserAuth();
+  const { user, googleSignIn } = UserAuth();
   const [items, setItems] = useState([]);
   const [mounted, setMounted] = useState(false);
   const handleGoogleSignIn = async () => {
@@ -14,13 +15,13 @@ const CartItems = () => {
       console.log(error);
     }
   };
-  const handleFacebookSignIn = async () => {
-    try {
-      await facebookSignIn();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleFacebookSignIn = async () => {
+  //   try {
+  //     await facebookSignIn();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   useEffect(() => {
     const fetchItemsFromServer = async () => {
       try {
@@ -200,11 +201,11 @@ const CartItems = () => {
             Please Login to access your shopping cart
           </h1> */}
           <div className="transition duration-150 scale-100 sm:scale-125 m-40 ease-in-out">
-            <form action="" className="form">
+            <div action="" className="form">
               <p>
                 Welcome,<span>Login to access your shopping cart</span>
               </p>
-              <button className="oauthButton" onClick={handleGoogleSignIn}>
+              <button className="oauthButton" onClick={()=>handleGoogleSignIn()}>
                 <svg className="icon" viewBox="0 0 24 24">
                   <path
                     d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -226,7 +227,7 @@ const CartItems = () => {
                 </svg>
                 Continue with Google
               </button>
-              <button
+              {/* <button
                 className="facebookbutton oauthButton"
                 onClick={handleFacebookSignIn}
               >
@@ -249,8 +250,8 @@ const CartItems = () => {
                   </g>
                 </svg>
                 Continue with Facebook
-              </button>
-            </form>
+              </button> */}
+            </div>
           </div>
           {/* <button
             className="mb-40 hover:brightness-110 font-bold h-[35px] py-1 px-5 rounded-full bg-gradient-to-r from-orange-500 to-red-600 text-white"
