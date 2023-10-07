@@ -100,7 +100,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
         <label className="text-center justify-center text-xl flex gap-3">
           <span className="w-[100px] text-gray-700">Discount ₹</span>
           <input
-            value={post.isDiscounted}
+            value={post.discounted_price}
             onChange={(e) =>
               setPost({ ...post, discounted_price: e.target.value })
             }
