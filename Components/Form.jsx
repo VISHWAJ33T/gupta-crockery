@@ -101,9 +101,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           <span className="w-[100px] text-gray-700">Discount ₹</span>
           <input
             value={post.discounted_price}
-            onChange={(e) =>
-              setPost({ ...post, discounted_price: e.target.value })
-            }
+            onChange={(e) =>setPost({ ...post, discounted_price: e.target.value })}
             type="Number"
             min="0"
             placeholder={
