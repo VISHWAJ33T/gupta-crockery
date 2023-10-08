@@ -15,13 +15,6 @@ const CartItems = () => {
       console.log(error);
     }
   };
-  // const handleFacebookSignIn = async () => {
-  //   try {
-  //     await facebookSignIn();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
   useEffect(() => {
     const fetchItemsFromServer = async () => {
       try {
@@ -205,7 +198,10 @@ const CartItems = () => {
               <p>
                 Welcome,<span>Login to access your shopping cart</span>
               </p>
-              <button className="oauthButton" onClick={()=>handleGoogleSignIn()}>
+              <button
+                className="oauthButton"
+                onClick={() => handleGoogleSignIn()}
+              >
                 <svg className="icon" viewBox="0 0 24 24">
                   <path
                     d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -227,40 +223,8 @@ const CartItems = () => {
                 </svg>
                 Continue with Google
               </button>
-              {/* <button
-                className="facebookbutton oauthButton"
-                onClick={handleFacebookSignIn}
-              >
-                <svg
-                  stroke="#ffffff"
-                  viewBox="-143 145 512 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                  id="Layer_1"
-                  version="1.1"
-                  fill="#ffffff"
-                >
-                  <g strokeWidth="0" id="SVGRepo_bgCarrier"></g>
-                  <g
-                    strokeLinejoin="round"
-                    strokeLinecap="round"
-                    id="SVGRepo_tracerCarrier"
-                  ></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <path d="M329,145h-432c-22.1,0-40,17.9-40,40v432c0,22.1,17.9,40,40,40h432c22.1,0,40-17.9,40-40V185C369,162.9,351.1,145,329,145z M169.5,357.6l-2.9,38.3h-39.3v133H77.7v-133H51.2v-38.3h26.5v-25.7c0-11.3,0.3-28.8,8.5-39.7c8.7-11.5,20.6-19.3,41.1-19.3 c33.4,0,47.4,4.8,47.4,4.8l-6.6,39.2c0,0-11-3.2-21.3-3.2c-10.3,0-19.5,3.7-19.5,14v29.9H169.5z"></path>{" "}
-                  </g>
-                </svg>
-                Continue with Facebook
-              </button> */}
             </div>
           </div>
-          {/* <button
-            className="mb-40 hover:brightness-110 font-bold h-[35px] py-1 px-5 rounded-full bg-gradient-to-r from-orange-500 to-red-600 text-white"
-            onClick={(e) => {
-              handleGoogleSignIn();
-            }}
-          >
-            Login
-          </button> */}
         </div>
       )}
     </div>
