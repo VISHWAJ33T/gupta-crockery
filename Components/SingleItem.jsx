@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import { UserAuth } from "../app/context/AuthContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
-
+import Image from "next/image"; // Import next/image component
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -15,26 +17,83 @@ const SingleItem = ({ item }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [cartItems, setCartItems] = useState([]);
   const { user, googleSignIn, Admins } = UserAuth();
+  const [confirmDel, setConfirmDel] = useState(false);
   const URL = process.env.NEXT_PUBLIC_URL;
-  const DeleteItem = async (e) => {
-    e.preventDefault();
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this item?"
-    );
-    if (confirmed) {
-      if (!item._id) return alert("Item Id not found");
-      try {
-        const response = await fetch(`${URL}/api/item/${item._id}`, {
-          method: "DELETE",
-        });
-        if (response.ok) {
-          alert("Item Deleted Successfully");
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
+  const DeleteItem = async () => {
+    confirmAlert({
+      title: "Confirm to Delete",
+      message: "Are you sure you want to delete this item?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => setConfirmDel(true),
+        },
+        {
+          label: "No",
+        },
+      ],
+      overlayClassName: "overlay-custom-class-name",
+    });
   };
+  useEffect(() => {
+    const handleDel = async () => {
+      if (confirmDel === true) {
+        if (!item._id)
+          return confirmAlert({
+            title: `Invalid Item`,
+            buttons: [
+              {
+                label: "Ok",
+              },
+            ],
+            closeOnEscape: true,
+            closeOnClickOutside: true,
+            keyCodeForClose: [8, 32],
+            overlayClassName: "overlay-custom-class-name",
+          });
+        try {
+          const response = await fetch(`${URL}/api/item/${item._id}`, {
+            method: "DELETE",
+          });
+          if (response.status === 500) {
+            confirmAlert({
+              title: `Error 500`,
+              message:
+                "There was some error trying to delete this item. Please try again",
+              buttons: [
+                {
+                  label: "Ok",
+                },
+              ],
+              closeOnEscape: true,
+              closeOnClickOutside: true,
+              keyCodeForClose: [8, 32],
+              overlayClassName: "overlay-custom-class-name",
+            });
+          }
+          if (response.ok) {
+            confirmAlert({
+              title: `Item Deleted Successfully`,
+              buttons: [
+                {
+                  label: "Ok",
+                },
+              ],
+              closeOnEscape: true,
+              closeOnClickOutside: true,
+              keyCodeForClose: [8, 32],
+              overlayClassName: "overlay-custom-class-name",
+            });
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    };
+    handleDel();
+    return setConfirmDel(false);
+  }, [confirmDel]);
+
   useEffect(() => {
     const storedCartItems = localStorage.getItem("cartItems");
     if (storedCartItems) {
@@ -53,42 +112,137 @@ const SingleItem = ({ item }) => {
     img_src,
     stock
   ) => {
-    if (!user) {
-      alert("Please login first to add this item to cart");
-      return googleSignIn();
-    }
-    const existingCartItem2 = cartItems.find((item) => item.id === id);
-
-    if (existingCartItem2) {
-      alert(`${title} is already in the cart.`);
+    if (!user || user === null) {
+      confirmAlert({
+        title: `You need to login first to add this item to cart`,
+        buttons: [
+          {
+            label: "Login later",
+          },
+          {
+            label: "Login Now",
+            onClick: () => {
+              googleSignIn();
+            },
+          },
+        ],
+        closeOnEscape: true,
+        closeOnClickOutside: true,
+        keyCodeForClose: [8, 32],
+        overlayClassName: "overlay-custom-class-name",
+      });
     } else {
-      const confirmed = window.confirm(
-        `Are you sure you want to add ${title} to cart?`
-      );
-      if (confirmed) {
-        const newCartItem = {
-          id,
-          title,
-          price,
-          isDiscounted,
-          discounted_price,
-          discounted_percent,
-          qtyValue,
-          img_src,
-          stock,
-        };
-        const updatedCartItems = [...cartItems, newCartItem];
+      const existingCartItem = cartItems.find((item) => item.id === id);
 
-        setCartItems(updatedCartItems);
-        localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-        alert(`${title} added to cart successfully`);
+      if (existingCartItem) {
+        confirmAlert({
+          title: `${title} is already in the cart.`,
+          buttons: [
+            {
+              label: "Ok",
+            },
+          ],
+          closeOnEscape: true,
+          closeOnClickOutside: true,
+          keyCodeForClose: [8, 32],
+          willUnmount: () => {},
+          afterClose: () => {},
+          onClickOutside: () => {},
+          onKeypress: () => {},
+          onKeypressEscape: () => {},
+          overlayClassName: "overlay-custom-class-name",
+        });
+      } else {
+        confirmAlert({
+          title: "Confirm to Add",
+          message: `Are you sure you want to add this to cart?`,
+          childrenElement: () => (
+            <div className="object-contain py-1 min-w-[160px]">
+              <Image
+                src={img_src || "/static/blur_data.jpeg"}
+                alt="item image"
+                width={160}
+                height={160}
+                placeholder="blur"
+                className="object-contain min-h-[160px] max-h-[160px] sm:min-h-[160px] min-w-[160px]"
+                blurDataURL="/static/blur_data.jpeg"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                }}
+              />
+              <h3>{title}</h3>
+            </div>
+          ),
+          buttons: [
+            {
+              label: "Yes",
+              onClick: () => {
+                handleAdc(
+                  id,
+                  title,
+                  price,
+                  isDiscounted,
+                  discounted_price,
+                  discounted_percent,
+                  qtyValue,
+                  img_src,
+                  stock
+                );
+              },
+            },
+            {
+              label: "No",
+            },
+          ],
+          overlayClassName: "overlay-custom-class-name",
+        });
       }
     }
+  };
+  const handleAdc = async (
+    id,
+    title,
+    price,
+    isDiscounted,
+    discounted_price,
+    discounted_percent,
+    qtyValue,
+    img_src,
+    stock
+  ) => {
+    const newCartItem = {
+      id,
+      title,
+      price,
+      isDiscounted,
+      discounted_price,
+      discounted_percent,
+      qtyValue,
+      img_src,
+      stock,
+    };
+    const updatedCartItems = [...cartItems, newCartItem];
+    await setCartItems(updatedCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    confirmAlert({
+      title: `${title} added to cart successfully`,
+      buttons: [{ label: "Ok" }],
+      closeOnEscape: true,
+      closeOnClickOutside: true,
+      keyCodeForClose: [8, 32],
+      willUnmount: () => {},
+      afterClose: () => {},
+      onClickOutside: () => {},
+      onKeypress: () => {},
+      onKeypressEscape: () => {},
+      overlayClassName: "overlay-custom-class-name",
+    });
   };
   return (
     <div className="flex flex-col sm:flex-row mx-3 mt-5 sm:mx-5">
       {user && Admins && Admins.includes(user.email) && (
-        <div className="w-[100%] z-[10] flex justify-end absolute right-4 p-1 gap-x-1">
+        <div className="z-[10] flex justify-end absolute right-4 p-1 gap-x-1">
           <Link
             href={{
               pathname: "Admin729/editItem",

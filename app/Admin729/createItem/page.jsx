@@ -45,7 +45,18 @@ const page = () => {
           }),
         });
         if (response.ok) {
-          alert(`${post.title} Created Successfully`);
+          confirmAlert({
+            title: `${post.title} Created Successfully`,
+            buttons: [
+              {
+                label: "Ok",
+              },
+            ],
+            closeOnEscape: true,
+            closeOnClickOutside: true,
+            keyCodeForClose: [8, 32],
+            overlayClassName: "overlay-custom-class-name",
+          });
         }
       } catch (error) {
         console.log(error);

@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { UserAuth } from "../app/context/AuthContext";
-import Image from "next/image";
+import Image from "next/image"; // Import next/image component
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
@@ -19,90 +19,95 @@ const ItemsContainer = ({
   setCartItems,
 }) => {
   const { user, googleSignIn, Admins } = UserAuth();
-  const [confirmed, setConfirmed] = useState(false);
   const [confirmDel, setConfirmDel] = useState(false);
   const URL = process.env.NEXT_PUBLIC_URL;
-
-  const handleDelete = async () => {
-    if (!id || id === "" || id === null || id === undefined) {
-      return confirmAlert({
-        title: `Invalid Item`,
-        buttons: [
-          {
-            label: "Ok",
-          },
-        ],
-        closeOnEscape: true,
-        closeOnClickOutside: true,
-        keyCodeForClose: [8, 32],
-        overlayClassName: "overlay-custom-class-name",
-      });
-    }
-    try {
-      const response = await fetch(`${URL}/api/item/${id}`, {
-        method: "DELETE",
-      });
-      if (response.status === 500) {
-        confirmAlert({
-          title: `Error 500`,
-          message:
-            "There was some error trying to delete this item. Please try again",
-          buttons: [
-            {
-              label: "Ok",
-            },
-          ],
-          closeOnEscape: true,
-          closeOnClickOutside: true,
-          keyCodeForClose: [8, 32],
-          overlayClassName: "overlay-custom-class-name",
-        });
-      }
-      if (response.ok) {
-        confirmAlert({
-          title: `Item Deleted Successfully`,
-          buttons: [
-            {
-              label: "Ok",
-            },
-          ],
-          closeOnEscape: true,
-          closeOnClickOutside: true,
-          keyCodeForClose: [8, 32],
-          overlayClassName: "overlay-custom-class-name",
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
-    setConfirmDel(false);
-  };
-
-  const DeleteItem = (e) => {
-    e.preventDefault();
+  const DeleteItem = async () => {
     confirmAlert({
       title: "Confirm to Delete",
       message: "Are you sure you want to delete this item?",
       buttons: [
         {
           label: "Yes",
-          onClick: () => handleDelete(),
+          onClick: () => setConfirmDel(true),
         },
         {
           label: "No",
+          // onClick: setConfirmDel(false),
         },
       ],
       overlayClassName: "overlay-custom-class-name",
     });
   };
-
   useEffect(() => {
-    if (confirmDel) {
-      handleDelete();
-    }
+    const handleDel = async () => {
+      if (confirmDel === true) {
+        if (!id)
+          return confirmAlert({
+            title: `Invalid Item`,
+            buttons: [
+              {
+                label: "Ok",
+              },
+            ],
+            closeOnEscape: true,
+            closeOnClickOutside: true,
+            keyCodeForClose: [8, 32],
+            overlayClassName: "overlay-custom-class-name",
+          });
+        try {
+          const response = await fetch(`${URL}/api/item/${id}`, {
+            method: "DELETE",
+          });
+          if (response.status === 500) {
+            confirmAlert({
+              title: `Error 500`,
+              message:
+                "There was some error trying to delete this item. Please try again",
+              buttons: [
+                {
+                  label: "Ok",
+                },
+              ],
+              closeOnEscape: true,
+              closeOnClickOutside: true,
+              keyCodeForClose: [8, 32],
+              overlayClassName: "overlay-custom-class-name",
+            });
+          }
+          if (response.ok) {
+            confirmAlert({
+              title: `Item Deleted Successfully`,
+              buttons: [
+                {
+                  label: "Ok",
+                },
+              ],
+              closeOnEscape: true,
+              closeOnClickOutside: true,
+              keyCodeForClose: [8, 32],
+              overlayClassName: "overlay-custom-class-name",
+            });
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    };
+    handleDel();
+    return setConfirmDel(false);
   }, [confirmDel]);
 
-  const addToCart = async (id, title) => {
+  const addToCart = (
+    id,
+    title,
+    price,
+    isDiscounted,
+    discounted_price,
+    discounted_percent,
+    qtyValue,
+    img_src,
+    stock
+  ) => {
     if (!user || user === null) {
       confirmAlert({
         title: `You need to login first to add this item to cart`,
@@ -169,7 +174,17 @@ const ItemsContainer = ({
             {
               label: "Yes",
               onClick: () => {
-                setConfirmed(true);
+                handleAdc(
+                  id,
+                  title,
+                  price,
+                  isDiscounted,
+                  discounted_price,
+                  discounted_percent,
+                  qtyValue,
+                  img_src,
+                  stock
+                );
               },
             },
             {
@@ -181,44 +196,45 @@ const ItemsContainer = ({
       }
     }
   };
-  useEffect(() => {
-    if (confirmed) {
-      const qtyValue = 1;
-      const newCartItem = {
-        id,
-        title,
-        price,
-        isDiscounted,
-        discounted_price,
-        discounted_percent,
-        qtyValue,
-        main_img,
-        stock,
-      };
-      const updatedCartItems = [...cartItems, newCartItem];
-      setCartItems(updatedCartItems);
-      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-      confirmAlert({
-        title: `${title} added to cart successfully`,
-        // message: 'Item Id not found',
-        buttons: [
-          {
-            label: "Ok",
-          },
-        ],
-        closeOnEscape: true,
-        closeOnClickOutside: true,
-        keyCodeForClose: [8, 32],
-        willUnmount: () => {},
-        afterClose: () => {},
-        onClickOutside: () => {},
-        onKeypress: () => {},
-        onKeypressEscape: () => {},
-        overlayClassName: "overlay-custom-class-name",
-      });
-    }
-    return setConfirmed(false);
-  }, [confirmed]);
+  const handleAdc = async (
+    id,
+    title,
+    price,
+    isDiscounted,
+    discounted_price,
+    discounted_percent,
+    qtyValue,
+    img_src,
+    stock
+  ) => {
+    const newCartItem = {
+      id,
+      title,
+      price,
+      isDiscounted,
+      discounted_price,
+      discounted_percent,
+      qtyValue,
+      img_src,
+      stock,
+    };
+    const updatedCartItems = [...cartItems, newCartItem];
+    await setCartItems(updatedCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    confirmAlert({
+      title: `${title} added to cart successfully`,
+      buttons: [{ label: "Ok" }],
+      closeOnEscape: true,
+      closeOnClickOutside: true,
+      keyCodeForClose: [8, 32],
+      willUnmount: () => {},
+      afterClose: () => {},
+      onClickOutside: () => {},
+      onKeypress: () => {},
+      onKeypressEscape: () => {},
+      overlayClassName: "overlay-custom-class-name",
+    });
+  };
   const [scrollTitle, setScrollTitle] = useState(false);
   return (
     <>

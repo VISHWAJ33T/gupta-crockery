@@ -2,6 +2,8 @@
 import FormCarousel from "@/Components/FormCarousel";
 import CarouselSwiper from "@/Components/CarouselSwiper";
 import { useEffect, useState } from "react";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 const EditCarousel = () => {
   const [submitting, setSubmitting] = useState(false);
   const URL = process.env.NEXT_PUBLIC_URL;
@@ -52,7 +54,18 @@ const EditCarousel = () => {
           }),
         });
         if (response.ok) {
-          alert("Carousel Updated Successfully");
+          confirmAlert({
+            title: "Carousel Updated Successfully",
+            buttons: [
+              {
+                label: "Ok",
+              },
+            ],
+            closeOnEscape: true,
+            closeOnClickOutside: true,
+            keyCodeForClose: [8, 32],
+            overlayClassName: "overlay-custom-class-name",
+          });
         }
       } catch (error) {
         console.log(error);

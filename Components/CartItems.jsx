@@ -2,6 +2,9 @@
 import { useEffect, useState } from "react";
 import SingleCartItem from "./SingleCartItem";
 import { UserAuth } from "../app/context/AuthContext";
+import Image from "next/image"; // Import next/image component
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 const CartItems = () => {
   // const { user, googleSignIn, facebookSignIn } = UserAuth();
@@ -59,16 +62,75 @@ const CartItems = () => {
     setItems(updatedItems);
   };
 
-  const deleteItem = (itemId) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this item from the cart?"
-    );
+  const deleteItem = (itemId, title, main_img) => {
+    // const confirmed = window.confirm(
+    //   "Are you sure you want to delete this item from the cart?"
+    // );
 
-    if (confirmed) {
-      const updatedItems = items.filter((item) => item.id !== itemId);
-      setItems(updatedItems);
-      alert("Item deleted from cart successfully");
-    }
+    confirmAlert({
+      title: "Confirm to Remove",
+      message: `Are you sure you want to remove this item from cart?`,
+      childrenElement: () => (
+        <div className="object-contain py-1 min-w-[160px]">
+          <Image
+            src={main_img || "/static/blur_data.jpeg"}
+            alt="item image"
+            width={160}
+            height={160}
+            placeholder="blur"
+            className="object-contain min-h-[160px] max-h-[160px] sm:min-h-[160px] min-w-[160px]"
+            blurDataURL="/static/blur_data.jpeg"
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+            }}
+          />
+          <h3>{title}</h3>
+        </div>
+      ),
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            const updatedItems = items.filter((item) => item.id !== itemId);
+            setItems(updatedItems);
+            confirmAlert({
+              title: "Item deleted from cart successfully",
+              buttons: [
+                {
+                  label: "Ok",
+                },
+              ],
+              closeOnEscape: true,
+              closeOnClickOutside: true,
+              keyCodeForClose: [8, 32],
+              overlayClassName: "overlay-custom-class-name",
+            });
+          },
+        },
+        {
+          label: "No",
+        },
+      ],
+      overlayClassName: "overlay-custom-class-name",
+    });
+
+    // if (confirmed) {
+    //   const updatedItems = items.filter((item) => item.id !== itemId);
+    //   setItems(updatedItems);
+    //   confirmAlert({
+    //     title: "Item deleted from cart successfully",
+    //     buttons: [
+    //       {
+    //         label: "Ok",
+    //       },
+    //     ],
+    //     closeOnEscape: true,
+    //     closeOnClickOutside: true,
+    //     keyCodeForClose: [8, 32],
+    //     overlayClassName: "overlay-custom-class-name",
+    //   });
+    // }
   };
 
   const totalAmount = items.reduce(
@@ -93,7 +155,18 @@ const CartItems = () => {
       });
 
       if (response.ok) {
-        alert("Cart saved successfully");
+        confirmAlert({
+          title: "Cart saved successfully",
+          buttons: [
+            {
+              label: "Ok",
+            },
+          ],
+          closeOnEscape: true,
+          closeOnClickOutside: true,
+          keyCodeForClose: [8, 32],
+          overlayClassName: "overlay-custom-class-name",
+        });
       } else {
         console.error("Failed to save cart:", response.statusText);
       }
