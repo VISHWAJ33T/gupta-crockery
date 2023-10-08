@@ -17,7 +17,7 @@ const CategoryContainer = ({ cartItems, setCartItems, category }) => {
   return (
     <>
       <div
-        className=" mx-[15px] sm:mx-[20px] scroll-view shadow-2xl"
+        className="itemsContainer mx-[15px] sm:mx-[20px] scroll-view shadow-2xl"
         id={`${category[0].toUpperCase() + category.slice(1)}`}
       >
         <Link

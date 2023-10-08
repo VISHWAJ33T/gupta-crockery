@@ -37,7 +37,7 @@ const SingleCategory = ({ heading }) => {
   return (
     <div
       draggable="true"
-      className={`min-w-[250px] items-start justify-center ${heading}-style py-4 pt-2 px-4 `}
+      className={`SingleCategory min-w-[250px] items-start justify-center ${heading}-style py-4 pt-2 px-4 `}
     >
       <button
         onClick={() => scrollIntoTheView(heading)}
