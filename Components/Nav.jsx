@@ -75,7 +75,7 @@ const Nav = () => {
   };
 
   return (
-    <div className="nav bg-[#131b2e] sticky top-0 z-[10] py-2 px-4 sm:px-0 text-white w-full">
+    <div className="nav bg-[#131b2e] sticky top-0 z-[101] py-2 px-4 sm:px-0 text-white w-full">
       <ul className="flex items-center justify-between">
         <li className="shrink-0">
           <Link href="/" className="flex space-x-1 md:ml-4 items-center mr-3 ">
