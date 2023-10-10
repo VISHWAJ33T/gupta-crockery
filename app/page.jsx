@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <>
-      <ScrollToTop smooth color="#000000" />
+      <ScrollToTop smooth color="#ff640e" />
       {loading && <Loading />}
       <div className={loading ? `hidden` : null}>
         <div className="w-[100vw] lg:relative">

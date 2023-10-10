@@ -16,6 +16,11 @@ html {
   font-family: "Roboto Condensed", "Sofia Sans Condensed", sans-serif;
   /* font-family: 'Sofia Sans Condensed', sans-serif; */
 }
+.scroll-to-top{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
 /* hamburger css starts here */
 /********************************************************** Animation css starts here /**********************************************************/
 .itemsContainer {

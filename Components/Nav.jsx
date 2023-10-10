@@ -264,9 +264,18 @@ const Nav = () => {
             <p className="text">Sign Out</p>
           </button>
           {Admins && Admins.includes(user.email) && (
-            <Link href="/Admin729" className="cartbtn" type="button">
-              <p className="text">Admin Panel</p>
-            </Link>
+            <>
+              <Link href="/Admin729" className="cartbtn" type="button">
+                <p className="text">Admin Panel</p>
+              </Link>
+              <Link
+                href="/Admin729/createItem"
+                className="cartbtn"
+                type="button"
+              >
+                <p className="text">Create a new Item</p>
+              </Link>
+            </>
           )}
         </div>
       )}
