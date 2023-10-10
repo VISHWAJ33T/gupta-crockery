@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
-import Footer from "@/Components/Footer";
 import Nav from "@/Components/Nav";
+import Footer from "@/Components/Footer";
 import "@/styles/globals.css";
 import "./firebase.js";
 import { AuthContextProvider } from "./context/AuthContext";

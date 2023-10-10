@@ -242,7 +242,7 @@ const SingleItem = ({ item }) => {
   return (
     <div className="flex flex-col sm:flex-row mx-3 mt-5 sm:mx-5">
       {user && Admins && Admins.includes(user.email) && (
-        <div className="z-[10] flex justify-end absolute right-4 p-1 gap-x-1">
+        <div className="z-[3] flex justify-end absolute right-4 p-1 gap-x-1">
           <Link
             href={{
               pathname: "Admin729/editItem",

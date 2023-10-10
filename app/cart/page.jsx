@@ -1,4 +1,5 @@
 "use client";
+import ScrollToTop from "react-scroll-to-top";
 import React, { useState, useEffect } from "react";
 import Loading from "./loading.jsx";
 import CartItems from "@/Components/CartItems";
@@ -12,6 +13,7 @@ const page = () => {
   }, []);
   return (
     <>
+      <ScrollToTop smooth color="#ff640e" />
       {loading && <Loading />}
       <div className={loading ? `hidden` : null}>
         <CartItems />

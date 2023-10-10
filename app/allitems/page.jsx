@@ -1,4 +1,5 @@
 "use client";
+import ScrollToTop from "react-scroll-to-top";
 import { useEffect, useState } from "react";
 import Loading from "./loading.jsx";
 import ItemsContainer from "@/Components/ItemsContainer";
@@ -125,6 +126,7 @@ const Page = () => {
 
   return (
     <>
+      <ScrollToTop smooth color="#ff640e" />
       {loading && <Loading />}
       {!loading ? (
         itemsNotFound ? (
