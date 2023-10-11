@@ -27,6 +27,7 @@ module.exports = withPWA({
   experimental: {
     appDir: true,
     serverComponentsExternalPackages: ["mongoose"],
+    scrollRestoration: true,
   },
   webpack(config) {
     config.experiments = {
