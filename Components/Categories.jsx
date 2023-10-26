@@ -4,7 +4,7 @@ import { UserAuth } from "../app/context/AuthContext";
 const Categories = () => {
   const { user, Admins } = UserAuth();
   return (
-    <div className=" mx-[15px] mt-5 mb-6 gap-x-3 flex sm:mx-[20px] pb-3 overflow-x-scroll shadow-2xl">
+    <div className="categories-container px-[15px] mt-5 mb-6 gap-x-3 flex sm:px-[20px] pb-3 overflow-x-scroll shadow-2xl">
       {user && Admins && Admins.includes(user.email) && (
         <div className="flex z-[3] justify-end absolute right-4 p-1 gap-x-1">
           <Link href="Admin729/editCategoriesImg" className="edit-button">

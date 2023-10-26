@@ -14,6 +14,10 @@ const CategoryContainer = ({ cartItems, setCartItems, category }) => {
     const data = await response.json();
     setAllItems(data);
   };
+  if (allItems.length === 0) {
+    return <></>;
+  }
+
   return (
     <>
       <div
@@ -25,12 +29,12 @@ const CategoryContainer = ({ cartItems, setCartItems, category }) => {
             pathname: "/allitems",
             query: { category: category, search: "" },
           }}
-          className="text-2xl font-bold text-black cursor-pointer w-fit relative left-1 sm:left-2 top-2"
+          className="text-3xl font-bold text-black cursor-pointer w-fit relative left-1 sm:left-2 top-2"
         >
           {category[0].toUpperCase() + category.slice(1)}
         </Link>
         {allItems.length === 0 ? (
-          <div className="flex items-container-container pointer-events-none overflow-x-auto gap-x-3 py-3">
+          <div className="flex items-container-containerpointer-events-none overflow-x-auto gap-x-3 py-3">
             {(() => {
               let singleRow = [];
               for (let i = 0; i < 20; i++) {

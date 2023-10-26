@@ -490,12 +490,15 @@ html {
   scrollbar-color: #000000 #ffffff00;
   scrollbar-width: thin;
 }
-
+.categories-container{
+  scrollbar-color: #000000 #00000000;
+  scrollbar-width: auto;
+}
 .category-heading {
   color: white;
   font-size: 30px;
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: #131b2e;
+  /* -webkit-text-stroke-width: 0.5px; */
+  /* -webkit-text-stroke-color: #131b2e; */
 }
 
 .Steel-style {

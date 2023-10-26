@@ -33,7 +33,7 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
       >
         <div className="mx-1">
           <img
-            className="lg:w-[300px] md:w-[200px] w-[100px] lg:h-[300px] md:h-[200px] h-[100px] object-contain border mx-3 sm:mx-10 shadow-lg"
+            className="rounded-[20px] lg:w-[200px] md:w-[200px] w-[100px] lg:h-[200px] md:h-[200px] h-[100px] object-contain border mx-3 sm:mx-10 shadow-lg"
             src={
               img_src ||
               "https://s3.envato.com/files/407753606/IMG_8092%20%202a.jpg"
@@ -93,7 +93,7 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
             </span>
           </div>
         </div>
-        <div className="absolute right-4 sm:right-6 md:right-12 mt-16 md:mt-20 lg:mt-28">
+        <div className="absolute right-4 sm:right-6 md:right-12 mt-16 md:mt-20 lg:mt-20">
           {/* <span>Delete </span> */}
           <button onClick={handleDelete} className="delete-button">
             <svg className="delete-svgIcon" viewBox="0 0 448 512">

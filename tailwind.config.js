@@ -1,9 +1,7 @@
 // tailwind.config.js
 module.exports = {
   content: [
-    // ".//**/*.{js,ts,jsx,tsx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    // "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./Components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   mode: 'jit',
