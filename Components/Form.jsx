@@ -3,6 +3,9 @@ import ItemsContainer from "./ItemsContainer";
 import SingleItem from "./SingleItem";
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   const [cartItems, setCartItems] = useState([]);
+  const [inputPic, setInputPic] = useState();
+  const [inputLoading, setInputLoading] = useState(false);
+  const [removeBg, setRemoveBg] = useState(false);
   useEffect(() => {
     setTimeout(() => {
       const storedCartItems = localStorage.getItem("cartItems");
@@ -11,6 +14,43 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       }
     }, 0);
   }, []);
+  const postImage = (inputPic) => {
+    setInputLoading(true);
+    if (inputPic === undefined) {
+      alert("Please Select an Image!");
+      return;
+    }
+    console.log(inputPic);
+    if (inputPic.type === "image/jpeg" || inputPic.type === "image/png") {
+      const data = new FormData();
+      data.append("file", inputPic);
+      data.append(
+        "upload_preset",
+        `${!removeBg ? "gupta-crockery" : "gupta-crockery-removebg"}`
+      );
+      data.append("cloud_name", "dywvrv8nw");
+      fetch("https://api.cloudinary.com/v1_1/dywvrv8nw/image/upload", {
+        method: "post",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setInputPic(data.url.toString());
+          // setPost({ ...post, main_img: data.url.toString() });
+          console.log(data.url.toString());
+          setInputLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setInputLoading(false);
+        });
+    } else {
+      alert("Please Select an Image!");
+      setPicLoading(false);
+      return;
+    }
+  };
+
   return (
     <>
       <form
@@ -101,7 +141,9 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           <span className="w-[100px] text-gray-700">Discount ₹</span>
           <input
             value={post.discounted_price}
-            onChange={(e) =>setPost({ ...post, discounted_price: e.target.value })}
+            onChange={(e) =>
+              setPost({ ...post, discounted_price: e.target.value })
+            }
             type="Number"
             min="0"
             placeholder={
@@ -174,6 +216,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             src={post.main_img}
           />
         )} */}
+
         {/* **************************************************extra_imgs************************************************** */}
         <label className="text-center justify-center text-xl flex gap-3">
           <span className="w-[100px] text-gray-700">Extra imgs</span>
@@ -195,6 +238,59 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           {submitting ? `${type}...` : type}
         </button>
       </form>
+      <div className="flex flex-col justify-center py-5 gap-y-3 items-center">
+        <h3 className="font-bold text-3xl">Get Image URL</h3>
+        <label className="cursor-pointer" htmlFor="imageInput">
+          <img
+            src={
+              !inputLoading
+                ? inputPic ||
+                  "https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg"
+                : "https://www.netatwork.com/uploads/AAPL/loaders/One%20Moment%20Please%20Star%20Loader.gif"
+            }
+            className="max-w-[200px] max-h-[200px] object-contain border-2 min-w-[200px] min-h-[200px]"
+            alt="Upload your image"
+          />
+          <input
+            type="file"
+            id="imageInput"
+            accept="image"
+            onChange={(e) => postImage(e.target.files[0])}
+            className="hidden"
+          />
+          <label
+            htmlFor="removeBg"
+            className="flex justify-center pt-1 w-[100%]"
+          >
+            Remove Background? &nbsp;
+            <input
+              id="removeBg"
+              value={removeBg}
+              onChange={(e) => {
+                setRemoveBg(!removeBg);
+              }}
+              type="checkbox"
+            />
+          </label>
+        </label>
+        <p
+          onClick={() => {
+            if (inputPic) {
+              navigator.clipboard.writeText(inputPic);
+              alert(`Image url copied to clipboard successfully`);
+            }
+          }}
+          target="_blank"
+          className={`${
+            inputPic ? "cursor-pointer" : "cursor-default"
+          } text-[#388585] text-xl`}
+        >
+          {!inputLoading
+            ? inputPic || "click above to upload your image"
+            : "Uploading Image..."}
+        </p>
+      </div>
+
       <div className="py-10 flex flex-col gap-y-10 items-center justify-center">
         <div className="text-center text-3xl font-bold my-3">Preview</div>
         <ItemsContainer
