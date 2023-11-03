@@ -6,6 +6,8 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   const [inputPic, setInputPic] = useState();
   const [inputLoading, setInputLoading] = useState(false);
   const [removeBg, setRemoveBg] = useState(false);
+  const [removeBgApiKey, setRemoveBgApiKey] = useState("");
+
   useEffect(() => {
     setTimeout(() => {
       const storedCartItems = localStorage.getItem("cartItems");
@@ -24,10 +26,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
     if (inputPic.type === "image/jpeg" || inputPic.type === "image/png") {
       const data = new FormData();
       data.append("file", inputPic);
-      data.append(
-        "upload_preset",
-        `${!removeBg ? "gupta-crockery" : "gupta-crockery-removebg"}`
-      );
+      data.append("upload_preset", "gupta-crockery");
       data.append("cloud_name", "dywvrv8nw");
       fetch("https://api.cloudinary.com/v1_1/dywvrv8nw/image/upload", {
         method: "post",
@@ -36,7 +35,6 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
         .then((res) => res.json())
         .then((data) => {
           setInputPic(data.url.toString());
-          // setPost({ ...post, main_img: data.url.toString() });
           console.log(data.url.toString());
           setInputLoading(false);
         })
@@ -49,6 +47,27 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       setPicLoading(false);
       return;
     }
+  };
+  const removeBackground = async (imageFile) => {
+    const formData = new FormData();
+    formData.append("image_file", imageFile);
+    console.log(removeBgApiKey);
+    const response = await fetch("https://sdk.photoroom.com/v1/segment", {
+      method: "POST",
+      headers: {
+        "X-Api-Key": `${removeBgApiKey}`,
+      },
+      body: formData,
+    });
+
+    if (!response.ok) {
+      console.error(response.json());
+      alert("Image not uploaded");
+      throw new Error("Network response was not ok");
+    }
+
+    const imageBlob = await response.blob();
+    return postImage(imageBlob);
   };
 
   return (
@@ -255,24 +274,45 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             type="file"
             id="imageInput"
             accept="image"
-            onChange={(e) => postImage(e.target.files[0])}
+            onChange={(e) => {
+              removeBg
+                ? removeBackground(e.target.files[0])
+                : postImage(e.target.files[0]);
+            }}
             className="hidden"
           />
-          <label
-            htmlFor="removeBg"
-            className="flex justify-center pt-1 w-[100%]"
-          >
-            Remove Background? &nbsp;
-            <input
-              id="removeBg"
-              value={removeBg}
-              onChange={(e) => {
-                setRemoveBg(!removeBg);
-              }}
-              type="checkbox"
-            />
-          </label>
         </label>
+        <label htmlFor="removeBg" className="flex justify-center pt-1 w-[100%]">
+          Remove Background? &nbsp;
+          <input
+            id="removeBg"
+            value={removeBg}
+            onChange={(e) => {
+              setRemoveBg(!removeBg);
+            }}
+            type="checkbox"
+          />
+        </label>
+        {removeBg && (
+          <select
+            className="w-[160px] px-2 py-2"
+            // value={removeBgApiKey}
+            onChange={(e) => setRemoveBgApiKey(e.target.value)}
+          >
+            <option value="" disabled>
+              Select Api Key
+            </option>
+            <option value="83b8272c58a1d7c1dd6687e0a52e8047bde266c0">
+              Api Key 1
+            </option>
+            <option value="5df0aabd6708b200a795191dde59aaa308db780f">
+              Api Key 2
+            </option>
+            <option value="985323b7d0c793c4c6bdd64a26c4230ead6baf10">
+              Api Key 3
+            </option>
+          </select>
+        )}
         <p
           onClick={() => {
             if (inputPic) {
