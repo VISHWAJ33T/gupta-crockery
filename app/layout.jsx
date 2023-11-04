@@ -32,9 +32,9 @@ export default function RootLayout({ children }) {
           <Nav />
           {children}
           <Footer />
-          <Analytics />
         </AuthContextProvider>
       </body>
+      {process.env.NODE_ENV !== "development" && <Analytics />}
     </html>
   );
 }
