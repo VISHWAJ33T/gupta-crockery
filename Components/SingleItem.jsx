@@ -267,7 +267,7 @@ const SingleItem = ({ item }) => {
             "--swiper-navigation-color": "#131b2e",
             "--swiper-pagination-color": "#131b2e",
           }}
-          loop={true}
+          loop={(item.extra_imgs && item.extra_imgs.length) > 3 ? true : false}
           spaceBetween={10}
           navigation={true}
           thumbs={{

@@ -33,7 +33,7 @@ const CarouselSwiper = ({ allImgs, type, tempSrc, width, height, blurURL }) => {
                     }}
                     slidesPerView={1}
                     spaceBetween={0}
-                    loop={true}
+                    loop={allImgs.length > 3 ? true : false}
                     autoplay={{
                         delay: 2500,
                         disableOnInteraction: false,
