@@ -32,11 +32,11 @@ export default function Home() {
           {/* <div className="h-[25vh] sm:h-[50vh] xl:h-[55vh] w-[100vw]"> */}
           <CarouselContainer />
         </div>
-        <div className="lg:relative z-[1.5] lg:top-[0]">
+        <div className="lg:relative z-[2] lg:top-[0]">
           <Categories />
         </div>
 
-        <div className="lg:relative z-[1.5] lg:top-[0] flex flex-col gap-y-6">
+        <div className="lg:relative z-[2] lg:top-[0] flex flex-col gap-y-6">
           <CategoryContainer
             cartItems={cartItems}
             setCartItems={setCartItems}
