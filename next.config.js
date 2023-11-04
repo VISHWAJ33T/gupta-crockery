@@ -14,7 +14,6 @@ module.exports = withPWA({
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ["res.cloudinary.com"],
     remotePatterns: [
       {
         protocol: "https",
@@ -24,11 +23,6 @@ module.exports = withPWA({
     // formats: ['image/webp'],
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60,
-  },
-  experimental: {
-    appDir: true,
-    serverComponentsExternalPackages: ["mongoose"],
-    scrollrestoration: true,
   },
   webpack(config) {
     config.experiments = {
