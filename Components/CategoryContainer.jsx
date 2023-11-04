@@ -17,7 +17,8 @@ const CategoryContainer = ({ cartItems, setCartItems, category }) => {
 
   const fetchItems = async () => {
     const response = await fetch(`/api/item?category=${category}`);
-    const data = await response.json();
+    const responseData = await response.json();
+    const data = responseData.reverse()
     setAllItems(data);
   };
   if (allItems.length === 0) {

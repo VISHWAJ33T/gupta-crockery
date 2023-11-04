@@ -37,8 +37,8 @@ const Page = () => {
     const response = await fetch(
       `/api/item?&category=${category}&search=${search}`
     );
-    const data = await response.json();
-
+    const responseData = await response.json();
+    const data = responseData.reverse()
     // Sort data based on the selected sort order
     const sortedData = data.sort((a, b) => {
       if (sortOrder === "priceLowToHigh" || sortOrder === "priceHighToLow") {
