@@ -22,7 +22,6 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       alert("Please Select an Image!");
       return;
     }
-    console.log(inputPic);
     if (inputPic.type === "image/jpeg" || inputPic.type === "image/png") {
       const data = new FormData();
       data.append("file", inputPic);
@@ -35,7 +34,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
         .then((res) => res.json())
         .then((data) => {
           setInputPic(data.url.toString());
-          console.log(data.url.toString());
+          // console.log(data.url.toString());
           setInputLoading(false);
         })
         .catch((err) => {
@@ -51,7 +50,6 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   const removeBackground = async (imageFile) => {
     const formData = new FormData();
     formData.append("image_file", imageFile);
-    console.log(removeBgApiKey);
     const response = await fetch("https://sdk.photoroom.com/v1/segment", {
       method: "POST",
       headers: {

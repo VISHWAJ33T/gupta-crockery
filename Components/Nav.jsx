@@ -43,7 +43,7 @@ const Nav = () => {
       setLoading(false);
     };
     checkAuthentication();
-    console.log(user);
+    // console.log(user);
   }, [user]);
 
   const handleSubmit = (e) => {

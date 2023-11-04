@@ -1,6 +1,6 @@
 
 const FormCategoryImgs = ({ type, post, setPost, submitting, handleSubmit }) => {
-    console.log(post)
+    // console.log(post)
     return (
         <form
             onSubmit={handleSubmit}
