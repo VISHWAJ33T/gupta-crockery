@@ -18,26 +18,29 @@ export const AuthContextProvider = ({ children }) => {
     if (user) {
       const { uid, displayName, email, photoURL } = user;
       try {
-        const response = await fetch("/api/user/new", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            usid: uid,
-            name: displayName,
-            email: email,
-            photoURL: photoURL,
-            cartItems: [],
-          }),
-        });
-
-        if (response.status === 201) {
-          console.log("User created successfully");
-        } else if (response.status === 200) {
-          console.log("User Already Exists");
+        const userExists = await fetch(`/api/user/${uid}`);
+        if (userExists.status === 200) {
+          console.log("Hi " + displayName + "🙋, Welcome Back")
         } else {
-          console.error("Failed to create user");
+          const response = await fetch("/api/user/new", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              usid: uid,
+              name: displayName,
+              email: email,
+              photoURL: photoURL,
+              cartItems: [],
+            }),
+          });
+
+          if (response.status === 201) {
+            console.log("User created successfully");
+          } else {
+            console.error("Failed to create user");
+          }
         }
       } catch (error) {
         console.error("Error creating user:", error);
