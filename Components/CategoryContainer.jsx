@@ -2,7 +2,13 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ItemsContainer from "./ItemsContainer";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Scrollbar, FreeMode} from "swiper/modules";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
+import 'swiper/css/free-mode';
 const CategoryContainer = ({ cartItems, setCartItems, category }) => {
   const [allItems, setAllItems] = useState([]);
   useEffect(() => {
@@ -29,7 +35,7 @@ const CategoryContainer = ({ cartItems, setCartItems, category }) => {
             pathname: "/allitems",
             query: { category: category, search: "" },
           }}
-          className="text-3xl font-bold text-black cursor-pointer w-fit relative left-1 sm:left-2 top-2"
+          className="text-3xl font-bold text-black cursor-pointer w-fit relative left-1 sm:left-2 top-0"
         >
           {category[0].toUpperCase() + category.slice(1)}
         </Link>
@@ -56,27 +62,50 @@ const CategoryContainer = ({ cartItems, setCartItems, category }) => {
             })()}
           </div>
         ) : (
-          <div className="flex items-container-container overflow-x-auto gap-x-3 py-3">
-            {allItems.map((item) => (
-              <ItemsContainer
-                key={item._id}
-                id={item._id}
-                title={item.title}
-                price={item.price}
-                stock={item.stock}
-                isDiscounted={item.isDiscounted}
-                discounted_percent={
-                  item.isDiscounted ? item.discounted_percent : ""
-                }
-                discounted_price={
-                  item.isDiscounted ? item.discounted_price : ""
-                }
-                main_img={item.main_img}
-                cartItems={cartItems}
-                setCartItems={setCartItems}
-              />
-            ))}
-          </div>
+          <Swiper
+            style={{
+              "--swiper-navigation-color": "#000000",
+              "--swiper-pagination-color": "#131b2e",
+            }}
+            slidesPerView={"auto"}
+            spaceBetween={15}
+            loop={false}
+            autoplay={{
+              delay: 3000,
+              // delay: Math.floor(Math.random() * (4000 - 1000) ) + 1000,
+              disableOnInteraction: true,
+            }}
+            scrollbar={{
+              hide: true,
+            }}
+            freeMode={true}
+            navigation={true}
+            modules={[Autoplay, Scrollbar, Navigation, FreeMode]}
+            className="mySwiper"
+          >
+            <div className="flex items-container-container overflow-x-auto gap-x-3">
+              {allItems.map((item) => (
+                <SwiperSlide key={item._id} className="category-swiper">
+                  <ItemsContainer
+                    id={item._id}
+                    title={item.title}
+                    price={item.price}
+                    stock={item.stock}
+                    isDiscounted={item.isDiscounted}
+                    discounted_percent={
+                      item.isDiscounted ? item.discounted_percent : ""
+                    }
+                    discounted_price={
+                      item.isDiscounted ? item.discounted_price : ""
+                    }
+                    main_img={item.main_img}
+                    cartItems={cartItems}
+                    setCartItems={setCartItems}
+                  />
+                </SwiperSlide>
+              ))}
+            </div>
+          </Swiper>
         )}
       </div>
     </>

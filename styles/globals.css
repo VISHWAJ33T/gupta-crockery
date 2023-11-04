@@ -881,3 +881,16 @@ html {
 }
 
 /* NAV LOGIN CSS ENDS HERE */
+
+/* CATEGORY SWIPER CSS STARTS HERE */
+.category-swiper{
+  width: fit-content !important;
+  font-size: initial;
+  padding: initial;
+  margin: initial;
+  padding-bottom: 15px;
+}
+.category-swiper img{
+  object-fit: contain;
+}
+/* CATEGORY SWIPER CSS ENDS HERE */
