@@ -240,8 +240,7 @@ const ItemsContainer = ({
     <>
       {/*********************************************** Mobile***********************************************/}
       <div
-        draggable="true"
-        className="sm:hidden border flex bg-white  flex-col justify-center items-center min-w-[160px] max-w-[160px] overflow-hidden shadow-xl rounded-[10px]"
+        className="sm:hidden border flex bg-white  flex-col justify-center items-center min-w-[160px] max-w-[160px] overflow-hidden rounded-[10px]"
       >
         <span className="cursor-default flex px-3 w-full justify-center z-[2] text-white text-md font-bold relative left-0 h-0">
           {isDiscounted == true && (
@@ -357,7 +356,6 @@ const ItemsContainer = ({
 
       {/*********************************************** Desktop ***********************************************/}
       <div
-        draggable="true"
         className="hidden sm:flex border bg-white flex-col justify-center items-center min-w-[230px] max-w-[230px] overflow-hidden shadow-xl rounded-[10px]"
       >
         <span className="cursor-default w-[100%] flex px-3 justify-center z-[2] text-white text-md font-bold relative left-0 h-0">

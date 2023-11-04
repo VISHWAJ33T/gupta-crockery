@@ -28,7 +28,6 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
   return (
     <>
       <div
-        draggable="true"
         className="flex gap-x-3 border-t border-b py-3 shadow-md"
       >
         <div className="mx-1">
