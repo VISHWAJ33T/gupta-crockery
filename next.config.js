@@ -14,6 +14,7 @@ module.exports = withPWA({
     ignoreDuringBuilds: true,
   },
   images: {
+    domains: ['res.cloudinary.com'],
     remotePatterns: [
       {
         protocol: "https",
