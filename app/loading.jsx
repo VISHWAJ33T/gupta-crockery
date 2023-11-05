@@ -4,7 +4,7 @@ import { AllCategoriesSkeletonCard } from "@/Components/loading-skeletons/AllCat
 import { ItemsContainerSkeletonCard } from "@/Components/loading-skeletons/ItemsContainer-skeleton-card";
 export default function Loading() {
   return (
-    <div className="space-y-3 sm:space-y-5 lg:space-y-6 px-3 sm:px-5 lg:px-10">
+    <div className="space-y-3 sm:space-y-5 lg:space-y-6 px-[15px] sm:px-[20px]">
       <div className="relative top-0 -left-3 sm:-left-5 lg:-left-10">
         <CarouselSkeletonCard isLoading={true} />
       </div>
