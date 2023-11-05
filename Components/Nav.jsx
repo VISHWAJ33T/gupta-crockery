@@ -98,7 +98,7 @@ const Nav = () => {
             />
             <Link
               href={{
-                pathname: "/allitems",
+                pathname: `${process.env.NEXT_PUBLIC_URL}/allitems`,
                 query: { category: "", search: searchValue },
               }}
               className="flex items-center justify-center rounded-r px-2 bg-[white] bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 hover:bg-[orange]"
@@ -115,7 +115,7 @@ const Nav = () => {
           {user ? (
             <>
               <Link
-                href="cart"
+                href={`${process.env.NEXT_PUBLIC_URL}/cart`}
                 className="flex justify-center items-center mx-1 sm:mx-3"
               >
                 <svg
@@ -265,11 +265,15 @@ const Nav = () => {
           </button>
           {Admins && Admins.includes(user.email) && (
             <>
-              <Link href="/Admin729" className="cartbtn" type="button">
+              <Link
+                href={`${process.env.NEXT_PUBLIC_URL}/Admin729`}
+                className="cartbtn"
+                type="button"
+              >
                 <p className="text">Admin Panel</p>
               </Link>
               <Link
-                href="/Admin729/createItem"
+                href={`${process.env.NEXT_PUBLIC_URL}/Admin729/createItem`}
                 className="cartbtn"
                 type="button"
               >
