@@ -1,6 +1,8 @@
 "use client";
 import Form from "@/Components/admin/Form";
 import { useState } from "react";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 const page = () => {
   const [submitting, setSubmitting] = useState(false);
