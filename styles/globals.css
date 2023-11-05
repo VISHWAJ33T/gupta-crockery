@@ -62,7 +62,7 @@ html {
     opacity: 1;
   }
 }
-
+/* 
 .itemsContainer {
   -webkit-animation: swing-in-bottom-fwd 0.5s
     cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
@@ -132,7 +132,7 @@ html {
     transform: rotateX(0);
     opacity: 1;
   }
-}
+} */
 
 /********************************************************** Animation css ends here /**********************************************************/
 .menuButton {
@@ -491,7 +491,7 @@ html {
   scrollbar-color: #000000 #ffffff00;
   scrollbar-width: thin;
 }
-.categories-container{
+.categories-container {
   scrollbar-color: #000000 #00000000;
   scrollbar-width: auto;
 }
@@ -884,14 +884,14 @@ html {
 /* NAV LOGIN CSS ENDS HERE */
 
 /* CATEGORY SWIPER CSS STARTS HERE */
-.category-swiper{
+.category-swiper {
   width: fit-content !important;
   font-size: initial;
   padding: initial;
   margin: initial;
   padding-bottom: 15px;
 }
-.category-swiper img{
+.category-swiper img {
   object-fit: contain;
 }
 /* CATEGORY SWIPER CSS ENDS HERE */
