@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import SingleCartItem from "./SingleCartItem";
-import { UserAuth } from "../app/context/AuthContext";
+import { UserAuth } from "../../app/context/AuthContext";
 import Image from "next/image"; // Import next/image component
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";

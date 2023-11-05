@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { UserAuth } from "../app/context/AuthContext";
-import Image from "next/image"; // Import next/image component
+import { UserAuth } from "../../app/context/AuthContext";
+import Image from "next/image";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 

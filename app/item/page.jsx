@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Loading from "./loading.jsx";
-import SingleItem from "@/Components/SingleItem";
+import SingleItem from "@/Components/single-item/SingleItem.jsx";
 
 const page = () => {
   const [loading, setLoading] = useState(true);
@@ -20,7 +20,7 @@ const page = () => {
   };
   useEffect(() => {
     setTimeout(() => {
-      setLoading(false); // Set loading to false after the delay
+      // setLoading(false); // Set loading to false after the delay
     }, 300);
   }, []);
   return (

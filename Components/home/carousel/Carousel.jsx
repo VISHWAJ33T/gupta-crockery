@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import CarouselSwiper from "./CarouselSwiper";
-import { UserAuth } from "../app/context/AuthContext";
+import { UserAuth } from "../../../app/context/AuthContext";
 const CarouselContainer = () => {
   const [allImgs, setAllImgs] = useState([]);
   const { user, Admins } = UserAuth();

@@ -1,5 +1,5 @@
 "use client";
-import Form from "@/Components/Form";
+import Form from "@/Components/admin/Form";
 import { useState } from "react";
 
 const page = () => {

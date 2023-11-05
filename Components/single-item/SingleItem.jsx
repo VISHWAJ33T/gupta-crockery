@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { UserAuth } from "../app/context/AuthContext";
+import { UserAuth } from "../../app/context/AuthContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import Image from "next/image"; // Import next/image component

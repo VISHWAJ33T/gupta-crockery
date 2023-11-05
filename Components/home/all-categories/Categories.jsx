@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SingleCategory from "./SingleCategory";
-import { UserAuth } from "../app/context/AuthContext";
+import { UserAuth } from "../../../app/context/AuthContext";
 const Categories = () => {
   const { user, Admins } = UserAuth();
   return (

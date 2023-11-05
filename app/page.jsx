@@ -1,8 +1,8 @@
 "use client";
 import ScrollToTop from "react-scroll-to-top";
-import CarouselContainer from "@/Components/Carousel";
-import Categories from "@/Components/Categories";
-import CategoryContainer from "@/Components/CategoryContainer";
+import CarouselContainer from "@/Components/home/carousel/Carousel.jsx";
+import Categories from "@/Components/home/all-categories/Categories.jsx";
+import CategoryContainer from "@/Components/home/single-category/CategoryContainer.jsx";
 import { useEffect, useState } from "react";
 
 import Loading from "./loading.jsx";

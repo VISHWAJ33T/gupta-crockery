@@ -1,6 +1,6 @@
 "use client";
-import FormCarousel from "@/Components/FormCarousel";
-import CarouselSwiper from "@/Components/CarouselSwiper";
+import FormCarousel from "@/Components/admin/FormCarousel";
+import CarouselSwiper from "@/Components/home/carousel/CarouselSwiper";
 import { useEffect, useState } from "react";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";

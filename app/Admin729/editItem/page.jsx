@@ -1,5 +1,5 @@
 "use client";
-import Form from "@/Components/Form";
+import Form from "@/Components/admin/Form";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { confirmAlert } from "react-confirm-alert";

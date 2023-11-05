@@ -2,7 +2,7 @@
 import ScrollToTop from "react-scroll-to-top";
 import { useEffect, useState } from "react";
 import Loading from "./loading.jsx";
-import ItemsContainer from "@/Components/ItemsContainer";
+import ItemsContainer from "@/Components/single-item/ItemsContainer.jsx";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
