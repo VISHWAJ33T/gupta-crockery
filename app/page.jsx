@@ -19,7 +19,7 @@ export default function Home() {
         setCartItems(JSON.parse(storedCartItems));
       }
 
-      // setLoading(false); // Set loading to false after the delay
+      setLoading(false); // Set loading to false after the delay
     }, 0);
   }, []);
 
