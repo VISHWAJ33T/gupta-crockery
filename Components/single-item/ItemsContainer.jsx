@@ -123,7 +123,7 @@ const ItemsContainer = ({
         style: {
           // "backgroundColor":"#131b2e",
           // "color":"#ff7b17"
-          color: "#131b2e",
+          color: "#ffffff",
           backgroundColor: "#ff7b17",
         },
 
@@ -147,7 +147,7 @@ const ItemsContainer = ({
           style: {
             // "backgroundColor":"#131b2e",
             // "color":"#ff7b17"
-            color: "#131b2e",
+            color: "#ffffff",
             backgroundColor: "#ff7b17",
           },
 
@@ -208,7 +208,7 @@ const ItemsContainer = ({
       style: {
         // "backgroundColor":"#131b2e",
         // "color":"#ff7b17"
-        color: "#131b2e",
+        color: "#ffffff",
         backgroundColor: "#ff7b17",
       },
 

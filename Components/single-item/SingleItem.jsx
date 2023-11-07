@@ -127,7 +127,7 @@ const SingleItem = ({ item }) => {
         style: {
           // "backgroundColor":"#131b2e",
           // "color":"#ff7b17"
-          color: "#131b2e",
+          color: "#ffffff",
           backgroundColor: "#ff7b17",
         },
 
@@ -151,7 +151,7 @@ const SingleItem = ({ item }) => {
           style: {
             // "backgroundColor":"#131b2e",
             // "color":"#ff7b17"
-            color: "#131b2e",
+            color: "#ffffff",
             backgroundColor: "#ff7b17",
           },
 
@@ -213,7 +213,7 @@ const SingleItem = ({ item }) => {
       style: {
         // "backgroundColor":"#131b2e",
         // "color":"#ff7b17"
-        color: "#131b2e",
+        color: "#ffffff",
         backgroundColor: "#ff7b17",
       },
 
