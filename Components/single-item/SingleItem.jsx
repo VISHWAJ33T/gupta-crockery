@@ -15,7 +15,7 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 const SingleItem = ({ item }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState({});
   const { user, googleSignIn, Admins } = UserAuth();
   const [confirmDel, setConfirmDel] = useState(false);
   const URL = process.env.NEXT_PUBLIC_URL;
@@ -101,17 +101,7 @@ const SingleItem = ({ item }) => {
     }
   }, []);
 
-  const addToCart = (
-    id,
-    title,
-    price,
-    isDiscounted,
-    discounted_price,
-    discounted_percent,
-    qtyValue,
-    img_src,
-    stock
-  ) => {
+  const addToCart = (id, title, qtyValue, img_src) => {
     if (!user || user === null) {
       confirmAlert({
         title: `You need to login first to add this item to cart`,
@@ -132,8 +122,8 @@ const SingleItem = ({ item }) => {
         overlayClassName: "overlay-custom-class-name",
       });
     } else {
-      const existingCartItem = cartItems.find((item) => item.id === id);
-
+      const existingCartItem = Object.keys(cartItems).find((item) => item === id);
+      console.log("existingCartItem: " + existingCartItem)
       if (existingCartItem) {
         confirmAlert({
           title: `${title} is already in the cart.`,
@@ -178,17 +168,7 @@ const SingleItem = ({ item }) => {
             {
               label: "Yes",
               onClick: () => {
-                handleAdc(
-                  id,
-                  title,
-                  price,
-                  isDiscounted,
-                  discounted_price,
-                  discounted_percent,
-                  qtyValue,
-                  img_src,
-                  stock
-                );
+                handleAdc(id, title, qtyValue);
               },
             },
             {
@@ -200,30 +180,10 @@ const SingleItem = ({ item }) => {
       }
     }
   };
-  const handleAdc = async (
-    id,
-    title,
-    price,
-    isDiscounted,
-    discounted_price,
-    discounted_percent,
-    qtyValue,
-    img_src,
-    stock
-  ) => {
-    const newCartItem = {
-      id,
-      title,
-      price,
-      isDiscounted,
-      discounted_price,
-      discounted_percent,
-      qtyValue,
-      img_src,
-      stock,
-    };
-    const updatedCartItems = [...cartItems, newCartItem];
-    await setCartItems(updatedCartItems);
+  const handleAdc = async (id, title, qtyValue) => {
+    const newCartItem = { [id]: qtyValue };
+    const updatedCartItems = {...cartItems, ...newCartItem};
+    setCartItems(updatedCartItems);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
     confirmAlert({
       title: `${title} added to cart successfully`,
@@ -358,17 +318,7 @@ const SingleItem = ({ item }) => {
           <button
             className="atbbutton bg-gradient-to-r from-orange-400 to-orange-500 text-white"
             onClick={() => {
-              addToCart(
-                item._id,
-                item.title,
-                item.price,
-                item.isDiscounted,
-                item.discounted_price,
-                item.discounted_percent,
-                1,
-                item.main_img,
-                item.stock
-              );
+              addToCart(item._id, item.title, 1, item.main_img);
             }}
           >
             <span className="IconContainer">

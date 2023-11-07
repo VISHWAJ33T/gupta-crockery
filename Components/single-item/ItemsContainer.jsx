@@ -97,17 +97,7 @@ const ItemsContainer = ({
     return setConfirmDel(false);
   }, [confirmDel]);
 
-  const addToCart = (
-    id,
-    title,
-    price,
-    isDiscounted,
-    discounted_price,
-    discounted_percent,
-    qtyValue,
-    img_src,
-    stock
-  ) => {
+  const addToCart = (id, title, qtyValue, img_src) => {
     if (!user || user === null) {
       confirmAlert({
         title: `You need to login first to add this item to cart`,
@@ -128,7 +118,9 @@ const ItemsContainer = ({
         overlayClassName: "overlay-custom-class-name",
       });
     } else {
-      const existingCartItem = cartItems.find((item) => item.id === id);
+      const existingCartItem = Object.keys(cartItems).find(
+        (item) => item === id
+      );
 
       if (existingCartItem) {
         confirmAlert({
@@ -174,17 +166,7 @@ const ItemsContainer = ({
             {
               label: "Yes",
               onClick: () => {
-                handleAdc(
-                  id,
-                  title,
-                  price,
-                  isDiscounted,
-                  discounted_price,
-                  discounted_percent,
-                  qtyValue,
-                  img_src,
-                  stock
-                );
+                handleAdc(id, title, qtyValue);
               },
             },
             {
@@ -196,52 +178,26 @@ const ItemsContainer = ({
       }
     }
   };
-  const handleAdc = async (
-    id,
-    title,
-    price,
-    isDiscounted,
-    discounted_price,
-    discounted_percent,
-    qtyValue,
-    img_src,
-    stock
-  ) => {
-    const newCartItem = {
-      id,
-      title,
-      price,
-      isDiscounted,
-      discounted_price,
-      discounted_percent,
-      qtyValue,
-      img_src,
-      stock,
-    };
-    const updatedCartItems = [...cartItems, newCartItem];
-    await setCartItems(updatedCartItems);
+  const handleAdc = async (id, title, qtyValue) => {
+    const newCartItem = { [id]: qtyValue };
+    const updatedCartItems = { ...cartItems, ...newCartItem };
+    setCartItems(updatedCartItems);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-    confirmAlert({
-      title: `${title} added to cart successfully`,
-      buttons: [{ label: "Ok" }],
-      closeOnEscape: true,
-      closeOnClickOutside: true,
-      keyCodeForClose: [8, 32],
-      willUnmount: () => {},
-      afterClose: () => {},
-      onClickOutside: () => {},
-      onKeypress: () => {},
-      onKeypressEscape: () => {},
-      overlayClassName: "overlay-custom-class-name",
-    });
+    alert(`${title} added to cart successfully`);
+    // confirmAlert({
+    //   title: `${title} added to cart successfully`,
+    //   buttons: [{ label: "Ok" }],
+    //   closeOnEscape: true,
+    //   closeOnClickOutside: true,
+    //   keyCodeForClose: [8, 32],
+    //   overlayClassName: "overlay-custom-class-name",
+    // });
   };
   const [scrollTitle, setScrollTitle] = useState(false);
   return (
     <>
       {/*********************************************** Mobile***********************************************/}
-      <div
-        className="sm:hidden border flex bg-white  flex-col justify-center items-center min-w-[160px] max-w-[160px] overflow-hidden rounded-[10px]"
-      >
+      <div className="sm:hidden border flex bg-white  flex-col justify-center items-center min-w-[160px] max-w-[160px] overflow-hidden rounded-[10px]">
         <span className="cursor-default flex px-3 w-full justify-center z-[2] text-white text-md font-bold relative left-0 h-0">
           {isDiscounted == true && (
             <span className="min-w-[40px] w-[38%] bg-red-600 absolute left-0 text-center">
@@ -330,17 +286,7 @@ const ItemsContainer = ({
               <button
                 className="transition ease-in-out duration-300 active:scale-[110%]"
                 onClick={() => {
-                  addToCart(
-                    id,
-                    title,
-                    price,
-                    isDiscounted,
-                    discounted_price,
-                    discounted_percent,
-                    1,
-                    main_img,
-                    stock
-                  );
+                  addToCart(id, title, 1, main_img);
                 }}
               >
                 Add to Cart
@@ -355,9 +301,7 @@ const ItemsContainer = ({
       </div>
 
       {/*********************************************** Desktop ***********************************************/}
-      <div
-        className="hidden sm:flex border bg-white flex-col justify-center items-center min-w-[230px] max-w-[230px] overflow-hidden shadow-xl rounded-[10px]"
-      >
+      <div className="hidden sm:flex border bg-white flex-col justify-center items-center min-w-[230px] max-w-[230px] overflow-hidden shadow-xl rounded-[10px]">
         <span className="cursor-default w-[100%] flex px-3 justify-center z-[2] text-white text-md font-bold relative left-0 h-0">
           {isDiscounted == true && (
             <span className="min-w-[40px] w-[38%] bg-red-600 absolute left-0 text-center">
@@ -446,17 +390,7 @@ const ItemsContainer = ({
               <button
                 className="transition ease-in-out duration-300 active:scale-[110%]"
                 onClick={() => {
-                  addToCart(
-                    id,
-                    title,
-                    price,
-                    isDiscounted,
-                    discounted_price,
-                    discounted_percent,
-                    1,
-                    main_img,
-                    stock
-                  );
+                  addToCart(id, title, 1, main_img);
                 }}
               >
                 Add to Cart

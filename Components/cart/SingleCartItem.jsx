@@ -1,14 +1,14 @@
 import Link from "next/link";
 const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
   const {
-    id,
+    _id,
     title,
     price,
     isDiscounted,
     discounted_price,
     discounted_percent,
     qtyValue,
-    img_src,
+    main_img,
     stock,
   } = item;
 
@@ -17,24 +17,22 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
 
     // Allow updating the quantity if the value is within the stock range or if the field is empty
     if (e.target.value === "" || (newQtyValue >= 0 && newQtyValue <= stock)) {
-      updateQtyValue(id, e.target.value); // Update with the new value or an empty string
+      updateQtyValue(_id, e.target.value); // Update with the new value or an empty string
     }
   };
 
   const handleDelete = () => {
-    deleteItem(id, title, img_src);
+    deleteItem(_id, title, main_img);
   };
 
   return (
     <>
-      <div
-        className="flex gap-x-3 border-t border-b py-3 shadow-md"
-      >
+      <div className="flex gap-x-3 border-t border-b py-3 shadow-md">
         <div className="mx-1">
           <img
             className="rounded-[20px] lg:w-[200px] md:w-[200px] w-[100px] lg:h-[200px] md:h-[200px] h-[100px] object-contain border mx-3 sm:mx-10 shadow-lg"
             src={
-              img_src ||
+              main_img ||
               "https://s3.envato.com/files/407753606/IMG_8092%20%202a.jpg"
             }
             alt="Item Image"
@@ -42,7 +40,7 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
         </div>
         <div className="mx-1">
           <Link
-            href={{ pathname: "/item", query: { id: id } }}
+            href={{ pathname: "/item", query: { id: _id } }}
             className="lg:text-2xl md:text-xl sm:text-lg text-md font-bold"
           >
             {title}
@@ -82,10 +80,7 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
               </span>
             )}
             {stock <= qtyValue && stock > 0 && (
-              <span className=" text-red-600">
-                You cannot order more than {stock} items because of limited
-                stocks
-              </span>
+              <span className=" text-red-600">Limited Stocks</span>
             )}
             <span className="text-xl">
               Subtotal: ₹{(discounted_price || price) * qtyValue}

@@ -10,6 +10,7 @@ const CartItems = () => {
   // const { user, googleSignIn, facebookSignIn } = UserAuth();
   const { user, googleSignIn } = UserAuth();
   const [items, setItems] = useState([]);
+  const [cartIds, setCartIds] = useState({});
   const [mounted, setMounted] = useState(false);
   const handleGoogleSignIn = async () => {
     try {
@@ -21,21 +22,61 @@ const CartItems = () => {
   useEffect(() => {
     const fetchItemsFromServer = async () => {
       try {
-        const response = await fetch(`/api/user/${user.uid}`);
-        if (response.ok) {
-          const data = await response.json();
-          const serverItems = data.cartItems || [];
-          const localItems =
-            JSON.parse(localStorage.getItem("cartItems")) || [];
-          // Merge serverItems and localItems while ensuring uniqueness
-          const mergedItems = [...new Set([...serverItems, ...localItems])];
-          const uniqueItems = mergedItems.filter(
-            (item, index, self) =>
-              self.findIndex((i) => i.id === item.id) === index
+        const response1 = await fetch(`/api/user/${user.uid}`);
+        if (response1.ok) {
+          const data1 = await response1.json();
+          const serverItemsIds = data1.cartItems || {};
+          const localItemsIds =
+            JSON.parse(localStorage.getItem("cartItems")) || {};
+
+          let uniqueItemsIds = [];
+          let uniqueItemsQtys = [];
+          // if (serverItemsIds.length > 0 && localItemsIds.length > 0) {
+          const mergedItemsIds = Object.keys(serverItemsIds).concat(
+            Object.keys(localItemsIds)
           );
-          setItems(uniqueItems);
+
+          const mergedItemsQtys = Object.values(serverItemsIds).concat(
+            Object.values(localItemsIds)
+          );
+
+          uniqueItemsIds = mergedItemsIds.filter(function (item, i, ar) {
+            return ar.indexOf(item) === i;
+          });
+
+          for (let i = 0; i < uniqueItemsIds.length; i++) {
+            const n = mergedItemsIds.indexOf(uniqueItemsIds[i]);
+            uniqueItemsQtys.push(mergedItemsQtys[n]);
+            //   }
+            // } else
+            if (serverItemsIds.length > 0) {
+              let uniqueItemsIds = Object.keys(serverItemsIds);
+              let uniqueItemsQtys = Object.values(serverItemsIds);
+            } else if (localItemsIds.length > 0) {
+              let uniqueItemsIds = Object.keys(localItemsIds);
+              let uniqueItemsQtys = Object.values(localItemsIds);
+            }
+          }
+
+          const fetchItems = async () => {
+            const promises = uniqueItemsIds.map(async (id) => {
+              const response2 = await fetch(`/api/item/${id}`);
+              return response2.json();
+            });
+            let allItems = await Promise.all(promises);
+            let allIds = {};
+
+            for (let i = 0; i < allItems.length; i++) {
+              allIds = { ...allIds, [uniqueItemsIds[i]]: uniqueItemsQtys[i] };
+              allItems[i].qtyValue = uniqueItemsQtys[i];
+            }
+            setCartIds(allIds);
+            setItems(allItems);
+          };
+
+          fetchItems();
         } else {
-          console.error("Failed to fetch cart items:", response.statusText);
+          console.error("Failed to fetch cart items:", response1.statusText);
         }
       } catch (error) {
         console.error("Error fetching cart items:", error);
@@ -48,7 +89,7 @@ const CartItems = () => {
 
   useEffect(() => {
     if (mounted) {
-      localStorage.setItem("cartItems", JSON.stringify(items));
+      // localStorage.setItem("cartItems", JSON.stringify(cartIds));
     } else {
       setMounted(true);
     }
@@ -56,17 +97,15 @@ const CartItems = () => {
 
   const updateQtyValue = (itemId, newQtyValue) => {
     const updatedItems = items.map((item) =>
-      item.id === itemId ? { ...item, qtyValue: newQtyValue } : item
+      item._id === itemId ? { ...item, qtyValue: newQtyValue } : item
     );
+    const updatedIds = { ...cartIds, [itemId]: newQtyValue };
 
+    setCartIds(updatedIds);
     setItems(updatedItems);
   };
 
   const deleteItem = (itemId, title, main_img) => {
-    // const confirmed = window.confirm(
-    //   "Are you sure you want to delete this item from the cart?"
-    // );
-
     confirmAlert({
       title: "Confirm to Remove",
       message: `Are you sure you want to remove this item from cart?`,
@@ -92,7 +131,7 @@ const CartItems = () => {
         {
           label: "Yes",
           onClick: () => {
-            const updatedItems = items.filter((item) => item.id !== itemId);
+            const updatedItems = items.filter((item) => item._id !== itemId);
             setItems(updatedItems);
             confirmAlert({
               title: "Item deleted from cart successfully",
@@ -114,23 +153,6 @@ const CartItems = () => {
       ],
       overlayClassName: "overlay-custom-class-name",
     });
-
-    // if (confirmed) {
-    //   const updatedItems = items.filter((item) => item.id !== itemId);
-    //   setItems(updatedItems);
-    //   confirmAlert({
-    //     title: "Item deleted from cart successfully",
-    //     buttons: [
-    //       {
-    //         label: "Ok",
-    //       },
-    //     ],
-    //     closeOnEscape: true,
-    //     closeOnClickOutside: true,
-    //     keyCodeForClose: [8, 32],
-    //     overlayClassName: "overlay-custom-class-name",
-    //   });
-    // }
   };
 
   const totalAmount = items.reduce(
@@ -138,6 +160,7 @@ const CartItems = () => {
       total + (item.discounted_price || item.price) * item.qtyValue,
     0
   );
+
   const handleSaveCart = async () => {
     try {
       const response = await fetch(`/api/user/${user.uid}`, {
@@ -150,7 +173,7 @@ const CartItems = () => {
           email: user.email,
           usid: user.uid,
           photoURL: user.photoURL,
-          cartItems: items,
+          cartItems: cartIds,
         }),
       });
 
@@ -174,6 +197,7 @@ const CartItems = () => {
       console.error("Error saving cart:", error);
     }
   };
+
   return (
     <div className="mx-2 sm:mx-0">
       {user ? (
@@ -211,7 +235,7 @@ const CartItems = () => {
             <>
               {items.map((item) => (
                 <SingleCartItem
-                  key={item.id}
+                  key={item._id}
                   item={item}
                   updateQtyValue={updateQtyValue}
                   deleteItem={deleteItem}

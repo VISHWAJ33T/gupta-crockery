@@ -5,7 +5,7 @@ const UserSchema = new Schema({
   name: { type: String, required: [true, "Name is Required"] },
   email: { type: String, required: [true, "email is Required"] },
   photoURL: { type: String },
-  cartItems: { type: Array },
+  cartItems: { type: Object },
 });
 
 const User = models.User || model("User", UserSchema);
