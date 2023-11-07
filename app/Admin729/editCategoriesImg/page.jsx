@@ -1,7 +1,7 @@
 "use client";
 import FormCategoryImgs from "@/Components/admin/FormCategoryImgs";
 import { useEffect, useState } from "react";
-import { confirmAlert } from "react-confirm-alert";
+import toast from "react-hot-toast";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 const EditCategoryImg = () => {
@@ -49,19 +49,20 @@ const EditCategoryImg = () => {
     if (confirmed) {
       setSubmitting(true);
       if (!categoryType)
-        return confirmAlert({
-          title: "Category type not found",
-          buttons: [
-            {
-              label: "Ok",
-            },
-          ],
-          closeOnEscape: true,
-          closeOnClickOutside: true,
-          keyCodeForClose: [8, 32],
-          overlayClassName: "overlay-custom-class-name",
+        return toast("Category type not found", {
+          duration: 4000,
+          position: "top-center",
+          style: {
+            // "backgroundColor":"#131b2e",
+            // "color":"#ff7b17"
+            "color":"#131b2e",
+            "backgroundColor":"#ff7b17"
+          },
+          iconTheme: {
+            primary: "#131b2e",
+            secondary: "#ff7b17",
+          },
         });
-
       try {
         const response = await fetch(
           `${URL}/api/landingPage/categoryImgs/${categoryType}`,
@@ -80,19 +81,22 @@ const EditCategoryImg = () => {
           }
         );
         if (response.ok) {
-          confirmAlert({
-            title: "Category Updated Successfully",
-            buttons: [
-              {
-                label: "Ok",
-              },
-            ],
-            closeOnEscape: true,
-            closeOnClickOutside: true,
-            keyCodeForClose: [8, 32],
-            overlayClassName: "overlay-custom-class-name",
+          toast("Category Updated Successfully", {
+            duration: 4000,
+            position: "top-center",
+            style: {
+              // "backgroundColor":"#131b2e",
+              // "color":"#ff7b17"
+              "color":"#131b2e",
+              "backgroundColor":"#ff7b17"
+            },
+            iconTheme: {
+              primary: "#131b2e",
+              secondary: "#ff7b17",
+            },
           });
         }
+        
       } catch (error) {
         console.log(error);
       } finally {

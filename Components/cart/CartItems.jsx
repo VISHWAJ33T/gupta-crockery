@@ -4,6 +4,7 @@ import SingleCartItem from "./SingleCartItem";
 import { UserAuth } from "../../app/context/AuthContext";
 import Image from "next/image"; // Import next/image component
 import { confirmAlert } from "react-confirm-alert";
+import toast from "react-hot-toast";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 const CartItems = () => {
@@ -133,17 +134,23 @@ const CartItems = () => {
           onClick: () => {
             const updatedItems = items.filter((item) => item._id !== itemId);
             setItems(updatedItems);
-            confirmAlert({
-              title: "Item deleted from cart successfully",
-              buttons: [
-                {
-                  label: "Ok",
-                },
-              ],
-              closeOnEscape: true,
-              closeOnClickOutside: true,
-              keyCodeForClose: [8, 32],
-              overlayClassName: "overlay-custom-class-name",
+            toast("Item deleted from cart successfully", {
+              duration: 4000,
+              position: "top-center",
+    
+              style: {
+                // "backgroundColor":"#131b2e",
+                // "color":"#ff7b17"
+                "color":"#131b2e",
+                "backgroundColor":"#ff7b17"
+              },
+    
+              icon: "🗑️",
+    
+              iconTheme: {
+                primary: "#131b2e",
+                secondary: "#ff7b17",
+              },
             });
           },
         },
@@ -178,17 +185,23 @@ const CartItems = () => {
       });
 
       if (response.ok) {
-        confirmAlert({
-          title: "Cart saved successfully",
-          buttons: [
-            {
-              label: "Ok",
-            },
-          ],
-          closeOnEscape: true,
-          closeOnClickOutside: true,
-          keyCodeForClose: [8, 32],
-          overlayClassName: "overlay-custom-class-name",
+        toast("Cart saved successfully", {
+          duration: 4000,
+          position: "top-center",
+
+          style: {
+            // "backgroundColor":"#131b2e",
+            // "color":"#ff7b17"
+            "color":"#131b2e",
+            "backgroundColor":"#ff7b17"
+          },
+
+          icon: "🛒",
+
+          iconTheme: {
+            primary: "#131b2e",
+            secondary: "#ff7b17",
+          },
         });
       } else {
         console.error("Failed to save cart:", response.statusText);

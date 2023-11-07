@@ -2,7 +2,7 @@
 import Form from "@/Components/admin/Form";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { confirmAlert } from "react-confirm-alert";
+import toast from "react-hot-toast";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 const EditItem = () => {
@@ -53,17 +53,23 @@ const EditItem = () => {
     if (confirmed) {
       setSubmitting(true);
       if (!itemId)
-        return confirmAlert({
-          title: "Item Id not found",
-          buttons: [
-            {
-              label: "Ok",
-            },
-          ],
-          closeOnEscape: true,
-          closeOnClickOutside: true,
-          keyCodeForClose: [8, 32],
-          overlayClassName: "overlay-custom-class-name",
+        return toast("Item Id not found", {
+          duration: 4000,
+          position: "top-center",
+
+          style: {
+            // "backgroundColor":"#131b2e",
+            // "color":"#ff7b17"
+            "color":"#131b2e",
+            "backgroundColor":"#ff7b17"
+          },
+
+          icon: "❌",
+
+          iconTheme: {
+            primary: "#131b2e",
+            secondary: "#ff7b17",
+          },
         });
 
       try {
@@ -84,17 +90,23 @@ const EditItem = () => {
           }),
         });
         if (response.ok) {
-          confirmAlert({
-            title: "Item Updated Successfully",
-            buttons: [
-              {
-                label: "Ok",
-              },
-            ],
-            closeOnEscape: true,
-            closeOnClickOutside: true,
-            keyCodeForClose: [8, 32],
-            overlayClassName: "overlay-custom-class-name",
+          toast("Item Updated Successfully", {
+            duration: 4000,
+            position: "top-center",
+    
+            style: {
+              // "backgroundColor":"#131b2e",
+              // "color":"#ff7b17"
+              color: "#131b2e",
+              backgroundColor: "#ff7b17",
+            },
+    
+            icon: "👨‍💻",
+    
+            iconTheme: {
+              primary: "#131b2e",
+              secondary: "#ff7b17",
+            },
           });
         }
       } catch (error) {

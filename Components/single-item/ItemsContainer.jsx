@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { UserAuth } from "../../app/context/AuthContext";
 import Image from "next/image";
 import { confirmAlert } from "react-confirm-alert";
+import toast from "react-hot-toast";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 const ItemsContainer = ({
@@ -42,50 +43,66 @@ const ItemsContainer = ({
     const handleDel = async () => {
       if (confirmDel === true) {
         if (!id)
-          return confirmAlert({
-            title: `Invalid Item`,
-            buttons: [
-              {
-                label: "Ok",
-              },
-            ],
-            closeOnEscape: true,
-            closeOnClickOutside: true,
-            keyCodeForClose: [8, 32],
-            overlayClassName: "overlay-custom-class-name",
+          return toast(`Invalid Item`, {
+            duration: 4000,
+            position: "top-center",
+  
+            style: {
+              // "backgroundColor":"#131b2e",
+              // "color":"#ff7b17"
+              "color":"#131b2e",
+              "backgroundColor":"#ff7b17"
+            },
+  
+            icon: "❌",
+  
+            iconTheme: {
+              primary: "#131b2e",
+              secondary: "#ff7b17",
+            },
           });
         try {
           const response = await fetch(`${URL}/api/item/${id}`, {
             method: "DELETE",
           });
           if (response.status === 500) {
-            confirmAlert({
-              title: `Error 500`,
-              message:
-                "There was some error trying to delete this item. Please try again",
-              buttons: [
-                {
-                  label: "Ok",
-                },
-              ],
-              closeOnEscape: true,
-              closeOnClickOutside: true,
-              keyCodeForClose: [8, 32],
-              overlayClassName: "overlay-custom-class-name",
+            toast("There was some error trying to delete this item. Please try again", {
+              duration: 4000,
+              position: "top-center",
+    
+              style: {
+                // "backgroundColor":"#131b2e",
+                // "color":"#ff7b17"
+                "color":"#131b2e",
+                "backgroundColor":"#ff7b17"
+              },
+    
+              icon: "❌",
+    
+              iconTheme: {
+                primary: "#131b2e",
+                secondary: "#ff7b17",
+              },
             });
           }
           if (response.ok) {
-            confirmAlert({
-              title: `Item Deleted Successfully`,
-              buttons: [
-                {
-                  label: "Ok",
-                },
-              ],
-              closeOnEscape: true,
-              closeOnClickOutside: true,
-              keyCodeForClose: [8, 32],
-              overlayClassName: "overlay-custom-class-name",
+            toast(`Item Deleted Successfully`, {
+              duration: 4000,
+              position: "top-center",
+    
+              style: {
+                // "backgroundColor":"#131b2e",
+                // "color":"#ff7b17"
+                "color":"#131b2e",
+                "backgroundColor":"#ff7b17"
+              },
+    
+              icon: "🗑️",
+    
+              iconTheme: {
+                primary: "#131b2e",
+                secondary: "#ff7b17",
+              },
             });
           }
         } catch (error) {
@@ -99,23 +116,23 @@ const ItemsContainer = ({
 
   const addToCart = (id, title, qtyValue, img_src) => {
     if (!user || user === null) {
-      confirmAlert({
-        title: `You need to login first to add this item to cart`,
-        buttons: [
-          {
-            label: "Login later",
-          },
-          {
-            label: "Login Now",
-            onClick: () => {
-              googleSignIn();
-            },
-          },
-        ],
-        closeOnEscape: true,
-        closeOnClickOutside: true,
-        keyCodeForClose: [8, 32],
-        overlayClassName: "overlay-custom-class-name",
+      toast(`You need to login first to add this item to cart`, {
+        duration: 4000,
+        position: "top-center",
+
+        style: {
+          // "backgroundColor":"#131b2e",
+          // "color":"#ff7b17"
+          color: "#131b2e",
+          backgroundColor: "#ff7b17",
+        },
+
+        icon: "🥸",
+
+        iconTheme: {
+          primary: "#131b2e",
+          secondary: "#ff7b17",
+        },
       });
     } else {
       const existingCartItem = Object.keys(cartItems).find(
@@ -123,22 +140,23 @@ const ItemsContainer = ({
       );
 
       if (existingCartItem) {
-        confirmAlert({
-          title: `${title} is already in the cart.`,
-          buttons: [
-            {
-              label: "Ok",
-            },
-          ],
-          closeOnEscape: true,
-          closeOnClickOutside: true,
-          keyCodeForClose: [8, 32],
-          willUnmount: () => {},
-          afterClose: () => {},
-          onClickOutside: () => {},
-          onKeypress: () => {},
-          onKeypressEscape: () => {},
-          overlayClassName: "overlay-custom-class-name",
+        toast(`${title} is already in the cart.`, {
+          duration: 4000,
+          position: "top-center",
+
+          style: {
+            // "backgroundColor":"#131b2e",
+            // "color":"#ff7b17"
+            color: "#131b2e",
+            backgroundColor: "#ff7b17",
+          },
+
+          icon: "🛒",
+
+          iconTheme: {
+            primary: "#131b2e",
+            secondary: "#ff7b17",
+          },
         });
       } else {
         confirmAlert({
@@ -183,15 +201,24 @@ const ItemsContainer = ({
     const updatedCartItems = { ...cartItems, ...newCartItem };
     setCartItems(updatedCartItems);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-    alert(`${title} added to cart successfully`);
-    // confirmAlert({
-    //   title: `${title} added to cart successfully`,
-    //   buttons: [{ label: "Ok" }],
-    //   closeOnEscape: true,
-    //   closeOnClickOutside: true,
-    //   keyCodeForClose: [8, 32],
-    //   overlayClassName: "overlay-custom-class-name",
-    // });
+    toast(`${title} added to cart successfully`, {
+      duration: 4000,
+      position: "top-center",
+
+      style: {
+        // "backgroundColor":"#131b2e",
+        // "color":"#ff7b17"
+        color: "#131b2e",
+        backgroundColor: "#ff7b17",
+      },
+
+      icon: "🛒",
+
+      iconTheme: {
+        primary: "#131b2e",
+        secondary: "#ff7b17",
+      },
+    });
   };
   const [scrollTitle, setScrollTitle] = useState(false);
   return (

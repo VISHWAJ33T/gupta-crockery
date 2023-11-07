@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { confirmAlert } from "react-confirm-alert";
+import toast from "react-hot-toast";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 const page = () => {
@@ -16,17 +17,19 @@ const page = () => {
       objectId === null ||
       objectId === undefined
     ) {
-      return confirmAlert({
-        title: `Invalid Object Id`,
-        buttons: [
-          {
-            label: "Ok",
-          },
-        ],
-        closeOnEscape: true,
-        closeOnClickOutside: true,
-        keyCodeForClose: [8, 32],
-        overlayClassName: "overlay-custom-class-name",
+      return toast(`Invalid Object Id`, {
+        duration: 4000,
+        position: "top-center",
+        style: {
+          // "backgroundColor":"#131b2e",
+          // "color":"#ff7b17"
+          color: "#131b2e",
+          backgroundColor: "#ff7b17",
+        },
+        iconTheme: {
+          primary: "#131b2e",
+          secondary: "#ff7b17",
+        },
       });
     }
     try {
@@ -34,32 +37,35 @@ const page = () => {
         method: "DELETE",
       });
       if (response.status === 500) {
-        confirmAlert({
-          title: `Error 500`,
-          message: "Item doesn't Exist",
-          buttons: [
-            {
-              label: "Ok",
-            },
-          ],
-          closeOnEscape: true,
-          closeOnClickOutside: true,
-          keyCodeForClose: [8, 32],
-          overlayClassName: "overlay-custom-class-name",
+        toast("Item doesn't Exist", {
+          duration: 4000,
+          position: "top-center",
+          style: {
+            // "backgroundColor":"#131b2e",
+            // "color":"#ff7b17"
+            color: "#131b2e",
+            backgroundColor: "#ff7b17",
+          },
+          iconTheme: {
+            primary: "#131b2e",
+            secondary: "#ff7b17",
+          },
         });
       }
       if (response.ok) {
-        confirmAlert({
-          title: `Item Deleted Successfully`,
-          buttons: [
-            {
-              label: "Ok",
-            },
-          ],
-          closeOnEscape: true,
-          closeOnClickOutside: true,
-          keyCodeForClose: [8, 32],
-          overlayClassName: "overlay-custom-class-name",
+        toast(`Item Deleted Successfully`, {
+          duration: 4000,
+          position: "top-center",
+          style: {
+            // "backgroundColor":"#131b2e",
+            // "color":"#ff7b17"
+            color: "#131b2e",
+            backgroundColor: "#ff7b17",
+          },
+          iconTheme: {
+            primary: "#131b2e",
+            secondary: "#ff7b17",
+          },
         });
       }
     } catch (error) {

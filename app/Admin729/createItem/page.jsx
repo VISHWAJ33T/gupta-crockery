@@ -1,7 +1,7 @@
 "use client";
 import Form from "@/Components/admin/Form";
 import { useState } from "react";
-import { confirmAlert } from "react-confirm-alert";
+import toast from "react-hot-toast";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 const page = () => {
@@ -47,17 +47,19 @@ const page = () => {
           }),
         });
         if (response.ok) {
-          confirmAlert({
-            title: `${post.title} Created Successfully`,
-            buttons: [
-              {
-                label: "Ok",
-              },
-            ],
-            closeOnEscape: true,
-            closeOnClickOutside: true,
-            keyCodeForClose: [8, 32],
-            overlayClassName: "overlay-custom-class-name",
+          toast(`${post.title} Created Successfully`, {
+            duration: 4000,
+            position: "top-center",
+            style: {
+              // "backgroundColor":"#131b2e",
+              // "color":"#ff7b17"
+              "color":"#131b2e",
+              "backgroundColor":"#ff7b17"
+            },
+            iconTheme: {
+              primary: "#131b2e",
+              secondary: "#ff7b17",
+            },
           });
         }
       } catch (error) {

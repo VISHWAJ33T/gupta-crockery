@@ -8,7 +8,7 @@ export const metadata = {
   title: "Gupta Crockery",
   description: `Introducing "Gupta Crockery" - Where Quality Meets Savings! Explore stunning crockery that's kind to your wallet. Find beauty and trust in every piece, carefully selected to bring elegance to your table without the hefty price tag. Enjoy luxury for less at Gupta Crockery!`,
 };
-
+import  { Toaster } from 'react-hot-toast';
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -30,6 +30,7 @@ export default function RootLayout({ children }) {
       <body className="relative">
         <AuthContextProvider>
           <Nav />
+          <Toaster />
           {children}
           <Footer />
         </AuthContextProvider>
