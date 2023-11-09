@@ -203,6 +203,7 @@ const CartItems = () => {
             secondary: "#ff7b17",
           },
         });
+
       } else {
         console.error("Failed to save cart:", response.statusText);
       }

@@ -7,9 +7,9 @@ export const ItemsContainerSkeletonCard = ({ isLoading }) => (
                 isLoading,
         })}
     >
-        <div className="space-y-1">
+        <div>
             {/* <div className="h-[160px] sm:h-[230px] rounded-lg bg-gray-300" /> */}
-            <div className={clsx('rounded-t-lg bg-gray-500/80 h-[160px] sm:h-[230px]', {
+            <div className={clsx('shimmerBG rounded-t-lg h-[160px] sm:h-[230px]', {
             'relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent':
                 isLoading,
         })} />

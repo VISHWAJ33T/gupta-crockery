@@ -20,7 +20,7 @@ const page = () => {
   };
   useEffect(() => {
     setTimeout(() => {
-      setLoading(false); // Set loading to false after the delay
+      setLoading(false);
     }, 300);
   }, []);
   return (

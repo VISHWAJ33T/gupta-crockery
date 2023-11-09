@@ -8,9 +8,9 @@ export const SkeletonCard = ({ isLoading }) => (
         })}
     >
         <div className="space-y-3">
-            <div className="h-14 rounded-lg bg-gray-300" />
-            <div className="h-3 w-11/12 rounded-lg bg-gray-300" />
-            <div className="h-3 w-8/12 rounded-lg bg-gray-300" />
+            <div className="h-14 shimmerBG rounded-lg bg-gray-300" />
+            <div className="h-3 shimmerBG w-11/12 rounded-lg bg-gray-300" />
+            <div className="h-3 shimmerBG w-8/12 rounded-lg bg-gray-300" />
         </div>
     </div>
 );

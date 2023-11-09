@@ -8,11 +8,11 @@ export const CartSkeletonCard = ({ isLoading }) => (
     })}
   >
     <div className="flex space-x-3">
-      <div className="w-[100px] sm:w-[200px] h-[100px] sm:h-[200px] aspect-square rounded-lg bg-gray-300" />
+      <div className="w-[100px] shimmerBG sm:w-[200px] h-[100px] sm:h-[200px] aspect-square rounded-lg bg-gray-300" />
       <div className="w-2/3 space-y-3">
-        <div className="h-12 rounded-lg bg-gray-300" />
-        <div className="h-3 w-11/12 rounded-lg bg-gray-300" />
-        <div className="h-3 w-8/12 rounded-lg bg-gray-300" />
+        <div className="h-12 shimmerBG rounded-lg bg-gray-300" />
+        <div className="h-3 shimmerBG w-11/12 rounded-lg bg-gray-300" />
+        <div className="h-3 shimmerBG w-8/12 rounded-lg bg-gray-300" />
       </div>
     </div>
   </div>

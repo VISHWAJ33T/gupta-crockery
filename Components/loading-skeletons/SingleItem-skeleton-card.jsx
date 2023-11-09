@@ -8,12 +8,12 @@ export const SingleItemSkeletonCard = ({ isLoading }) => (
     })}
   >
     <div className="flex flex-col sm:flex-row sm:space-x-3 sm:space-y-0 space-y-3">
-      <div className="w-full sm:w-1/2 h-[400px] sm:h-[450px] aspect-square rounded-lg bg-gray-300" />
-      <div className="sm:w-2/3 space-y-3">
-        <div className="h-14 rounded-lg bg-gray-300" />
-        <div className="h-10 w-11/12 rounded-lg bg-gray-300" />
-        <div className="h-8 w-3/12 rounded-lg bg-gray-300" />
-        <div className="h-8 w-2/12 rounded-lg bg-gray-300" />
+      <div className="w-full shimmerBG sm:w-2/5 h-[400px] sm:h-[450px] aspect-square rounded-lg bg-gray-300" />
+      <div className="sm:w-3/5 space-y-3">
+        <div className="h-14 shimmerBG rounded-lg bg-gray-300" />
+        <div className="h-10 shimmerBG w-11/12 rounded-lg bg-gray-300" />
+        <div className="h-8 shimmerBG w-3/12 rounded-lg bg-gray-300" />
+        <div className="h-8 shimmerBG w-2/12 rounded-lg bg-gray-300" />
       </div>
     </div>
   </div>

@@ -895,3 +895,21 @@ html {
   object-fit: contain;
 }
 /* CATEGORY SWIPER CSS ENDS HERE */
+
+.shimmerBG {
+  background: linear-gradient(to right, #c5c9d1 10%, #ffffff 25%, #c5c9d1 40%);
+  background-size: 200% 100%;
+  animation: 1s shine linear infinite;
+}
+
+@-webkit-keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
