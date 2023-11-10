@@ -4,11 +4,16 @@ import Footer from "@/Components/Footer";
 import "@/styles/globals.css";
 import "./firebase.js";
 import { AuthContextProvider } from "./context/AuthContext";
+
 export const metadata = {
-  title: "Gupta Crockery",
-  description: `Introducing "Gupta Crockery" - Where Quality Meets Savings! Explore stunning crockery that's kind to your wallet. Find beauty and trust in every piece, carefully selected to bring elegance to your table without the hefty price tag. Enjoy luxury for less at Gupta Crockery!`,
+  title: "Gupta Crockery - Where Quality Meets Savings",
+  description: `Gupta Crockery is the leading online store for high-quality crockery at affordable prices. Explore our wide selection of crockery from top brands and get ready to add a touch of elegance to your table.`,
+  keywords: "crockery, bartan, online shopping, home decor, milton, tupperware, kitchenware, tableware, dinnerware, glassware, cutlery, flatware, servingware, gifts, steel, copper, plastic, iron, aluminium, melamine, kansa, silicon, bronze, glass",
+  canonical: "https://gupta-crockery.vercel.app/",
 };
-import  { Toaster } from 'react-hot-toast';
+
+import { Toaster } from "react-hot-toast";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -26,11 +31,16 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#131b2e" />
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords} />
+        <link rel="canonical" href={metadata.canonical} />
       </head>
       <body className="relative">
         <AuthContextProvider>
           <Nav />
           <Toaster />
+          <h1 id="page-title">{metadata.title}</h1>
           {children}
           <Footer />
         </AuthContextProvider>
