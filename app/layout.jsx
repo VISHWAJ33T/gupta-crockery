@@ -40,7 +40,6 @@ export default function RootLayout({ children }) {
         <AuthContextProvider>
           <Nav />
           <Toaster />
-          <h1 id="page-title">{metadata.title}</h1>
           {children}
           <Footer />
         </AuthContextProvider>
