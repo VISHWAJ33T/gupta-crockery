@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-config" content="none" />
         <meta name="msapplication-TileColor" content="#131b2e" />
         <meta name="msapplication-tap-highlight" content="no" />
-
+        <meta name="google-site-verification" content="tt0ugrK-KPSWYsuOU8HhgMVUmLdhgZ-thh3xkbt8Bng" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#131b2e" />
