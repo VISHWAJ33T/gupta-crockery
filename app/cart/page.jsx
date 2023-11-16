@@ -7,16 +7,18 @@ const page = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 0);
+    }, 10000);
   }, []);
+
   return (
     <>
       <ScrollToTop smooth color="#ff640e" />
       {loading && <Loading />}
       <div className={loading ? `hidden` : null}>
-        <CartItems />
+        <CartItems setLoading={setLoading} />
       </div>
     </>
   );
