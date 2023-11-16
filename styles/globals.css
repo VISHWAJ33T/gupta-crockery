@@ -899,7 +899,7 @@ html {
 .shimmerBG {
   background: linear-gradient(to right, #c5c9d1 10%, #ffffff 25%, #c5c9d1 40%);
   background-size: 200% 100%;
-  animation: 1s shine linear infinite;
+  animation: 2.5s shine linear infinite;
 }
 
 @-webkit-keyframes shine {
