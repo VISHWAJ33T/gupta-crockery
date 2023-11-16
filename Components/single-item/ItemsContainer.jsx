@@ -46,16 +46,19 @@ const ItemsContainer = ({
           return toast(`Invalid Item`, {
             duration: 4000,
             position: "top-center",
-  
+
             style: {
-              // "backgroundColor":"#131b2e",
-              // "color":"#ff7b17"
-              "color":"#131b2e",
-              "backgroundColor":"#ff7b17"
+              color: "#ff5c5c",
+              // color: "#3fe47e",
+              // color: "#48a9f8",
+              backgroundColor: "#ffffff",
+              border: "2px solid #ff5c5c",
+              // border: "2px solid #3fe47e",
+              // border: "2px solid #48a9f8",
             },
-  
+
             icon: "❌",
-  
+
             iconTheme: {
               primary: "#131b2e",
               secondary: "#ff7b17",
@@ -66,39 +69,48 @@ const ItemsContainer = ({
             method: "DELETE",
           });
           if (response.status === 500) {
-            toast("There was some error trying to delete this item. Please try again", {
-              duration: 4000,
-              position: "top-center",
-    
-              style: {
-                // "backgroundColor":"#131b2e",
-                // "color":"#ff7b17"
-                "color":"#131b2e",
-                "backgroundColor":"#ff7b17"
-              },
-    
-              icon: "❌",
-    
-              iconTheme: {
-                primary: "#131b2e",
-                secondary: "#ff7b17",
-              },
-            });
+            toast(
+              "There was some error trying to delete this item. Please try again",
+              {
+                duration: 4000,
+                position: "top-center",
+
+                style: {
+                  color: "#ff5c5c",
+                  // color: "#3fe47e",
+                  // color: "#48a9f8",
+                  backgroundColor: "#ffffff",
+                  border: "2px solid #ff5c5c",
+                  // border: "2px solid #3fe47e",
+                  // border: "2px solid #48a9f8",
+                },
+
+                icon: "❌",
+
+                iconTheme: {
+                  primary: "#131b2e",
+                  secondary: "#ff7b17",
+                },
+              }
+            );
           }
           if (response.ok) {
             toast(`Item Deleted Successfully`, {
               duration: 4000,
               position: "top-center",
-    
+
               style: {
-                // "backgroundColor":"#131b2e",
-                // "color":"#ff7b17"
-                "color":"#131b2e",
-                "backgroundColor":"#ff7b17"
+                // color: "#ff5c5c",
+                color: "#3fe47e",
+                // color: "#48a9f8",
+                backgroundColor: "#ffffff",
+                // border: "2px solid #ff5c5c",
+                border: "2px solid #3fe47e",
+                // border: "2px solid #48a9f8",
               },
-    
+
               icon: "🗑️",
-    
+
               iconTheme: {
                 primary: "#131b2e",
                 secondary: "#ff7b17",
@@ -121,10 +133,13 @@ const ItemsContainer = ({
         position: "top-center",
 
         style: {
-          // "backgroundColor":"#131b2e",
-          // "color":"#ff7b17"
-          color: "#ffffff",
-          backgroundColor: "#ff7b17",
+          // color: "#ff5c5c",
+          // color: "#3fe47e",
+          color: "#48a9f8",
+          backgroundColor: "#ffffff",
+          // border: "2px solid #ff5c5c",
+          // border: "2px solid #3fe47e",
+          border: "2px solid #48a9f8",
         },
 
         icon: "🥸",
@@ -145,10 +160,13 @@ const ItemsContainer = ({
           position: "top-center",
 
           style: {
-            // "backgroundColor":"#131b2e",
-            // "color":"#ff7b17"
-            color: "#ffffff",
-            backgroundColor: "#ff7b17",
+            // color: "#ff5c5c",
+            // color: "#3fe47e",
+            color: "#48a9f8",
+            backgroundColor: "#ffffff",
+            // border: "2px solid #ff5c5c",
+            // border: "2px solid #3fe47e",
+            border: "2px solid #48a9f8",
           },
 
           icon: "🛒",
@@ -206,10 +224,13 @@ const ItemsContainer = ({
       position: "top-center",
 
       style: {
-        // "backgroundColor":"#131b2e",
-        // "color":"#ff7b17"
-        color: "#ffffff",
-        backgroundColor: "#ff7b17",
+        // color: "#ff5c5c",
+        color: "#3fe47e",
+        // color: "#48a9f8",
+        backgroundColor: "#ffffff",
+        // border: "2px solid #ff5c5c",
+        border: "2px solid #3fe47e",
+        // border: "2px solid #48a9f8",
       },
 
       icon: "🛒",

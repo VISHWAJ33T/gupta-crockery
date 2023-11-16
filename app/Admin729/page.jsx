@@ -21,10 +21,13 @@ const page = () => {
         duration: 4000,
         position: "top-center",
         style: {
-          // "backgroundColor":"#131b2e",
-          // "color":"#ff7b17"
-          color: "#ffffff",
-          backgroundColor: "#ff7b17",
+          color: "#ff5c5c",
+          // color: "#3fe47e",
+          // color: "#48a9f8",
+          backgroundColor: "#ffffff",
+          border: "2px solid #ff5c5c",
+          // border: "2px solid #3fe47e",
+          // border: "2px solid #48a9f8",
         },
         iconTheme: {
           primary: "#131b2e",
@@ -41,10 +44,13 @@ const page = () => {
           duration: 4000,
           position: "top-center",
           style: {
-            // "backgroundColor":"#131b2e",
-            // "color":"#ff7b17"
-            color: "#ffffff",
-            backgroundColor: "#ff7b17",
+            color: "#ff5c5c",
+            // color: "#3fe47e",
+            // color: "#48a9f8",
+            backgroundColor: "#ffffff",
+            border: "2px solid #ff5c5c",
+            // border: "2px solid #3fe47e",
+            // border: "2px solid #48a9f8",
           },
           iconTheme: {
             primary: "#131b2e",
@@ -57,10 +63,13 @@ const page = () => {
           duration: 4000,
           position: "top-center",
           style: {
-            // "backgroundColor":"#131b2e",
-            // "color":"#ff7b17"
-            color: "#ffffff",
-            backgroundColor: "#ff7b17",
+            // color: "#ff5c5c",
+            color: "#3fe47e",
+            // color: "#48a9f8",
+            backgroundColor: "#ffffff",
+            // border: "2px solid #ff5c5c",
+            border: "2px solid #3fe47e",
+            // border: "2px solid #48a9f8",
           },
           iconTheme: {
             primary: "#131b2e",
