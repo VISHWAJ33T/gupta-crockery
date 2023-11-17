@@ -7,10 +7,10 @@ import { AuthContextProvider } from "./context/AuthContext";
 
 export const metadata = {
   title: "Gupta Crockery - Where Quality Meets Savings",
-  description: `Gupta Crockery is the leading online store for high-quality crockery at affordable prices. Explore our wide selection of crockery from top brands and get ready to add a touch of elegance to your table.`,
+  description: `Explore our wide selection of crockery from top brands and get ready to add a touch of elegance to your table.`,
   keywords:
-    "website, app, shopping, crockery, bartan, milton, tupperware, steel, copper, plastic, iron, aluminium, melamine, kansa, silicon, bronze, glass, Sector 38 West, chandigarh",
-  canonical: "https://gupta-crockery.vercel.app/",
+    "gupta,crockery,sector 38 west,chandigarh,bartan,utensils,low price,high quality,kitchen,home,appliances",
+  canonical: "https://gupta-crockery.vercel.app",
 };
 
 import { Toaster } from "react-hot-toast";
