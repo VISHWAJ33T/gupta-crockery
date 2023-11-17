@@ -8,7 +8,8 @@ import { AuthContextProvider } from "./context/AuthContext";
 export const metadata = {
   title: "Gupta Crockery - Where Quality Meets Savings",
   description: `Gupta Crockery is the leading online store for high-quality crockery at affordable prices. Explore our wide selection of crockery from top brands and get ready to add a touch of elegance to your table.`,
-  keywords: "website, app, shopping, crockery, bartan, milton, tupperware, steel, copper, plastic, iron, aluminium, melamine, kansa, silicon, bronze, glass, Sector 38 West, chandigarh",
+  keywords:
+    "website, app, shopping, crockery, bartan, milton, tupperware, steel, copper, plastic, iron, aluminium, melamine, kansa, silicon, bronze, glass, Sector 38 West, chandigarh",
   canonical: "https://gupta-crockery.vercel.app/",
 };
 
@@ -27,7 +28,10 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-config" content="none" />
         <meta name="msapplication-TileColor" content="#131b2e" />
         <meta name="msapplication-tap-highlight" content="no" />
-        <meta name="google-site-verification" content="tt0ugrK-KPSWYsuOU8HhgMVUmLdhgZ-thh3xkbt8Bng" />
+        <meta
+          name="google-site-verification"
+          content="tt0ugrK-KPSWYsuOU8HhgMVUmLdhgZ-thh3xkbt8Bng"
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#131b2e" />
@@ -39,7 +43,9 @@ export default function RootLayout({ children }) {
       <body className="relative">
         <AuthContextProvider>
           <Nav />
-          <Toaster />
+          <div className="toast-container fixed min-h-[223px] max-h-[223px] mt-1 w-full overflow-hidden z-[10]">
+            <Toaster />
+          </div>
           {children}
           <Footer />
         </AuthContextProvider>

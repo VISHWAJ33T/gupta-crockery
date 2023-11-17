@@ -948,3 +948,8 @@ html {
     display: none !important;
   }
 }
+
+.toast-container>div{
+  position: absolute !important;
+  top: 0 !important;
+}
