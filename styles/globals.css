@@ -949,6 +949,10 @@ html {
   }
 }
 
+.toast-container{
+  pointer-events: none;
+}
+
 .toast-container>div{
   position: absolute !important;
   top: 0 !important;
