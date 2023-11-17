@@ -1,0 +1,15 @@
+https://gupta-crockery.vercel.app/
+https://gupta-crockery.vercel.app/allitems?category=&search=
+https://gupta-crockery.vercel.app/allitems?category=steel&search=
+https://gupta-crockery.vercel.app/allitems?category=plastic&search=
+https://gupta-crockery.vercel.app/allitems?category=aluminium&search=
+https://gupta-crockery.vercel.app/allitems?category=glass&search=
+https://gupta-crockery.vercel.app/allitems?category=brass&search=
+https://gupta-crockery.vercel.app/allitems?category=iron&search=
+https://gupta-crockery.vercel.app/allitems?category=copper&search=
+https://gupta-crockery.vercel.app/allitems?category=bone+china&search=
+https://gupta-crockery.vercel.app/allitems?category=Kansa&search=
+https://gupta-crockery.vercel.app/allitems?category=melamine&search=
+https://gupta-crockery.vercel.app/allitems?category=wooden&search=
+https://gupta-crockery.vercel.app/allitems?category=silicon&search=
+https://gupta-crockery.vercel.app/cart
