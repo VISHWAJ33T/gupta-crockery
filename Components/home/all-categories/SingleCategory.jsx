@@ -38,12 +38,12 @@ const SingleCategory = ({ heading }) => {
     <div
       className={`SingleCategory min-w-[250px] rounded-[20px] items-start justify-center ${heading}-style py-4 pt-2 px-4 `}
     >
-      <button
+      <h2
         onClick={() => scrollIntoTheView(heading)}
         className="category-heading text-2xl text-[#ffffff] outline-8 pb-2 w-full block text-center font-bold cursor-pointer"
       >
         {heading}
-      </button>
+      </h2>
       <div className={`grid grid-cols-2 gap-2`}>
         <Link
           href={{

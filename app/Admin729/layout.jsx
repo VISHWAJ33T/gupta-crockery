@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
           width="100%"
           height="100%"
           src="https://png.pngtree.com/png-clipart/20230806/original/pngtree-access-denied-vintage-metallic-sign-panel-no-fashioned-vector-picture-image_9950167.png"
+          alt="not allowed"
         />
       )}
     </div>

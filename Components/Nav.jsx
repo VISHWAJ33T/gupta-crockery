@@ -79,10 +79,10 @@ const Nav = () => {
       <ul className="flex items-center justify-between">
         <li className="shrink-0">
           <Link href="/" className="flex space-x-1 md:ml-4 items-center mr-3 ">
-            <img src="/static/Logo.png" alt="LOGO" className="w-12 h-12" />
-            <h3 className="font-bold text-xl sm:text-3xl whitespace-nowrap hidden sm:block">
+            <img src="/static/Logo.png" alt="logo" className="w-12 h-12" />
+            <h1 className="font-bold text-xl sm:text-3xl whitespace-nowrap hidden sm:block">
               Gupta Crockery
-            </h3>
+            </h1>
           </Link>
         </li>
         <li className="shrink">

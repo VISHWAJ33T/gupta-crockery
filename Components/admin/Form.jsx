@@ -266,7 +266,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
                 : "https://www.netatwork.com/uploads/AAPL/loaders/One%20Moment%20Please%20Star%20Loader.gif"
             }
             className="max-w-[200px] max-h-[200px] object-contain border-2 min-w-[200px] min-h-[200px]"
-            alt="Upload your image"
+            alt="Upload image"
           />
           <input
             type="file"
