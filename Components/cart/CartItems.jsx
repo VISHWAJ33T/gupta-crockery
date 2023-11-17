@@ -159,6 +159,7 @@ const CartItems = ({ setLoading }) => {
                 secondary: "#ff7b17",
               },
             });
+            handleSaveCart();
           },
         },
         {
@@ -214,6 +215,27 @@ const CartItems = ({ setLoading }) => {
           },
         });
       } else {
+        toast("Failed to save cart", {
+          duration: 4000,
+          position: "top-center",
+
+          style: {
+            color: "#ff5c5c",
+            // color: "#3fe47e",
+            // color: "#48a9f8",
+            backgroundColor: "#ffffff",
+            border: "2px solid #ff5c5c",
+            // border: "2px solid #3fe47e",
+            // border: "2px solid #48a9f8",
+          },
+
+          icon: "🛒",
+
+          iconTheme: {
+            primary: "#131b2e",
+            secondary: "#ff7b17",
+          },
+        });
         console.error("Failed to save cart:", response.statusText);
       }
     } catch (error) {

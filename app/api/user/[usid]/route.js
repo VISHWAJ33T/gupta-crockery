@@ -33,7 +33,7 @@ export const PATCH = async (request, { params }) => {
     existingUser.name = name;
     existingUser.email = email;
     existingUser.photoURL = photoURL;
-    existingUser.cartItems = cartItems;
+    existingUser.cartItems = Object.keys(cartItems).length > 0 ? cartItems : null;
 
     await existingUser.save();
     return new Response(JSON.stringify(existingUser), { status: 200 });
