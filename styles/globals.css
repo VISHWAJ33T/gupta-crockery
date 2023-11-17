@@ -913,3 +913,38 @@ html {
     background-position-x: -200%;
   }
 }
+
+.itemsContainer .swiper-button-next {
+  color: #131b2e !important;
+  background-color: #f56c13 !important;
+  top: -50px !important;
+  padding: 30px 20px !important;
+  right: 0 !important;
+  top: 40% !important;
+}
+
+.itemsContainer .swiper-button-prev {
+  color: #131b2e !important;
+  background-color: #f56c13 !important;
+  top: -50px !important;
+  padding: 30px 20px !important;
+  left: 0 !important;
+  top: 40% !important;
+}
+
+.itemsContainer .swiper-button-disabled {
+  pointer-events: all !important;
+  cursor: auto !important;
+}
+
+@media (max-width: 640px) {
+  .itemsContainer .swiper-button-next {
+    display: none !important;
+  }
+  .itemsContainer .swiper-button-prev {
+    display: none !important;
+  }
+  .itemsContainer .swiper-button-disabled {
+    display: none !important;
+  }
+}
