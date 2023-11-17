@@ -5,10 +5,6 @@ import { useEffect, useState } from "react";
 
 const SingleCategory = ({ heading }) => {
   const [allData, setAllData] = useState([]);
-
-  const fallbackImageUrl = `data:image/svg+xml;base64,${toBase64(
-    shimmer(100, 100)
-  )}`;
   const isValidImageUrl = (url) => {
     return url && (url.startsWith("https://") || url.startsWith("data:image"));
   };
@@ -31,6 +27,7 @@ const SingleCategory = ({ heading }) => {
     typeof window === "undefined"
       ? Buffer.from(str).toString("base64")
       : window.btoa(str);
+
   useEffect(() => {
     fetchItems();
   }, []);
@@ -42,6 +39,7 @@ const SingleCategory = ({ heading }) => {
     const data = await response.json();
     setAllData(data);
   };
+
   const scrollIntoTheView = (id) => {
     let element = document.getElementById(id);
     if (!element) return;
@@ -52,6 +50,11 @@ const SingleCategory = ({ heading }) => {
       inline: "nearest",
     });
   };
+
+  const fallbackImageUrl = `data:image/svg+xml;base64,${toBase64(
+    shimmer(100, 100)
+  )}`;
+  
   return (
     <div
       className={`SingleCategory min-w-[250px] rounded-[20px] items-start justify-center ${heading}-style py-4 pt-2 px-4 `}
