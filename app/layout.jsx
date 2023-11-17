@@ -28,6 +28,13 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-config" content="none" />
         <meta name="msapplication-TileColor" content="#131b2e" />
         <meta name="msapplication-tap-highlight" content="no" />
+        <meta property="og:title" content="Gupta Crockery - Where Quality Meets Savings" />
+
+        <meta property="og:description" content="Explore our wide selection of crockery from top brands and get ready to add a touch of elegance to your table." />
+
+        <meta property="og:image" content="https://gupta-crockery.vercel.app/static/Logo.png" />
+        <meta property="og:url" content="https://gupta-crockery.vercel.app" />
+        <meta property="og:type" content="website" />
         <meta
           name="google-site-verification"
           content="tt0ugrK-KPSWYsuOU8HhgMVUmLdhgZ-thh3xkbt8Bng"
