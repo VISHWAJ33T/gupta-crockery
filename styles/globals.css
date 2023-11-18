@@ -332,6 +332,24 @@ html {
   border: 3px solid #ffffff;
   /* border-right: 0px; */
 }
+
+.NavCartCount {
+  position: relative;
+  top: -12px;
+  background-color: #969696;
+  border-radius: 100%;
+  padding: 3px;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  left: 15px;
+  aspect-ratio: 1 / 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Edit button css starts here */
 .edit-button {
   width: 40px;
@@ -639,12 +657,7 @@ html {
 }
 
 .discount-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 10px -3px #ea241980;
-}
-
-.discount-btn:active {
-  opacity: 0.5;
+  box-shadow: 0 5px 5px -3px #ea241980;
 }
 
 /* *********************** Add to Cart Button *********************** */
