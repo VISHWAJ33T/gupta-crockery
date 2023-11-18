@@ -48,7 +48,9 @@ const Nav = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push(`/allitems?&category=&search=${searchValue}`);
+    searchValue
+      ? router.push(`/Items?&search=${searchValue}`)
+      : router.push(`/Items`);
   };
 
   useEffect(() => {
@@ -99,7 +101,7 @@ const Nav = () => {
             {searchValue ? (
               <Link
                 href={{
-                  pathname: `${process.env.NEXT_PUBLIC_URL}/allitems`,
+                  pathname: `${process.env.NEXT_PUBLIC_URL}/Items`,
                   query: { search: searchValue },
                 }}
                 className="flex items-center justify-center rounded-r px-2 bg-[white] bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 hover:bg-[orange]"
@@ -113,7 +115,7 @@ const Nav = () => {
             ) : (
               <Link
                 href={{
-                  pathname: `${process.env.NEXT_PUBLIC_URL}/allitems`,
+                  pathname: `${process.env.NEXT_PUBLIC_URL}/Items`,
                 }}
                 className="flex items-center justify-center rounded-r px-2 bg-[white] bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 hover:bg-[orange]"
               >

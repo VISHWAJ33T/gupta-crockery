@@ -12,8 +12,8 @@ const Page = () => {
   const [showSorts, setShowSorts] = useState(false); // Track whether sorting options are visible
   const [showFilters, setShowFilters] = useState(false); // Track whether filter options are visible
   const searchParams = useSearchParams();
-  const category = searchParams.get("category") || '';
-  const search = searchParams.get("search") || '';
+  const category = searchParams.get("category") || "";
+  const search = searchParams.get("search") || "";
   const [allItems, setAllItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [itemsNotFound, setItemsNotFound] = useState(false);
@@ -87,24 +87,42 @@ const Page = () => {
   };
 
   const renderCategoryLinks = (categories) => {
-    return categories.map((cat) => (
-      <Link
-        key={cat}
-        href={{
-          query: {
-            category: cat === "All" ? "" : cat.toLowerCase(),
-            search: search,
-          },
-        }}
-        className={`${
-          category === cat.toLowerCase() || (cat === "All" && category === "")
-            ? activeClass
-            : unactiveClass
-        }`}
-      >
-        {cat}
-      </Link>
-    ));
+    return categories.map((cat) =>
+      search ? (
+        <Link
+          key={cat}
+          href={{
+            query: {
+              category: cat === "All" ? "" : cat.toLowerCase(),
+              search: search,
+            },
+          }}
+          className={`${
+            category === cat.toLowerCase() || (cat === "All" && category === "")
+              ? activeClass
+              : unactiveClass
+          }`}
+        >
+          {cat}
+        </Link>
+      ) : (
+        <Link
+          key={cat}
+          href={{
+            query: {
+              category: cat === "All" ? "" : cat.toLowerCase(),
+            },
+          }}
+          className={`${
+            category === cat.toLowerCase() || (cat === "All" && category === "")
+              ? activeClass
+              : unactiveClass
+          }`}
+        >
+          {cat}
+        </Link>
+      )
+    );
   };
 
   const categoryButtons = [
