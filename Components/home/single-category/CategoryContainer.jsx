@@ -25,30 +25,24 @@ const CategoryContainer = ({ cartItems, setCartItems, category }) => {
   if (allItems.length === 0) {
     return (
       <div className="space-y-3 sm:space-y-5 lg:space-y-6 mx-[15px] px-1 sm:px-2">
-      <div>
-      <Link
-          href={{
-            pathname: "/allitems",
-            query: { category: category, search: "" },
-          }}
-          className="text-3xl font-bold text-black cursor-pointer w-fit relative left-1 sm:left-2 top-0"
-        >
-          {category[0].toUpperCase() + category.slice(1)}
-        </Link>
-        <div className="flex gap-x-3 w-[100%] overflow-hidden gap-y-3 rounded-lg">
-          <ItemsContainerSkeletonCard isLoading={true} />
-          <ItemsContainerSkeletonCard isLoading={true} />
-          <ItemsContainerSkeletonCard isLoading={true} />
-          <ItemsContainerSkeletonCard isLoading={true} />
-          <ItemsContainerSkeletonCard isLoading={true} />
-          <ItemsContainerSkeletonCard isLoading={true} />
-          <ItemsContainerSkeletonCard isLoading={true} />
-          <ItemsContainerSkeletonCard isLoading={true} />
-          <ItemsContainerSkeletonCard isLoading={true} />
-          <ItemsContainerSkeletonCard isLoading={true} />
-          <ItemsContainerSkeletonCard isLoading={true} />
+        <div>
+          <Link
+            href={{
+              pathname: "/allitems",
+              query: { category: category, search: "" },
+            }}
+            className="text-3xl font-bold text-black cursor-pointer w-fit relative left-1 sm:left-2 top-0"
+          >
+            {category[0].toUpperCase() + category.slice(1)}
+          </Link>
+          <div className="flex gap-x-3 w-[100%] overflow-hidden gap-y-3 rounded-lg">
+            <ItemsContainerSkeletonCard isLoading={true} />
+            <ItemsContainerSkeletonCard isLoading={true} />
+            <ItemsContainerSkeletonCard isLoading={true} />
+            <ItemsContainerSkeletonCard isLoading={true} />
+            <ItemsContainerSkeletonCard isLoading={true} />
+          </div>
         </div>
-      </div>
       </div>
     );
   }
@@ -62,7 +56,7 @@ const CategoryContainer = ({ cartItems, setCartItems, category }) => {
         <Link
           href={{
             pathname: "/allitems",
-            query: { category: category, search: "" },
+            query: { category: category },
           }}
           className="text-3xl font-bold text-black cursor-pointer w-fit relative left-1 sm:left-2 top-0"
         >

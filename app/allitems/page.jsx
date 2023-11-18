@@ -12,8 +12,8 @@ const Page = () => {
   const [showSorts, setShowSorts] = useState(false); // Track whether sorting options are visible
   const [showFilters, setShowFilters] = useState(false); // Track whether filter options are visible
   const searchParams = useSearchParams();
-  const category = searchParams.get("category");
-  const search = searchParams.get("search");
+  const category = searchParams.get("category") || '';
+  const search = searchParams.get("search") || '';
   const [allItems, setAllItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [itemsNotFound, setItemsNotFound] = useState(false);
@@ -38,7 +38,7 @@ const Page = () => {
       `/api/item?&category=${category}&search=${search}`
     );
     const responseData = await response.json();
-    const data = responseData.reverse()
+    const data = responseData.reverse();
     // Sort data based on the selected sort order
     const sortedData = data.sort((a, b) => {
       if (sortOrder === "priceLowToHigh" || sortOrder === "priceHighToLow") {
@@ -130,13 +130,13 @@ const Page = () => {
       {loading && <Loading />}
       {!loading ? (
         itemsNotFound ? (
-          <div className="flex flex-col gap-y-3 justify-center items-center py-12">
+          <div className="flex flex-col gap-y-2 justify-center items-center py-12">
             <img
               className="text-3xl font-bold text-center h-80"
-              src="https://cdni.iconscout.com/illustration/premium/thumb/sorry-item-not-found-3328225-2809510.png"
+              src="https://static.thenounproject.com/png/4440881-200.png"
               alt="no items found"
             />
-            <h1 className="text-3xl font-bold text-center">No items Found</h1>
+            <h1 className="text-3xl text-center">No items Found</h1>
           </div>
         ) : (
           <div>
