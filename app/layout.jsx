@@ -21,6 +21,21 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* Google tag (gtag.js) */}
+        {process.env.NODE_ENV !== "development" && (
+          <>
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-DXT8NJXWDH"
+            ></script>
+            <script>
+              window.dataLayer = window.dataLayer || []; function gtag()
+              {dataLayer.push(arguments)}
+              gtag('js', new Date()); gtag('config', 'G-DXT8NJXWDH');
+            </script>
+          </>
+        )}
+
         <meta name="application-name" content="Gupta Crockery" />
         <meta name="geo.region" content="IN-CT" />
         <meta name="geo.placename" content="chandigarh" />
