@@ -57,12 +57,12 @@ export default function Home() {
             setCartItems={setCartItems}
             category="glass"
           />
-          <CategoryContainer
+          {/* <CategoryContainer
             cartItems={cartItems}
             setCartItems={setCartItems}
             category="brass"
-          />
-          <CategoryContainer
+          /> */}
+          {/* <CategoryContainer
             cartItems={cartItems}
             setCartItems={setCartItems}
             category="iron"
@@ -96,7 +96,7 @@ export default function Home() {
             cartItems={cartItems}
             setCartItems={setCartItems}
             category="silicon"
-          />
+          /> */}
         </div>
       </div>
     </>
