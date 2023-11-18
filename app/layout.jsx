@@ -4,7 +4,7 @@ import Footer from "@/Components/Footer";
 import "@/styles/globals.css";
 import "./firebase.js";
 import { AuthContextProvider } from "./context/AuthContext";
-
+import Script from "next/script";
 export const metadata = {
   title: "Gupta Crockery - Where Quality Meets Savings",
   description: `Business listings of Kitchen Crockery, Crockery Item manufacturers, suppliers and exporters in Chandigarh, रसोई के लिए क्रॉकरी विक्रेता, चंडीगढ़, Chandigarh along with their contact details & address. Find here Kitchen Crockery, Crockery Item, Khurja Crockery suppliers, manufacturers, wholesalers, traders with Kitchen Crockery prices for buying.`,
@@ -24,18 +24,19 @@ export default function RootLayout({ children }) {
         {/* Google tag (gtag.js) */}
         {process.env.NODE_ENV !== "development" && (
           <>
-            <script
+            <Script
               async
               src="https://www.googletagmanager.com/gtag/js?id=G-DXT8NJXWDH"
-            ></script>
-            <script>
-              window.dataLayer = window.dataLayer || []; function gtag()
-              {dataLayer.push(arguments)}
-              gtag('js', new Date()); gtag('config', 'G-DXT8NJXWDH');
-            </script>
+            ></Script>
+            <Script>
+              {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DXT8NJXWDH');`}
+            </Script>
           </>
         )}
-
         <meta name="application-name" content="Gupta Crockery" />
         <meta name="geo.region" content="IN-CT" />
         <meta name="geo.placename" content="chandigarh" />
