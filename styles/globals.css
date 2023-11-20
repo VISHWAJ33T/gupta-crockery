@@ -350,6 +350,39 @@ html {
   justify-content: center;
 }
 
+#google_translate_element {
+  max-height: 100px;
+  overflow: hidden;
+  padding-left: 10px;
+  flex-shrink: 1;
+  margin-bottom: -17px !important;
+  min-width: 100px;
+}
+
+#google_translate_element select {
+  width: 100%;
+  padding: 3px 5px;
+  appearance: none;
+  /* safari */
+  -webkit-appearance: none;
+  /* other styles for aesthetics */
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 0.25rem;
+  color: #000;
+  cursor: pointer;
+}
+
+.goog-te-gadget span {
+  display: none !important;
+}
+.goog-te-gadget {
+  visibility: hidden !important;
+}
+.goog-te-gadget select {
+  visibility: visible !important;
+}
+
 /* Edit button css starts here */
 .edit-button {
   width: 40px;

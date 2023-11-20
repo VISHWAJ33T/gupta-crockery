@@ -128,6 +128,8 @@ const Nav = () => {
             )}
           </form>
         </li>
+        <div id="google_translate_element"></div>
+
         <li className="flex shrink-0 gap-1 ml-3 mr-0 sm:mr-3 md:mr-6">
           {user ? (
             <>

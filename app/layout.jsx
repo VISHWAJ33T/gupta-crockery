@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import Translate from "../components/Translate";
 import Nav from "@/Components/Nav";
 import Footer from "@/Components/Footer";
 import "@/styles/globals.css";
@@ -79,7 +80,9 @@ export default function RootLayout({ children }) {
       </head>
       <body className="relative">
         <AuthContextProvider>
-          <Nav />
+          <Translate>
+            <Nav />
+          </Translate>
           <div className="toast-container fixed min-h-[223px] max-h-[223px] mt-1 w-full overflow-hidden z-[10]">
             <Toaster />
           </div>
