@@ -1,5 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
-import Translate from "@/components/Translate";
+import Translate from "@/Components/Translate.jsx";
 import Nav from "@/Components/Nav";
 import Footer from "@/Components/Footer";
 import "@/styles/globals.css";
