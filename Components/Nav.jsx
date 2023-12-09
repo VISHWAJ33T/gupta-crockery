@@ -90,7 +90,7 @@ const Nav = () => {
         <li className="shrink">
           <form onSubmit={handleSubmit} className="flex w-fit">
             <input
-              className="border text-black rounded-l py-2 px-2 w-full md:w-[50vw] min-w-0 shrink"
+              className="border text-black rounded-l py-2 px-2 w-full md:w-[40vw] min-w-0 shrink"
               type="text"
               placeholder="Search for items..."
               value={searchValue}
@@ -128,9 +128,13 @@ const Nav = () => {
             )}
           </form>
         </li>
-        <div id="google_translate_element"></div>
-
-        <li className="flex shrink-0 gap-1 ml-3 mr-0 sm:mr-3 md:mr-6">
+        <li className="translate-container rounded-full bg-gradient-to-r from-orange-500 to-red-600 text-white">
+          <div
+            id="google_translate_element"
+            className="rounded-full bg-gradient-to-r from-orange-500 to-red-600 text-white"
+          ></div>
+        </li>
+        <li className="flex shrink-0 gap-1 mr-0 sm:mr-3 md:mr-6">
           {user ? (
             <>
               <Link

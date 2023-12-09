@@ -350,26 +350,32 @@ html {
   justify-content: center;
 }
 
+.translate-container{
+  margin: 0px 10px;
+}
+
 #google_translate_element {
-  max-height: 100px;
   overflow: hidden;
-  padding-left: 10px;
   flex-shrink: 1;
-  margin-bottom: -17px !important;
+  background:linear-gradient(90deg, #f97316 0%, #dc2626 100%) ;
   min-width: 100px;
+  max-height: 35px;
+  padding: 0 10px;
+
 }
 
 #google_translate_element select {
   width: 100%;
   padding: 3px 5px;
+  background:linear-gradient(90deg, #f97316 0%, #dc2626 100%) ;
+  background-color: #f97316 ;
+  color: #fff;
+  font-family: inherit;
+  font-weight: bold;
+  text-align: center;
   appearance: none;
-  /* safari */
   -webkit-appearance: none;
-  /* other styles for aesthetics */
-  background-color: #fff;
-  border: 1px solid #caced1;
   border-radius: 0.25rem;
-  color: #000;
   cursor: pointer;
 }
 
@@ -381,6 +387,7 @@ html {
 }
 .goog-te-gadget select {
   visibility: visible !important;
+  background-color: #dc2626 ;
 }
 
 /* Edit button css starts here */
