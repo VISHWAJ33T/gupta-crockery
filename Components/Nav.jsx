@@ -128,13 +128,18 @@ const Nav = () => {
             )}
           </form>
         </li>
-        <li className="translate-container rounded-full bg-gradient-to-r from-orange-500 to-red-600 text-white">
+        {/* <li className="translate-container rounded-full bg-gradient-to-r from-orange-500 to-red-600 text-white">
           <div
             id="google_translate_element"
             className="rounded-full bg-gradient-to-r from-orange-500 to-red-600 text-white"
           ></div>
-        </li>
-        <li className="flex shrink-0 gap-1 mr-0 sm:mr-3 md:mr-6">
+        </li> */}
+        <li className="flex shrink-0 gap-2 ml-2 mr-0 sm:mr-3 md:mr-6">
+          <div
+            id="google_translate_element"
+            title="Select Language"
+            className="hidden sm:block rounded-full bg-gradient-to-r from-red-600 to-orange-500 text-white"
+          ></div>
           {user ? (
             <>
               <Link

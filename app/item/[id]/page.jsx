@@ -1,13 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import Loading from "./loading.jsx";
 import SingleItem from "@/Components/single-item/SingleItem.jsx";
 
-const page = () => {
+const page = ({ params }) => {
   const [loading, setLoading] = useState(true);
-  const searchParams = useSearchParams();
-  const itemId = searchParams.get("id");
+  const itemId = params.id;
+  // const searchParams = useSearchParams();
+  // const itemId = searchParams.get("id");
   const [item, setItem] = useState([]);
   useEffect(() => {
     fetchItems();

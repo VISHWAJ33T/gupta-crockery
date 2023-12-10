@@ -275,7 +275,8 @@ const ItemsContainer = ({
         </span>
 
         <Link
-          href={{ pathname: "/item", query: { id: id } }}
+          href={`/item/${id}`}
+          // href={{ pathname: "/item", query: { id: id } }}
           className="object-contain min-h-[160px] max-h-[160px] min-w-[160px] max-w-[160px]"
         >
           <Image
@@ -379,7 +380,8 @@ const ItemsContainer = ({
         </span>
 
         <Link
-          href={{ pathname: "/item", query: { id: id } }}
+          href={`/item/${id}`}
+          // href={{ pathname: "/item", query: { id: id } }}
           className="object-contain min-h-[230px] max-h-[230px] min-w-[230px] max-w-[230px]"
         >
           <Image
