@@ -19,12 +19,72 @@ export const GET = async (request) => {
       {
         loc: `${baseUrl}`,
         lastmod: new Date().toISOString(),
-        priority: 0.5,
+        priority: 1,
       },
       {
         loc: `${baseUrl}/Items`,
         lastmod: new Date().toISOString(),
-        priority: 0.5,
+        priority: 0.6,
+      },
+      {
+        loc: `${baseUrl}/Items?category=Kansa`,
+        lastmod: new Date().toISOString(),
+        priority: 0.6,
+      },
+      {
+        loc: `${baseUrl}/Items?category=aluminium`,
+        lastmod: new Date().toISOString(),
+        priority: 0.6,
+      },
+      {
+        loc: `${baseUrl}/Items?category=bone+china`,
+        lastmod: new Date().toISOString(),
+        priority: 0.6,
+      },
+      {
+        loc: `${baseUrl}/Items?category=brass`,
+        lastmod: new Date().toISOString(),
+        priority: 0.6,
+      },
+      {
+        loc: `${baseUrl}/Items?category=copper`,
+        lastmod: new Date().toISOString(),
+        priority: 0.6,
+      },
+      {
+        loc: `${baseUrl}/Items?category=glass`,
+        lastmod: new Date().toISOString(),
+        priority: 0.6,
+      },
+      {
+        loc: `${baseUrl}/Items?category=iron`,
+        lastmod: new Date().toISOString(),
+        priority: 0.6,
+      },
+      {
+        loc: `${baseUrl}/Items?category=melamine`,
+        lastmod: new Date().toISOString(),
+        priority: 0.6,
+      },
+      {
+        loc: `${baseUrl}/Items?category=plastic`,
+        lastmod: new Date().toISOString(),
+        priority: 0.6,
+      },
+      {
+        loc: `${baseUrl}/Items?category=silicon`,
+        lastmod: new Date().toISOString(),
+        priority: 0.6,
+      },
+      {
+        loc: `${baseUrl}/Items?category=steel`,
+        lastmod: new Date().toISOString(),
+        priority: 0.6,
+      },
+      {
+        loc: `${baseUrl}/Items?category=wooden`,
+        lastmod: new Date().toISOString(),
+        priority: 0.6,
       },
     ];
 
