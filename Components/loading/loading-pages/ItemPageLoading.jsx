@@ -1,4 +1,4 @@
-import { SingleItemSkeletonCard } from "@/Components/loading-skeletons/SingleItem-skeleton-card";
+import { SingleItemSkeletonCard } from "@/Components/loading/loading-skeletons/SingleItem-skeleton-card";
 export default function Loading() {
   return (
     <div className="space-y-4">

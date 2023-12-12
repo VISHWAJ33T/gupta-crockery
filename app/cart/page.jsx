@@ -1,7 +1,7 @@
 "use client";
 import ScrollToTop from "react-scroll-to-top";
 import React, { useState, useEffect } from "react";
-import Loading from "./loading.jsx";
+import Loading from "../../Components/loading/loading-pages/CartPageLoading.jsx";
 import CartItems from "@/Components/cart/CartItems.jsx";
 const page = () => {
   const [loading, setLoading] = useState(true);

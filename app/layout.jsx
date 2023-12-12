@@ -8,10 +8,10 @@ import { AuthContextProvider } from "./context/AuthContext";
 import Script from "next/script";
 export const metadata = {
   title: "Gupta Crockery - Where Quality Meets Savings",
-  description: `Business listings of Kitchen Crockery, Crockery Item manufacturers, suppliers and exporters in Chandigarh, रसोई के लिए क्रॉकरी विक्रेता, चंडीगढ़, Chandigarh along with their contact details & address. Find here Kitchen Crockery, Crockery Item, Khurja Crockery suppliers, manufacturers, wholesalers, traders with Kitchen Crockery prices for buying.`,
-  // description: `Explore our wide selection of crockery from top brands and get ready to add a touch of elegance to your table.`,
+  description: `Discover a wide range of kitchen crockery and cookware at Gupta Crockery. Browse through top-quality products from leading manufacturers in Chandigarh. Find the perfect balance between quality and savings with our extensive selection of kitchen essentials. Business listings of Kitchen Crockery, Crockery Item sellers in Chandigarh, रसोई के लिए क्रॉकरी विक्रेता, चंडीगढ़, Chandigarh. Find here Kitchen Crockery, Crockery Item, traders with Kitchen Crockery prices for buying.`,
+  // description: `Business listings of Kitchen Crockery, Crockery Item manufacturers, suppliers and exporters in Chandigarh, रसोई के लिए क्रॉकरी विक्रेता, चंडीगढ़, Chandigarh along with their contact details & address. Find here Kitchen Crockery, Crockery Item, Khurja Crockery suppliers, manufacturers, wholesalers, traders with Kitchen Crockery prices for buying.`,
   keywords:
-    "Kitchen Crockery, Crockery Item, Khurja Crockery, Crockery, Crockery Items For Restaurant, manufacturers, suppliers, exporters, traders, dealers, manufacturing companies, retailers, producers, Chandigarh, रसोई के लिए क्रॉकरी, चंडीगढ़, Chandigarh, India",
+    "Kitchen Crockery, Crockery Item, Gupta Crockery, Crockery, Crockery Items For Home, Crockery Items For Restaurant, suppliers, traders, retailers, Chandigarh, रसोई के लिए क्रॉकरी, चंडीगढ़, Sector 38, Sector 38 West, sector, Chandigarh, India",
   // keywords: "gupta,crockery,sector 38 west,chandigarh,bartan,utensils,low price,high quality,kitchen,home,appliances",
   canonical: "https://gupta-crockery.vercel.app",
 };
@@ -49,7 +49,8 @@ export default function RootLayout({ children }) {
         />
         <meta
           property="og:description"
-          content="Business listings of Kitchen Crockery, Crockery Item manufacturers, suppliers and exporters in Chandigarh, रसोई के लिए क्रॉकरी विक्रेता, चंडीगढ़, Chandigarh along with their contact details & address. Find here Kitchen Crockery, Crockery Item, Khurja Crockery suppliers, manufacturers, wholesalers, traders with Kitchen Crockery prices for buying."
+          content="Discover a wide range of kitchen crockery and cookware at Gupta Crockery. Browse through top-quality products from leading manufacturers in Chandigarh. Find the perfect balance between quality and savings with our extensive selection of kitchen essentials. Business listings of Kitchen Crockery, Crockery Item sellers in Chandigarh, रसोई के लिए क्रॉकरी विक्रेता, चंडीगढ़, Chandigarh. Find here Kitchen Crockery, Crockery Item, traders with Kitchen Crockery prices for buying."
+          // content="Business listings of Kitchen Crockery, Crockery Item manufacturers, suppliers and exporters in Chandigarh, रसोई के लिए क्रॉकरी विक्रेता, चंडीगढ़, Chandigarh along with their contact details & address. Find here Kitchen Crockery, Crockery Item, Khurja Crockery suppliers, manufacturers, wholesalers, traders with Kitchen Crockery prices for buying."
           // content="Explore our wide selection of crockery from top brands and get ready to add a touch of elegance to your table."
         />
         <meta
@@ -73,10 +74,6 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#131b2e" />
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
-        <link rel="canonical" href={metadata.canonical} />
-        <title>{metadata.title}</title>
       </head>
       <body className="relative">
         <AuthContextProvider>

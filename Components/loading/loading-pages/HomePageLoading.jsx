@@ -1,6 +1,6 @@
-import { CarouselSkeletonCard } from "@/Components/loading-skeletons/Carousel-skeleton";
-import { AllCategoriesSkeletonCard } from "@/Components/loading-skeletons/AllCategories-skeleton";
-import { ItemsContainerSkeletonCard } from "@/Components/loading-skeletons/ItemsContainer-skeleton-card";
+import { CarouselSkeletonCard } from "@/Components/loading/loading-skeletons/Carousel-skeleton";
+import { AllCategoriesSkeletonCard } from "@/Components/loading/loading-skeletons/AllCategories-skeleton";
+import { ItemsContainerSkeletonCard } from "@/Components/loading/loading-skeletons/ItemsContainer-skeleton-card";
 const Items = ({ category }) => {
   return (
     <div>

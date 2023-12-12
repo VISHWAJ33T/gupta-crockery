@@ -5,7 +5,7 @@ import Categories from "@/Components/home/all-categories/Categories.jsx";
 import CategoryContainer from "@/Components/home/single-category/CategoryContainer.jsx";
 import { useEffect, useState } from "react";
 
-import Loading from "./loading.jsx";
+import Loading from "../Components/loading/loading-pages/HomePageLoading.jsx";
 
 export default function Home() {
   const [cartItems, setCartItems] = useState([]);

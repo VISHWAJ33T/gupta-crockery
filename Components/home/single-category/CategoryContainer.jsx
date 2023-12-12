@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import ItemsContainer from "../../single-item/ItemsContainer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Scrollbar, FreeMode } from "swiper/modules";
-import { ItemsContainerSkeletonCard } from "@/Components/loading-skeletons/ItemsContainer-skeleton-card";
+import { ItemsContainerSkeletonCard } from "@/Components/loading/loading-skeletons/ItemsContainer-skeleton-card";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";

@@ -1,4 +1,4 @@
-import { ItemsContainerSkeletonCard } from "@/Components/loading-skeletons/ItemsContainer-skeleton-card";
+import { ItemsContainerSkeletonCard } from "@/Components/loading/loading-skeletons/ItemsContainer-skeleton-card";
 
 export default function Loading() {
   return (

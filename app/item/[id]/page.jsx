@@ -1,13 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Loading from "./loading.jsx";
+import Loading from "../../../Components/loading/loading-pages/ItemPageLoading.jsx";
 import SingleItem from "@/Components/single-item/SingleItem.jsx";
-
 const page = ({ params }) => {
   const [loading, setLoading] = useState(true);
   const itemId = params.id;
-  // const searchParams = useSearchParams();
-  // const itemId = searchParams.get("id");
   const [item, setItem] = useState([]);
   useEffect(() => {
     fetchItems();
@@ -18,6 +15,7 @@ const page = ({ params }) => {
     const data = await response.json();
     setItem(data);
   };
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -27,7 +25,7 @@ const page = ({ params }) => {
     <>
       {loading && <Loading />}
       <div className={loading ? `hidden` : null}>
-        <SingleItem item={item}/>
+        <SingleItem item={item} />
       </div>
     </>
   );

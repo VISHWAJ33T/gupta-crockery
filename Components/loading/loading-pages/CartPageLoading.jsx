@@ -1,4 +1,4 @@
-import { CartSkeletonCard } from "@/Components/loading-skeletons/Cart-skeleton-card";
+import { CartSkeletonCard } from "@/Components/loading/loading-skeletons/Cart-skeleton-card";
 export default function Loading() {
   return (
     <div className="space-y-4">
