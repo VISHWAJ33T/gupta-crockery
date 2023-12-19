@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ItemsContainer from "../single-item/ItemsContainer";
 import SingleItem from "../single-item/SingleItem";
+
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   const [cartItems, setCartItems] = useState([]);
   const [inputPic, setInputPic] = useState();
@@ -344,8 +345,6 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             post.isDiscounted == true ? post.discounted_price : ""
           }
           main_img={post.main_img}
-          cartItems={cartItems}
-          setCartItems={setCartItems}
         />
       </div>
       <SingleItem
@@ -362,8 +361,6 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             post.isDiscounted == true ? post.discounted_price : "",
           main_img: post.main_img,
           extra_imgs: post.extra_imgs,
-          cartItems: cartItems,
-          setCartItems: setCartItems,
         }}
       />
     </>

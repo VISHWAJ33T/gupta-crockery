@@ -9,21 +9,18 @@ const page = ({ params }) => {
   const [loading, setLoading] = useState(true);
   const itemId = params.id;
   const [item, setItem] = useState([]);
-  useEffect(() => {
-    fetchItems();
-  }, []);
 
   const fetchItems = async () => {
     const response = await fetch(`/api/item/${itemId}`);
     const data = await response.json();
     setItem(data);
+    setLoading(false);
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 300);
+    fetchItems();
   }, []);
+
   return (
     <>
       <Provider store={store}>

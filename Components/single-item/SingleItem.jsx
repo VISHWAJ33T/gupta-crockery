@@ -20,13 +20,13 @@ import { updateCartItemSlice } from "../../redux/slices/cartItemsSlice";
 
 const SingleItem = ({ item }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [cartItems, setCartItems] = useState({});
   const { user, googleSignIn, Admins } = UserAuth();
   const cartIdsSlice = useAppSelector((state) => state.cartIdsSlice);
   const cartItemsSlice = useAppSelector((state) => state.cartItemsSlice);
   const dispatch = useAppDispatch();
   const [confirmDel, setConfirmDel] = useState(false);
   const URL = process.env.NEXT_PUBLIC_URL;
+
   const DeleteItem = async () => {
     confirmAlert({
       title: "Confirm to Delete",
@@ -218,6 +218,7 @@ const SingleItem = ({ item }) => {
       }
     }
   };
+
   const handleAdc = async (id, title, qtyValue) => {
     const newCartId = { [id]: qtyValue };
     const updatedCartIds = { ...cartIdsSlice, ...newCartId };
@@ -250,6 +251,7 @@ const SingleItem = ({ item }) => {
       },
     });
   };
+
   return (
     <div className="flex flex-col sm:flex-row mx-3 mt-5 sm:mx-5">
       {user && Admins && Admins.includes(user.email) && (
@@ -369,7 +371,9 @@ const SingleItem = ({ item }) => {
           <button
             className="atbbutton bg-gradient-to-r from-orange-400 to-orange-500 text-white"
             onClick={() => {
-              addToCart(item._id, item.title, 1, item.main_img);
+              item._id
+                ? addToCart(item._id, item.title, 1, item.main_img)
+                : alert("Invalid Item");
             }}
           >
             <span className="IconContainer">

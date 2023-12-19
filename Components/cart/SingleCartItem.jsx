@@ -40,7 +40,7 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
         </div>
         <div className="mx-1">
           <Link
-            href={{ pathname: "/item", query: { id: _id } }}
+            href={`/item/${_id}`}
             className="lg:text-2xl md:text-xl sm:text-lg text-md font-bold"
           >
             {title}

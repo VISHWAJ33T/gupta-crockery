@@ -342,7 +342,9 @@ const ItemsContainer = ({
               <button
                 className="transition ease-in-out duration-300 active:scale-[110%]"
                 onClick={() => {
-                  addToCart(id, title, 1, main_img);
+                  id
+                    ? addToCart(id, title, 1, main_img)
+                    : alert("Invalid Item");
                 }}
               >
                 Add to Cart
@@ -447,7 +449,9 @@ const ItemsContainer = ({
               <button
                 className="transition ease-in-out duration-300 active:scale-[110%]"
                 onClick={() => {
-                  addToCart(id, title, 1, main_img);
+                  id
+                    ? addToCart(id, title, 1, main_img)
+                    : alert("Invalid Item");
                 }}
               >
                 Add to Cart
