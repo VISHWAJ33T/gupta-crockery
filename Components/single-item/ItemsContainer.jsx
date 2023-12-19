@@ -7,8 +7,16 @@ import { confirmAlert } from "react-confirm-alert";
 import toast from "react-hot-toast";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { updateCartIdsSlice } from "../../redux/slices/cartIdsSlice";
-import { updateCartItemSlice } from "../../redux/slices/cartItemsSlice";
+import {
+  updateCartIdsSlice,
+  decrementCartIdQty,
+  incrementCartIdQty,
+} from "../../redux/slices/cartIdsSlice";
+import {
+  updateCartItemSlice,
+  incrementCartItemQty,
+  decrementCartItemQty,
+} from "../../redux/slices/cartItemsSlice";
 const ItemsContainer = ({
   id,
   title,
@@ -338,18 +346,55 @@ const ItemsContainer = ({
             )}
           </span>
           {stock !== 0 ? (
-            <span className="w-[50%] transition ease-in-out duration-300 bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 hover:bg-[orange] text-white cursor-pointer  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
-              <button
-                className="transition ease-in-out duration-300 active:scale-[110%]"
-                onClick={() => {
-                  id
-                    ? addToCart(id, title, 1, main_img)
-                    : alert("Invalid Item");
-                }}
-              >
-                Add to Cart
-              </button>
-            </span>
+cartIdsSlice[id] !== undefined ||
+(null && cartIdsSlice[id] >= 0) ? (
+  <span className="w-[50%] whitespace-nowrap transition ease-in-out duration-300 bg-gradient-to-r from-green-500 to-cyan-600 hover:brightness-110 hover:bg-[lightGreen] text-white cursor-pointer font-bold py-1 px-1 flex flex-row justify-center items-center h-[50px]">
+    <button
+      className={`${
+        cartIdsSlice[id] === 0 &&
+        "opacity-50 pointer-events-none"
+      } w-1/3 transition ease-in-out duration-300 hover:scale-[150%]`}
+      onClick={() => {
+        dispatch(decrementCartIdQty(id));
+        dispatch(decrementCartItemQty(id));
+      }}
+    >
+      -
+    </button>
+    <Link
+      href={"/cart"}
+      title="Go to Cart"
+      className="w-1/3 transition ease-in-out duration-300 active:scale-[110%]"
+    >
+      {cartIdsSlice[id]}
+    </Link>
+    <button
+      className={`w-1/3 transition ease-in-out duration-300 hover:scale-[150%] ${
+        cartIdsSlice[id] >= stock &&
+        "pointer-events-none opacity-50"
+      }`}
+      onClick={() => {
+        dispatch(incrementCartIdQty(id));
+        dispatch(incrementCartItemQty(id));
+      }}
+    >
+      +
+    </button>
+  </span>
+) : (
+  <span className="w-[50%] transition ease-in-out duration-300 bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 hover:bg-[orange] text-white cursor-pointer font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
+    <button
+      className="transition ease-in-out duration-300 active:scale-[110%]"
+      onClick={() => {
+        id
+          ? addToCart(id, title, 1, main_img)
+          : alert("Invalid Item");
+      }}
+    >
+      Add to Cart
+    </button>
+  </span>
+)
           ) : (
             <span className="w-[50%] whitespace-wrap bg-gradient-to-r from-red-500 to-red-600 brightness-110 text-white cursor-default  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
               Out of Stock
@@ -445,18 +490,55 @@ const ItemsContainer = ({
             )}
           </span>
           {stock !== 0 ? (
-            <span className="w-[50%] whitespace-nowrap transition ease-in-out duration-300 bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 hover:bg-[orange] text-white cursor-pointer font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
-              <button
-                className="transition ease-in-out duration-300 active:scale-[110%]"
-                onClick={() => {
-                  id
-                    ? addToCart(id, title, 1, main_img)
-                    : alert("Invalid Item");
-                }}
-              >
-                Add to Cart
-              </button>
-            </span>
+            cartIdsSlice[id] !== undefined ||
+            (null && cartIdsSlice[id] >= 0) ? (
+              <span className="w-[50%] whitespace-nowrap transition ease-in-out duration-300 bg-gradient-to-r from-green-500 to-cyan-600 hover:brightness-110 hover:bg-[lightGreen] text-white cursor-pointer font-bold py-1 px-1 flex flex-row justify-center items-center h-[50px]">
+                <button
+                  className={`${
+                    cartIdsSlice[id] === 0 &&
+                    "opacity-50 pointer-events-none"
+                  } w-1/3 transition ease-in-out duration-300 hover:scale-[150%]`}
+                  onClick={() => {
+                    dispatch(decrementCartIdQty(id));
+                    dispatch(decrementCartItemQty(id));
+                  }}
+                >
+                  -
+                </button>
+                <Link
+                  href={"/cart"}
+                  title="Go to Cart"
+                  className="w-1/3 transition ease-in-out duration-300 active:scale-[110%]"
+                >
+                  {cartIdsSlice[id]}
+                </Link>
+                <button
+                  className={`w-1/3 transition ease-in-out duration-300 hover:scale-[150%] ${
+                    cartIdsSlice[id] >= stock &&
+                    "pointer-events-none opacity-50"
+                  }`}
+                  onClick={() => {
+                    dispatch(incrementCartIdQty(id));
+                    dispatch(incrementCartItemQty(id));
+                  }}
+                >
+                  +
+                </button>
+              </span>
+            ) : (
+              <span className="w-[50%] whitespace-nowrap transition ease-in-out duration-300 bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 hover:bg-[orange] text-white cursor-pointer font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
+                <button
+                  className="transition ease-in-out duration-300 active:scale-[110%]"
+                  onClick={() => {
+                    id
+                      ? addToCart(id, title, 1, main_img)
+                      : alert("Invalid Item");
+                  }}
+                >
+                  Add to Cart
+                </button>
+              </span>
+            )
           ) : (
             <span className="w-[50%] whitespace-nowrap bg-gradient-to-r from-red-500 to-red-600 brightness-110 text-white cursor-default  font-bold py-1 px-1 flex flex-col-reverse justify-center items-center h-[50px]">
               Out of Stock

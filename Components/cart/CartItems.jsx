@@ -20,8 +20,10 @@ const CartItems = ({ setLoading }) => {
   const { user, googleSignIn } = UserAuth();
 
   const handleGoogleSignIn = async () => {
+    setLoading(true)
     try {
       await googleSignIn();
+      setLoading(false)
     } catch (error) {
       console.log(error);
     }
