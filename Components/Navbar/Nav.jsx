@@ -14,6 +14,7 @@ const Nav = () => {
   const [cartItemsCount, setCartItemsCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [popUp, setPopUp] = useState(false);
+
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
@@ -119,7 +120,7 @@ const Nav = () => {
           </form>
         </li>
         {/* Menu */}
-        <li className="flex items-center sm:gap-1 shrink ml-2 mr-0 sm:mr-3 md:mr-6">
+        <li className="flex items-center justify-evenly gap-3 sm:gap-8 shrink ml-2 mr-0 sm:mr-3 md:mr-6">
           {/* Language */}
           <SelectLang />
           {/* Cart */}
@@ -127,13 +128,13 @@ const Nav = () => {
             <>
               <Link
                 href={`${process.env.NEXT_PUBLIC_URL}/cart`}
-                className="flex justify-center items-center mx-1 sm:mx-3"
+                className="flex justify-center items-center aspect-square min-h-[30px]"
               >
-                {/* <div className="w-0">
+                <div className="w-0">
                   <span className="NavCartCount">
                     {cartItemsCount ? cartItemsCount : 0}
                   </span>
-                </div> */}
+                </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="1.5em"
@@ -160,26 +161,12 @@ const Nav = () => {
             <span className="mid"></span>
             <span className="bot"></span>
           </label>
-          {!user && popUp && (
-            <LoginPopup handleGoogleSignIn={handleGoogleSignIn} />
-          )}
         </li>
       </ul>
 
-      {popUp && (
-        <>
-          {user && (
-            <>
-              <div className="hamcard transition duration-150 ease-in-out absolute right-1 top-[69px]">
-                <UserPopup
-                  Admins={Admins}
-                  user={user}
-                  handleSignOut={handleSignOut}
-                />
-              </div>
-            </>
-          )}
-        </>
+      {!user && popUp && <LoginPopup handleGoogleSignIn={handleGoogleSignIn} />}
+      {user && popUp && (
+        <UserPopup Admins={Admins} user={user} handleSignOut={handleSignOut} />
       )}
     </div>
   );
