@@ -77,7 +77,7 @@ const Nav = () => {
   };
 
   return (
-    <div className="nav bg-[#131b2e] sticky top-0 z-[101] py-2 px-4 sm:px-0 text-white w-full">
+    <div className="nav bg-[#131b2e] sticky top-0 z-[101] py-2 sm:px-4 px-1 text-white w-full">
       <ul className="flex items-center justify-between">
         <li className="shrink-0">
           <Link href="/" className="flex space-x-1 md:ml-4 items-center mr-3 ">
@@ -87,7 +87,7 @@ const Nav = () => {
             </h1>
           </Link>
         </li>
-        <li className="shrink">
+        <li className="shrink min-w-[100px] xs:min-w-fit">
           <form onSubmit={handleSubmit} className="flex w-fit">
             <input
               className="border text-black rounded-l py-2 px-2 w-full md:w-[40vw] min-w-0 shrink"
@@ -128,17 +128,11 @@ const Nav = () => {
             )}
           </form>
         </li>
-        {/* <li className="translate-container rounded-full bg-gradient-to-r from-orange-500 to-red-600 text-white">
-          <div
-            id="google_translate_element"
-            className="rounded-full bg-gradient-to-r from-orange-500 to-red-600 text-white"
-          ></div>
-        </li> */}
-        <li className="flex shrink-0 gap-2 ml-2 mr-0 sm:mr-3 md:mr-6">
+        <li className="flex shrink gap-2 ml-2 mr-0 sm:mr-3 md:mr-6">
           <div
             id="google_translate_element"
             title="Select Language"
-            className="hidden sm:block rounded-full bg-gradient-to-r from-red-600 to-orange-500 text-white"
+            className="shrink rounded-full bg-gradient-to-r from-red-600 to-orange-500 text-white"
           ></div>
           {user ? (
             <>

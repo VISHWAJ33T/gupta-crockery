@@ -12,16 +12,19 @@ html {
   --scroll-behavior: smooth !important;
   scroll-behavior: smooth !important;
 }
+
 * {
   font-family: "Roboto Condensed", "Sofia Sans Condensed", sans-serif;
   /* font-family: 'Sofia Sans Condensed', sans-serif; */
 }
+
 .scroll-to-top {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
   z-index: 10 !important;
 }
+
 /* hamburger css starts here */
 /********************************************************** Animation css starts here /**********************************************************/
 .hamcard {
@@ -358,7 +361,7 @@ html {
   overflow: hidden;
   flex-shrink: 1;
   background:linear-gradient(90deg, #f97316 0%, #dc2626 100%) ;
-  min-width: 100px;
+  min-width: 50px;
   max-height: 35px;
   padding: 0 10px;
 
