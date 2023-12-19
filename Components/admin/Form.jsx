@@ -3,20 +3,11 @@ import ItemsContainer from "../single-item/ItemsContainer";
 import SingleItem from "../single-item/SingleItem";
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
-  const [cartItems, setCartItems] = useState([]);
   const [inputPic, setInputPic] = useState();
   const [inputLoading, setInputLoading] = useState(false);
   const [removeBg, setRemoveBg] = useState(false);
   const [removeBgApiKey, setRemoveBgApiKey] = useState("");
 
-  useEffect(() => {
-    setTimeout(() => {
-      const storedCartItems = localStorage.getItem("cartItems");
-      if (storedCartItems) {
-        setCartItems(JSON.parse(storedCartItems));
-      }
-    }, 0);
-  }, []);
   const postImage = (inputPic) => {
     setInputLoading(true);
     if (inputPic === undefined) {

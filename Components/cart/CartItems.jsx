@@ -74,7 +74,6 @@ const CartItems = ({ setLoading }) => {
                 return obj;
               }, {});
             dispatch(updateCartIdsSlice(tempIds));
-            localStorage.setItem("cartItems", JSON.stringify(cartIdsSlice));
             dispatch(updateCartItemSlice(updatedItems));
             toast("Item deleted from cart successfully", {
               duration: 4000,
@@ -221,7 +220,7 @@ const CartItems = ({ setLoading }) => {
           </h2>
           {cartItemsSlice.length > 0 ? (
             <>
-              {cartItemsSlice.map((item) => (
+              {cartItemsSlice.toReversed().map((item) => (
                 <SingleCartItem
                   key={item._id}
                   item={item}

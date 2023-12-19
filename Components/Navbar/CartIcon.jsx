@@ -78,22 +78,6 @@ const cartIcon = ({ user }) => {
     setCartItemsCount(Object.keys(cartIdsSlice).length);
   }, [cartIdsSlice]);
 
-//   useEffect(() => {
-//     const fetchItems = async () => {
-//       const promises = Object.keys(cartIdsSlice).map(async (id) => {
-//         const response = await fetch(`/api/item/${id}`);
-//         return response.json();
-//       });
-//       let allItems = await Promise.all(promises);
-
-//       for (let i = 0; i < allItems.length; i++) {
-//         allItems[i].qtyValue = Object.values(cartIdsSlice)[i];
-//       }
-//       dispatch(updateCartItemSlice(allItems));
-//     };
-//     fetchItems();
-//   }, [cartIdsSlice]);
-
   return (
     <>
       <Link
