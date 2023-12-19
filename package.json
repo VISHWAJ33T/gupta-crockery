@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
     "@vercel/analytics": "^1.1.1",
     "clsx": "^2.0.0",
     "firebase": "^10.5.2",
@@ -24,6 +25,7 @@
     "react-confirm-alert": "^3.0.6",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",
+    "react-redux": "^9.0.4",
     "react-scroll-to-top": "^3.0.0",
     "sharp": "^0.32.6",
     "swiper": "^11.0.3"

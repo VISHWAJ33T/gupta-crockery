@@ -14,10 +14,17 @@ import "swiper/css/thumbs";
 
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
+import { updateCartIdsSlice } from "../../redux/slices/cartIdsSlice";
+import { updateCartItemSlice } from "../../redux/slices/cartItemsSlice";
+
 const SingleItem = ({ item }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [cartItems, setCartItems] = useState({});
   const { user, googleSignIn, Admins } = UserAuth();
+  const cartIdsSlice = useAppSelector((state) => state.cartIdsSlice);
+  const cartItemsSlice = useAppSelector((state) => state.cartItemsSlice);
+  const dispatch = useAppDispatch();
   const [confirmDel, setConfirmDel] = useState(false);
   const URL = process.env.NEXT_PUBLIC_URL;
   const DeleteItem = async () => {
@@ -123,13 +130,6 @@ const SingleItem = ({ item }) => {
     return setConfirmDel(false);
   }, [confirmDel]);
 
-  useEffect(() => {
-    const storedCartItems = localStorage.getItem("cartItems");
-    if (storedCartItems) {
-      setCartItems(JSON.parse(storedCartItems));
-    }
-  }, []);
-
   const addToCart = (id, title, qtyValue, img_src) => {
     if (!user || user === null) {
       toast(`You need to login first to add this item to cart`, {
@@ -154,7 +154,7 @@ const SingleItem = ({ item }) => {
         },
       });
     } else {
-      const existingCartItem = Object.keys(cartItems).find(
+      const existingCartItem = Object.keys(cartIdsSlice).find(
         (item) => item === id
       );
       console.log("existingCartItem: " + existingCartItem);
@@ -219,10 +219,14 @@ const SingleItem = ({ item }) => {
     }
   };
   const handleAdc = async (id, title, qtyValue) => {
-    const newCartItem = { [id]: qtyValue };
-    const updatedCartItems = { ...cartItems, ...newCartItem };
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    const newCartId = { [id]: qtyValue };
+    const updatedCartIds = { ...cartIdsSlice, ...newCartId };
+    const response = await fetch(`/api/item/${id}`);
+    let data = await response.json();
+    data.qtyValue = qtyValue;
+    const updatedCartItems = [...cartItemsSlice, data];
+    dispatch(updateCartItemSlice(updatedCartItems));
+    dispatch(updateCartIdsSlice(updatedCartIds));
 
     toast(`${title} added to cart successfully`, {
       duration: 4000,

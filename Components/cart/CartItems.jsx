@@ -7,12 +7,18 @@ import { confirmAlert } from "react-confirm-alert";
 import toast from "react-hot-toast";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
+import { updateCartItemSlice } from "../../redux/slices/cartItemsSlice";
+import { updateCartIdsSlice } from "../../redux/slices/cartIdsSlice";
+
 const CartItems = ({ setLoading }) => {
   // const { user, googleSignIn, facebookSignIn } = UserAuth();
+  const cartItemsSlice = useAppSelector((state) => state.cartItemsSlice);
+  const cartIdsSlice = useAppSelector((state) => state.cartIdsSlice);
+  const dispatch = useAppDispatch();
+
   const { user, googleSignIn } = UserAuth();
-  const [items, setItems] = useState([]);
-  const [cartIds, setCartIds] = useState({});
-  const [mounted, setMounted] = useState(false);
+
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
@@ -20,89 +26,15 @@ const CartItems = ({ setLoading }) => {
       console.log(error);
     }
   };
-  useEffect(() => {
-    const fetchItemsFromServer = async () => {
-      try {
-        const response1 = await fetch(`/api/user/${user.uid}`);
-        if (response1.ok) {
-          const data1 = await response1.json();
-          const serverItemsIds = data1.cartItems || {};
-          const localItemsIds =
-            JSON.parse(localStorage.getItem("cartItems")) || {};
-          let uniqueItemsIds = [];
-          let uniqueItemsQtys = [];
-          // if (serverItemsIds.length > 0 && localItemsIds.length > 0) {
-          const mergedItemsIds = Object.keys(serverItemsIds).concat(
-            Object.keys(localItemsIds)
-          );
-          const mergedItemsQtys = Object.values(serverItemsIds).concat(
-            Object.values(localItemsIds)
-          );
-          uniqueItemsIds = mergedItemsIds.filter(function (item, i, ar) {
-            return ar.indexOf(item) === i;
-          });
-          for (let i = 0; i < uniqueItemsIds.length; i++) {
-            const n = mergedItemsIds.indexOf(uniqueItemsIds[i]);
-            uniqueItemsQtys.push(mergedItemsQtys[n]);
-            //   }
-            // } else
-            if (serverItemsIds.length > 0) {
-              let uniqueItemsIds = Object.keys(serverItemsIds);
-              let uniqueItemsQtys = Object.values(serverItemsIds);
-            } else if (localItemsIds.length > 0) {
-              let uniqueItemsIds = Object.keys(localItemsIds);
-              let uniqueItemsQtys = Object.values(localItemsIds);
-            }
-          }
-
-          const fetchItems = async () => {
-            const promises = uniqueItemsIds.map(async (id) => {
-              const response2 = await fetch(`/api/item/${id}`);
-              return response2.json();
-            });
-            let allItems = await Promise.all(promises);
-            let allIds = {};
-
-            for (let i = 0; i < allItems.length; i++) {
-              allIds = { ...allIds, [uniqueItemsIds[i]]: uniqueItemsQtys[i] };
-              allItems[i].qtyValue = uniqueItemsQtys[i];
-            }
-            setCartIds(allIds);
-            setItems(allItems);
-            setLoading(false);
-          };
-
-          fetchItems();
-        } else {
-          console.error("Failed to fetch cart items:", response1.statusText);
-          setLoading(false);
-        }
-      } catch (error) {
-        console.error("Error fetching cart items:", error);
-        setLoading(false);
-      }
-    };
-    if (user) {
-      fetchItemsFromServer();
-    }
-  }, [user]);
-
-  useEffect(() => {
-    if (mounted) {
-      localStorage.setItem("cartItems", JSON.stringify(cartIds));
-    } else {
-      setMounted(true);
-    }
-  }, [items]);
 
   const updateQtyValue = (itemId, newQtyValue) => {
-    const updatedItems = items.map((item) =>
+    const updatedItems = cartItemsSlice.map((item) =>
       item._id === itemId ? { ...item, qtyValue: newQtyValue } : item
     );
-    const updatedIds = { ...cartIds, [itemId]: newQtyValue };
+    const updatedIds = { ...cartIdsSlice, [itemId]: newQtyValue };
 
-    setCartIds(updatedIds);
-    setItems(updatedItems);
+    dispatch(updateCartIdsSlice(updatedIds));
+    dispatch(updateCartItemSlice(updatedItems));
   };
 
   const deleteItem = (itemId, title, main_img) => {
@@ -131,13 +63,19 @@ const CartItems = ({ setLoading }) => {
         {
           label: "Yes",
           onClick: () => {
-            const updatedItems = items.filter((item) => item._id !== itemId);
-            // setCartIds(cartIds.filter((item) => item._id !== itemId));
-            let tempIds = cartIds;
-            delete tempIds[itemId];
-            setCartIds(tempIds);
-            localStorage.setItem("cartItems", JSON.stringify(cartIds));
-            setItems(updatedItems);
+            const updatedItems = cartItemsSlice.filter(
+              (item) => item._id !== itemId
+            );
+            // let tempIds = cartIdsSlice;
+            let tempIds = Object.keys(cartIdsSlice)
+              .filter((key) => key !== itemId)
+              .reduce((obj, key) => {
+                obj[key] = cartIdsSlice[key];
+                return obj;
+              }, {});
+            dispatch(updateCartIdsSlice(tempIds));
+            localStorage.setItem("cartItems", JSON.stringify(cartIdsSlice));
+            dispatch(updateCartItemSlice(updatedItems));
             toast("Item deleted from cart successfully", {
               duration: 4000,
               position: "top-center",
@@ -159,7 +97,6 @@ const CartItems = ({ setLoading }) => {
                 secondary: "#ff7b17",
               },
             });
-            handleSaveCart();
           },
         },
         {
@@ -170,15 +107,15 @@ const CartItems = ({ setLoading }) => {
     });
   };
 
-  const totalAmount = items.reduce(
+  const totalAmount = cartItemsSlice.reduce(
     (total, item) =>
       total + (item.discounted_price || item.price) * item.qtyValue,
     0
   );
 
-  const handleSaveCart = async () => {
+  const handleSaveCart = async (uid) => {
     try {
-      const response = await fetch(`/api/user/${user.uid}`, {
+      const response = await fetch(`/api/user/${uid}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -188,66 +125,72 @@ const CartItems = ({ setLoading }) => {
           email: user.email,
           usid: user.uid,
           photoURL: user.photoURL,
-          cartItems: cartIds,
+          cartItems: cartIdsSlice,
         }),
       });
 
-      if (response.ok) {
-        toast("Cart saved successfully", {
-          duration: 4000,
-          position: "top-center",
+      // if (response.ok) {
+      //   toast("Cart saved successfully", {
+      //     duration: 4000,
+      //     position: "top-center",
 
-          style: {
-            // color: "#ff5c5c",
-            color: "#3fe47e",
-            // color: "#48a9f8",
-            backgroundColor: "#ffffff",
-            // border: "2px solid #ff5c5c",
-            border: "2px solid #3fe47e",
-            // border: "2px solid #48a9f8",
-          },
+      //     style: {
+      //       // color: "#ff5c5c",
+      //       color: "#3fe47e",
+      //       // color: "#48a9f8",
+      //       backgroundColor: "#ffffff",
+      //       // border: "2px solid #ff5c5c",
+      //       border: "2px solid #3fe47e",
+      //       // border: "2px solid #48a9f8",
+      //     },
 
-          icon: "🛒",
+      //     icon: "🛒",
 
-          iconTheme: {
-            primary: "#131b2e",
-            secondary: "#ff7b17",
-          },
-        });
-      } else {
-        toast("Failed to save cart", {
-          duration: 4000,
-          position: "top-center",
+      //     iconTheme: {
+      //       primary: "#131b2e",
+      //       secondary: "#ff7b17",
+      //     },
+      //   });
+      // } else {
+      //   toast("Failed to save cart", {
+      //     duration: 4000,
+      //     position: "top-center",
 
-          style: {
-            color: "#ff5c5c",
-            // color: "#3fe47e",
-            // color: "#48a9f8",
-            backgroundColor: "#ffffff",
-            border: "2px solid #ff5c5c",
-            // border: "2px solid #3fe47e",
-            // border: "2px solid #48a9f8",
-          },
+      //     style: {
+      //       color: "#ff5c5c",
+      //       // color: "#3fe47e",
+      //       // color: "#48a9f8",
+      //       backgroundColor: "#ffffff",
+      //       border: "2px solid #ff5c5c",
+      //       // border: "2px solid #3fe47e",
+      //       // border: "2px solid #48a9f8",
+      //     },
 
-          icon: "🛒",
+      //     icon: "🛒",
 
-          iconTheme: {
-            primary: "#131b2e",
-            secondary: "#ff7b17",
-          },
-        });
-        console.error("Failed to save cart:", response.statusText);
-      }
+      //     iconTheme: {
+      //       primary: "#131b2e",
+      //       secondary: "#ff7b17",
+      //     },
+      //   });
+      //   console.error("Failed to save cart:", response.statusText);
+      // }
     } catch (error) {
       console.error("Error saving cart:", error);
     }
   };
 
+  useEffect(() => {
+    if (user) {
+      handleSaveCart(user.uid);
+    }
+  }, [cartIdsSlice, cartItemsSlice]);
+
   return (
     <div className="mx-2 sm:mx-0">
       {user ? (
         <>
-          <button
+          {/* <button
             onClick={(e) => {
               handleSaveCart();
             }}
@@ -272,13 +215,13 @@ const CartItems = ({ setLoading }) => {
             <span className="text-sm hidden sm:block text-white font-bold pr-1">
               Save Cart
             </span>
-          </button>
+          </button> */}
           <h2 className="text-center text-3xl font-bold w-full my-8">
             Shopping Cart
           </h2>
-          {items.length > 0 ? (
+          {cartItemsSlice.length > 0 ? (
             <>
-              {items.map((item) => (
+              {cartItemsSlice.map((item) => (
                 <SingleCartItem
                   key={item._id}
                   item={item}
@@ -332,9 +275,6 @@ const CartItems = ({ setLoading }) => {
         </>
       ) : (
         <div className="flex flex-col justify-center items-center h-[100%] w-[100%]">
-          {/* <h1 className="text-3xl font-bold mt-40 mb-10">
-            Please Login to access your shopping cart
-          </h1> */}
           <div className="transition duration-150 scale-100 sm:scale-125 m-40 ease-in-out">
             <div className="form">
               <p>

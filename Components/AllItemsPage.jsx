@@ -6,7 +6,8 @@ import ItemsContainer from "@/Components/single-item/ItemsContainer.jsx";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import Head from "next/head";
-
+import { Provider } from "react-redux";
+import { store } from "../redux/store.js";
 const Page = () => {
   const [loading, setLoading] = useState(true);
   const [sortOrder, setSortOrder] = useState("default");
@@ -16,17 +17,11 @@ const Page = () => {
   const category = searchParams.get("category") || "";
   const search = searchParams.get("search") || "";
   const [allItems, setAllItems] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
   const [itemsNotFound, setItemsNotFound] = useState(false);
   const activeClass = "active-button whitespace-nowrap";
   const unactiveClass = "inactive-button whitespace-nowrap";
 
   useEffect(() => {
-    const storedCartItems = localStorage.getItem("cartItems");
-    if (storedCartItems) {
-      setCartItems(JSON.parse(storedCartItems));
-    }
-
     setLoading(true);
     fetchItems();
   }, [category, search, sortOrder]);
@@ -141,103 +136,103 @@ const Page = () => {
 
   return (
     <>
-      <ScrollToTop smooth color="#ff640e" />
-      {loading && <Loading />}
-      <Head>
-        <title>Gupta Crockery - Search Items</title>
-        <meta
-          property="og:title"
-          content="Gupta Crockery - Search Items"
-          key="title"
-        />
-      </Head>
-      {!loading ? (
-        itemsNotFound ? (
-          <div className="flex flex-col gap-y-2 justify-center items-center py-12">
-            <img
-              className="text-3xl font-bold text-center h-80"
-              src="https://static.thenounproject.com/png/4440881-200.png"
-              alt="no items found"
-            />
-            <h1 className="text-3xl text-center">No items Found</h1>
-          </div>
-        ) : (
-          <div>
-            <div className="text-center overflow-x-scroll px-1 pb-3 mx-5 sm:mx-6 md:mx-10 flex gap-x-2 mt-3">
-              <button
-                onClick={toggleSorts}
-                className={`${showSorts ? activeClass : unactiveClass}`}
-              >
-                Sort
-              </button>
-              {showSorts && (
-                <>
-                  {/***************************************** SORTS *****************************************/}
-                  <button
-                    onClick={() => toggleSortOrder("priceLowToHigh")}
-                    className={`${
-                      sortOrder === "priceLowToHigh"
-                        ? activeClass
-                        : unactiveClass
-                    }`}
-                  >
-                    Price: Low to High
-                  </button>
-                  <button
-                    onClick={() => toggleSortOrder("priceHighToLow")}
-                    className={`${
-                      sortOrder === "priceHighToLow"
-                        ? activeClass
-                        : unactiveClass
-                    }`}
-                  >
-                    Price: High to Low
-                  </button>
-                  <button
-                    onClick={() => toggleSortOrder("mostDiscounted")}
-                    className={`${
-                      sortOrder === "mostDiscounted"
-                        ? activeClass
-                        : unactiveClass
-                    }`}
-                  >
-                    Most Discounted
-                  </button>
-                </>
-              )}
-              {/***************************************** FILTERS *****************************************/}
-              <button
-                onClick={toggleFilters}
-                className={`${showFilters ? activeClass : unactiveClass}`}
-              >
-                Filters
-              </button>
-              {showFilters && renderCategoryLinks(categoryButtons)}
+      <Provider store={store}>
+        <ScrollToTop smooth color="#ff640e" />
+        {loading && <Loading />}
+        <Head>
+          <title>Gupta Crockery - Search Items</title>
+          <meta
+            property="og:title"
+            content="Gupta Crockery - Search Items"
+            key="title"
+          />
+        </Head>
+        {!loading ? (
+          itemsNotFound ? (
+            <div className="flex flex-col gap-y-2 justify-center items-center py-12">
+              <img
+                className="text-3xl font-bold text-center h-80"
+                src="https://static.thenounproject.com/png/4440881-200.png"
+                alt="no items found"
+              />
+              <h1 className="text-3xl text-center">No items Found</h1>
             </div>
-            <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-y-3 mt-3 mx-2 sm:mx-6 md:mx-8 place-items-center">
-              {allItems.map((item) => (
-                <ItemsContainer
-                  key={item._id}
-                  id={item._id}
-                  title={item.title}
-                  price={item.price}
-                  stock={item.stock}
-                  isDiscounted={item.isDiscounted}
-                  discounted_percent={
-                    item.isDiscounted ? item.discounted_percent : ""
-                  }
-                  discounted_price={
-                    item.isDiscounted ? item.discounted_price : ""
-                  }
-                  main_img={item.main_img}
-                  cartItems={cartItems}
-                  setCartItems={setCartItems}
-                />
-              ))}
+          ) : (
+            <div>
+              <div className="text-center overflow-x-scroll px-1 pb-3 mx-5 sm:mx-6 md:mx-10 flex gap-x-2 mt-3">
+                <button
+                  onClick={toggleSorts}
+                  className={`${showSorts ? activeClass : unactiveClass}`}
+                >
+                  Sort
+                </button>
+                {showSorts && (
+                  <>
+                    {/***************************************** SORTS *****************************************/}
+                    <button
+                      onClick={() => toggleSortOrder("priceLowToHigh")}
+                      className={`${
+                        sortOrder === "priceLowToHigh"
+                          ? activeClass
+                          : unactiveClass
+                      }`}
+                    >
+                      Price: Low to High
+                    </button>
+                    <button
+                      onClick={() => toggleSortOrder("priceHighToLow")}
+                      className={`${
+                        sortOrder === "priceHighToLow"
+                          ? activeClass
+                          : unactiveClass
+                      }`}
+                    >
+                      Price: High to Low
+                    </button>
+                    <button
+                      onClick={() => toggleSortOrder("mostDiscounted")}
+                      className={`${
+                        sortOrder === "mostDiscounted"
+                          ? activeClass
+                          : unactiveClass
+                      }`}
+                    >
+                      Most Discounted
+                    </button>
+                  </>
+                )}
+                {/***************************************** FILTERS *****************************************/}
+                <button
+                  onClick={toggleFilters}
+                  className={`${showFilters ? activeClass : unactiveClass}`}
+                >
+                  Filters
+                </button>
+                {showFilters && renderCategoryLinks(categoryButtons)}
+              </div>
+              <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-y-3 mt-3 mx-2 sm:mx-6 md:mx-8 place-items-center">
+                {allItems.map((item) => (
+                  <ItemsContainer
+                    key={item._id}
+                    id={item._id}
+                    title={item.title}
+                    price={item.price}
+                    stock={item.stock}
+                    isDiscounted={item.isDiscounted}
+                    discounted_percent={
+                      item.isDiscounted ? item.discounted_percent : ""
+                    }
+                    discounted_price={
+                      item.isDiscounted ? item.discounted_price : ""
+                    }
+                    main_img={item.main_img}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        )
-      ) : null}
+          )
+        ) : null}
+      </Provider>
     </>
   );
 };

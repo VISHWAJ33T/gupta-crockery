@@ -10,7 +10,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import "swiper/css/free-mode";
-const CategoryContainer = ({ cartItems, setCartItems, category }) => {
+const CategoryContainer = ({ category }) => {
   const [allItems, setAllItems] = useState([]);
   useEffect(() => {
     fetchItems();
@@ -101,8 +101,6 @@ const CategoryContainer = ({ cartItems, setCartItems, category }) => {
                     item.isDiscounted ? item.discounted_price : ""
                   }
                   main_img={item.main_img}
-                  cartItems={cartItems}
-                  setCartItems={setCartItems}
                 />
               </SwiperSlide>
             ))}

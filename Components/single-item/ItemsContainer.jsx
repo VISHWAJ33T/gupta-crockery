@@ -6,7 +6,9 @@ import Image from "next/image";
 import { confirmAlert } from "react-confirm-alert";
 import toast from "react-hot-toast";
 import "react-confirm-alert/src/react-confirm-alert.css";
-
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
+import { updateCartIdsSlice } from "../../redux/slices/cartIdsSlice";
+import { updateCartItemSlice } from "../../redux/slices/cartItemsSlice";
 const ItemsContainer = ({
   id,
   title,
@@ -16,10 +18,11 @@ const ItemsContainer = ({
   discounted_price,
   discounted_percent,
   stock,
-  cartItems,
-  setCartItems,
 }) => {
   const { user, googleSignIn, Admins } = UserAuth();
+  const cartIdsSlice = useAppSelector((state) => state.cartIdsSlice);
+  const cartItemsSlice = useAppSelector((state) => state.cartItemsSlice);
+  const dispatch = useAppDispatch();
   const [confirmDel, setConfirmDel] = useState(false);
   const URL = process.env.NEXT_PUBLIC_URL;
   const DeleteItem = async () => {
@@ -150,7 +153,7 @@ const ItemsContainer = ({
         },
       });
     } else {
-      const existingCartItem = Object.keys(cartItems).find(
+      const existingCartItem = Object.keys(cartIdsSlice).find(
         (item) => item === id
       );
 
@@ -215,10 +218,14 @@ const ItemsContainer = ({
     }
   };
   const handleAdc = async (id, title, qtyValue) => {
-    const newCartItem = { [id]: qtyValue };
-    const updatedCartItems = { ...cartItems, ...newCartItem };
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    const newCartId = { [id]: qtyValue };
+    const updatedCartIds = { ...cartIdsSlice, ...newCartId };
+    const response = await fetch(`/api/item/${id}`);
+    let data = await response.json();
+    data.qtyValue = qtyValue;
+    const updatedCartItems = [...cartItemsSlice, data];
+    dispatch(updateCartItemSlice(updatedCartItems));
+    dispatch(updateCartIdsSlice(updatedCartIds));
     toast(`${title} added to cart successfully`, {
       duration: 4000,
       position: "top-center",
