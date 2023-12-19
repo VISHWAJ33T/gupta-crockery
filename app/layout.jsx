@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
-import Translate from "@/Components/Translate.jsx";
-import Nav from "@/Components/Nav";
+
+import Nav from "@/Components/Navbar/Nav.jsx";
 import Footer from "@/Components/Footer";
 import "@/styles/globals.css";
 import "./firebase.js";
@@ -77,9 +77,8 @@ export default function RootLayout({ children }) {
       </head>
       <body className="relative">
         <AuthContextProvider>
-          <Translate>
-            <Nav />
-          </Translate>
+          <Nav />
+
           <div className="toast-container fixed min-h-[223px] max-h-[223px] mt-1 w-full overflow-hidden z-[10]">
             <Toaster />
           </div>

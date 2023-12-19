@@ -32,6 +32,11 @@ html {
     cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
   animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
+.loginPopup {
+  -webkit-animation: swing-in-top-fwd 0.5s
+    cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
 
 @-webkit-keyframes swing-in-top-fwd {
   0% {
@@ -176,7 +181,7 @@ html {
   transition: 0.3s ease;
 }
 
-.menuButton input[type]:checked ~ span.top {
+/* .menuButton input[type]:checked ~ span.top {
   transform: translateY(200%) rotate(45deg);
   width: 30px;
 }
@@ -190,7 +195,8 @@ html {
 .menuButton input[type]:checked ~ span.mid {
   transform: translateX(-20px);
   opacity: 0;
-}
+} */
+
 /* hamburger css ends here */
 /* hamburger popup css ends here */
 .hamcard {
@@ -353,25 +359,24 @@ html {
   justify-content: center;
 }
 
-.translate-container{
+.translate-container {
   margin: 0px 10px;
 }
 
 #google_translate_element {
   overflow: hidden;
   flex-shrink: 1;
-  background:linear-gradient(90deg, #f97316 0%, #dc2626 100%) ;
+  background: linear-gradient(90deg, #f97316 0%, #dc2626 100%);
   min-width: 50px;
   max-height: 35px;
-  padding: 0 10px;
-
+  padding: 0 5px;
 }
 
 #google_translate_element select {
   width: 100%;
   padding: 3px 5px;
-  background:linear-gradient(90deg, #f97316 0%, #dc2626 100%) ;
-  background-color: #f97316 ;
+  background: linear-gradient(90deg, #f97316 0%, #dc2626 100%);
+  background-color: #f97316;
   color: #fff;
   font-family: inherit;
   font-weight: bold;
@@ -390,7 +395,7 @@ html {
 }
 .goog-te-gadget select {
   visibility: visible !important;
-  background-color: #dc2626 ;
+  background-color: #dc2626;
 }
 
 /* Edit button css starts here */

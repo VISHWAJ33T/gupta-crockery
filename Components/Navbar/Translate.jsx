@@ -5,7 +5,7 @@ const Translate = ({ children }) => {
   return (
     <>
       <Script
-        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
         onLoad={() => {
           const googleTranslateElementInit = () => {
             new window.google.translate.TranslateElement(
