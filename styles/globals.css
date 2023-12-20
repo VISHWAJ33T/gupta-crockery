@@ -17,6 +17,15 @@ body {
   font-family: "Roboto Condensed", "Sofia Sans Condensed", sans-serif;
   /* font-family: 'Sofia Sans Condensed', sans-serif; */
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 
 .scroll-to-top {
   display: flex !important;

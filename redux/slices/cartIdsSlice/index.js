@@ -8,11 +8,11 @@ export const cartIdsSlice = createSlice({
       return action.payload
     },
     incrementCartIdQty: (state, action) => {
-      return { ...state, [action.payload]: (state[action.payload] || 0) + 1 }
+      return { ...state, [action.payload]: +(state[action.payload] || 0) + 1 }
     },
     decrementCartIdQty: (state, action) => {
       if (state[action.payload] > 0) {
-        return { ...state, [action.payload]: state[action.payload] - 1 }
+        return { ...state, [action.payload]: +state[action.payload] - 1 }
       }
       return state;
     }
