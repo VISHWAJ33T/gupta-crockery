@@ -54,10 +54,10 @@ const SingleCategory = ({ heading }) => {
   const fallbackImageUrl = `data:image/svg+xml;base64,${toBase64(
     shimmer(100, 100)
   )}`;
-  
+
   return (
     <div
-      className={`SingleCategory min-w-[250px] rounded-[20px] items-start justify-center ${heading}-style py-4 pt-2 px-4 `}
+      className={`SingleCategory min-w-[200px] xs:min-w-[250px] rounded-[20px] items-start justify-center ${heading}-style py-4 pt-2 px-4 `}
     >
       <h2
         onClick={() => scrollIntoTheView(heading)}
@@ -82,7 +82,7 @@ const SingleCategory = ({ heading }) => {
               placeholder={`data:image/svg+xml;base64,${toBase64(
                 shimmer(100, 100)
               )}`}
-              className=" bg-white w-[100px] h-[100px] object-contain rounded-[10px]"
+              className="hover:scale-110 transition duration-500 cursor-pointer bg-white h-[80px] w-[80px] xs:w-[100px] xs:h-[100px] object-contain rounded-[10px]"
               style={{
                 objectFit: "contain",
               }}
@@ -93,7 +93,7 @@ const SingleCategory = ({ heading }) => {
               alt={allData.nametl}
               width={100}
               height={100}
-              className=" bg-white w-[100px] h-[100px] object-contain rounded-[10px]"
+              className="animate-pulse bg-white h-[80px] w-[80px] xs:w-[100px] xs:h-[100px] object-contain rounded-[10px]"
             />
           )}
         </Link>
@@ -113,7 +113,7 @@ const SingleCategory = ({ heading }) => {
               placeholder={`data:image/svg+xml;base64,${toBase64(
                 shimmer(100, 100)
               )}`}
-              className=" bg-white w-[100px] h-[100px] object-contain rounded-[10px]"
+              className="hover:scale-110 transition duration-500 cursor-pointer bg-white h-[80px] w-[80px] xs:w-[100px] xs:h-[100px] object-contain rounded-[10px]"
               style={{
                 objectFit: "contain",
               }}
@@ -124,7 +124,7 @@ const SingleCategory = ({ heading }) => {
               alt={allData.nametr}
               width={100}
               height={100}
-              className=" bg-white w-[100px] h-[100px] object-contain rounded-[10px]"
+              className="animate-pulse bg-white h-[80px] w-[80px] xs:w-[100px] xs:h-[100px] object-contain rounded-[10px]"
             />
           )}
         </Link>
@@ -144,7 +144,7 @@ const SingleCategory = ({ heading }) => {
               placeholder={`data:image/svg+xml;base64,${toBase64(
                 shimmer(100, 100)
               )}`}
-              className=" bg-white w-[100px] h-[100px] object-contain rounded-[10px]"
+              className="hover:scale-110 transition duration-500 cursor-pointer bg-white h-[80px] w-[80px] xs:w-[100px] xs:h-[100px] object-contain rounded-[10px]"
               style={{
                 objectFit: "contain",
               }}
@@ -155,7 +155,7 @@ const SingleCategory = ({ heading }) => {
               alt={allData.namebl}
               width={100}
               height={100}
-              className=" bg-white w-[100px] h-[100px] object-contain rounded-[10px]"
+              className="animate-pulse bg-white h-[80px] w-[80px] xs:w-[100px] xs:h-[100px] object-contain rounded-[10px]"
             />
           )}
         </Link>
@@ -175,7 +175,7 @@ const SingleCategory = ({ heading }) => {
               placeholder={`data:image/svg+xml;base64,${toBase64(
                 shimmer(100, 100)
               )}`}
-              className=" bg-white w-[100px] h-[100px] object-contain rounded-[10px]"
+              className="hover:scale-110 transition duration-500 cursor-pointer bg-white h-[80px] w-[80px] xs:w-[100px] xs:h-[100px] object-contain rounded-[10px]"
               style={{
                 objectFit: "contain",
               }}
@@ -186,7 +186,7 @@ const SingleCategory = ({ heading }) => {
               alt={allData.namebr}
               width={100}
               height={100}
-              className=" bg-white w-[100px] h-[100px] object-contain rounded-[10px]"
+              className="animate-pulse bg-white h-[80px] w-[80px] xs:w-[100px] xs:h-[100px] object-contain rounded-[10px]"
             />
           )}
         </Link>

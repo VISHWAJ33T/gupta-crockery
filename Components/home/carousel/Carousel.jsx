@@ -6,6 +6,24 @@ import { UserAuth } from "../../../app/context/AuthContext";
 const CarouselContainer = () => {
   const [allImgs, setAllImgs] = useState([]);
   const { user, Admins } = UserAuth();
+  const shimmer = (w, h) => `
+  <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <linearGradient id="g">
+        <stop stop-color="#b3b3b3" offset="20%" />
+        <stop stop-color="#e0e0e0" offset="50%" />
+        <stop stop-color="#b3b3b3" offset="70%" />
+      </linearGradient>
+    </defs>
+    <rect width="${w}" height="${h}" fill="#b3b3b3" />
+    <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
+    <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
+  </svg>`;
+
+  const toBase64 = (str) =>
+    typeof window === "undefined"
+      ? Buffer.from(str).toString("base64")
+      : window.btoa(str);
 
   const fetchImgs = async () => {
     const response = await fetch(`/api/landingPage/carousel`);
@@ -32,8 +50,9 @@ const CarouselContainer = () => {
           type={0}
           width={720}
           height={400}
-          tempSrc="/static/Mobile Blur.png"
-          blurURL="/static/Mobile Blur.png"
+          // tempSrc="/static/Mobile Blur.png"
+          tempSrc={`data:image/svg+xml;base64,${toBase64(shimmer(720, 400))}`}
+          blurURL={`data:image/svg+xml;base64,${toBase64(shimmer(720, 400))}`}
         />
       </div>
       <div className="hidden sm:block min-h-full">
@@ -42,8 +61,9 @@ const CarouselContainer = () => {
           type={1}
           width={1440}
           height={345}
-          tempSrc="/static/Desktop Blur.png"
-          blurURL="/static/Desktop Blur.png"
+          // tempSrc="/static/Desktop Blur.jpg"
+          tempSrc={`data:image/svg+xml;base64,${toBase64(shimmer(1440, 345))}`}
+          blurURL={`data:image/svg+xml;base64,${toBase64(shimmer(1440, 345))}`}
         />
       </div>
     </>
