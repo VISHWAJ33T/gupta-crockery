@@ -100,7 +100,7 @@ const cartIcon = ({ user }) => {
         </svg>
         <div className="sm:block hidden overflow-scroll ease-out duration-500 transition-all max-h-0 group-hover:max-h-[50dvh] w-[500px] absolute top-[70px] right-2 group-hover:border border-gray-100 rounded-lg">
           <div className="h-full w-full bg-gray-500 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-30">
-            {cartItemsSlice.map((item) => (
+            {cartItemsSlice.toReversed().map((item) => (
               <>
                 <div className="flex text-center items-center gap-y-3 w-[100%] p-3">
                   <img
