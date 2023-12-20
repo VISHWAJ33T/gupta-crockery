@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#131b2e" />
       </head>
-      <body className="relative">
+      <body className="relative select-none">
         <AuthContextProvider>
             <Nav />
             <div className="toast-container fixed min-h-[223px] max-h-[223px] mt-1 w-full overflow-hidden z-[10]">

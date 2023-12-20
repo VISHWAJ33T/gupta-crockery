@@ -28,15 +28,19 @@ const SingleCartItem = ({ item, updateQtyValue, deleteItem }) => {
   return (
     <>
       <div className="flex gap-x-3 border-t border-b py-3 shadow-md">
-        <div className="mx-1">
-          <img
-            className="rounded-[20px] lg:w-[200px] md:w-[200px] w-[100px] lg:h-[200px] md:h-[200px] h-[100px] object-contain border mx-3 sm:mx-10 shadow-lg"
-            src={
-              main_img ||
-              "https://s3.envato.com/files/407753606/IMG_8092%20%202a.jpg"
-            }
-            alt="Item Image"
-          />
+        <div className="mx-1 shrink-0">
+          <Link
+            href={`/item/${_id}`}
+          >
+            <img
+              className="rounded-[20px] lg:w-[200px] md:w-[200px] w-[100px] lg:h-[200px] md:h-[200px] h-[100px] object-contain border mx-3 sm:mx-10 shadow-lg"
+              src={
+                main_img ||
+                "https://s3.envato.com/files/407753606/IMG_8092%20%202a.jpg"
+              }
+              alt="Item Image"
+            />
+          </Link>
         </div>
         <div className="mx-1">
           <Link

@@ -8,7 +8,7 @@ import { UserAuth } from "../../app/context/AuthContext";
 import SelectLang from "./SelectLang";
 import LoginPopup from "./LoginPopup";
 import UserPopup from "./UserPopup";
-import CartIcon from "./CartIcon";
+import CartIcon from "./CartControl.jsx";
 
 const Nav = () => {
   // const { user, googleSignIn, facebookSignIn, logOut, Admins } = UserAuth();

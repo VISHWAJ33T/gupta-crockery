@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     // <div className="relative">
-    <div className=" flex flex-col sm:flex-row w-full mt-5 gap-y-10 py-[60px] text-white bg-[#131b2e] px-10 items-start justify-evenly">
+    <div className="select-text flex flex-col sm:flex-row w-full mt-5 gap-y-10 py-[60px] text-white bg-[#131b2e] px-10 items-start justify-evenly">
       <div className="flex flex-col item-center px-5 sm:items-start justify-start sm:justify-center gap-y-3 sm:w-[60%] ">
         <div className="flex">
           <h4 className="text-3xl font-bold">Gupta Crockery</h4>

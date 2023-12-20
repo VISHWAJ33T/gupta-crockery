@@ -15,6 +15,7 @@ module.exports = {
         '720/400': '720 / 400',
         '1440/345': '1440 / 345',
       },
+      display: ["group-hover"],
     },
   },
   plugins: [
