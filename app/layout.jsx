@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Nav from "@/Components/Navbar/Nav.jsx";
 import Footer from "@/Components/Footer";
 import "@/styles/globals.css";
@@ -81,6 +82,7 @@ export default function RootLayout({ children }) {
         </AuthContextProvider>
       </body>
       {process.env.NODE_ENV !== "development" && <Analytics />}
+      {process.env.NODE_ENV !== "development" && <SpeedInsights />}
     </html>
   );
 }
