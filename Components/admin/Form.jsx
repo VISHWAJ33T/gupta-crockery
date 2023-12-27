@@ -218,13 +218,6 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             className="min-w-[200px] sm:w-[400px] px-3"
           ></textarea>
         </label>
-        {/* 
-        {post.main_img !== "" && (
-          <img
-            className="object-contain border-[10px] min-h-[150px] max-h-[150px] sm:min-h-[200px]"
-            src={post.main_img}
-          />
-        )} */}
 
         {/* **************************************************extra_imgs************************************************** */}
         <label className="text-center justify-center text-xl flex gap-3">
