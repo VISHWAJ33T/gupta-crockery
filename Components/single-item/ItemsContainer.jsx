@@ -290,7 +290,7 @@ const ItemsContainer = ({
             <div className="w-[100%] flex justify-end absolute p-1 gap-x-1">
               <Link
                 href={{
-                  pathname: "Admin729/editItem",
+                  pathname: `${process.env.NEXT_PUBLIC_URL}/Admin729/editItem`,
                   query: { id: id },
                 }}
                 className="edit-button"
@@ -385,7 +385,7 @@ const ItemsContainer = ({
                   -
                 </button>
                 <Link
-                  href={"/cart"}
+                  href={`${process.env.NEXT_PUBLIC_URL}/cart`}
                   title="Go to Cart"
                   className="w-1/3 transition ease-in-out duration-300 active:scale-[110%]"
                 >
@@ -533,7 +533,7 @@ const ItemsContainer = ({
                   -
                 </button>
                 <Link
-                  href={"/cart"}
+                  href={`${process.env.NEXT_PUBLIC_URL}/cart`}
                   title="Go to Cart"
                   className="w-1/3 transition ease-in-out duration-300 active:scale-[110%]"
                 >

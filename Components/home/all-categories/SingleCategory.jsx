@@ -68,7 +68,7 @@ const SingleCategory = ({ heading }) => {
       <div className={`grid grid-cols-2 gap-2`}>
         <Link
           href={{
-            pathname: "/Items",
+            pathname: `${process.env.NEXT_PUBLIC_URL}/Items`,
             query: { category: "", search: allData.nametl },
           }}
           className="text-center flex items-center justify-center"
@@ -99,7 +99,7 @@ const SingleCategory = ({ heading }) => {
         </Link>
         <Link
           href={{
-            pathname: "/Items",
+            pathname: `${process.env.NEXT_PUBLIC_URL}/Items`,
             query: { category: "", search: allData.nametr },
           }}
           className="text-center flex items-center justify-center"
@@ -130,7 +130,7 @@ const SingleCategory = ({ heading }) => {
         </Link>
         <Link
           href={{
-            pathname: "/Items",
+            pathname: `${process.env.NEXT_PUBLIC_URL}/Items`,
             query: { category: "", search: allData.namebl },
           }}
           className="text-center flex items-center justify-center"
@@ -161,7 +161,7 @@ const SingleCategory = ({ heading }) => {
         </Link>
         <Link
           href={{
-            pathname: "/Items",
+            pathname: `${process.env.NEXT_PUBLIC_URL}/Items`,
             query: { category: "", search: allData.namebr },
           }}
           className="text-center flex items-center justify-center"

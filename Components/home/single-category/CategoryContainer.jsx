@@ -28,7 +28,7 @@ const CategoryContainer = ({ category }) => {
         <div>
           <Link
             href={{
-              pathname: "/Items",
+              pathname: `${process.env.NEXT_PUBLIC_URL}/Items`,
               query: { category: category, search: "" },
             }}
             className="text-3xl font-bold text-black cursor-pointer w-fit relative left-1 sm:left-2 top-0"
@@ -57,7 +57,7 @@ const CategoryContainer = ({ category }) => {
       >
         <Link
           href={{
-            pathname: "/Items",
+            pathname: `${process.env.NEXT_PUBLIC_URL}/Items`,
             query: { category: category },
           }}
           className="text-3xl font-bold text-black cursor-pointer w-fit relative left-1 sm:left-2 top-0"

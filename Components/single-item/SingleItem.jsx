@@ -266,7 +266,7 @@ const SingleItem = ({ item }) => {
         <div className="z-[3] flex justify-end absolute right-4 p-1 gap-x-1">
           <Link
             href={{
-              pathname: "Admin729/editItem",
+              pathname: `${process.env.NEXT_PUBLIC_URL}/Admin729/editItem`,
               query: { id: item._id },
             }}
             className="edit-button"
@@ -354,7 +354,9 @@ const SingleItem = ({ item }) => {
         </Swiper>
       </div>
       <div className="mx-3 sm:mx-5">
-        <h2 className="font-bold text-3xl mt-5 select-text">{item.title || "Title"}</h2>
+        <h2 className="font-bold text-3xl mt-5 select-text">
+          {item.title || "Title"}
+        </h2>
         <p
           className="text-xl select-text"
           dangerouslySetInnerHTML={{ __html: item.description }}
@@ -381,7 +383,7 @@ const SingleItem = ({ item }) => {
             (null && cartIdsSlice[item._id] >= 0) ? (
               <div className="flex gap-x-1">
                 <Link
-                  href="/cart"
+                  href={`${process.env.NEXT_PUBLIC_URL}/cart`}
                   className="atbbutton bg-gradient-to-r from-green-500 to-cyan-600 hover:brightness-110 hover:bg-[lightGreen] text-white"
                 >
                   <span className="IconContainer">
@@ -411,9 +413,7 @@ const SingleItem = ({ item }) => {
                 >
                   -
                 </button>
-                <div
-                  className="px-3 rounded-lg flex justify-center items-center bg-gradient-to-r from-green-500 to-cyan-600 hover:brightness-110 hover:bg-[lightGreen] text-white"
-                >
+                <div className="px-3 rounded-lg flex justify-center items-center bg-gradient-to-r from-green-500 to-cyan-600 hover:brightness-110 hover:bg-[lightGreen] text-white">
                   <p className="text">{cartIdsSlice[item._id]}</p>
                 </div>
                 <button

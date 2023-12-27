@@ -223,7 +223,7 @@ const page = () => {
             <div className="flex gap-2 text-gray-600 hover:scale-110 duration-200 hover:cursor-pointer">
               <Link
                 href={{
-                  pathname: "Admin729/editItem",
+                  pathname: `${process.env.NEXT_PUBLIC_URL}/Admin729/editItem`,
                   query: { id: objectId },
                 }}
                 className="flex items-center gap-2 font-semibold text-sm text-green-700"
