@@ -3,7 +3,8 @@ import Form from "@/Components/admin/Form";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import "react-confirm-alert/src/react-confirm-alert.css";
-
+import { Provider } from "react-redux";
+import { store } from "../../../redux/store.js";
 const page = () => {
   const [submitting, setSubmitting] = useState(false);
   const URL = process.env.NEXT_PUBLIC_URL;
@@ -74,16 +75,18 @@ const page = () => {
   };
   return (
     <>
-      <div>
-        <div className="text-center text-3xl font-bold my-3">Create Item</div>
-        <Form
-          type="Create Item"
-          post={post}
-          setPost={setPost}
-          submitting={submitting}
-          handleSubmit={createItem}
-        />
-      </div>
+      <Provider store={store}>
+        <div>
+          <div className="text-center text-3xl font-bold my-3">Create Item</div>
+          <Form
+            type="Create Item"
+            post={post}
+            setPost={setPost}
+            submitting={submitting}
+            handleSubmit={createItem}
+          />
+        </div>
+      </Provider>
     </>
   );
 };

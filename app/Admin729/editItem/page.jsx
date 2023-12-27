@@ -4,7 +4,8 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import "react-confirm-alert/src/react-confirm-alert.css";
-
+import { Provider } from "react-redux";
+import { store } from "../../../redux/store.js";
 const EditItem = () => {
   const searchParams = useSearchParams();
   const itemId = searchParams.get("id");
@@ -123,16 +124,18 @@ const EditItem = () => {
     }
   };
   return (
-    <div>
-      <div className="text-center text-3xl font-bold my-3">Edit Item</div>
-      <Form
-        type="Edit Item"
-        post={post}
-        setPost={setPost}
-        submitting={submitting}
-        handleSubmit={updateItem}
-      />
-    </div>
+    <Provider store={store}>
+      <div>
+        <div className="text-center text-3xl font-bold my-3">Edit Item</div>
+        <Form
+          type="Edit Item"
+          post={post}
+          setPost={setPost}
+          submitting={submitting}
+          handleSubmit={updateItem}
+        />
+      </div>
+    </Provider>
   );
 };
 
