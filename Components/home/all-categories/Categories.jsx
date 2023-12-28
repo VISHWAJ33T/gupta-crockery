@@ -29,15 +29,15 @@ const Categories = () => {
       {/* ******************************************Glass****************************************** */}
       <SingleCategory heading="Glass" />
       {/* ******************************************Silicon****************************************** */}
-      <SingleCategory heading="Silicon" />
+      {/* <SingleCategory heading="Silicon" /> */}
       {/* ******************************************Iron****************************************** */}
       <SingleCategory heading="Iron" />
       {/* ******************************************Bone China****************************************** */}
-      <SingleCategory heading="Bone china" />
+      {/* <SingleCategory heading="Bone china" /> */}
       {/* ******************************************Melamine****************************************** */}
-      <SingleCategory heading="Melamine" />
+      {/* <SingleCategory heading="Melamine" /> */}
       {/* ******************************************Kansa****************************************** */}
-      <SingleCategory heading="Kansa" />
+      {/* <SingleCategory heading="Kansa" /> */}
     </div>
   );
 };

@@ -32,11 +32,11 @@ export default function Home() {
             <CategoryContainer category="brass" />
             <CategoryContainer category="iron" />
             <CategoryContainer category="copper" />
-            <CategoryContainer category="bone china" />
-            <CategoryContainer category="Kansa" />
-            <CategoryContainer category="melamine" />
+            {/* <CategoryContainer category="bone china" /> */}
+            {/* <CategoryContainer category="Kansa" /> */}
+            {/* <CategoryContainer category="melamine" /> */}
             <CategoryContainer category="wooden" />
-            <CategoryContainer category="silicon" />
+            {/* <CategoryContainer category="silicon" /> */}
           </div>
         </div>
       </Provider>
