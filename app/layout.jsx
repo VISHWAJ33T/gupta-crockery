@@ -1,5 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Nav from "@/Components/Navbar/Nav.jsx";
 import Footer from "@/Components/Footer";
 import "@/styles/globals.css";
@@ -73,11 +73,11 @@ export default function RootLayout({ children }) {
       </head>
       <body className="relative select-none">
         <AuthContextProvider>
-            <Nav />
-            <div className="toast-container fixed min-h-[223px] max-h-[223px] mt-1 w-full overflow-hidden z-[10]">
-              <Toaster />
-            </div>
-            {children}
+          <Nav />
+          <div className="toast-container fixed min-h-[223px] max-h-[223px] mt-1 w-full overflow-hidden z-[10]">
+            <Toaster />
+          </div>
+          {children}
           <Footer />
         </AuthContextProvider>
       </body>
