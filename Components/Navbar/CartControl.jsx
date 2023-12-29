@@ -107,11 +107,9 @@ const cartIcon = ({ user }) => {
               <span className="w-8/12 sx:w-9/12">Title</span>
               <span className="w-1/12 text-xl">Qty</span>
             </div>
-            <hr class="h-[2px] mx-2 bg-gray-200 border-0 "></hr>
+            <hr className="h-[2px] mx-2 bg-gray-200 border-0 "></hr>
             {cartItemsSlice.toReversed().map((item) => (
-              <>
-                <NavCartItem item={item} cartIdsSlice={cartIdsSlice} />
-              </>
+              <NavCartItem key={item._id} item={item} cartIdsSlice={cartIdsSlice} />
             ))}
           </div>
         ) : (

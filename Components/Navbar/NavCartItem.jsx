@@ -67,7 +67,7 @@ const NavCartItem = ({ item }) => {
             </span>
           )}
       </div>
-      <hr class="h-px mx-2 bg-gray-200 border-0 "></hr>
+      <hr className="h-px mx-2 bg-gray-200 border-0 "></hr>
     </>
   );
 };
