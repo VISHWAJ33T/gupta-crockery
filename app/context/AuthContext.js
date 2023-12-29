@@ -20,7 +20,7 @@ export const AuthContextProvider = ({ children }) => {
       try {
         const userExists = await fetch(`/api/user/${uid}`);
         if (userExists.status === 200) {
-          console.log("Hi " + displayName + "🙋, Welcome Back")
+          console.log("Hi " + displayName + ", Welcome Back")
         } else {
           const response = await fetch("/api/user/new", {
             method: "POST",
