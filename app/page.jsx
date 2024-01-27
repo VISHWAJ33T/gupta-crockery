@@ -30,7 +30,7 @@ export default function Home() {
             <CategoryContainer category="aluminium" />
             <CategoryContainer category="glass" />
             <CategoryContainer category="brass" />
-            <CategoryContainer category="iron" />
+            {/* <CategoryContainer category="iron" /> */}
             <CategoryContainer category="copper" />
             {/* <CategoryContainer category="bone china" /> */}
             {/* <CategoryContainer category="Kansa" /> */}
