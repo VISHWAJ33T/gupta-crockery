@@ -14,6 +14,7 @@ module.exports = withPWA({
     ignoreDuringBuilds: true,
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
