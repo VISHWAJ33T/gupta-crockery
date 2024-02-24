@@ -7,7 +7,7 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAGKPkUdxApIQSnB3OlBsyA5J7Jq1MISjA",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
 
   authDomain: "gupta-crockery.firebaseapp.com",
 
@@ -15,11 +15,11 @@ const firebaseConfig = {
 
   storageBucket: "gupta-crockery.appspot.com",
 
-  messagingSenderId: "97715626005",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
 
-  appId: "1:97715626005:web:d21131f58705fc935a6e1c",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 
-  measurementId: "G-WMFFFBWMML",
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
