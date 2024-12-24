@@ -1,11 +1,13 @@
 import React from "react";
 import ItemsPage from '@/Components/AllItemsPage'
-import { Metadata } from 'next';
+import { Suspense } from 'react'
+
 export const metadata = {
   title: 'Gupta Crockery - Search Items',
 };
+
 const page = () => {
-  return <ItemsPage />;
+  return (<Suspense><ItemsPage /></Suspense>);
 };
 
 export default page;
