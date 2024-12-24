@@ -14,19 +14,20 @@ module.exports = withPWA({
     ignoreDuringBuilds: true,
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "**",
+      },
+      {
+        protocol: "http",
         hostname: "**",
       },
     ],
     // formats: ['image/webp'],
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60,
-  },
-  experimental: {
-    appDir: true,
-    serverComponentsExternalPackages: ["mongoose"],
   },
   webpack(config) {
     config.experiments = {

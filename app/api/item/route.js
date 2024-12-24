@@ -1,7 +1,7 @@
 import { connectToDB } from "@/db/database";
 import Item from "@/models/item";
 
-export const revalidate = 1; // revalidate api every 1 second
+export const revalidate = 1; // revalidate API every 1 second
 
 export const GET = async (request) => {
   try {
@@ -13,22 +13,28 @@ export const GET = async (request) => {
 
     const category = queryParams.get("category");
     if (category) {
-      const categoryValue = category.split("%20").join(" ");
+      const categoryValue = category.replace(/%20/g, " "); // Replace %20 with spaces
       const categoryRegex = new RegExp(categoryValue, "i");
       query = { ...query, category: categoryRegex };
     }
 
     const searchValue = queryParams.get("search");
     if (searchValue) {
-      const searchValueFormatted = searchValue.split("%20").join(" ");
-      const searchRegex = new RegExp(searchValueFormatted, "i");
+      const searchValueFormatted = searchValue.replace(/%20/g, " "); // Replace %20 with spaces
+      const searchWords = searchValueFormatted.split(" ");
+      const wordRegexes = searchWords.map((word) => new RegExp(word, "i"));
+
+      const orQueries = wordRegexes.map((wordRegex) => ({
+        $or: [
+          { title: wordRegex },
+          { category: wordRegex },
+          { tags: { $in: [wordRegex] } },
+        ],
+      }));
+
       query = {
         ...query,
-        $or: [
-          { title: searchRegex },
-          { category: searchRegex },
-          { tags: { $in: [searchRegex] } },
-        ],
+        $and: orQueries,
       };
     }
 

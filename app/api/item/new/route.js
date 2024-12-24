@@ -1,6 +1,5 @@
 import Item from "@/models/item";
 import { connectToDB } from "@/db/database";
-
 export const POST = async (req) => {
   const {
     title,
@@ -18,6 +17,7 @@ export const POST = async (req) => {
 
   try {
     await connectToDB();
+
     const newItem = new Item({
       title: title,
       description: description,

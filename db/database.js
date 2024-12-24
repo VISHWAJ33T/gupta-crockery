@@ -6,18 +6,18 @@ export const connectToDB = async () => {
   mongoose.set("strictQuery", true);
 
   if (isConnected) {
-    console.log("MongoDB is already connected");
+    // console.log("MongoDB is already connected");
     return;
   }
   try {
     // await mongoose.connect("mongodb://localhost:27017", {
     await mongoose.connect(process.env.MONGODB_URI, {
       dbName: "gupta_crockery",
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+      // useNewUrlParser: true,
+      // useUnifiedTopology: true,
     });
     isConnected = true;
-    console.log("MongoDB Connected");
+    // console.log("MongoDB Connected");
   } catch (error) {
     console.log(error);
   }

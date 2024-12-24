@@ -1,23 +1,31 @@
-"use client"
+"use client";
+import ScrollToTop from "react-scroll-to-top";
+import { Provider } from "react-redux";
+import { store } from "../../redux/store.js";
 import React, { useState, useEffect } from "react";
-import Loading from "./loading.jsx";
-import CartItems from "@/Components/CartItems"
+import Loading from "../../Components/loading/loading-pages/CartPageLoading.jsx";
+import CartItems from "@/Components/cart/CartItems.jsx";
 const page = () => {
-  const [loading, setLoading] = useState(true)
-  useEffect(() => {
+  const [loading, setLoading] = useState(false);
 
-    setTimeout(() => {
-      setLoading(false); // Set loading to false after the delay
-    }, 0);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 1000);
+  // }, []);
 
-  }, []);
   return (
     <>
-      {loading && <Loading />}
-      <div className={loading ? `hidden` : null}>
-        <CartItems /></div>
+      <Provider store={store}>
+        <ScrollToTop smooth color="#ff640e" />
+        {loading && <Loading />}
+        <div className={loading ? `hidden` : null}>
+          <CartItems setLoading={setLoading} />
+        </div>
+      </Provider>
     </>
-  )
-}
+  );
+};
 
-export default page
+export default page;

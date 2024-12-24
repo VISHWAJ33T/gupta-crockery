@@ -63,10 +63,12 @@ export const PATCH = async (request, { params }) => {
 // DELETE (DELETE)
 export const DELETE = async (request, { params }) => {
   try {
-    await connectToDB();
-    await Item.findByIdAndRemove(params.id);
-    return new Response("Item deleted Successfully", { status: 200 });
+    const item = await Item.findOneAndDelete({ _id: params.id });
+    if (!item) {
+      return new Response("Item not found", { status: 404 });
+    }
+    return new Response("Item deleted successfully", { status: 200 });
   } catch (error) {
-    return new Response("Failed to delete item", { status: 500 });
+    return new Response(`Failed to delete item: ${error.message}`, { status: 500 });
   }
 };

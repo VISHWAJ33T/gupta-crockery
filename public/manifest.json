@@ -1,6 +1,6 @@
 {
   "short_name": "Gupta Crockery",
-  "description": "Introducing 'Gupta Crockery' - Where Quality Meets Savings! Explore stunning crockery that's kind to your wallet. Find beauty and trust in every piece, carefully selected to bring elegance to your table without the hefty price tag. Enjoy luxury for less at Gupta Crockery!",
+  "description": "Discover a wide range of kitchen crockery and cookware at Gupta Crockery. Browse through top-quality products from leading manufacturers in Chandigarh. Find the perfect balance between quality and savings with our extensive selection of kitchen essentials. Business listings of Kitchen Crockery, Crockery Item sellers in Chandigarh, रसोई के लिए क्रॉकरी विक्रेता, चंडीगढ़, Chandigarh. Find here Kitchen Crockery, Crockery Item, traders with Kitchen Crockery prices for buying.",
   "name": "Gupta Crockery",
   "orientation": "natural",
   "icons": [
@@ -21,7 +21,7 @@
     }
   ],
   "start_url": "/",
-  "display": "minimal-ui",
+  "display": "fullscreen",
   "theme_color": "#131b2e",
   "background_color": "#ffffff",
   "shortcuts": [
